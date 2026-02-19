@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { AnalogClock } from "../AnalogClock/AnalogClock";
 import { MascotBubble } from "../MascotBubble/MascotBubble";
 import { Answers } from "../Answers";
@@ -156,7 +156,7 @@ export const Game = () => {
                     : !userInputHours || !userInputMinutes
                 )
                   ? "bg-slate-200 text-slate-400 cursor-not-allowed"
-                  : "bg-primary hover:bg-primary/90 text-white shadow-primary/30 active:translate-y-1 active:shadow-none"
+                  : "bg-blue-500 hover:bg-blue-600 text-white shadow-blue-500/30 active:translate-y-1 active:shadow-none"
               }
             `}
           >

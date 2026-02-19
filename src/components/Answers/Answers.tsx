@@ -1,5 +1,6 @@
 import React from "react";
 import type { QuestionType } from "../Game/Game";
+import { MultipleChoice } from "./MultipleChoice";
 
 type AnswersProps = {
   mode: QuestionType;
@@ -24,28 +25,11 @@ export const Answers: React.FC<AnswersProps> = ({
 }) => (
   <>
     {mode === "multiple-choice" ? (
-      <div className="grid grid-cols-2 gap-4 w-full mb-12">
-        {options.map((option) => (
-          <button
-            key={option}
-            onClick={() => onSelectOption(option)}
-            className={`
-                  p-6 rounded-2xl border-2 transition-all duration-200 active:scale-95 text-center
-                  ${
-                    selectedOption === option
-                      ? "bg-primary/5 border-primary shadow-md ring-4 ring-primary/10"
-                      : "bg-white  border-slate-100  shadow-sm hover:border-primary/40"
-                  }
-                `}
-          >
-            <span
-              className={`text-3xl font-bold ${selectedOption === option ? "text-primary" : "text-slate-700"}`}
-            >
-              {option}
-            </span>
-          </button>
-        ))}
-      </div>
+      <MultipleChoice
+        options={options}
+        selectedOption={selectedOption}
+        onSelectOption={onSelectOption}
+      />
     ) : (
       <div className="w-full bg-white  rounded-2xl p-6 shadow-xl border border-primary/5 mb-12">
         <div className="flex items-center justify-center gap-4">
