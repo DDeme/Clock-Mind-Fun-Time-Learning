@@ -12,7 +12,6 @@ export const Dial: React.FC = () => (
         {num}
       </span>
     ))}
-
     {[
       { num: 1, position: "top-[6%] right-[25%]" },
       { num: 2, position: "top-[22%] right-[8%]" },
