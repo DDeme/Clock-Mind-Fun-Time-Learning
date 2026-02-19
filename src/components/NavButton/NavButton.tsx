@@ -14,7 +14,7 @@ export const NavButton: React.FC<NavButtonProps> = ({
   fill,
 }) => (
   <button
-    className={`flex flex-col items-center gap-1 transition-colors ${active ? "text-primary" : "text-slate-400"}`}
+    className={`flex flex-col items-center gap-1 transition-colors ${active ? "text-blue-400" : "text-slate-400"}`}
   >
     <span
       className="material-symbols-outlined"

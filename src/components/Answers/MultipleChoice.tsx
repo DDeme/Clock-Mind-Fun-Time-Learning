@@ -20,13 +20,13 @@ export const MultipleChoice: React.FC<MultipleChoiceProps> = ({
                   p-6 rounded-2xl border-2 transition-all duration-200 active:scale-95 text-center
                   ${
                     selectedOption === option
-                      ? "bg-primary/5 border-primary shadow-md ring-4 ring-blue-200/10"
+                      ? "bg-blue-400/5 border-blue-400 shadow-md ring-4 ring-blue-200/10"
                       : "bg-white  border-slate-100  shadow-sm hover:border-blue-500/40"
                   }
                 `}
       >
         <span
-          className={`text-3xl font-bold ${selectedOption === option ? "text-primary" : "text-slate-700"}`}
+          className={`text-3xl font-bold ${selectedOption === option ? "text-blue-400" : "text-slate-700"}`}
         >
           {option}
         </span>
