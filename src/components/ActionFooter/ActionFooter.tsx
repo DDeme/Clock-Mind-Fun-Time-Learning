@@ -20,7 +20,7 @@ export const ActionFooter: React.FC<ActionFooterProps> = ({
   onCheckAnswer,
   onNext,
 }) => (
-  <footer className="p-6 pb-4 bg-white  border-t border-slate-100  z-20">
+  <footer className="w-full bg-white  border-t border-slate-100  z-20">
     {!isFeedbackVisible ? (
       <CheckAnswer isDisabled={isDisabled} onCheckAnswer={onCheckAnswer} />
     ) : (

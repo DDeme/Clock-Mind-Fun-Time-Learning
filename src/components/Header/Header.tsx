@@ -12,8 +12,8 @@ export const Header: React.FC<HeaderProps> = ({
   score,
 }) => {
   return (
-    <header className="px-6 pt-10 pb-4">
-      <div className="flex items-center justify-center mb-6">
+    <header className="pb-3">
+      <div className="flex items-center justify-center">
         {/* <button
           onClick={onClose}
           className="flex items-center justify-center size-10 rounded-full bg-white  shadow-sm border border-slate-200  active:scale-90 transition-transform"

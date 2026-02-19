@@ -11,13 +11,13 @@ export const MultipleChoice: React.FC<MultipleChoiceProps> = ({
   selectedOption,
   onSelectOption,
 }) => (
-  <div className="grid grid-cols-2 gap-4 w-full mb-12">
+  <div className="grid grid-cols-2 gap-4 w-full">
     {options.map((option) => (
       <button
         key={option}
         onClick={() => onSelectOption(option)}
         className={`
-                  p-6 rounded-2xl border-2 transition-all duration-200 active:scale-95 text-center
+                  p-3 rounded-2xl border-2 transition-all duration-200 active:scale-95 text-center
                   ${
                     selectedOption === option
                       ? "bg-blue-400/5 border-blue-400 shadow-md ring-4 ring-blue-200/10"
@@ -26,7 +26,7 @@ export const MultipleChoice: React.FC<MultipleChoiceProps> = ({
                 `}
       >
         <span
-          className={`text-3xl font-bold ${selectedOption === option ? "text-blue-400" : "text-slate-700"}`}
+          className={`text-2xl font-bold ${selectedOption === option ? "text-blue-400" : "text-slate-700"}`}
         >
           {option}
         </span>

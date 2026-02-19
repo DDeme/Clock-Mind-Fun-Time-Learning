@@ -12,7 +12,7 @@ export const NumericAnswer = ({
   onMinutesChange,
 }: NumericAnswerProps) => {
   return (
-    <div className="w-full bg-white rounded-2xl p-6 shadow-xl border border-blue-400/5 mb-12">
+    <div className="w-full bg-white rounded-2xl p-6 shadow-xl border border-blue-400/5">
       <div className="flex items-center justify-center gap-4">
         <div className="flex flex-col items-center gap-2">
           <label className="text-[10px] font-extrabold text-slate-400 uppercase tracking-widest">

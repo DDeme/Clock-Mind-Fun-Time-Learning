@@ -21,7 +21,6 @@ export const AnalogClock: React.FC<AnalogClockProps> = ({
       style={{ width: size, height: size }}
     >
       <Dial />
-
       <ClockHands hours={hours} minutes={minutes} />
     </div>
   );

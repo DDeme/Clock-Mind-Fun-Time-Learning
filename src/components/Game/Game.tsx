@@ -112,19 +112,16 @@ export const Game = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-screen max-w-md mx-auto bg-background-light relative overflow-hidden">
+    <div className="flex p-6 flex-col min-h-screen max-w-md mx-auto bg-background-light relative overflow-hidden">
       <Header
         currentQuestionIdx={currentQuestionIdx}
         totalQuestions={totalQuestions}
         score={score}
       />
 
-      <main className="flex-1 flex flex-col items-center px-6 overflow-y-auto">
+      <main className="flex-1 flex flex-col items-center overflow-y-auto gap-3 justify-between">
         <MascotBubble message="Look at the clock! What time is it?" />
-        <div className="mb-10">
-          <AnalogClock hours={targetTime.hours} minutes={targetTime.minutes} />
-        </div>
-
+        <AnalogClock hours={targetTime.hours} minutes={targetTime.minutes} />
         <Answers
           mode={mode}
           options={options}
@@ -135,21 +132,19 @@ export const Game = () => {
           userInputMinutes={userInputMinutes}
           onChangeMinutes={setUserInputMinutes}
         />
+        <ActionFooter
+          isFeedbackVisible={isFeedbackVisible}
+          isCorrect={isCorrect}
+          isDisabled={
+            mode === "multiple-choice"
+              ? !selectedOption
+              : !userInputHours || !userInputMinutes
+          }
+          correctTimeLabel={formatTime(targetTime)}
+          onCheckAnswer={handleCheckAnswer}
+          onNext={handleNext}
+        />
       </main>
-
-      <ActionFooter
-        isFeedbackVisible={isFeedbackVisible}
-        isCorrect={isCorrect}
-        isDisabled={
-          mode === "multiple-choice"
-            ? !selectedOption
-            : !userInputHours || !userInputMinutes
-        }
-        correctTimeLabel={formatTime(targetTime)}
-        onCheckAnswer={handleCheckAnswer}
-        onNext={handleNext}
-      />
-
       {/* <BottomNav /> */}
     </div>
   );
