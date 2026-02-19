@@ -10,7 +10,6 @@ export const Header: React.FC<HeaderProps> = ({
   currentQuestionIdx,
   totalQuestions,
   score,
-  onClose,
 }) => {
   return (
     <header className="px-6 pt-10 pb-4">

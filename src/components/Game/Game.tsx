@@ -3,7 +3,6 @@ import { AnalogClock } from "../AnalogClock/AnalogClock";
 import { MascotBubble } from "../MascotBubble/MascotBubble";
 import { ActionFooter } from "../ActionFooter";
 import { Answers } from "../Answers";
-import { BottomNav } from "../BottomNav";
 import { Header } from "../Header";
 
 export type QuestionType = "input" | "multiple-choice";
@@ -104,6 +103,7 @@ export const Game = () => {
       startNewQuestion();
     } else {
       // Game over logic could go here
+      // implements socreboard screen
       alert("Practice complete! Great job!");
       setCurrentQuestionIdx(1);
       setScore(0);
@@ -117,7 +117,6 @@ export const Game = () => {
         currentQuestionIdx={currentQuestionIdx}
         totalQuestions={totalQuestions}
         score={score}
-        onClose={() => {}}
       />
 
       <main className="flex-1 flex flex-col items-center px-6 overflow-y-auto">
