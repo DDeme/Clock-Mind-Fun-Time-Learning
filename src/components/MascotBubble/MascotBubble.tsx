@@ -1,10 +1,10 @@
 import React from "react";
 
-interface MascotBubbleProps {
+type MascotBubbleProps = {
   message: string;
-}
+};
 
-const MascotBubble: React.FC<MascotBubbleProps> = ({ message }) => {
+export const MascotBubble: React.FC<MascotBubbleProps> = ({ message }) => {
   return (
     <div className="flex items-start gap-3 w-full max-w-sm mx-auto mb-8 animate-bounce-slow">
       <div className="relative bg-white  px-5 py-3 rounded-2xl shadow-lg border border-primary/10 flex-1">
@@ -21,5 +21,3 @@ const MascotBubble: React.FC<MascotBubbleProps> = ({ message }) => {
     </div>
   );
 };
-
-export default MascotBubble;
