@@ -23,8 +23,8 @@ export type ClockTime = {
 
 export const Game = () => {
   const [currentQuestionIdx, setCurrentQuestionIdx] = useState(1);
-  const [totalQuestions] = useState(5);
-  const [score, setScore] = useState(120);
+  const [totalQuestions] = useState(10);
+  const [score, setScore] = useState(0);
   const [mode, setMode] = useState<QuestionType>("multiple-choice");
   const [targetTime, setTargetTime] = useState<ClockTime>({
     hours: 3,
@@ -151,7 +151,7 @@ export const Game = () => {
         onNext={handleNext}
       />
 
-      <BottomNav />
+      {/* <BottomNav /> */}
     </div>
   );
 };

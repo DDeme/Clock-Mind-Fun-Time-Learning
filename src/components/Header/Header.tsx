@@ -14,17 +14,17 @@ export const Header: React.FC<HeaderProps> = ({
 }) => {
   return (
     <header className="px-6 pt-10 pb-4">
-      <div className="flex items-center justify-between mb-6">
-        <button
+      <div className="flex items-center justify-center mb-6">
+        {/* <button
           onClick={onClose}
           className="flex items-center justify-center size-10 rounded-full bg-white  shadow-sm border border-slate-200  active:scale-90 transition-transform"
         >
           <span className="material-symbols-outlined text-slate-600 ">
             close
           </span>
-        </button>
+        </button> */}
 
-        <div className="flex flex-col items-center flex-1 mx-4">
+        <div className="flex flex-col items-center flex-1 mx-4 py-2">
           <div className="w-full h-3 bg-slate-200 rounded-full overflow-hidden">
             <div
               className="h-full bg-blue-400 transition-all duration-500 rounded-full"
@@ -33,7 +33,7 @@ export const Header: React.FC<HeaderProps> = ({
               }}
             />
           </div>
-          <span className="text-[10px] font-bold mt-2 text-slate-500 uppercase tracking-widest">
+          <span className="text-[10px] font-bold mt-1 text-slate-500 uppercase tracking-widest">
             Question {currentQuestionIdx} of {totalQuestions}
           </span>
         </div>
