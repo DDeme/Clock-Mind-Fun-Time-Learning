@@ -19,10 +19,10 @@ export type ClockTime = {
   minutes: number;
 };
 
-const GameConfig = {
-  totalQuestions: 10,
-  mode: "multiple-choice",
-};
+// const GameConfig = {
+//   totalQuestions: 10,
+//   mode: "multiple-choice",
+// };
 
 export const Game = () => {
   const [currentQuestionIdx, setCurrentQuestionIdx] = useState(1);
