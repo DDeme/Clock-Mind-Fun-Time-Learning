@@ -11,13 +11,17 @@ export type GameState = {
   currentQuestion: number;
   totalQuestions: number;
   score: number;
-  level: "Beginner" | "Intermediate" | "Expert";
   mode: QuestionType;
 };
 
 export type ClockTime = {
   hours: number;
   minutes: number;
+};
+
+const GameConfig = {
+  totalQuestions: 10,
+  mode: "multiple-choice",
 };
 
 export const Game = () => {

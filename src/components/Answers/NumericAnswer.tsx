@@ -18,7 +18,19 @@ export const NumericAnswer = ({
           <label className="text-[10px] font-extrabold text-slate-400 uppercase tracking-widest">
             Hours
           </label>
-          <input
+          <select
+            value={hoursValue}
+            onChange={(e) => onHoursChange(e.target.value)}
+            className="w-20 h-15 text-center text-3xl font-black bg-background-light border-2 border-blue-400/20 focus:border-blue-400 focus:ring-4 focus:ring-blue-400/10 rounded-xl text-blue-400 transition-all outline-none"
+          >
+            <option value="">--</option>
+            {Array.from({ length: 12 }, (_, i) => i + 1).map((hour) => (
+              <option key={hour} value={hour}>
+                {hour}
+              </option>
+            ))}
+          </select>
+          {/* <input
             type="number"
             min="1"
             max="12"
@@ -26,14 +38,26 @@ export const NumericAnswer = ({
             onChange={(e) => onHoursChange(e.target.value)}
             placeholder="--"
             className="w-20 h-20 text-center text-3xl font-black bg-background-light border-2 border-blue-400/20 focus:border-blue-400 focus:ring-4 focus:ring-blue-400/10 rounded-xl text-blue-400 transition-all outline-none"
-          />
+          /> */}
         </div>
         <div className="text-4xl font-bold text-slate-300 mt-6">:</div>
         <div className="flex flex-col items-center gap-2">
           <label className="text-[10px] font-extrabold text-slate-400 uppercase tracking-widest">
             Minutes
           </label>
-          <input
+          <select
+            value={minutesValue}
+            onChange={(e) => onMinutesChange(e.target.value)}
+            className="w-20 h-15 text-center text-3xl font-black bg-background-light border-2 border-blue-400/20 focus:border-blue-400 focus:ring-4 focus:ring-blue-400/10 rounded-xl text-blue-400 transition-all outline-none"
+          >
+            <option value="">--</option>
+            {Array.from({ length: 60 / 5 }, (_, i) => i * 5).map((minute) => (
+              <option key={minute} value={minute}>
+                {minute}
+              </option>
+            ))}
+          </select>
+          {/* <input
             type="number"
             min="0"
             max="59"
@@ -42,6 +66,7 @@ export const NumericAnswer = ({
             placeholder="--"
             className="w-20 h-20 text-center text-3xl font-black bg-background-light border-2 border-blue-400/20 focus:border-blue-400 focus:ring-4 focus:ring-blue-400/10 rounded-xl text-blue-400 transition-all outline-none"
           />
+          */}
         </div>
       </div>
     </div>
