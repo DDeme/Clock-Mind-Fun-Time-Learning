@@ -1,1 +1,1 @@
-export * from "./AnalogClock";
+export * from './AnalogClock'

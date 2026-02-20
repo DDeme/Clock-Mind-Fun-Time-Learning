@@ -1,9 +1,9 @@
 type NumericAnswerProps = {
-    hoursValue: number;
-    minutesValue: number;
-    onHoursChange: (value: string) => void;
-    onMinutesChange: (value: string) => void;
-};
+    hoursValue: number
+    minutesValue: number
+    onHoursChange: (value: string) => void
+    onMinutesChange: (value: string) => void
+}
 
 export const NumericAnswer = ({
     hoursValue,
@@ -30,7 +30,10 @@ export const NumericAnswer = ({
                         <option value="">--</option>
                         {Array.from({ length: 12 }, (_, i) => i + 1).map(
                             (hour) => (
-                                <option key={hour} value={hour}>
+                                <option
+                                    key={hour}
+                                    value={hour}
+                                >
                                     {hour}
                                 </option>
                             ),
@@ -63,7 +66,10 @@ export const NumericAnswer = ({
                         <option value="">--</option>
                         {Array.from({ length: 60 / 5 }, (_, i) => i * 5).map(
                             (minute) => (
-                                <option key={minute} value={minute}>
+                                <option
+                                    key={minute}
+                                    value={minute}
+                                >
                                     {minute}
                                 </option>
                             ),
@@ -82,5 +88,5 @@ export const NumericAnswer = ({
                 </div>
             </div>
         </div>
-    );
-};
+    )
+}

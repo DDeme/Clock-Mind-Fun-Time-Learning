@@ -1,36 +1,36 @@
-import type { Meta, StoryObj } from "@storybook/react-vite";
-import { AnalogClock } from "./AnalogClock";
-import { useEffect, useState } from "react";
+import type { Meta, StoryObj } from '@storybook/react-vite'
+import { AnalogClock } from './AnalogClock'
+import { useEffect, useState } from 'react'
 
 const meta = {
-    title: "Components/AnalogClock",
+    title: 'Components/AnalogClock',
     component: AnalogClock,
-    tags: ["autodocs"],
+    tags: ['autodocs'],
     argTypes: {
         hours: {
-            control: { type: "number", min: 1, max: 12 },
-            description: "Hour value (1–12)",
+            control: { type: 'number', min: 1, max: 12 },
+            description: 'Hour value (1–12)',
         },
         minutes: {
-            control: { type: "number", min: 0, max: 59 },
-            description: "Minute value (0–59)",
+            control: { type: 'number', min: 0, max: 59 },
+            description: 'Minute value (0–59)',
         },
         seconds: {
-            control: { type: "number", min: 0, max: 59 },
-            description: "Minute value (0–59)",
+            control: { type: 'number', min: 0, max: 59 },
+            description: 'Minute value (0–59)',
         },
         size: {
-            control: { type: "number", min: 100, max: 500 },
-            description: "Clock diameter in pixels",
+            control: { type: 'number', min: 100, max: 500 },
+            description: 'Clock diameter in pixels',
         },
     },
     parameters: {
-        layout: "centered",
+        layout: 'centered',
     },
-} satisfies Meta<typeof AnalogClock>;
+} satisfies Meta<typeof AnalogClock>
 
-export default meta;
-type Story = StoryObj<typeof meta>;
+export default meta
+type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
     args: {
@@ -38,7 +38,7 @@ export const Default: Story = {
         minutes: 10,
         seconds: 30,
     },
-};
+}
 
 export const ThreeOClock: Story = {
     args: {
@@ -46,28 +46,28 @@ export const ThreeOClock: Story = {
         minutes: 0,
         seconds: 0,
     },
-};
+}
 
 export const SixThirty: Story = {
     args: {
         hours: 6,
         minutes: 30,
     },
-};
+}
 
 export const TwelveOClock: Story = {
     args: {
         hours: 12,
         minutes: 0,
     },
-};
+}
 
 export const QuarterPastNine: Story = {
     args: {
         hours: 9,
         minutes: 15,
     },
-};
+}
 
 export const SmallSize: Story = {
     args: {
@@ -75,7 +75,7 @@ export const SmallSize: Story = {
         minutes: 45,
         size: 150,
     },
-};
+}
 
 export const LargeSize: Story = {
     args: {
@@ -83,7 +83,7 @@ export const LargeSize: Story = {
         minutes: 20,
         size: 400,
     },
-};
+}
 
 export const LiveClock: Story = {
     render: () => {
@@ -91,18 +91,18 @@ export const LiveClock: Story = {
             hours: new Date().getHours(),
             minutes: new Date().getMinutes(),
             seconds: new Date().getSeconds(),
-        });
+        })
         useEffect(() => {
             const i = setInterval(() => {
                 setTime({
                     hours: new Date().getHours(),
                     minutes: new Date().getMinutes(),
                     seconds: new Date().getSeconds(),
-                });
-                console.log(time);
-            }, 1000);
-            return () => clearInterval(i);
-        });
+                })
+                console.log(time)
+            }, 1000)
+            return () => clearInterval(i)
+        })
 
         return (
             <AnalogClock
@@ -111,6 +111,6 @@ export const LiveClock: Story = {
                 seconds={time.seconds}
                 hideSeconds={false}
             />
-        );
+        )
     },
-};
+}

@@ -1,1 +1,1 @@
-export * from "./MascotBubble";
+export * from './MascotBubble'

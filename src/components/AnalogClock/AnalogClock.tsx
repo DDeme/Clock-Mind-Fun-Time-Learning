@@ -1,14 +1,14 @@
-import React from "react";
-import { ClockHands } from "./ClockHands";
-import { Dial } from "./Dial";
+import React from 'react'
+import { ClockHands } from './ClockHands'
+import { Dial } from './Dial'
 
 type AnalogClockProps = {
-    hours: number;
-    minutes: number;
-    seconds?: number;
-    size?: number;
-    hideSeconds?: boolean;
-};
+    hours: number
+    minutes: number
+    seconds?: number
+    size?: number
+    hideSeconds?: boolean
+}
 
 export const AnalogClock: React.FC<AnalogClockProps> = ({
     hours,
@@ -32,5 +32,5 @@ export const AnalogClock: React.FC<AnalogClockProps> = ({
                 hideSeconds={hideSeconds}
             />
         </div>
-    );
-};
+    )
+}

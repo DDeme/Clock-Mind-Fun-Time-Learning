@@ -1,1 +1,1 @@
-export * from "./ResultNotification";
+export * from './ResultNotification'

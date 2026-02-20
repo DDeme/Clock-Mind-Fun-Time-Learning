@@ -1,18 +1,18 @@
-import React from "react";
-import type { QuestionType } from "../Game/Game";
-import { MultipleChoice } from "../MultipleChoice/MultipleChoice";
-import { NumericAnswer } from "../NumericAnswer/NumericAnswer";
+import React from 'react'
+import type { QuestionType } from '../Game/Game'
+import { MultipleChoice } from '../MultipleChoice/MultipleChoice'
+import { NumericAnswer } from '../NumericAnswer/NumericAnswer'
 
 type AnswersProps = {
-    mode: QuestionType;
-    options: string[];
-    selectedOption: string | null;
-    onSelectOption: (option: string) => void;
-    userInputHours: string;
-    onChangeHours: (value: string) => void;
-    userInputMinutes: string;
-    onChangeMinutes: (value: string) => void;
-};
+    mode: QuestionType
+    options: string[]
+    selectedOption: string | null
+    onSelectOption: (option: string) => void
+    userInputHours: string
+    onChangeHours: (value: string) => void
+    userInputMinutes: string
+    onChangeMinutes: (value: string) => void
+}
 
 export const Answers: React.FC<AnswersProps> = ({
     mode,
@@ -25,7 +25,7 @@ export const Answers: React.FC<AnswersProps> = ({
     onChangeMinutes,
 }) => (
     <>
-        {mode === "multiple-choice" ? (
+        {mode === 'multiple-choice' ? (
             <MultipleChoice
                 options={options}
                 selectedOption={selectedOption}
@@ -40,4 +40,4 @@ export const Answers: React.FC<AnswersProps> = ({
             />
         )}
     </>
-);
+)
