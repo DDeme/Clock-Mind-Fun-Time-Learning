@@ -1,14 +1,16 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Answers } from "./Answers";
+import { fn } from "storybook/test";
+import { within, userEvent, expect } from "storybook/test";
 
 const meta = {
   title: "Components/Answers",
   component: Answers,
   tags: ["autodocs"],
   args: {
-    onSelectOption: () => {},
-    onChangeHours: () => {},
-    onChangeMinutes: () => {},
+    onSelectOption: fn(),
+    onChangeHours: fn(),
+    onChangeMinutes: fn(),
   },
   parameters: {
     layout: "centered",
@@ -32,6 +34,12 @@ export const MultipleChoice: Story = {
     selectedOption: null,
     userInputHours: "",
     userInputMinutes: "",
+  },
+  play: async ({ canvasElement, args }) => {
+    const canvas = within(canvasElement);
+    const option = canvas.getByText("6:30");
+    await userEvent.click(option);
+    await expect(args.onSelectOption).toHaveBeenCalledWith("6:30");
   },
 };
 
