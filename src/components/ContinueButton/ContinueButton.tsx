@@ -10,6 +10,6 @@ export const ContinueButton: React.FC<ContinueButtonProps> = ({ onNext }) => (
         onClick={onNext}
         variant="dark"
     >
-        CONTINUE
+        Next question
     </Button>
 )

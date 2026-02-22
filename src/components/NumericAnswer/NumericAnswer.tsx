@@ -3,6 +3,7 @@ type NumericAnswerProps = {
     minutesValue: number
     onHoursChange: (value: string) => void
     onMinutesChange: (value: string) => void
+    isDisabled: boolean
 }
 
 export const NumericAnswer = ({
@@ -10,6 +11,7 @@ export const NumericAnswer = ({
     minutesValue,
     onHoursChange,
     onMinutesChange,
+    isDisabled,
 }: NumericAnswerProps) => {
     return (
         <div className="w-full bg-white rounded-2xl p-6 shadow-xl border border-blue-400/5">
@@ -25,7 +27,8 @@ export const NumericAnswer = ({
                         value={hoursValue}
                         onChange={(e) => onHoursChange(e.target.value)}
                         id="hours"
-                        className="w-20 h-15 text-center text-3xl font-black bg-background-light border-2 border-blue-400/20 focus:border-blue-400 focus:ring-4 focus:ring-blue-400/10 rounded-xl text-blue-400 transition-all outline-none"
+                        disabled={isDisabled}
+                        className={`w-20 h-15 text-center text-3xl font-black bg-background-light border-2 border-blue-400/20 focus:border-blue-400 focus:ring-4 focus:ring-blue-400/10 rounded-xl text-blue-400 transition-all outline-none ${isDisabled ? 'opacity-50 cursor-not-allowed' : ''}`}
                     >
                         <option value="">--</option>
                         {Array.from({ length: 12 }, (_, i) => i + 1).map(
@@ -59,9 +62,10 @@ export const NumericAnswer = ({
                     </label>
                     <select
                         value={minutesValue}
+                        disabled={isDisabled}
                         onChange={(e) => onMinutesChange(e.target.value)}
                         id="minutes"
-                        className="w-20 h-15 text-center text-3xl font-black bg-background-light border-2 border-blue-400/20 focus:border-blue-400 focus:ring-4 focus:ring-blue-400/10 rounded-xl text-blue-400 transition-all outline-none"
+                        className={`w-20 h-15 text-center text-3xl font-black bg-background-light border-2 border-blue-400/20 focus:border-blue-400 focus:ring-4 focus:ring-blue-400/10 rounded-xl text-blue-400 transition-all outline-none ${isDisabled ? 'opacity-50 cursor-not-allowed' : ''}`}
                     >
                         <option value="">--</option>
                         {Array.from({ length: 60 / 5 }, (_, i) => i * 5).map(
@@ -82,7 +86,7 @@ export const NumericAnswer = ({
             value={minutesValue}
             onChange={(e) => onMinutesChange(e.target.value)}
             placeholder="--"
-            className="w-20 h-20 text-center text-3xl font-black bg-background-light border-2 border-blue-400/20 focus:border-blue-400 focus:ring-4 focus:ring-blue-400/10 rounded-xl text-blue-400 transition-all outline-none"
+            className={`w-20 h-20 text-center text-3xl font-black bg-background-light border-2 border-blue-400/20 focus:border-blue-400 focus:ring-4 focus:ring-blue-400/10 rounded-xl text-blue-400 transition-all outline-none ${isDisabled ? 'opacity-50 cursor-not-allowed' : ''}`}
           />
           */}
                 </div>

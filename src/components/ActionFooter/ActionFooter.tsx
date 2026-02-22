@@ -20,20 +20,23 @@ export const ActionFooter: React.FC<ActionFooterProps> = ({
     onCheckAnswer,
     onNext,
 }) => (
-    <footer className="w-full bg-white  border-t border-slate-100  z-20">
-        {!isFeedbackVisible ? (
-            <CheckAnswer
-                isDisabled={isDisabled}
-                onCheckAnswer={onCheckAnswer}
-            />
-        ) : (
-            <div className={`flex flex-col gap-4 animate-slide-up`}>
-                <ResultNotification
-                    isCorrect={isCorrect}
-                    correctTimeLabel={correctTimeLabel}
+    <footer className="w-full bg-white  border-t border-slate-100 gap-4 flex flex-col z-20">
+        <>
+            {isFeedbackVisible && (
+                <div className={`flex flex-col gap-4 animate-slide-up`}>
+                    <ResultNotification
+                        isCorrect={isCorrect}
+                        correctTimeLabel={correctTimeLabel}
+                    />
+                </div>
+            )}
+            {!isCorrect && !isFeedbackVisible && (
+                <CheckAnswer
+                    isDisabled={isDisabled}
+                    onCheckAnswer={onCheckAnswer}
                 />
-                <ContinueButton onNext={onNext} />
-            </div>
-        )}
+            )}
+            {isCorrect !== null && <ContinueButton onNext={onNext} />}
+        </>
     </footer>
 )

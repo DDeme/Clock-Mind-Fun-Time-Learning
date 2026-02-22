@@ -4,18 +4,21 @@ type MultipleChoiceProps = {
     options: string[]
     selectedOption: string | null
     onSelectOption: (option: string) => void
+    isDisabled: boolean
 }
 
 export const MultipleChoice: React.FC<MultipleChoiceProps> = ({
     options,
     selectedOption,
     onSelectOption,
+    isDisabled,
 }) => (
     <div className="grid grid-cols-2 gap-4 w-full">
         {options.map((option) => (
             <button
                 key={option}
                 onClick={() => onSelectOption(option)}
+                disabled={isDisabled}
                 className={`
                   p-3 rounded-2xl border-2 transition-all duration-200 active:scale-95 text-center
                   ${
@@ -23,6 +26,7 @@ export const MultipleChoice: React.FC<MultipleChoiceProps> = ({
                           ? 'bg-blue-400/5 border-blue-400 shadow-md ring-4 ring-blue-200/10'
                           : 'bg-white  border-slate-100  shadow-sm hover:border-blue-500/40'
                   }
+                  ${isDisabled ? 'opacity-50 cursor-not-allowed' : ''}
                 `}
             >
                 <span

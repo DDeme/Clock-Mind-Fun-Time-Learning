@@ -19,19 +19,87 @@ export type ClockTime = {
     minutes: number
 }
 
-// const GameConfig = {
-//   totalQuestions: 10,
-//   mode: "multiple-choice",
-// };
+export type GameProps = {
+    totalQuestions?: number
+    initialMode?: QuestionType
+}
+// const parseClockTime = (timeString: string): ClockTime => {
+//     const match = timeString.match(/^(\d{1,2}):(\d{2})$/)
+//     if (!match) return { hours: 0, minutes: 0 }
+
+//     const hours = parseInt(match[1], 10)
+//     const minutes = parseInt(match[2], 10)
+
+//     if (hours < 1 || hours > 12 || minutes < 0 || minutes >= 60)
+//         return { hours: 0, minutes: 0 }
+
+//     return { hours, minutes }
+// }
+
+const questionText = 'Look at the clock! What time is it?'
+const QuestionComponent = AnalogClock
+
+// type Question = {
+//     question: string
+//     answer: string
+//     type: QuestionType
+//     options?: string[]
+// }
+
+// const questions: Question[] = [
+//     {
+//         question: 'What time is it?',
+//         answer: '3:45',
+//         type: 'multiple-choice',
+//         options: ['3:45', '6:30', '9:15', '12:00'],
+//     },
+//     {
+//         question: 'What time is it? huh',
+//         answer: '3:45',
+//         type: 'multiple-choice',
+//         options: ['3:45', '6:30', '9:15', '12:00'],
+//     },
+//     {
+//         question: 'What time is it?',
+//         answer: '3:45',
+//         type: 'multiple-choice',
+//         options: ['3:45', '6:30', '9:15', '12:00'],
+//     },
+//     {
+//         question: 'What time is it?',
+//         answer: '3:45',
+//         type: 'multiple-choice',
+//         options: ['3:45', '6:30', '9:15', '12:00'],
+//     },
+//     {
+//         question: 'What time is it?',
+//         answer: '3:45',
+//         type: 'multiple-choice',
+//         options: ['3:45', '6:30', '9:15', '12:00'],
+//     },
+//     {
+//         question: 'What time is it?',
+//         answer: '3:45',
+//         type: 'multiple-choice',
+//         options: ['3:45', '6:30', '9:15', '12:00'],
+//     },
+//     {
+//         question: 'What time is it?',
+//         answer: '3:45',
+//         type: 'multiple-choice',
+//         options: ['3:45', '6:30', '9:15', '12:00'],
+//     },
+// ]
 
 export const Game = () => {
     const [currentQuestionIdx, setCurrentQuestionIdx] = useState(1)
     const [totalQuestions] = useState(10)
     const [score, setScore] = useState(0)
+    // const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
     const [mode, setMode] = useState<QuestionType>('multiple-choice')
     const [targetTime, setTargetTime] = useState<ClockTime>({
-        hours: 3,
-        minutes: 45,
+        hours: 0,
+        minutes: 0,
     })
     const [options, setOptions] = useState<string[]>([])
     const [selectedOption, setSelectedOption] = useState<string | null>(null)
@@ -79,6 +147,36 @@ export const Game = () => {
         }
     }, [generateRandomTime])
 
+    // const startNewQuestion = useCallback(() => {
+    //     // const newTime = generateRandomTime()
+    //     setTargetTime(parseClockTime(questions[currentQuestionIndex].answer))
+    //     setSelectedOption(null)
+    //     setUserInputHours('')
+    //     setUserInputMinutes('')
+    //     setIsFeedbackVisible(false)
+    //     setIsCorrect(null)
+    //     setOptions(questions[currentQuestionIndex + 1].options)
+    //     setCurrentQuestionIndex((prev) => prev + 1)
+    //     setMode(questions[currentQuestionIndex + 1].type)
+
+    //     // Swap modes for variety
+    //     // const newMode: QuestionType =
+    //     //     Math.random() > 0.5 ? 'input' : 'multiple-choice'
+    //     // setMode(newMode)
+
+    //     // if (newMode === 'multiple-choice') {
+    //     //     const correct = formatTime(newTime)
+    //     //     const distractors = new Set<string>()
+    //     //     while (distractors.size < 3) {
+    //     //         const d = formatTime(generateRandomTime())
+    //     //         if (d !== correct) distractors.add(d)
+    //     //     }
+    //     //     const allOptions = Array.from(distractors)
+    //     //     allOptions.splice(Math.floor(Math.random() * 4), 0, correct)
+    //     //     setOptions(allOptions)
+    //     // }
+    // }, [])
+
     useEffect(() => {
         startNewQuestion()
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -115,6 +213,11 @@ export const Game = () => {
         }
     }
 
+    const isFooterDisabled =
+        mode === 'multiple-choice'
+            ? !selectedOption
+            : !userInputHours || !userInputMinutes
+
     return (
         <div className="flex p-6 flex-col min-h-screen max-w-md mx-auto bg-background-light relative overflow-hidden">
             <Header
@@ -124,11 +227,9 @@ export const Game = () => {
             />
 
             <main className="flex-1 flex flex-col items-center overflow-y-auto gap-3 justify-between">
-                <MascotBubble message="Look at the clock! What time is it?" />
-                <AnalogClock
-                    hours={targetTime.hours}
-                    minutes={targetTime.minutes}
-                />
+                {questionText && <MascotBubble message={questionText} />}
+                {QuestionComponent && <QuestionComponent {...targetTime} />}
+                {/* {AnswersComponent && <AnswersComponent />}*/}
                 <Answers
                     mode={mode}
                     options={options}
@@ -138,15 +239,12 @@ export const Game = () => {
                     onChangeHours={setUserInputHours}
                     userInputMinutes={userInputMinutes}
                     onChangeMinutes={setUserInputMinutes}
+                    isDisabled={isFeedbackVisible}
                 />
                 <ActionFooter
                     isFeedbackVisible={isFeedbackVisible}
                     isCorrect={isCorrect}
-                    isDisabled={
-                        mode === 'multiple-choice'
-                            ? !selectedOption
-                            : !userInputHours || !userInputMinutes
-                    }
+                    isDisabled={isFooterDisabled}
                     correctTimeLabel={formatTime(targetTime)}
                     onCheckAnswer={handleCheckAnswer}
                     onNext={handleNext}

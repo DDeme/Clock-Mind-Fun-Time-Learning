@@ -12,6 +12,7 @@ type AnswersProps = {
     onChangeHours: (value: string) => void
     userInputMinutes: string
     onChangeMinutes: (value: string) => void
+    isDisabled: boolean
 }
 
 export const Answers: React.FC<AnswersProps> = ({
@@ -23,6 +24,7 @@ export const Answers: React.FC<AnswersProps> = ({
     onChangeHours,
     userInputMinutes,
     onChangeMinutes,
+    isDisabled,
 }) => (
     <>
         {mode === 'multiple-choice' ? (
@@ -30,6 +32,7 @@ export const Answers: React.FC<AnswersProps> = ({
                 options={options}
                 selectedOption={selectedOption}
                 onSelectOption={onSelectOption}
+                isDisabled={isDisabled}
             />
         ) : (
             <NumericAnswer
@@ -37,6 +40,7 @@ export const Answers: React.FC<AnswersProps> = ({
                 minutesValue={parseInt(userInputMinutes)}
                 onHoursChange={onChangeHours}
                 onMinutesChange={onChangeMinutes}
+                isDisabled={isDisabled}
             />
         )}
     </>
