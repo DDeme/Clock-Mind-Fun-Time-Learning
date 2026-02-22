@@ -1,9 +1,5 @@
-import {
-    Check,
-    Clock,
-    Lock,
-    Flag,
-} from 'lucide-react'
+import React from 'react'
+import { Check, Clock, Lock, Flag } from 'lucide-react'
 
 interface Lesson {
     id: number
@@ -47,7 +43,9 @@ export const TimelineContent = ({ lessons }: TimelineContentProps) => {
                                 r="42"
                                 stroke="currentColor"
                                 strokeDasharray="264"
-                                strokeDashoffset={264 - (264 * (lesson.progress || 0)) / 100}
+                                strokeDashoffset={
+                                    264 - (264 * (lesson.progress || 0)) / 100
+                                }
                                 strokeWidth="6"
                             ></circle>
                         </svg>
@@ -68,10 +66,11 @@ export const TimelineContent = ({ lessons }: TimelineContentProps) => {
     }
 
     const renderLessonLabel = (lesson: Lesson) => {
-        const positionClasses = lesson.position === 'left' 
-            ? 'absolute left-[calc(50%+40px)] w-32 translate-y-2'
-            : 'absolute right-[calc(50%+40px)] w-40 text-right translate-y-0'
-        
+        const positionClasses =
+            lesson.position === 'left'
+                ? 'absolute left-[calc(50%+40px)] w-32 translate-y-2'
+                : 'absolute right-[calc(50%+40px)] w-40 text-right translate-y-0'
+
         const textAlign = lesson.position === 'left' ? '' : 'text-right'
 
         let statusText = ''
@@ -94,16 +93,24 @@ export const TimelineContent = ({ lessons }: TimelineContentProps) => {
 
         return (
             <div className={`${positionClasses} ${textAlign}`}>
-                <span className={`block text-sm font-bold ${
-                    lesson.status === 'completed' ? 'text-slate-800' : 
-                    lesson.status === 'active' ? 'text-lg font-extrabold text-blue-500' : 
-                    'text-slate-400'
-                }`}>
+                <span
+                    className={`block text-sm font-bold ${
+                        lesson.status === 'completed'
+                            ? 'text-slate-800'
+                            : lesson.status === 'active'
+                              ? 'text-lg font-extrabold text-blue-500'
+                              : 'text-slate-400'
+                    }`}
+                >
                     {lesson.title}
                 </span>
-                <span className={`text-xs font-medium ${statusColor} ${
-                    lesson.status === 'active' ? 'font-semibold uppercase tracking-wider' : ''
-                }`}>
+                <span
+                    className={`text-xs font-medium ${statusColor} ${
+                        lesson.status === 'active'
+                            ? 'font-semibold uppercase tracking-wider'
+                            : ''
+                    }`}
+                >
                     {statusText}
                 </span>
             </div>
@@ -117,7 +124,10 @@ export const TimelineContent = ({ lessons }: TimelineContentProps) => {
                 <div className="absolute left-1/2 top-0 h-full w-1 -translate-x-1/2 rounded-full border-l-2 border-dashed border-slate-300"></div>
 
                 {lessons.map((lesson) => (
-                    <div key={lesson.id} className="relative mb-16 flex w-full items-center justify-center">
+                    <div
+                        key={lesson.id}
+                        className="relative mb-16 flex w-full items-center justify-center"
+                    >
                         <div className="z-10 flex flex-col items-center">
                             {renderLessonNode(lesson)}
                             {renderLessonLabel(lesson)}

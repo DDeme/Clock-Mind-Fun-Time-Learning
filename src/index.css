@@ -1,11 +1,38 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme {
-  --color-mint-500: oklch(0.72 0.11 178);
-  --color-primary: "#137fec";
-  --color-secondary: "#ff9f43";
-  --color-background-light: "#f6f7f8";
-  --color-background-dark: "#101922";
+    --color-mint-500: oklch(0.72 0.11 178);
+    --color-primary: '#137fec';
+    --color-secondary: '#ff9f43';
+    --color-background-light: '#f6f7f8';
+    --color-background-dark: '#101922';
+
+    --shadow-neumorphic-flat: 6px 6px 12px #d9dadb, -6px -6px 12px #ffffff;
+    --shadow-neumorphic-inset:
+        inset 4px 4px 8px #d9dadb, inset -4px -4px 8px #ffffff;
+    --shadow-clock-face: 10px 10px 20px #d1d5db, -10px -10px 20px #ffffff;
+}
+
+@layer base {
+    body {
+        @apply font-sans bg-background-light text-slate-900;
+    }
+}
+
+.neumorphic-flat {
+    box-shadow: var(--shadow-neumorphic-flat);
+}
+
+.neumorphic-inset {
+    box-shadow: var(--shadow-neumorphic-inset);
+}
+
+.clock-face {
+    box-shadow: var(--shadow-clock-face);
+}
+
+.glow-text {
+    text-shadow: 0 0 15px rgba(43, 157, 238, 0.4);
 }
 
 /* :root {
@@ -24,44 +51,44 @@
 } */
 
 body {
-  font-family: "Lexend", sans-serif;
-  -webkit-tap-highlight-color: transparent;
+    font-family: 'Lexend', sans-serif;
+    -webkit-tap-highlight-color: transparent;
 }
 .clock-shadow {
-  box-shadow: 0 10px 40px rgba(19, 127, 236, 0.15);
+    box-shadow: 0 10px 40px rgba(19, 127, 236, 0.15);
 }
 .perspective-1000 {
-  perspective: 1000px;
+    perspective: 1000px;
 }
 
 @media (prefers-color-scheme: dark) {
-  * {
-    color-scheme: light;
-  }
+    * {
+        color-scheme: light;
+    }
 }
 
 @keyframes bounce-slow {
-  0%,
-  100% {
-    transform: translateY(-5px);
-  }
-  50% {
-    transform: translateY(0);
-  }
+    0%,
+    100% {
+        transform: translateY(-5px);
+    }
+    50% {
+        transform: translateY(0);
+    }
 }
 @keyframes slide-up {
-  from {
-    transform: translateY(20px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 .animate-bounce-slow {
-  animation: bounce-slow 3s infinite ease-in-out;
+    animation: bounce-slow 3s infinite ease-in-out;
 }
 .animate-slide-up {
-  animation: slide-up 0.3s ease-out;
+    animation: slide-up 0.3s ease-out;
 }

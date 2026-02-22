@@ -1,3 +1,4 @@
+import React from 'react'
 import { Trophy } from 'lucide-react'
 
 interface ProgressHeaderProps {
@@ -11,7 +12,7 @@ export const ProgressHeader = ({
     title,
     level,
     currentLessons,
-    totalLessons
+    totalLessons,
 }: ProgressHeaderProps) => {
     const progressPercentage = (currentLessons / totalLessons) * 100
 
