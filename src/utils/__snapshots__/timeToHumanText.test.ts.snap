@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`timeToHumanText 0:0 1`] = `"polnoc"`;
+
+exports[`timeToHumanText 0:7 1`] = `"nula hodina a sedem minút"`;
+
+exports[`timeToHumanText 1:0 1`] = `"jedna hodina"`;
+
+exports[`timeToHumanText 1:1 1`] = `"jedna hodina a jedna minúta"`;
+
+exports[`timeToHumanText 2:0 1`] = `"dve hodiny"`;
+
+exports[`timeToHumanText 2:15 1`] = `"štvrť na tri"`;
+
+exports[`timeToHumanText 3:2 1`] = `"tri hodiny a dve minúty"`;
+
+exports[`timeToHumanText 3:45 1`] = `"trištvrte na štyri"`;
+
+exports[`timeToHumanText 4:0 1`] = `"štyri hodiny"`;
+
+exports[`timeToHumanText 4:4 1`] = `"štyri hodiny a štyri minúty"`;
+
+exports[`timeToHumanText 5:0 1`] = `"päť hodín"`;
+
+exports[`timeToHumanText 5:30 1`] = `"pol šiestej"`;
+
+exports[`timeToHumanText 6:10 1`] = `"šesť hodín a desať minút"`;
+
+exports[`timeToHumanText 8:45 1`] = `"trištvrte na deväť"`;
+
+exports[`timeToHumanText 9:59 1`] = `"deväť hodín a päťdesiatdeväť minút"`;
+
+exports[`timeToHumanText 10:30 1`] = `"pol jedenástej"`;
+
+exports[`timeToHumanText 11:0 1`] = `"jedenásť hodín"`;
+
+exports[`timeToHumanText 11:15 1`] = `"štvrť na dvanásť"`;
+
+exports[`timeToHumanText 11:29 1`] = `"jedenásť hodín a dvadsaťdeväť minút"`;
+
+exports[`timeToHumanText 12:0 1`] = `"poludnie"`;
