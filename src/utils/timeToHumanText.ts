@@ -125,7 +125,7 @@ const ordinalGenitive = [
     'šesťdesiatej',
 ]
 
-const specialCasesMinutes = {
+const specialCasesMinutes: Record<number, string> = {
     15: 'štvrť na',
     30: 'pol',
     45: 'trištvrte na',
@@ -163,35 +163,71 @@ const getHourText = (hours: number) => {
     return `${numbers[hours]}${getExtension(hours, 'hour')}`
 }
 
-const getSpecialCaseMinutesText = (hours: number, minutes: number) => {
-    if (!Object.prototype.hasOwnProperty.call(specialCasesMinutes, minutes)) {
+const getSpecialCaseMinutesText = (hours: number, minutes: number): string => {
+    const specialCase = specialCasesMinutes[minutes]
+    if (!specialCase) {
         return ''
     }
     if (minutes === 30) {
-        return `${specialCasesMinutes[minutes]} ${ordinalGenitive[hours + 1]}`
+        return `${specialCase} ${ordinalGenitive[hours + 1]}`
     }
 
-    return `${specialCasesMinutes[minutes]} ${numbers[hours + 1]}`
+    return `${specialCase} ${numbers[hours + 1]}`
 }
 
+const periodsOfTheDay = [
+    {
+        start: 5,
+        end: 9,
+        name: 'ráno',
+    },
+    {
+        start: 9,
+        end: 12,
+        name: 'dopoludnia',
+    },
+    {
+        start: 12,
+        end: 18,
+        name: 'popoludní',
+    },
+    {
+        start: 18,
+        end: 22,
+        name: 'popoludní',
+    },
+    {
+        start: 22,
+        end: 24,
+        name: 'v noci',
+    },
+    {
+        start: 0,
+        end: 5,
+        name: 'v noci',
+    },
+]
+// information source https://ucimesaslovencinu.sk/clanok/kolko-je-hodin-po-slovensky/#stvrt-pol-tristvrte
 export const timeToHumanText = (hours: number, minutes: number): string => {
+    const key = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`
+    const specialCase = specialCases[key]
+
+    if (specialCase) {
+        return specialCase
+    }
+
     const specialCaseMinutesText = getSpecialCaseMinutesText(hours, minutes)
+    const period = periodsOfTheDay.find(
+        (period) => period.start <= hours && period.end > hours,
+    )?.name
+
+    if (specialCaseMinutesText) {
+        return `${specialCaseMinutesText} ${period}`
+    }
+
     const hourText = getHourText(hours)
     const minutesText = getMinutesText(minutes)
 
-    const key = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`
-    const isSpecialCase = Object.prototype.hasOwnProperty.call(
-        specialCases,
-        key,
-    )
-
-    if (isSpecialCase) {
-        return specialCases[key]
-    }
-
-    if (specialCaseMinutesText !== '') {
-        return specialCaseMinutesText
-    }
-
-    return `${hourText}${minutesText}`
+    console.log(hours, period)
+    return `${hourText}${minutesText} ${period}`
 }
