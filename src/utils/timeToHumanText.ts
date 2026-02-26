@@ -228,6 +228,5 @@ export const timeToHumanText = (hours: number, minutes: number): string => {
     const hourText = getHourText(hours)
     const minutesText = getMinutesText(minutes)
 
-    console.log(hours, period)
     return `${hourText}${minutesText} ${period}`
 }
