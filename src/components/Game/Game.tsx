@@ -4,6 +4,7 @@ import { MascotBubble } from '../MascotBubble/MascotBubble'
 import { ActionFooter } from '../ActionFooter'
 import { Answers } from '../Answers'
 import { Header } from '../Header'
+import { FeedbackSection } from '../FeedbackSection/FeedbackSection'
 
 export type QuestionType = 'input' | 'multiple-choice'
 
@@ -36,7 +37,6 @@ export type GameProps = {
 //     return { hours, minutes }
 // }
 
-const questionText = 'Look at the clock! What time is it?'
 const QuestionComponent = AnalogClock
 
 // type Question = {
@@ -90,6 +90,8 @@ const QuestionComponent = AnalogClock
 //         options: ['3:45', '6:30', '9:15', '12:00'],
 //     },
 // ]
+
+const questionText = 'Look at the clock! What time is it?'
 
 export const Game = () => {
     const [currentQuestionIdx, setCurrentQuestionIdx] = useState(1)
@@ -229,7 +231,6 @@ export const Game = () => {
             <main className="flex-1 flex flex-col items-center overflow-y-auto gap-3 justify-between">
                 {questionText && <MascotBubble message={questionText} />}
                 {QuestionComponent && <QuestionComponent {...targetTime} />}
-                {/* {AnswersComponent && <AnswersComponent />}*/}
                 <Answers
                     mode={mode}
                     options={options}
@@ -245,10 +246,16 @@ export const Game = () => {
                     isFeedbackVisible={isFeedbackVisible}
                     isCorrect={isCorrect}
                     isDisabled={isFooterDisabled}
-                    correctTimeLabel={formatTime(targetTime)}
                     onCheckAnswer={handleCheckAnswer}
                     onNext={handleNext}
-                />
+                >
+                    <FeedbackSection
+                        isFeedbackVisible={isFeedbackVisible}
+                        isCorrect={isCorrect}
+                        correctAnswer={formatTime(targetTime)}
+                        earnedStars={2}
+                    />
+                </ActionFooter>
             </main>
             {/* <BottomNav /> */}
         </div>
