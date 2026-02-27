@@ -23,13 +23,39 @@ type Story = StoryObj<typeof meta>
 export const Correct: Story = {
     args: {
         isCorrect: true,
-        correctTimeLabel: '3:45',
+        correctAnswer: '3:45',
+        earnedStars: 20,
     },
 }
 
 export const Incorrect: Story = {
     args: {
         isCorrect: false,
-        correctTimeLabel: '3:45',
+        correctAnswer: '3:45',
+        earnedStars: 0,
+    },
+}
+
+export const CorrectHighStars: Story = {
+    args: {
+        isCorrect: true,
+        correctAnswer: '12:00',
+        earnedStars: 50,
+    },
+}
+
+export const IncorrectNoon: Story = {
+    args: {
+        isCorrect: false,
+        correctAnswer: '12:00',
+        earnedStars: 0,
+    },
+}
+
+export const CorrectMinimalStars: Story = {
+    args: {
+        isCorrect: true,
+        correctAnswer: '6:30',
+        earnedStars: 5,
     },
 }

@@ -2,12 +2,14 @@ import React from 'react'
 
 type ResultNotificationProps = {
     isCorrect: boolean | null
-    correctTimeLabel: string
+    correctAnswer: string
+    earnedStars: number
 }
 
 export const ResultNotification: React.FC<ResultNotificationProps> = ({
     isCorrect,
-    correctTimeLabel,
+    correctAnswer,
+    earnedStars,
 }) => (
     <div className={`flex flex-col gap-4 animate-slide-up`}>
         <div
@@ -22,8 +24,8 @@ export const ResultNotification: React.FC<ResultNotificationProps> = ({
                 </p>
                 <p className="text-sm opacity-80">
                     {isCorrect
-                        ? 'You earned +20 stars!'
-                        : `The correct time was ${correctTimeLabel}`}
+                        ? `You earned +${earnedStars} stars!`
+                        : `The correct answer was ${correctAnswer}`}
                 </p>
             </div>
         </div>
