@@ -1,0 +1,28 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
+  <!-- Body -->
+  <rect x="16" y="36" width="32" height="20" fill="#E67E22" />
+  <rect x="20" y="56" width="8" height="4" fill="#E67E22" />
+  <rect x="36" y="56" width="8" height="4" fill="#E67E22" />
+  
+  <!-- Head -->
+  <rect x="20" y="16" width="24" height="24" fill="#E67E22" />
+  
+  <!-- Ears -->
+  <rect x="20" y="8" width="8" height="8" fill="#E67E22" />
+  <rect x="36" y="8" width="8" height="8" fill="#E67E22" />
+  <rect x="22" y="10" width="4" height="4" fill="#F1948A" />
+  <rect x="38" y="10" width="4" height="4" fill="#F1948A" />
+
+  <!-- Face -->
+  <rect x="24" y="24" width="4" height="4" fill="#2C3E50" /> <!-- Left eye -->
+  <rect x="36" y="24" width="4" height="4" fill="#2C3E50" /> <!-- Right eye -->
+  <rect x="30" y="30" width="4" height="2" fill="#F1948A" /> <!-- Nose -->
+  
+  <!-- Tail -->
+  <rect x="48" y="40" width="8" height="4" fill="#E67E22" />
+  <rect x="52" y="32" width="4" height="8" fill="#E67E22" />
+
+  <!-- Details/Highlights -->
+  <rect x="20" y="16" width="4" height="4" fill="#EB984E" />
+  <rect x="16" y="36" width="4" height="4" fill="#EB984E" />
+</svg>

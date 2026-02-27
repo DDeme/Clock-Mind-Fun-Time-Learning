@@ -1,4 +1,5 @@
 import React from 'react'
+import imgUrl from '../../assets/pixel-cat.svg'
 
 type MascotBubbleProps = {
     message: string
@@ -15,8 +16,8 @@ export const MascotBubble: React.FC<MascotBubbleProps> = ({ message }) => {
             </div>
             <div className="size-16 rounded-full bg-blue-400/20 flex items-center justify-center overflow-hidden border-2 border-white  shadow-md shrink-0">
                 <img
-                    alt="Friendly owl mascot"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuC81GGv0azlzLbr3TgXwZz176ORSvuaDae4QCAiQM57SmdPIextx9lLm-ZJf8A7Ohibt8wzCzB-zIXrvmUaAIWBqaYK6HQaNBjYWfHdSOuL-HgxmyjE_P_4yhIjyn-3neMLBxj7Dit_JW5f1ymGvZ3uUS8bMUYfZlqMoxoNeeF9EY7hQxA1CteQ5O5Ahl1adaFweU6pDI3SfxKTd32dt297Tum8jyYbt2FnmhA8sfQtKaI_VuIJzBhRp7hIzW3K5oLvLZH8HYtQIy0"
+                    alt="Friendly redhead cat mascot"
+                    src={imgUrl}
                     className="w-full h-full object-cover"
                 />
             </div>
