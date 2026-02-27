@@ -29,7 +29,6 @@ export const Default: Story = {
         isFeedbackVisible: false,
         isCorrect: null,
         isDisabled: false,
-        correctTimeLabel: '3:45',
     },
 }
 
@@ -38,7 +37,6 @@ export const Disabled: Story = {
         isFeedbackVisible: false,
         isCorrect: null,
         isDisabled: true,
-        correctTimeLabel: '3:45',
     },
 }
 
@@ -47,7 +45,6 @@ export const CorrectFeedback: Story = {
         isFeedbackVisible: true,
         isCorrect: true,
         isDisabled: false,
-        correctTimeLabel: '3:45',
     },
 }
 
@@ -56,6 +53,5 @@ export const IncorrectFeedback: Story = {
         isFeedbackVisible: true,
         isCorrect: false,
         isDisabled: false,
-        correctTimeLabel: '3:45',
     },
 }

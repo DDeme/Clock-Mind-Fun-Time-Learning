@@ -1,42 +1,31 @@
-import React from 'react'
+import React, { type PropsWithChildren } from 'react'
 import { CheckAnswer } from '../CheckAnswer'
-import { ResultNotification } from '../ResultNotification'
 import { ContinueButton } from '../ContinueButton'
 
 type ActionFooterProps = {
     isFeedbackVisible: boolean
     isCorrect: boolean | null
     isDisabled: boolean
-    correctTimeLabel: string
     onCheckAnswer: () => void
     onNext: () => void
 }
 
-export const ActionFooter: React.FC<ActionFooterProps> = ({
+export const ActionFooter: React.FC<PropsWithChildren<ActionFooterProps>> = ({
     isFeedbackVisible,
     isCorrect,
     isDisabled,
-    correctTimeLabel,
     onCheckAnswer,
     onNext,
+    children,
 }) => (
     <footer className="w-full bg-white  border-t border-slate-100 gap-4 flex flex-col z-20">
-        <>
-            {isFeedbackVisible && (
-                <div className={`flex flex-col gap-4 animate-slide-up`}>
-                    <ResultNotification
-                        isCorrect={isCorrect}
-                        correctTimeLabel={correctTimeLabel}
-                    />
-                </div>
-            )}
-            {!isCorrect && !isFeedbackVisible && (
-                <CheckAnswer
-                    isDisabled={isDisabled}
-                    onCheckAnswer={onCheckAnswer}
-                />
-            )}
-            {isCorrect !== null && <ContinueButton onNext={onNext} />}
-        </>
+        {children}
+        {!isCorrect && !isFeedbackVisible && (
+            <CheckAnswer
+                isDisabled={isDisabled}
+                onCheckAnswer={onCheckAnswer}
+            />
+        )}
+        {isCorrect !== null && <ContinueButton onNext={onNext} />}
     </footer>
 )
