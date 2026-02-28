@@ -7,15 +7,15 @@ const meta = {
     tags: ['autodocs'],
     argTypes: {
         minutes: {
-            control: { type: 'number', min: 0, max: 59 },
+            control: { type: 'number', min: 0, max: 62 },
             description: 'Minutes (0-59)',
         },
         hours: {
-            control: { type: 'number', min: 0, max: 23 },
+            control: { type: 'number', min: 0, max: 25 },
             description: 'Hours (0-23)',
         },
         seconds: {
-            control: { type: 'number', min: 0, max: 59 },
+            control: { type: 'number', min: 0, max: 62 },
             description: 'Seconds (0-59)',
         },
         hideSeconds: {
@@ -28,7 +28,16 @@ const meta = {
     },
     decorators: [
         (Story) => (
-            <div style={{ width: 200, height: 200, position: 'relative', backgroundColor: 'white', border: '2px solid #e5e7eb', borderRadius: '50%' }}>
+            <div
+                style={{
+                    width: 200,
+                    height: 200,
+                    position: 'relative',
+                    backgroundColor: 'white',
+                    border: '2px solid #e5e7eb',
+                    borderRadius: '50%',
+                }}
+            >
                 <Story />
             </div>
         ),
