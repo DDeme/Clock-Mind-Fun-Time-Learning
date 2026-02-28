@@ -8,18 +8,19 @@ type ActionFooterProps = {
     isDisabled: boolean
     onCheckAnswer: () => void
     onNext: () => void
+    feedback: React.ReactNode
 }
 
-export const ActionFooter: React.FC<PropsWithChildren<ActionFooterProps>> = ({
+export const ActionFooter: React.FC<ActionFooterProps> = ({
     isFeedbackVisible,
     isCorrect,
     isDisabled,
     onCheckAnswer,
     onNext,
-    children,
+    feedback,
 }) => (
     <footer className="w-full bg-white  border-t border-slate-100 gap-4 flex flex-col z-20">
-        {children}
+        {isFeedbackVisible && feedback}
         {!isCorrect && !isFeedbackVisible && (
             <CheckAnswer
                 isDisabled={isDisabled}
