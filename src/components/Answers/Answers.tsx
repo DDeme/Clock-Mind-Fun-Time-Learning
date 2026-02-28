@@ -1,47 +1,57 @@
 import React from 'react'
-import type { QuestionType } from '../Game/Game'
-import { MultipleChoice } from '../MultipleChoice/MultipleChoice'
+import type { AnswerType } from '../Game/Game'
 import { NumericAnswer } from '../NumericAnswer/NumericAnswer'
+import { SingleChoice } from '../SingleChoice/SingleChoice'
 
-type AnswersProps = {
-    mode: QuestionType
-    options: string[]
-    selectedOption: string | null
-    onSelectOption: (option: string) => void
-    userInputHours: string
-    onChangeHours: (value: string) => void
-    userInputMinutes: string
-    onChangeMinutes: (value: string) => void
+const AnswerType = {
+    SINGLE_CHOICE: 'single-choice',
+    NUMERIC_ANSWER: 'numeric-answer',
+} as const
+
+type SingleChoiceOptions = {
+    type: typeof AnswerType.SINGLE_CHOICE
+    options: {
+        hours: number
+        minutes: number
+    }[]
+    value: {
+        hours: number
+        minutes: number
+    } | null
+    onChange: (
+        option: {
+            hours: number
+            minutes: number
+        } | null,
+    ) => void
     isDisabled: boolean
 }
 
-export const Answers: React.FC<AnswersProps> = ({
-    mode,
-    options,
-    selectedOption,
-    onSelectOption,
-    userInputHours,
-    onChangeHours,
-    userInputMinutes,
-    onChangeMinutes,
-    isDisabled,
-}) => (
-    <>
-        {mode === 'multiple-choice' ? (
-            <MultipleChoice
-                options={options}
-                selectedOption={selectedOption}
-                onSelectOption={onSelectOption}
-                isDisabled={isDisabled}
-            />
-        ) : (
-            <NumericAnswer
-                hoursValue={parseInt(userInputHours)}
-                minutesValue={parseInt(userInputMinutes)}
-                onHoursChange={onChangeHours}
-                onMinutesChange={onChangeMinutes}
-                isDisabled={isDisabled}
-            />
-        )}
-    </>
-)
+type NumericAnswerOptions = {
+    type: typeof AnswerType.NUMERIC_ANSWER
+    options: number[][]
+    value: {
+        hours: number
+        minutes: number
+    }
+    onChange: (
+        value: {
+            hours: number
+            minutes: number
+        } | null,
+    ) => void
+    isDisabled: boolean
+}
+
+type AnswersProps = SingleChoiceOptions | NumericAnswerOptions
+
+export const Answers: React.FC<AnswersProps> = (props) => {
+    switch (props.type) {
+        case AnswerType.SINGLE_CHOICE:
+            return <SingleChoice {...props} />
+        case AnswerType.NUMERIC_ANSWER:
+            return <NumericAnswer {...props} />
+        default:
+            return null
+    }
+}

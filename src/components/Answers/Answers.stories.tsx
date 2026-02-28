@@ -7,11 +7,6 @@ const meta = {
     title: 'Components/Answers',
     component: Answers,
     tags: ['autodocs'],
-    args: {
-        onSelectOption: fn(),
-        onChangeHours: fn(),
-        onChangeMinutes: fn(),
-    },
     parameters: {
         layout: 'centered',
     },
@@ -25,50 +20,69 @@ const meta = {
 } satisfies Meta<typeof Answers>
 
 export default meta
-type Story = StoryObj<typeof meta>
+type Story = StoryObj<typeof Answers>
 
-export const MultipleChoice: Story = {
+export const SingleChoice: Story = {
     args: {
-        mode: 'multiple-choice',
-        options: ['3:45', '6:30', '9:15', '12:00'],
-        selectedOption: null,
-        userInputHours: '',
-        userInputMinutes: '',
+        type: 'single-choice' as const,
+        options: [
+            { hours: 3, minutes: 45 },
+            { hours: 6, minutes: 30 },
+            { hours: 9, minutes: 15 },
+            { hours: 12, minutes: 0 },
+        ],
+        value: null,
+        onChange: fn(),
+        isDisabled: false,
     },
     play: async ({ canvasElement, args }) => {
         const canvas = within(canvasElement)
         const option = canvas.getByText('6:30')
         await userEvent.click(option)
-        await expect(args.onSelectOption).toHaveBeenCalledWith('6:30')
+        await expect(args.onChange).toHaveBeenCalledWith({
+            hours: 6,
+            minutes: 30,
+        })
     },
 }
 
-export const MultipleChoiceSelected: Story = {
+export const SingleChoiceSelected: Story = {
     args: {
-        mode: 'multiple-choice',
-        options: ['3:45', '6:30', '9:15', '12:00'],
-        selectedOption: '3:45',
-        userInputHours: '',
-        userInputMinutes: '',
+        type: 'single-choice' as const,
+        options: [
+            { hours: 3, minutes: 45 },
+            { hours: 6, minutes: 30 },
+            { hours: 9, minutes: 15 },
+            { hours: 12, minutes: 0 },
+        ],
+        value: { hours: 3, minutes: 45 },
+        onChange: fn(),
+        isDisabled: false,
     },
 }
 
-export const Input: Story = {
+export const NumericAnswer: Story = {
     args: {
-        mode: 'input',
-        options: [],
-        selectedOption: null,
-        userInputHours: '',
-        userInputMinutes: '',
+        type: 'numeric-answer' as const,
+        options: [
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+            [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55],
+        ],
+        value: { hours: 0, minutes: 0 },
+        onChange: fn(),
+        isDisabled: false,
     },
 }
 
-export const InputWithValues: Story = {
+export const NumericAnswerWithValues: Story = {
     args: {
-        mode: 'input',
-        options: [],
-        selectedOption: null,
-        userInputHours: '3',
-        userInputMinutes: '45',
+        type: 'numeric-answer' as const,
+        options: [
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+            [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55],
+        ],
+        value: { hours: 3, minutes: 45 },
+        onChange: fn(),
+        isDisabled: false,
     },
 }
