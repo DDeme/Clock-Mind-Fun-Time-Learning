@@ -1,18 +1,19 @@
-import { useState, useEffect, useCallback } from 'react'
-import { AnalogClock } from '../AnalogClock/AnalogClock'
+import { useState, useEffect, useCallback, type ComponentProps } from 'react'
 import { MascotBubble } from '../MascotBubble/MascotBubble'
 import { ActionFooter } from '../ActionFooter'
 import { Answers } from '../Answers'
 import { Header } from '../Header'
-import { FeedbackSection } from '../FeedbackSection/FeedbackSection'
+import { QuestionRenderer } from '../QuestionRenderer/QuestionRenderer'
+import type { QuestionRendererProps } from '../QuestionRenderer/QuestionRenderer'
+import { ResultNotification } from '../ResultNotification'
 
-export type QuestionType = 'input' | 'multiple-choice'
+export type AnswerType = ComponentProps<typeof Answers>['type']
 
 export type GameState = {
     currentQuestion: number
     totalQuestions: number
     score: number
-    mode: QuestionType
+    type: AnswerType
 }
 
 export type ClockTime = {
@@ -22,91 +23,39 @@ export type ClockTime = {
 
 export type GameProps = {
     totalQuestions?: number
-    initialMode?: QuestionType
+    initialMode?: AnswerType
 }
-// const parseClockTime = (timeString: string): ClockTime => {
-//     const match = timeString.match(/^(\d{1,2}):(\d{2})$/)
-//     if (!match) return { hours: 0, minutes: 0 }
 
-//     const hours = parseInt(match[1], 10)
-//     const minutes = parseInt(match[2], 10)
+const numericOptions = [
+    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55],
+]
 
-//     if (hours < 1 || hours > 12 || minutes < 0 || minutes >= 60)
-//         return { hours: 0, minutes: 0 }
-
-//     return { hours, minutes }
-// }
-
-const QuestionComponent = AnalogClock
-
-// type Question = {
-//     question: string
-//     answer: string
-//     type: QuestionType
-//     options?: string[]
-// }
-
-// const questions: Question[] = [
-//     {
-//         question: 'What time is it?',
-//         answer: '3:45',
-//         type: 'multiple-choice',
-//         options: ['3:45', '6:30', '9:15', '12:00'],
-//     },
-//     {
-//         question: 'What time is it? huh',
-//         answer: '3:45',
-//         type: 'multiple-choice',
-//         options: ['3:45', '6:30', '9:15', '12:00'],
-//     },
-//     {
-//         question: 'What time is it?',
-//         answer: '3:45',
-//         type: 'multiple-choice',
-//         options: ['3:45', '6:30', '9:15', '12:00'],
-//     },
-//     {
-//         question: 'What time is it?',
-//         answer: '3:45',
-//         type: 'multiple-choice',
-//         options: ['3:45', '6:30', '9:15', '12:00'],
-//     },
-//     {
-//         question: 'What time is it?',
-//         answer: '3:45',
-//         type: 'multiple-choice',
-//         options: ['3:45', '6:30', '9:15', '12:00'],
-//     },
-//     {
-//         question: 'What time is it?',
-//         answer: '3:45',
-//         type: 'multiple-choice',
-//         options: ['3:45', '6:30', '9:15', '12:00'],
-//     },
-//     {
-//         question: 'What time is it?',
-//         answer: '3:45',
-//         type: 'multiple-choice',
-//         options: ['3:45', '6:30', '9:15', '12:00'],
-//     },
-// ]
-
-const questionText = 'Look at the clock! What time is it?'
+const question = {
+    id: 1,
+    title: 'Look at the clock! What time is it?',
+    type: 'analog-clock',
+    value: {
+        hours: 3,
+        minutes: 45,
+    },
+}
 
 export const Game = () => {
     const [currentQuestionIdx, setCurrentQuestionIdx] = useState(1)
     const [totalQuestions] = useState(10)
     const [score, setScore] = useState(0)
     // const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
-    const [mode, setMode] = useState<QuestionType>('multiple-choice')
-    const [targetTime, setTargetTime] = useState<ClockTime>({
+    const [type, setType] = useState<'single-choice' | 'numeric-answer'>(
+        'single-choice',
+    )
+    const [questionValue, setQuestionValue] = useState<ClockTime>({
         hours: 0,
         minutes: 0,
     })
-    const [options, setOptions] = useState<string[]>([])
-    const [selectedOption, setSelectedOption] = useState<string | null>(null)
-    const [userInputHours, setUserInputHours] = useState('')
-    const [userInputMinutes, setUserInputMinutes] = useState('')
+    const [answer, setAnswer] = useState<ClockTime | null>(null)
+
+    const [options, setOptions] = useState<ClockTime[] | number[][]>([])
     const [isFeedbackVisible, setIsFeedbackVisible] = useState(false)
     const [isCorrect, setIsCorrect] = useState<boolean | null>(null)
 
@@ -124,74 +73,44 @@ export const Game = () => {
 
     const startNewQuestion = useCallback(() => {
         const newTime = generateRandomTime()
-        setTargetTime(newTime)
-        setSelectedOption(null)
-        setUserInputHours('')
-        setUserInputMinutes('')
+        setQuestionValue(newTime)
+        setAnswer(null)
         setIsFeedbackVisible(false)
         setIsCorrect(null)
 
         // Swap modes for variety
-        const newMode: QuestionType =
-            Math.random() > 0.5 ? 'input' : 'multiple-choice'
-        setMode(newMode)
+        const newType: AnswerType =
+            Math.random() > 0.5 ? 'numeric-answer' : 'single-choice'
+        setType(newType)
 
-        if (newMode === 'multiple-choice') {
-            const correct = formatTime(newTime)
-            const distractors = new Set<string>()
+        if (newType === 'single-choice') {
+            const correct = newTime
+            const distractors = new Set<ClockTime>()
             while (distractors.size < 3) {
-                const d = formatTime(generateRandomTime())
+                const d = generateRandomTime()
                 if (d !== correct) distractors.add(d)
             }
             const allOptions = Array.from(distractors)
             allOptions.splice(Math.floor(Math.random() * 4), 0, correct)
             setOptions(allOptions)
         }
+        if (newType === 'numeric-answer') {
+            setOptions(numericOptions)
+        }
     }, [generateRandomTime])
-
-    // const startNewQuestion = useCallback(() => {
-    //     // const newTime = generateRandomTime()
-    //     setTargetTime(parseClockTime(questions[currentQuestionIndex].answer))
-    //     setSelectedOption(null)
-    //     setUserInputHours('')
-    //     setUserInputMinutes('')
-    //     setIsFeedbackVisible(false)
-    //     setIsCorrect(null)
-    //     setOptions(questions[currentQuestionIndex + 1].options)
-    //     setCurrentQuestionIndex((prev) => prev + 1)
-    //     setMode(questions[currentQuestionIndex + 1].type)
-
-    //     // Swap modes for variety
-    //     // const newMode: QuestionType =
-    //     //     Math.random() > 0.5 ? 'input' : 'multiple-choice'
-    //     // setMode(newMode)
-
-    //     // if (newMode === 'multiple-choice') {
-    //     //     const correct = formatTime(newTime)
-    //     //     const distractors = new Set<string>()
-    //     //     while (distractors.size < 3) {
-    //     //         const d = formatTime(generateRandomTime())
-    //     //         if (d !== correct) distractors.add(d)
-    //     //     }
-    //     //     const allOptions = Array.from(distractors)
-    //     //     allOptions.splice(Math.floor(Math.random() * 4), 0, correct)
-    //     //     setOptions(allOptions)
-    //     // }
-    // }, [])
 
     useEffect(() => {
         startNewQuestion()
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
-    const handleCheckAnswer = () => {
+    const onCheckAnswer = () => {
         let correct = false
-        if (mode === 'multiple-choice') {
-            correct = selectedOption === formatTime(targetTime)
-        } else {
-            correct =
-                parseInt(userInputHours) === targetTime.hours &&
-                parseInt(userInputMinutes) === targetTime.minutes
+        if (
+            questionValue.hours === answer?.hours &&
+            questionValue.minutes === answer?.minutes
+        ) {
+            correct = true
         }
 
         setIsCorrect(correct)
@@ -201,7 +120,7 @@ export const Game = () => {
         }
     }
 
-    const handleNext = () => {
+    const onNext = () => {
         if (currentQuestionIdx < totalQuestions) {
             setCurrentQuestionIdx((prev) => prev + 1)
             startNewQuestion()
@@ -215,11 +134,49 @@ export const Game = () => {
         }
     }
 
-    const isFooterDisabled =
-        mode === 'multiple-choice'
-            ? !selectedOption
-            : !userInputHours || !userInputMinutes
+    const gameProps = {
+        question: {
+            text: 'Look at the clock! What time is it?',
+            questionType: 'analog-clock' as const,
+            value: questionValue,
+        },
+        scoreValue: {
+            positiveScore: 20,
+            negativeScore: 0,
+        },
+        answer: {
+            type: type,
+            options: options as {
+                hours: number
+                minutes: number
+            }[],
+        },
+    }
 
+    const props: {
+        question: QuestionRendererProps & { text: string }
+        answer: ComponentProps<typeof Answers>
+        footer: Omit<ComponentProps<typeof ActionFooter>, 'feedback'>
+        scoreValue: {
+            positiveScore: number
+            negativeScore: number
+        }
+    } = {
+        ...gameProps,
+        answer: {
+            ...gameProps.answer,
+            value: answer,
+            onChange: setAnswer,
+            isDisabled: isFeedbackVisible,
+        },
+        footer: {
+            isFeedbackVisible,
+            isCorrect,
+            isDisabled: answer === null,
+            onCheckAnswer,
+            onNext,
+        },
+    }
     return (
         <div className="flex p-6 flex-col min-h-screen max-w-md mx-auto bg-background-light relative overflow-hidden">
             <Header
@@ -227,35 +184,22 @@ export const Game = () => {
                 totalQuestions={totalQuestions}
                 score={score}
             />
-
             <main className="flex-1 flex flex-col items-center overflow-y-auto gap-3 justify-between">
-                {questionText && <MascotBubble message={questionText} />}
-                {QuestionComponent && <QuestionComponent {...targetTime} />}
-                <Answers
-                    mode={mode}
-                    options={options}
-                    selectedOption={selectedOption}
-                    onSelectOption={setSelectedOption}
-                    userInputHours={userInputHours}
-                    onChangeHours={setUserInputHours}
-                    userInputMinutes={userInputMinutes}
-                    onChangeMinutes={setUserInputMinutes}
-                    isDisabled={isFeedbackVisible}
-                />
+                {props.question.text && (
+                    <MascotBubble message={props.question.text} />
+                )}
+                <QuestionRenderer {...props.question} />
+                <Answers {...props.answer} />
                 <ActionFooter
-                    isFeedbackVisible={isFeedbackVisible}
-                    isCorrect={isCorrect}
-                    isDisabled={isFooterDisabled}
-                    onCheckAnswer={handleCheckAnswer}
-                    onNext={handleNext}
-                >
-                    <FeedbackSection
-                        isFeedbackVisible={isFeedbackVisible}
-                        isCorrect={isCorrect}
-                        correctAnswer={formatTime(targetTime)}
-                        earnedStars={2}
-                    />
-                </ActionFooter>
+                    {...props.footer}
+                    feedback={
+                        <ResultNotification
+                            isCorrect={props.footer.isCorrect}
+                            correctAnswer={formatTime(props.question.value)}
+                            earnedStars={props.scoreValue.positiveScore}
+                        />
+                    }
+                />
             </main>
             {/* <BottomNav /> */}
         </div>
