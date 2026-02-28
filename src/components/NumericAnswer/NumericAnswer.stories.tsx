@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
-import { fn } from 'storybook/test'
-import { within, userEvent, expect } from 'storybook/test'
+import { fn, within, userEvent, expect } from 'storybook/test'
 import { NumericAnswer } from './NumericAnswer'
 
 const meta = {
@@ -8,8 +7,13 @@ const meta = {
     component: NumericAnswer,
     tags: ['autodocs'],
     args: {
-        onHoursChange: fn(),
-        onMinutesChange: fn(),
+        onChange: fn(),
+        options: [
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+            [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55],
+        ],
+        value: { hours: 0, minutes: 0 },
+        isDisabled: false,
     },
     parameters: {
         layout: 'centered',
@@ -28,56 +32,54 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
     args: {
-        hoursValue: 0,
-        minutesValue: 0,
+        value: { hours: 0, minutes: 0 },
     },
 }
 
 export const WithValues: Story = {
     args: {
-        hoursValue: 3,
-        minutesValue: 45,
+        value: { hours: 3, minutes: 45 },
     },
 }
 
 export const Empty: Story = {
     args: {
-        hoursValue: 0,
-        minutesValue: 0,
+        value: { hours: 0, minutes: 0 },
     },
 }
 
 export const SelectHour: Story = {
     args: {
-        hoursValue: 0,
-        minutesValue: 0,
+        value: { hours: 0, minutes: 0 },
     },
     play: async ({ canvasElement, args }) => {
         const canvas = within(canvasElement)
         const hourSelect = canvas.getByLabelText('Hours')
         await userEvent.selectOptions(hourSelect, '6')
-        await expect(args.onHoursChange).toHaveBeenCalledWith('6')
-        await expect(args.onMinutesChange).not.toHaveBeenCalled()
+        await expect(args.onChange).toHaveBeenCalledWith({
+            hours: 6,
+            minutes: 0,
+        })
     },
 }
 
 export const SelectMinute: Story = {
     args: {
-        hoursValue: 0,
-        minutesValue: 0,
+        value: { hours: 0, minutes: 0 },
     },
     play: async ({ canvasElement, args }) => {
         const canvas = within(canvasElement)
         const minuteSelect = canvas.getByLabelText('Minutes')
         await userEvent.selectOptions(minuteSelect, '30')
-        await expect(args.onMinutesChange).toHaveBeenCalledWith('30')
-        await expect(args.onHoursChange).not.toHaveBeenCalled()
+        await expect(args.onChange).toHaveBeenCalledWith({
+            hours: 0,
+            minutes: 30,
+        })
     },
 }
 
 export const FullTime: Story = {
     args: {
-        hoursValue: 12,
-        minutesValue: 55,
+        value: { hours: 12, minutes: 55 },
     },
 }

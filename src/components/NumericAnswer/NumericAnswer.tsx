@@ -1,16 +1,19 @@
+type value = {
+    hours: number
+    minutes: number
+}
+
 type NumericAnswerProps = {
-    hoursValue: number
-    minutesValue: number
-    onHoursChange: (value: string) => void
-    onMinutesChange: (value: string) => void
+    options: number[][]
+    value: value
+    onChange: (value: value) => void
     isDisabled: boolean
 }
 
 export const NumericAnswer = ({
-    hoursValue,
-    minutesValue,
-    onHoursChange,
-    onMinutesChange,
+    options,
+    value,
+    onChange,
     isDisabled,
 }: NumericAnswerProps) => {
     return (
@@ -24,33 +27,27 @@ export const NumericAnswer = ({
                         Hours
                     </label>
                     <select
-                        value={hoursValue}
-                        onChange={(e) => onHoursChange(e.target.value)}
+                        value={value?.hours}
+                        onChange={(e) =>
+                            onChange({
+                                hours: Number(e.target.value),
+                                minutes: value?.minutes,
+                            })
+                        }
                         id="hours"
                         disabled={isDisabled}
                         className={`w-20 h-15 text-center text-3xl font-black bg-background-light border-2 border-blue-400/20 focus:border-blue-400 focus:ring-4 focus:ring-blue-400/10 rounded-xl text-blue-400 transition-all outline-none ${isDisabled ? 'opacity-50 cursor-not-allowed' : ''}`}
                     >
                         <option value="">--</option>
-                        {Array.from({ length: 12 }, (_, i) => i + 1).map(
-                            (hour) => (
-                                <option
-                                    key={hour}
-                                    value={hour}
-                                >
-                                    {hour}
-                                </option>
-                            ),
-                        )}
+                        {options[0].map((hour) => (
+                            <option
+                                key={hour}
+                                value={hour}
+                            >
+                                {hour}
+                            </option>
+                        ))}
                     </select>
-                    {/* <input
-            type="number"
-            min="1"
-            max="12"
-            value={hoursValue}
-            onChange={(e) => onHoursChange(e.target.value)}
-            placeholder="--"
-            className="w-20 h-20 text-center text-3xl font-black bg-background-light border-2 border-blue-400/20 focus:border-blue-400 focus:ring-4 focus:ring-blue-400/10 rounded-xl text-blue-400 transition-all outline-none"
-          /> */}
                 </div>
                 <div className="text-4xl font-bold text-slate-300 mt-6">:</div>
                 <div className="flex flex-col items-center gap-2">
@@ -61,34 +58,27 @@ export const NumericAnswer = ({
                         Minutes
                     </label>
                     <select
-                        value={minutesValue}
+                        value={value?.minutes}
                         disabled={isDisabled}
-                        onChange={(e) => onMinutesChange(e.target.value)}
+                        onChange={(e) =>
+                            onChange({
+                                hours: value?.hours,
+                                minutes: Number(e.target.value),
+                            })
+                        }
                         id="minutes"
                         className={`w-20 h-15 text-center text-3xl font-black bg-background-light border-2 border-blue-400/20 focus:border-blue-400 focus:ring-4 focus:ring-blue-400/10 rounded-xl text-blue-400 transition-all outline-none ${isDisabled ? 'opacity-50 cursor-not-allowed' : ''}`}
                     >
                         <option value="">--</option>
-                        {Array.from({ length: 60 / 5 }, (_, i) => i * 5).map(
-                            (minute) => (
-                                <option
-                                    key={minute}
-                                    value={minute}
-                                >
-                                    {minute}
-                                </option>
-                            ),
-                        )}
+                        {options[1].map((minute) => (
+                            <option
+                                key={minute}
+                                value={minute}
+                            >
+                                {minute}
+                            </option>
+                        ))}
                     </select>
-                    {/* <input
-            type="number"
-            min="0"
-            max="59"
-            value={minutesValue}
-            onChange={(e) => onMinutesChange(e.target.value)}
-            placeholder="--"
-            className={`w-20 h-20 text-center text-3xl font-black bg-background-light border-2 border-blue-400/20 focus:border-blue-400 focus:ring-4 focus:ring-blue-400/10 rounded-xl text-blue-400 transition-all outline-none ${isDisabled ? 'opacity-50 cursor-not-allowed' : ''}`}
-          />
-          */}
                 </div>
             </div>
         </div>
