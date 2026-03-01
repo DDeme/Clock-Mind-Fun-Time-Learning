@@ -56,7 +56,7 @@ export const SingleChoice: React.FC<SingleChoiceProps> = ({
                     } ${isDisabled ? 'cursor-not-allowed opacity-50' : ''} `}
                 >
                     <span
-                        className={`text-2xl font-bold ${isSelected ? 'text-blue-400' : 'text-slate-700'}`}
+                        className={`text-2xl font-bold ${isSelected ? 'text-blue-600' : 'text-slate-700'}`}
                     >
                         {timeString}
                     </span>

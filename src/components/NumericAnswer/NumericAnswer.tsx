@@ -22,7 +22,7 @@ export const NumericAnswer = ({
             <div className="flex items-center justify-center gap-4">
                 <div className="flex flex-col items-center gap-2">
                     <label
-                        className="text-[10px] font-extrabold tracking-widest text-slate-400 uppercase"
+                        className="text-[10px] font-extrabold tracking-widest text-slate-600 uppercase"
                         htmlFor="numeric-hours"
                     >
                         Hours
@@ -38,7 +38,7 @@ export const NumericAnswer = ({
                         id="numeric-hours"
                         disabled={isDisabled}
                         aria-label="Select hours"
-                        className={`bg-background-light h-15 w-20 rounded-xl border-2 border-blue-400/20 text-center text-3xl font-black text-blue-400 transition-all outline-none focus:border-blue-400 focus:ring-4 focus:ring-blue-400/10 ${isDisabled ? 'cursor-not-allowed opacity-50' : ''}`}
+                        className={`bg-background-light h-15 w-20 rounded-xl border-2 border-blue-400/20 text-center text-3xl font-black text-blue-600 transition-all outline-none focus:border-blue-400 focus:ring-4 focus:ring-blue-400/10 ${isDisabled ? 'cursor-not-allowed opacity-50' : ''}`}
                     >
                         <option value="">--</option>
                         {options[0].map((hour) => (
@@ -59,7 +59,7 @@ export const NumericAnswer = ({
                 </div>
                 <div className="flex flex-col items-center gap-2">
                     <label
-                        className="text-[10px] font-extrabold tracking-widest text-slate-400 uppercase"
+                        className="text-[10px] font-extrabold tracking-widest text-slate-600 uppercase"
                         htmlFor="numeric-minutes"
                     >
                         Minutes
@@ -75,7 +75,7 @@ export const NumericAnswer = ({
                         }
                         id="numeric-minutes"
                         aria-label="Select minutes"
-                        className={`bg-background-light h-15 w-20 rounded-xl border-2 border-blue-400/20 text-center text-3xl font-black text-blue-400 transition-all outline-none focus:border-blue-400 focus:ring-4 focus:ring-blue-400/10 ${isDisabled ? 'cursor-not-allowed opacity-50' : ''}`}
+                        className={`bg-background-light h-15 w-20 rounded-xl border-2 border-blue-400/20 text-center text-3xl font-black text-blue-600 transition-all outline-none focus:border-blue-400 focus:ring-4 focus:ring-blue-400/10 ${isDisabled ? 'cursor-not-allowed opacity-50' : ''}`}
                     >
                         <option value="">--</option>
                         {options[1].map((minute) => (

@@ -18,7 +18,7 @@ export const TimelineContent = ({ lessons }: TimelineContentProps) => {
         switch (lesson.status) {
             case 'completed':
                 return (
-                    <div className="flex size-16 items-center justify-center rounded-full border-4 border-green-600 bg-white text-green-600 shadow-lg">
+                    <div className="flex size-16 items-center justify-center rounded-full border-4 border-green-600 bg-white text-green-700 shadow-lg">
                         <Check className="size-8 stroke-3" />
                     </div>
                 )
@@ -36,7 +36,7 @@ export const TimelineContent = ({ lessons }: TimelineContentProps) => {
                                 strokeWidth="6"
                             ></circle>
                             <circle
-                                className="text-blue-500"
+                                className="text-blue-600"
                                 cx="48"
                                 cy="48"
                                 fill="none"
@@ -56,7 +56,7 @@ export const TimelineContent = ({ lessons }: TimelineContentProps) => {
                 )
             case 'locked':
                 return (
-                    <div className="flex size-14 items-center justify-center rounded-full border-4 border-slate-200 bg-slate-100 text-slate-400">
+                    <div className="flex size-14 items-center justify-center rounded-full border-4 border-slate-200 bg-slate-100 text-slate-600">
                         <Lock className="size-6" />
                     </div>
                 )
@@ -79,15 +79,15 @@ export const TimelineContent = ({ lessons }: TimelineContentProps) => {
         switch (lesson.status) {
             case 'completed':
                 statusText = 'Finished!'
-                statusColor = 'text-green-600'
+                statusColor = 'text-green-700'
                 break
             case 'active':
                 statusText = 'LEARNING...'
-                statusColor = 'text-blue-500/60'
+                statusColor = 'text-blue-600'
                 break
             case 'locked':
                 statusText = 'Locked'
-                statusColor = 'text-slate-400'
+                statusColor = 'text-slate-600'
                 break
         }
 
@@ -98,8 +98,8 @@ export const TimelineContent = ({ lessons }: TimelineContentProps) => {
                         lesson.status === 'completed'
                             ? 'text-slate-800'
                             : lesson.status === 'active'
-                              ? 'text-lg font-extrabold text-blue-500'
-                              : 'text-slate-400'
+                              ? 'text-lg font-extrabold text-blue-600'
+                              : 'text-slate-600'
                     }`}
                 >
                     {lesson.title}
@@ -140,7 +140,7 @@ export const TimelineContent = ({ lessons }: TimelineContentProps) => {
                     <div className="z-10 flex size-20 items-center justify-center rounded-full border-4 border-slate-200 bg-slate-100 text-slate-300">
                         <Flag className="size-8" />
                     </div>
-                    <span className="mt-4 text-sm font-bold tracking-widest text-slate-400 uppercase">
+                    <span className="mt-4 text-sm font-bold tracking-widest text-slate-600 uppercase">
                         Graduation
                     </span>
                 </div>

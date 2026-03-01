@@ -1,4 +1,3 @@
-import React from 'react'
 import { Trophy } from 'lucide-react'
 
 interface ProgressHeaderProps {
@@ -27,7 +26,7 @@ export const ProgressHeader = ({
                         {level}
                     </p>
                 </div>
-                <div className="flex size-12 items-center justify-center rounded-full bg-blue-500/10 text-blue-500">
+                <div className="flex size-12 items-center justify-center rounded-full bg-blue-500/10 text-blue-600">
                     <Trophy className="size-6" />
                 </div>
             </div>
@@ -38,7 +37,7 @@ export const ProgressHeader = ({
                     <span className="text-sm font-bold text-slate-700">
                         Overall Progress
                     </span>
-                    <span className="text-sm font-bold text-blue-500">
+                    <span className="text-sm font-bold text-blue-600">
                         {currentLessons} / {totalLessons} Lessons
                     </span>
                 </div>

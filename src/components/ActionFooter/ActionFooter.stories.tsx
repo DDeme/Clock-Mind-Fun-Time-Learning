@@ -44,7 +44,7 @@ export const Disabled: Story = {
 
 export const CorrectFeedback: Story = {
     args: {
-        feedback: <div className="p-4 text-green-600">Great job!</div>,
+        feedback: <div className="p-4 text-green-700">Great job!</div>,
         isCorrect: true,
         isDisabled: false,
         isFeedbackVisible: true,

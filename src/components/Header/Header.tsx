@@ -51,13 +51,13 @@ export const Header: React.FC<HeaderProps> = ({
                     aria-label={`Score: ${score} points`}
                 >
                     <span
-                        className="material-symbols-outlined text-xl text-blue-400"
+                        className="material-symbols-outlined text-xl text-blue-600"
                         aria-hidden="true"
                         style={{ fontVariationSettings: "'FILL' 1" }}
                     >
                         star
                     </span>
-                    <span className="font-bold text-blue-400">{score}</span>
+                    <span className="font-bold text-blue-600">{score}</span>
                 </div>
             </div>
         </header>
