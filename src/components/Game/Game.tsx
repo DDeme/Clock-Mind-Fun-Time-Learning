@@ -34,17 +34,6 @@ const numericOptions = [
     [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55],
 ]
 
-// eslint-disable-next-line unused-imports/no-unused-vars
-const question = {
-    id: 1,
-    title: 'Look at the clock! What time is it?',
-    type: 'analog-clock',
-    value: {
-        hours: 3,
-        minutes: 45,
-    },
-}
-
 export const Game = () => {
     const [currentQuestionIdx, setCurrentQuestionIdx] = useState(1)
     const [totalQuestions] = useState(10)
@@ -172,7 +161,7 @@ export const Game = () => {
             isDisabled: isFeedbackVisible,
             onChange: setAnswer,
             value: answer,
-        },
+        } as ComponentProps<typeof Answers>,
         footer: {
             isCorrect,
             isDisabled: answer === null,

@@ -6,6 +6,7 @@ const config: StorybookConfig = {
         '@storybook/addon-vitest',
         '@storybook/addon-a11y',
         '@storybook/addon-docs',
+        'storybook-addon-remix-react-router',
         // "@storybook/addon-onboarding"
         {
             name: '@storybook/addon-mcp',

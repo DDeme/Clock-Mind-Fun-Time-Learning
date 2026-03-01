@@ -1,5 +1,4 @@
 import { Check, Clock, Lock, Flag } from 'lucide-react'
-import React from 'react'
 
 interface Lesson {
     id: number
@@ -118,7 +117,10 @@ export const TimelineContent = ({ lessons }: TimelineContentProps) => {
     }
 
     return (
-        <main className="relative flex-1 overflow-y-auto px-6 py-8" tabIndex={0}>
+        <main
+            className="relative flex-1 overflow-y-auto px-6 py-8"
+            tabIndex={0}
+        >
             <div className="relative flex flex-col items-center">
                 {/* Central Vertical Line */}
                 <div className="absolute top-0 left-1/2 h-full w-1 -translate-x-1/2 rounded-full border-l-2 border-dashed border-slate-300"></div>

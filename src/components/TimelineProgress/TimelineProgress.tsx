@@ -1,5 +1,5 @@
 import { Play } from 'lucide-react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router'
 
 import { Layout } from '../Layout'
 import { ProgressHeader } from '../ProgressHeader/ProgressHeader'

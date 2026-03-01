@@ -1,4 +1,4 @@
-import { createBrowserRouter } from 'react-router-dom'
+import { createBrowserRouter } from 'react-router'
 
 import { GamePage } from '../pages/Game'
 import { IntroPage } from '../pages/Intro'

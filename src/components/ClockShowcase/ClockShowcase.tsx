@@ -187,7 +187,7 @@ export const ClockShowcase = () => {
                             animate={{ rotate: hourRotation }}
                             transition={
                                 isDragging
-                                    ? { type: 'just' }
+                                    ? { type: 'tween' }
                                     : { stiffness: 50, type: 'spring' }
                             }
                             onPanStart={() => setIsDragging(true)}
@@ -203,7 +203,7 @@ export const ClockShowcase = () => {
                             animate={{ rotate: minuteRotation }}
                             transition={
                                 isDragging
-                                    ? { type: 'just' }
+                                    ? { type: 'tween' }
                                     : { stiffness: 50, type: 'spring' }
                             }
                             onPanStart={() => setIsDragging(true)}

@@ -88,7 +88,7 @@ export const WithComplexContent: Story = {
                         <p className="mt-2 text-slate-600">
                             Learn to read the hour hand on analog clocks
                         </p>
-                        <button className="mt-4 rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600">
+                        <button className="mt-4 rounded bg-blue-700 px-4 py-2 text-white hover:bg-blue-800">
                             Start Lesson
                         </button>
                     </section>
