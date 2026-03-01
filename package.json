@@ -21,10 +21,12 @@
     "dependencies": {
         "@tailwindcss/vite": "^4.2.0",
         "clsx": "^2.1.1",
+        "i18next": "^23.7.6",
         "lucide-react": "^0.575.0",
         "motion": "^12.34.3",
         "react": "^19.2.0",
         "react-dom": "^19.2.0",
+        "react-i18next": "^13.5.0",
         "react-router-dom": "^7.13.1",
         "tailwindcss": "^4.2.0"
     },
