@@ -1,4 +1,5 @@
 import React, { type ComponentProps } from 'react'
+
 import { AnalogClock } from '../AnalogClock/AnalogClock'
 
 const QuestionType = {

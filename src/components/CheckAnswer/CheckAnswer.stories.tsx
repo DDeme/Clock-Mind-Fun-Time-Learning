@@ -1,5 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
 import { CheckAnswer } from './CheckAnswer'
+
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
     args: {

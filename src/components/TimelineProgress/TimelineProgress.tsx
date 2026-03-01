@@ -1,8 +1,9 @@
 import { Play } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
+
+import { Layout } from '../Layout'
 import { ProgressHeader } from '../ProgressHeader/ProgressHeader'
 import { TimelineContent } from '../TimelineContent/TimelineContent'
-import { useNavigate } from 'react-router-dom'
-import { Layout } from '../Layout'
 
 export const TimelineProgress = () => {
     const navigate = useNavigate()

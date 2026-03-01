@@ -1,12 +1,14 @@
 import { useState, useEffect, useCallback, type ComponentProps } from 'react'
-import { MascotBubble } from '../MascotBubble/MascotBubble'
+
 import { ActionFooter } from '../ActionFooter'
 import { Answers } from '../Answers'
 import { Header } from '../Header'
-import { QuestionRenderer } from '../QuestionRenderer/QuestionRenderer'
-import type { QuestionRendererProps } from '../QuestionRenderer/QuestionRenderer'
-import { ResultNotification } from '../ResultNotification'
 import { Layout } from '../Layout'
+import { MascotBubble } from '../MascotBubble/MascotBubble'
+import { QuestionRenderer } from '../QuestionRenderer/QuestionRenderer'
+import { ResultNotification } from '../ResultNotification'
+
+import type { QuestionRendererProps } from '../QuestionRenderer/QuestionRenderer'
 
 export type AnswerType = ComponentProps<typeof Answers>['type']
 
@@ -32,6 +34,7 @@ const numericOptions = [
     [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55],
 ]
 
+// eslint-disable-next-line unused-imports/no-unused-vars
 const question = {
     id: 1,
     title: 'Look at the clock! What time is it?',

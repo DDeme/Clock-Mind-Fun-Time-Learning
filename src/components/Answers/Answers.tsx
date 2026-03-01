@@ -1,7 +1,9 @@
 import React from 'react'
-import type { AnswerType } from '../Game/Game'
+
 import { NumericAnswer } from '../NumericAnswer/NumericAnswer'
 import { SingleChoice } from '../SingleChoice/SingleChoice'
+
+import type { AnswerType } from '../Game/Game'
 
 const AnswerType = {
     NUMERIC_ANSWER: 'numeric-answer',

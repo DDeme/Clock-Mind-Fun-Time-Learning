@@ -1,5 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
 import { TimelineContent } from './TimelineContent'
+
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
     argTypes: {

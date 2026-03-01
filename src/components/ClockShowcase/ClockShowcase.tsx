@@ -3,7 +3,6 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { useState, useEffect, useRef } from 'react'
 import {
     ChevronLeft,
     Settings,
@@ -13,11 +12,11 @@ import {
     RefreshCcw,
 } from 'lucide-react'
 import { motion, AnimatePresence } from 'motion/react'
+import { useState, useEffect, useRef } from 'react'
 
 export const ClockShowcase = () => {
     const [time, setTime] = useState(new Date())
     const [is24Hour, setIs24Hour] = useState(false)
-    const [activeTab, setActiveTab] = useState('home')
     const [isManual, setIsManual] = useState(false)
     const [isDragging, setIsDragging] = useState(false)
     const clockRef = useRef<HTMLDivElement>(null)
@@ -44,7 +43,11 @@ export const ClockShowcase = () => {
     const hourRotation = (hours % 12) * 30 + minutes * 0.5
     const minuteRotation = minutes * 6
 
-    const handlePan = (event: any, info: any, type: 'hour' | 'minute') => {
+    const handlePan = (
+        _event: unknown,
+        info: { point: { x: number; y: number } },
+        type: 'hour' | 'minute',
+    ) => {
         if (!clockRef.current) return
         const rect = clockRef.current.getBoundingClientRect()
         const centerX = rect.left + rect.width / 2

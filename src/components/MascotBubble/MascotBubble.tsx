@@ -1,4 +1,5 @@
 import React from 'react'
+
 import imgUrl from '../../assets/pixel-cat.svg'
 
 type MascotBubbleProps = {

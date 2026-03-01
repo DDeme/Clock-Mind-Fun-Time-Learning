@@ -1,6 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
 import { fn, within, userEvent, expect } from 'storybook/test'
+
 import { SingleChoice } from './SingleChoice'
+
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
     args: {

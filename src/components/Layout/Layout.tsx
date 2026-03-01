@@ -1,5 +1,6 @@
-import type { PropsWithChildren } from 'react'
 import { BottomNavigation } from '../BottomNavigation'
+
+import type { PropsWithChildren } from 'react'
 
 interface LayoutProps {
     hideNavigation?: boolean

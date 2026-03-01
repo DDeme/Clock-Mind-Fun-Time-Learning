@@ -1,5 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
 import { ActionFooter } from './ActionFooter'
+
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
     args: {

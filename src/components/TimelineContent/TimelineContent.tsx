@@ -1,5 +1,5 @@
-import React from 'react'
 import { Check, Clock, Lock, Flag } from 'lucide-react'
+import React from 'react'
 
 interface Lesson {
     id: number

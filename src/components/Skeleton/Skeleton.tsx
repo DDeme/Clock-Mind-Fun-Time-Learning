@@ -1,6 +1,6 @@
-import React from 'react'
-import { motion } from 'motion/react'
 import clsx from 'clsx'
+import { motion } from 'motion/react'
+import React from 'react'
 
 export interface SkeletonProps {
     variant?: 'circle' | 'square' | 'text'

@@ -1,5 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
 import { ClockHands } from './ClockHands'
+
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
     argTypes: {

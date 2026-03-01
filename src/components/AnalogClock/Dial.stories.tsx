@@ -1,5 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
 import { Dial } from './Dial'
+
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
     component: Dial,

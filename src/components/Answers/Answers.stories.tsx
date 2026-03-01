@@ -1,7 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
+import { fn , within, userEvent, expect } from 'storybook/test'
+
 import { Answers } from './Answers'
-import { fn } from 'storybook/test'
-import { within, userEvent, expect } from 'storybook/test'
+
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
     component: Answers,

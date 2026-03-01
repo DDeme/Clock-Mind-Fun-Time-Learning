@@ -1,5 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
 import { Game } from './Game'
+
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
 // Mock Math.random for deterministic stories
 const mockMathRandom = (value: number) => {

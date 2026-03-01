@@ -8,6 +8,7 @@ import reactRefresh from 'eslint-plugin-react-refresh'
 import tseslint from 'typescript-eslint'
 import unusedImports from 'eslint-plugin-unused-imports'
 import sortKeysFix from 'eslint-plugin-sort-keys-fix'
+import importPlugin from 'eslint-plugin-import'
 import { defineConfig, globalIgnores } from 'eslint/config'
 
 export default defineConfig([
@@ -27,12 +28,35 @@ export default defineConfig([
         plugins: {
             'unused-imports': unusedImports,
             'sort-keys-fix': sortKeysFix,
+            import: importPlugin,
         },
         rules: {
             '@typescript-eslint/no-unused-vars': 'off',
             'no-unused-vars': 'off',
             'unused-imports/no-unused-imports': 'error',
             'sort-keys-fix/sort-keys-fix': 'warn',
+            'import/order': [
+                'error',
+                {
+                    groups: [
+                        'builtin',
+                        'external',
+                        'internal',
+                        'parent',
+                        'sibling',
+                        'index',
+                        'object',
+                        'type',
+                    ],
+                    'newlines-between': 'always',
+                    alphabetize: {
+                        order: 'asc',
+                        caseInsensitive: true,
+                    },
+                },
+            ],
+            'import/newline-after-import': 'error',
+            'import/no-duplicates': 'error',
             'unused-imports/no-unused-vars': [
                 'error',
                 {

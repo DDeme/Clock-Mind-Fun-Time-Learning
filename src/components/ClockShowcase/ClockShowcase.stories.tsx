@@ -1,5 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
 import { ClockShowcase } from './ClockShowcase'
+
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
     component: ClockShowcase,

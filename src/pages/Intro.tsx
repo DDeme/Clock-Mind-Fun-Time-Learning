@@ -1,6 +1,7 @@
-import { useNavigate } from 'react-router-dom'
-import { Button } from '../components/Button/Button'
 import { motion } from 'motion/react'
+import { useNavigate } from 'react-router-dom'
+
+import { Button } from '../components/Button/Button'
 import { Layout } from '../components/Layout'
 
 export const IntroPage = () => {

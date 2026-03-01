@@ -1,6 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
-import { AnalogClock } from './AnalogClock'
 import { useEffect, useState } from 'react'
+
+import { AnalogClock } from './AnalogClock'
+
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
     argTypes: {

@@ -1,5 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react'
 import { Skeleton, SkeletonLoader, AnimatedSkeletonIcon } from './Skeleton'
+
+import type { Meta } from '@storybook/react-vite'
 
 const meta: Meta<typeof Skeleton> = {
     argTypes: {
@@ -141,7 +142,6 @@ export const CustomColor: Story = {
 }
 
 export const CardSkeleton: Story = {
-    name: 'Card Skeleton',
     render: () => (
         <div className="w-80 rounded-lg border p-4 shadow-sm">
             <div className="mb-4 flex items-start space-x-3">
@@ -182,7 +182,6 @@ export const CardSkeleton: Story = {
 }
 
 export const ListSkeleton: Story = {
-    name: 'List Skeleton',
     render: () => (
         <div className="w-80 space-y-3">
             {[1, 2, 3, 4].map((item) => (
