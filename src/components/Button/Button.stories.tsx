@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
+import { within, userEvent, expect } from 'storybook/test'
 import { Button } from './Button'
 
 const meta = {
@@ -95,5 +96,45 @@ export const ErrorDisabled: Story = {
         children: 'ERROR',
         disabled: true,
         variant: 'error',
+    },
+}
+
+export const WithAccessibilityProps: Story = {
+    args: {
+        ariaDescribedBy: 'answer-help',
+        ariaLabel: 'Submit your answer to check if it is correct',
+        children: 'Submit Answer',
+        variant: 'primary',
+    },
+    parameters: {
+        docs: {
+            description: {
+                story: 'Button with accessibility props for screen readers. The ariaLabel provides a descriptive label, and ariaDescribedBy links to additional help text.',
+            },
+        },
+    },
+}
+
+export const AccessibilityTest: Story = {
+    args: {
+        children: 'Test Button',
+        variant: 'primary',
+    },
+    play: async ({ canvasElement }) => {
+        const canvas = within(canvasElement)
+        const button = canvas.getByRole('button')
+
+        // Test basic button properties
+        await expect(button).toBeInTheDocument()
+        await expect(button).toHaveAttribute('type', 'button')
+
+        // Test focus management
+        button.focus()
+        await expect(button).toHaveFocus()
+
+        // Test keyboard interaction
+        await userEvent.tab()
+        await expect(button).toHaveFocus()
+        await userEvent.keyboard('{Enter}')
     },
 }

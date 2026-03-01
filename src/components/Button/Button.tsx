@@ -7,6 +7,8 @@ type ButtonProps = {
     onClick: () => void
     disabled?: boolean
     variant?: ButtonVariant
+    ariaLabel?: string
+    ariaDescribedBy?: string
 }
 
 const variantStyles: Record<
@@ -44,6 +46,8 @@ export const Button: React.FC<ButtonProps> = ({
     onClick,
     disabled = false,
     variant = 'primary',
+    ariaLabel,
+    ariaDescribedBy,
 }) => {
     const styles = variantStyles[variant]
 
@@ -51,7 +55,9 @@ export const Button: React.FC<ButtonProps> = ({
         <button
             onClick={onClick}
             disabled={disabled}
-            className={`flex w-full items-center justify-center gap-3 rounded-2xl py-5 text-xl font-extrabold transition-all ${disabled ? styles.disabled : styles.enabled} `}
+            aria-label={ariaLabel}
+            aria-describedby={ariaDescribedBy}
+            className={`flex w-full items-center justify-center gap-3 rounded-2xl py-5 text-xl font-extrabold transition-all focus:ring-4 focus:ring-blue-400/50 focus:outline-none ${disabled ? styles.disabled : styles.enabled} `}
         >
             {children}
         </button>

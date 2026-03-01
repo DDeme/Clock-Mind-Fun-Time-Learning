@@ -86,7 +86,13 @@ export const LargeSize: Story = {
 }
 
 export const LiveClock: Story = {
-    render: () => {
+    args: {
+        hideSeconds: false,
+        hours: new Date().getHours(),
+        minutes: new Date().getMinutes(),
+        seconds: new Date().getSeconds(),
+    },
+    render: function LiveClockRender() {
         const [time, setTime] = useState({
             hours: new Date().getHours(),
             minutes: new Date().getMinutes(),
