@@ -6,6 +6,7 @@ import { Header } from '../Header'
 import { QuestionRenderer } from '../QuestionRenderer/QuestionRenderer'
 import type { QuestionRendererProps } from '../QuestionRenderer/QuestionRenderer'
 import { ResultNotification } from '../ResultNotification'
+import { Layout } from '../Layout'
 
 export type AnswerType = ComponentProps<typeof Answers>['type']
 
@@ -178,7 +179,7 @@ export const Game = () => {
         },
     }
     return (
-        <div className="bg-background-light relative mx-auto flex min-h-screen max-w-md flex-col overflow-hidden p-6">
+        <Layout hideNavigation>
             <Header
                 currentQuestionIdx={currentQuestionIdx}
                 totalQuestions={totalQuestions}
@@ -214,6 +215,6 @@ export const Game = () => {
                 Question {currentQuestionIdx} of {totalQuestions}, Score:{' '}
                 {score} points
             </div>
-        </div>
+        </Layout>
     )
 }

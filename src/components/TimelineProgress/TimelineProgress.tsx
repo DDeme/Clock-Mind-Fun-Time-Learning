@@ -1,7 +1,8 @@
-import { Home, History, ClipboardCheck, User, Play } from 'lucide-react'
+import { Play } from 'lucide-react'
 import { ProgressHeader } from '../ProgressHeader/ProgressHeader'
 import { TimelineContent } from '../TimelineContent/TimelineContent'
 import { useNavigate } from 'react-router-dom'
+import { Layout } from '../Layout'
 
 export const TimelineProgress = () => {
     const navigate = useNavigate()
@@ -41,86 +42,26 @@ export const TimelineProgress = () => {
     ]
 
     return (
-        <div className="font-display bg-background-light flex min-h-screen justify-center text-slate-900 antialiased">
-            <div className="from-accent-blue relative flex h-screen w-full max-w-md flex-col overflow-hidden bg-linear-to-b to-white shadow-2xl">
-                <ProgressHeader
-                    title="Clock Master"
-                    level="Level 2: The Hour Hand"
-                    currentLessons={3}
-                    totalLessons={10}
+        <Layout>
+            <ProgressHeader
+                title="Clock Master"
+                level="Level 2: The Hour Hand"
+                currentLessons={3}
+                totalLessons={10}
+            />
+
+            <TimelineContent lessons={lessons} />
+
+            {/* Dynamic Floating Action Button */}
+            <button
+                aria-label="Start lesson"
+                className="absolute right-6 bottom-28 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-blue-500 text-white shadow-xl transition-transform active:scale-95"
+            >
+                <Play
+                    className="size-6 fill-white"
+                    onClick={() => navigate('/game')}
                 />
-
-                <TimelineContent lessons={lessons} />
-
-                {/* Dynamic Floating Action Button */}
-                <button
-                    aria-label="Start lesson"
-                    className="absolute right-6 bottom-28 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-blue-500 text-white shadow-xl transition-transform active:scale-95"
-                >
-                    <Play
-                        className="size-6 fill-white"
-                        onClick={() => navigate('/game')}
-                    />
-                </button>
-
-                {/* Bottom Navigation Bar */}
-                <nav
-                    role="navigation"
-                    aria-label="Main navigation"
-                    className="sticky bottom-0 z-30 w-full border-t border-slate-200 bg-white/95 px-6 pt-4 pb-8 backdrop-blur-lg"
-                >
-                    <div className="flex items-center justify-between gap-2">
-                        {/* Home */}
-                        <button
-                            aria-label="Go to home"
-                            className="flex flex-1 flex-col items-center gap-1 text-blue-600"
-                        >
-                            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-500/10">
-                                <Home className="size-5 fill-blue-500" />
-                            </div>
-                            <span className="text-[10px] font-bold tracking-tight uppercase">
-                                Home
-                            </span>
-                        </button>
-                        {/* Practice */}
-                        <button
-                            aria-label="View practice exercises"
-                            className="flex flex-1 flex-col items-center gap-1 text-slate-500 transition-colors hover:text-blue-600"
-                        >
-                            <div className="flex h-10 w-10 items-center justify-center">
-                                <History className="size-5" />
-                            </div>
-                            <span className="text-[10px] font-bold tracking-tight uppercase">
-                                Practice
-                            </span>
-                        </button>
-                        {/* Quiz */}
-                        <button
-                            aria-label="Take quiz"
-                            className="flex flex-1 flex-col items-center gap-1 text-slate-500 transition-colors hover:text-blue-600"
-                        >
-                            <div className="flex h-10 w-10 items-center justify-center">
-                                <ClipboardCheck className="size-5" />
-                            </div>
-                            <span className="text-[10px] font-bold tracking-tight uppercase">
-                                Quiz
-                            </span>
-                        </button>
-                        {/* Profile */}
-                        <button
-                            aria-label="View profile"
-                            className="flex flex-1 flex-col items-center gap-1 text-slate-500 transition-colors hover:text-blue-600"
-                        >
-                            <div className="flex h-10 w-10 items-center justify-center">
-                                <User className="size-5" />
-                            </div>
-                            <span className="text-[10px] font-bold tracking-tight uppercase">
-                                Me
-                            </span>
-                        </button>
-                    </div>
-                </nav>
-            </div>
-        </div>
+            </button>
+        </Layout>
     )
 }
