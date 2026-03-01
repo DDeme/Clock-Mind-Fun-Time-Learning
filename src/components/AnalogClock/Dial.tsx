@@ -19,7 +19,7 @@ const isFive = (index: number) => {
 }
 
 export const Dial: React.FC = () => (
-    <div className="absolute inset-1 text-gray-800 font-extrabold text-lg select-none">
+    <div className="absolute inset-1 text-lg font-extrabold text-gray-800 select-none">
         {[
             { num: 12, position: 'top-0 left-1/2 -translate-x-1/2' },
             { num: 3, position: 'right-0 top-1/2 -translate-y-1/2' },
@@ -50,24 +50,24 @@ export const Dial: React.FC = () => (
                 {num}
             </span>
         ))}
-        <div className="absolute inset-0 border m-6 border-gray-400 rounded-full p-2" />
-        <div className="relative w-full h-full flex justify-center">
+        <div className="absolute inset-0 m-6 rounded-full border border-gray-400 p-2" />
+        <div className="relative flex h-full w-full justify-center">
             {new Array(60).fill(0).map((_, index) => (
                 <div
-                    className="absolute w-0.5 rounded-full origin-bottom transition-transform duration-700 ease-out"
+                    className="absolute w-0.5 origin-bottom rounded-full transition-transform duration-700 ease-out"
                     style={{
-                        transform: `rotate(${index * 6}deg)`,
                         height: '50%',
+                        transform: `rotate(${index * 6}deg)`,
                     }}
                 >
                     <div
                         className={clsx(
-                            'absolute w-0.5 rounded-full top-0 left-1/2 -translate-x-1/2 z-10 mt-6',
+                            'absolute top-0 left-1/2 z-10 mt-6 w-0.5 -translate-x-1/2 rounded-full',
                             {
-                                'h-4/18 w-1 bg-red-600': isQuarter(index),
-                                'h-3/18 w-0.75 bg-red-400': isFive(index),
                                 'h-2/18 w-0.5 bg-slate-800':
                                     !isQuarter(index) && !isFive(index),
+                                'h-3/18 w-0.75 bg-red-400': isFive(index),
+                                'h-4/18 w-1 bg-red-600': isQuarter(index),
                             },
                         )}
                     />

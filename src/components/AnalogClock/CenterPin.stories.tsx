@@ -2,19 +2,26 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { CenterPin } from './CenterPin'
 
 const meta = {
-    title: 'Components/AnalogClock/CenterPin',
     component: CenterPin,
-    tags: ['autodocs'],
-    parameters: {
-        layout: 'centered',
-    },
     decorators: [
         (Story) => (
-            <div style={{ width: 200, height: 200, position: 'relative', backgroundColor: '#f3f4f6' }}>
+            <div
+                style={{
+                    backgroundColor: '#f3f4f6',
+                    height: 200,
+                    position: 'relative',
+                    width: 200,
+                }}
+            >
                 <Story />
             </div>
         ),
     ],
+    parameters: {
+        layout: 'centered',
+    },
+    tags: ['autodocs'],
+    title: 'Components/AnalogClock/CenterPin',
 } satisfies Meta<typeof CenterPin>
 
 export default meta

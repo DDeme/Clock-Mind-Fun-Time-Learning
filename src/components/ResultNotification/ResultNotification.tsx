@@ -11,15 +11,15 @@ export const ResultNotification: React.FC<ResultNotificationProps> = ({
     correctAnswer,
     earnedStars,
 }) => (
-    <div className={`flex flex-col gap-4 animate-slide-up`}>
+    <div className={`animate-slide-up flex flex-col gap-4`}>
         <div
-            className={`flex items-center gap-3 p-4 rounded-xl ${isCorrect ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}
+            className={`flex items-center gap-3 rounded-xl p-4 ${isCorrect ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}
         >
             <span className="material-symbols-outlined text-3xl">
                 {isCorrect ? 'check_circle' : 'cancel'}
             </span>
             <div>
-                <p className="font-black text-lg">
+                <p className="text-lg font-black">
                     {isCorrect ? 'Amazing Job!' : 'Not Quite Right'}
                 </p>
                 <p className="text-sm opacity-80">

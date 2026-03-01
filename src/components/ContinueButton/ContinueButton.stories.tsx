@@ -2,15 +2,10 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { ContinueButton } from './ContinueButton'
 
 const meta = {
-    title: 'Components/ContinueButton',
-    component: ContinueButton,
-    tags: ['autodocs'],
     args: {
         onNext: () => {},
     },
-    parameters: {
-        layout: 'padded',
-    },
+    component: ContinueButton,
     decorators: [
         (Story) => (
             <div style={{ maxWidth: 448 }}>
@@ -18,6 +13,11 @@ const meta = {
             </div>
         ),
     ],
+    parameters: {
+        layout: 'padded',
+    },
+    tags: ['autodocs'],
+    title: 'Components/ContinueButton',
 } satisfies Meta<typeof ContinueButton>
 
 export default meta

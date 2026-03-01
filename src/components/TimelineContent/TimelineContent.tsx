@@ -107,7 +107,7 @@ export const TimelineContent = ({ lessons }: TimelineContentProps) => {
                 <span
                     className={`text-xs font-medium ${statusColor} ${
                         lesson.status === 'active'
-                            ? 'font-semibold uppercase tracking-wider'
+                            ? 'font-semibold tracking-wider uppercase'
                             : ''
                     }`}
                 >
@@ -121,7 +121,7 @@ export const TimelineContent = ({ lessons }: TimelineContentProps) => {
         <main className="relative flex-1 overflow-y-auto px-6 py-8">
             <div className="relative flex flex-col items-center">
                 {/* Central Vertical Line */}
-                <div className="absolute left-1/2 top-0 h-full w-1 -translate-x-1/2 rounded-full border-l-2 border-dashed border-slate-300"></div>
+                <div className="absolute top-0 left-1/2 h-full w-1 -translate-x-1/2 rounded-full border-l-2 border-dashed border-slate-300"></div>
 
                 {lessons.map((lesson) => (
                     <div
@@ -140,7 +140,7 @@ export const TimelineContent = ({ lessons }: TimelineContentProps) => {
                     <div className="z-10 flex size-20 items-center justify-center rounded-full border-4 border-slate-200 bg-slate-100 text-slate-300">
                         <Flag className="size-8" />
                     </div>
-                    <span className="mt-4 text-sm font-bold text-slate-400 uppercase tracking-widest">
+                    <span className="mt-4 text-sm font-bold tracking-widest text-slate-400 uppercase">
                         Graduation
                     </span>
                 </div>

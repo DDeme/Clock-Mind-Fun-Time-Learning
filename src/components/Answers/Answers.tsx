@@ -4,8 +4,8 @@ import { NumericAnswer } from '../NumericAnswer/NumericAnswer'
 import { SingleChoice } from '../SingleChoice/SingleChoice'
 
 const AnswerType = {
-    SINGLE_CHOICE: 'single-choice',
     NUMERIC_ANSWER: 'numeric-answer',
+    SINGLE_CHOICE: 'single-choice',
 } as const
 
 type SingleChoiceOptions = {

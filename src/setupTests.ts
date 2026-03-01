@@ -3,74 +3,82 @@ import { jest } from '@jest/globals'
 
 // Mock window.matchMedia
 Object.defineProperty(window, 'matchMedia', {
-    writable: true,
     value: jest.fn().mockImplementation((query: string) => ({
-        matches: false,
-        media: query,
-        onchange: null,
-        addListener: jest.fn(), // deprecated
-        removeListener: jest.fn(), // deprecated
-        addEventListener: jest.fn(),
-        removeEventListener: jest.fn(),
-        dispatchEvent: jest.fn(),
+        // deprecated
+addEventListener: jest.fn(),
+        
+addListener: jest.fn(),
+        
+dispatchEvent: jest.fn(),
+        
+matches: false, 
+        
+media: query, 
+        
+onchange: null,
+        
+removeEventListener: jest.fn(),
+        // deprecated
+removeListener: jest.fn(),
     })),
+    writable: true,
 })
 
 // Mock ResizeObserver
 global.ResizeObserver = jest.fn().mockImplementation(() => ({
+    disconnect: jest.fn(),
     observe: jest.fn(),
     unobserve: jest.fn(),
-    disconnect: jest.fn(),
 }))
 
 // Mock IntersectionObserver
 global.IntersectionObserver = jest.fn().mockImplementation(() => ({
+    disconnect: jest.fn(),
     observe: jest.fn(),
     unobserve: jest.fn(),
-    disconnect: jest.fn(),
 }))
 
 // Mock motion/framer-motion
 jest.mock('motion/react', () => ({
+    AnimatePresence: ({ children }: { children: React.ReactNode }) => children,
     motion: {
-        div: 'div',
-        span: 'span',
-        button: 'button',
-        section: 'section',
-        main: 'main',
-        header: 'header',
-        footer: 'footer',
-        nav: 'nav',
         article: 'article',
+        a: 'a',
         aside: 'aside',
-        figure: 'figure',
+        button: 'button',
+        div: 'div',
         figcaption: 'figcaption',
+        figure: 'figure',
+        footer: 'footer',
+        form: 'form',
         h1: 'h1',
         h2: 'h2',
         h3: 'h3',
         h4: 'h4',
         h5: 'h5',
         h6: 'h6',
-        p: 'p',
-        a: 'a',
+        header: 'header',
         img: 'img',
-        ul: 'ul',
-        ol: 'ol',
-        li: 'li',
-        form: 'form',
         input: 'input',
-        textarea: 'textarea',
-        select: 'select',
-        option: 'option',
+        main: 'main',
         label: 'label',
+        span: 'span',
+        li: 'li',
+        section: 'section',
+        nav: 'nav',
+        ol: 'ol',
+        option: 'option',
+        p: 'p',
+        select: 'select',
         table: 'table',
-        thead: 'thead',
         tbody: 'tbody',
-        tr: 'tr',
-        th: 'th',
         td: 'td',
+        textarea: 'textarea',
+        th: 'th',
+        thead: 'thead',
+        tr: 'tr',
+        ul: 'ul',
     },
-    AnimatePresence: ({ children }: { children: React.ReactNode }) => children,
 }))
 
 // Mock CSS variables and neumorphic styles

@@ -2,19 +2,19 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { TimeToHumanText } from './RelativeTime'
 
 const meta = {
-    title: 'Components/RelativeTime',
     component: TimeToHumanText,
-    tags: ['autodocs'],
-    parameters: {
-        layout: 'centered',
-    },
     decorators: [
         (Story) => (
-            <div style={{ padding: '20px', fontSize: '18px' }}>
+            <div style={{ fontSize: '18px', padding: '20px' }}>
                 <Story />
             </div>
         ),
     ],
+    parameters: {
+        layout: 'centered',
+    },
+    tags: ['autodocs'],
+    title: 'Components/RelativeTime',
 } satisfies Meta<typeof TimeToHumanText>
 
 export default meta

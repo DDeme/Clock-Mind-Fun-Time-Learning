@@ -3,23 +3,18 @@ import { fn, within, userEvent, expect } from 'storybook/test'
 import { SingleChoice } from './SingleChoice'
 
 const meta = {
-    title: 'Components/SingleChoice',
-    component: SingleChoice,
-    tags: ['autodocs'],
     args: {
+        isDisabled: false,
         onChange: fn(),
-        value: null,
         options: [
             { hours: 3, minutes: 45 },
             { hours: 6, minutes: 30 },
             { hours: 9, minutes: 15 },
             { hours: 12, minutes: 0 },
         ],
-        isDisabled: false,
+        value: null,
     },
-    parameters: {
-        layout: 'centered',
-    },
+    component: SingleChoice,
     decorators: [
         (Story) => (
             <div style={{ width: 400 }}>
@@ -27,6 +22,11 @@ const meta = {
             </div>
         ),
     ],
+    parameters: {
+        layout: 'centered',
+    },
+    tags: ['autodocs'],
+    title: 'Components/SingleChoice',
 } satisfies Meta<typeof SingleChoice>
 
 export default meta
@@ -34,6 +34,7 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
     args: {
+        isDisabled: false,
         options: [
             { hours: 3, minutes: 45 },
             { hours: 6, minutes: 30 },
@@ -41,7 +42,6 @@ export const Default: Story = {
             { hours: 12, minutes: 0 },
         ],
         value: null,
-        isDisabled: false,
     },
 }
 

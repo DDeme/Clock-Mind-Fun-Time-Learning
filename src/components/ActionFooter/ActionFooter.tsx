@@ -1,4 +1,4 @@
-import React, { type PropsWithChildren } from 'react'
+import React from 'react'
 import { CheckAnswer } from '../CheckAnswer'
 import { ContinueButton } from '../ContinueButton'
 
@@ -19,7 +19,7 @@ export const ActionFooter: React.FC<ActionFooterProps> = ({
     onNext,
     feedback,
 }) => (
-    <footer className="w-full bg-white  border-t border-slate-100 gap-4 flex flex-col z-20">
+    <footer className="z-20 flex w-full flex-col gap-4 border-t border-slate-100 bg-white">
         {isFeedbackVisible && feedback}
         {!isCorrect && !isFeedbackVisible && (
             <CheckAnswer

@@ -17,7 +17,7 @@ export const ProgressHeader = ({
     const progressPercentage = (currentLessons / totalLessons) * 100
 
     return (
-        <header className="sticky top-0 z-20 flex flex-col gap-4 bg-white/80 px-6 pb-6 pt-12 backdrop-blur-md">
+        <header className="sticky top-0 z-20 flex flex-col gap-4 bg-white/80 px-6 pt-12 pb-6 backdrop-blur-md">
             <div className="flex items-center justify-between">
                 <div className="flex flex-col">
                     <h1 className="text-2xl font-bold tracking-tight text-slate-900">
@@ -33,7 +33,7 @@ export const ProgressHeader = ({
             </div>
 
             {/* Progress Summary Card */}
-            <div className="flex flex-col gap-3 rounded-2xl bg-white p-4 shadow-sm border border-slate-100">
+            <div className="flex flex-col gap-3 rounded-2xl border border-slate-100 bg-white p-4 shadow-sm">
                 <div className="flex items-center justify-between">
                     <span className="text-sm font-bold text-slate-700">
                         Overall Progress

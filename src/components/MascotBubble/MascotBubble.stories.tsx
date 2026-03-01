@@ -2,18 +2,18 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { MascotBubble } from './MascotBubble'
 
 const meta = {
-    title: 'Components/MascotBubble',
-    component: MascotBubble,
-    tags: ['autodocs'],
     argTypes: {
         message: {
             control: 'text',
             description: 'The message displayed in the speech bubble',
         },
     },
+    component: MascotBubble,
     parameters: {
         layout: 'centered',
     },
+    tags: ['autodocs'],
+    title: 'Components/MascotBubble',
 } satisfies Meta<typeof MascotBubble>
 
 export default meta

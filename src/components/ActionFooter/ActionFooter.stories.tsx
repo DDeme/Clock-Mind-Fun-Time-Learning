@@ -2,16 +2,11 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { ActionFooter } from './ActionFooter'
 
 const meta = {
-    title: 'Components/ActionFooter',
-    component: ActionFooter,
-    tags: ['autodocs'],
     args: {
         onCheckAnswer: () => {},
         onNext: () => {},
     },
-    parameters: {
-        layout: 'padded',
-    },
+    component: ActionFooter,
     decorators: [
         (Story) => (
             <div style={{ maxWidth: 448 }}>
@@ -19,6 +14,11 @@ const meta = {
             </div>
         ),
     ],
+    parameters: {
+        layout: 'padded',
+    },
+    tags: ['autodocs'],
+    title: 'Components/ActionFooter',
 } satisfies Meta<typeof ActionFooter>
 
 export default meta
@@ -26,32 +26,32 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
     args: {
-        isFeedbackVisible: false,
         isCorrect: null,
         isDisabled: false,
+        isFeedbackVisible: false,
     },
 }
 
 export const Disabled: Story = {
     args: {
-        isFeedbackVisible: false,
         isCorrect: null,
         isDisabled: true,
+        isFeedbackVisible: false,
     },
 }
 
 export const CorrectFeedback: Story = {
     args: {
-        isFeedbackVisible: true,
         isCorrect: true,
         isDisabled: false,
+        isFeedbackVisible: true,
     },
 }
 
 export const IncorrectFeedback: Story = {
     args: {
-        isFeedbackVisible: true,
         isCorrect: false,
         isDisabled: false,
+        isFeedbackVisible: true,
     },
 }

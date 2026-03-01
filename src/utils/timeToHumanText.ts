@@ -132,8 +132,8 @@ const specialCasesMinutes: Record<number, string> = {
 }
 
 const specialCases: Record<string, string> = {
-    '12:00': 'poludnie',
     '00:00': 'polnoc',
+    '12:00': 'poludnie',
 }
 
 const isPlural = (number: number): boolean => {
@@ -177,34 +177,34 @@ const getSpecialCaseMinutesText = (hours: number, minutes: number): string => {
 
 const periodsOfTheDay = [
     {
-        start: 5,
         end: 9,
         name: 'ráno',
+        start: 5,
     },
     {
-        start: 9,
         end: 12,
         name: 'dopoludnia',
+        start: 9,
     },
     {
-        start: 12,
         end: 18,
         name: 'popoludní',
+        start: 12,
     },
     {
-        start: 18,
         end: 22,
         name: 'popoludní',
+        start: 18,
     },
     {
-        start: 22,
         end: 24,
         name: 'v noci',
+        start: 22,
     },
     {
-        start: 0,
         end: 5,
         name: 'v noci',
+        start: 0,
     },
 ]
 // information source https://ucimesaslovencinu.sk/clanok/kolko-je-hodin-po-slovensky/#stvrt-pol-tristvrte

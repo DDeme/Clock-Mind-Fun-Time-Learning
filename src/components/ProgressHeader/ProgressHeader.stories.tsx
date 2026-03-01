@@ -2,30 +2,25 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { ProgressHeader } from './ProgressHeader'
 
 const meta = {
-    title: 'Components/ProgressHeader',
-    component: ProgressHeader,
-    tags: ['autodocs'],
     argTypes: {
-        title: {
-            control: { type: 'text' },
-            description: 'Main title displayed in the header',
+        currentLessons: {
+            control: { min: 0, type: 'number' },
+            description: 'Number of completed lessons',
         },
         level: {
             control: { type: 'text' },
             description: 'Level or subtitle text',
         },
-        currentLessons: {
-            control: { type: 'number', min: 0 },
-            description: 'Number of completed lessons',
+        title: {
+            control: { type: 'text' },
+            description: 'Main title displayed in the header',
         },
         totalLessons: {
-            control: { type: 'number', min: 1 },
+            control: { min: 1, type: 'number' },
             description: 'Total number of lessons',
         },
     },
-    parameters: {
-        layout: 'padded',
-    },
+    component: ProgressHeader,
     decorators: [
         (Story) => (
             <div style={{ maxWidth: 448 }}>
@@ -33,6 +28,11 @@ const meta = {
             </div>
         ),
     ],
+    parameters: {
+        layout: 'padded',
+    },
+    tags: ['autodocs'],
+    title: 'Components/ProgressHeader',
 } satisfies Meta<typeof ProgressHeader>
 
 export default meta
@@ -40,54 +40,54 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
     args: {
-        title: 'Clock Master',
-        level: 'Level 2: The Hour Hand',
         currentLessons: 3,
+        level: 'Level 2: The Hour Hand',
+        title: 'Clock Master',
         totalLessons: 10,
     },
 }
 
 export const Beginning: Story = {
     args: {
-        title: 'Math Basics',
-        level: 'Level 1: Addition',
         currentLessons: 0,
+        level: 'Level 1: Addition',
+        title: 'Math Basics',
         totalLessons: 8,
     },
 }
 
 export const MidProgress: Story = {
     args: {
-        title: 'Reading Comprehension',
-        level: 'Level 3: Advanced Text',
         currentLessons: 5,
+        level: 'Level 3: Advanced Text',
+        title: 'Reading Comprehension',
         totalLessons: 12,
     },
 }
 
 export const NearlyComplete: Story = {
     args: {
-        title: 'Science Explorer',
-        level: 'Level 4: Chemistry',
         currentLessons: 9,
+        level: 'Level 4: Chemistry',
+        title: 'Science Explorer',
         totalLessons: 10,
     },
 }
 
 export const Complete: Story = {
     args: {
-        title: 'History Master',
-        level: 'Level 5: World History',
         currentLessons: 15,
+        level: 'Level 5: World History',
+        title: 'History Master',
         totalLessons: 15,
     },
 }
 
 export const LongTitle: Story = {
     args: {
-        title: 'Advanced Programming and Software Development',
-        level: 'Level 10: Full Stack Engineering',
         currentLessons: 7,
+        level: 'Level 10: Full Stack Engineering',
+        title: 'Advanced Programming and Software Development',
         totalLessons: 25,
     },
 }

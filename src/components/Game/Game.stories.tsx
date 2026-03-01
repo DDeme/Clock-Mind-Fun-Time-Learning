@@ -11,18 +11,18 @@ const mockMathRandom = (value: number) => {
 }
 
 const meta = {
-    title: 'Components/Game',
-    component: Game,
-    tags: ['autodocs'],
-    parameters: {
-        layout: 'fullscreen',
-    },
     argTypes: {
         totalQuestions: {
-            control: { type: 'number', min: 1, max: 20 },
+            control: { max: 20, min: 1, type: 'number' },
             description: 'Total number of questions in the game',
         },
     },
+    component: Game,
+    parameters: {
+        layout: 'fullscreen',
+    },
+    tags: ['autodocs'],
+    title: 'Components/Game',
 } satisfies Meta<typeof Game>
 
 export default meta

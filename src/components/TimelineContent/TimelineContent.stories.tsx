@@ -2,25 +2,26 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { TimelineContent } from './TimelineContent'
 
 const meta = {
-    title: 'Components/TimelineContent',
-    component: TimelineContent,
-    tags: ['autodocs'],
     argTypes: {
         lessons: {
             control: { type: 'object' },
-            description: 'Array of lesson objects with id, title, status, position, and optional progress',
+            description:
+                'Array of lesson objects with id, title, status, position, and optional progress',
         },
     },
-    parameters: {
-        layout: 'padded',
-    },
+    component: TimelineContent,
     decorators: [
         (Story) => (
-            <div style={{ maxWidth: 448, height: 600, overflow: 'hidden' }}>
+            <div style={{ height: 600, maxWidth: 448, overflow: 'hidden' }}>
                 <Story />
             </div>
         ),
     ],
+    parameters: {
+        layout: 'padded',
+    },
+    tags: ['autodocs'],
+    title: 'Components/TimelineContent',
 } satisfies Meta<typeof TimelineContent>
 
 export default meta
@@ -31,34 +32,34 @@ export const Default: Story = {
         lessons: [
             {
                 id: 1,
-                title: 'Clock Face',
-                status: 'completed',
                 position: 'left',
+                status: 'completed',
+                title: 'Clock Face',
             },
             {
                 id: 2,
-                title: 'The Hour Hand',
-                status: 'active',
                 position: 'right',
                 progress: 43,
+                status: 'active',
+                title: 'The Hour Hand',
             },
             {
                 id: 3,
-                title: 'Minute Hand',
-                status: 'locked',
                 position: 'left',
+                status: 'locked',
+                title: 'Minute Hand',
             },
             {
                 id: 4,
-                title: 'Half Past & Quarter',
-                status: 'locked',
                 position: 'right',
+                status: 'locked',
+                title: 'Half Past & Quarter',
             },
             {
                 id: 5,
-                title: 'Seconds',
-                status: 'locked',
                 position: 'left',
+                status: 'locked',
+                title: 'Seconds',
             },
         ],
     },
@@ -69,27 +70,27 @@ export const AllCompleted: Story = {
         lessons: [
             {
                 id: 1,
-                title: 'Introduction',
-                status: 'completed',
                 position: 'left',
+                status: 'completed',
+                title: 'Introduction',
             },
             {
                 id: 2,
-                title: 'Basic Concepts',
-                status: 'completed',
                 position: 'right',
+                status: 'completed',
+                title: 'Basic Concepts',
             },
             {
                 id: 3,
-                title: 'Advanced Topics',
-                status: 'completed',
                 position: 'left',
+                status: 'completed',
+                title: 'Advanced Topics',
             },
             {
                 id: 4,
-                title: 'Practice Exercises',
-                status: 'completed',
                 position: 'right',
+                status: 'completed',
+                title: 'Practice Exercises',
             },
         ],
     },
@@ -100,21 +101,21 @@ export const AllLocked: Story = {
         lessons: [
             {
                 id: 1,
-                title: 'Lesson 1',
-                status: 'locked',
                 position: 'left',
+                status: 'locked',
+                title: 'Lesson 1',
             },
             {
                 id: 2,
-                title: 'Lesson 2',
-                status: 'locked',
                 position: 'right',
+                status: 'locked',
+                title: 'Lesson 2',
             },
             {
                 id: 3,
-                title: 'Lesson 3',
-                status: 'locked',
                 position: 'left',
+                status: 'locked',
+                title: 'Lesson 3',
             },
         ],
     },
@@ -125,22 +126,22 @@ export const SingleActive: Story = {
         lessons: [
             {
                 id: 1,
-                title: 'Getting Started',
-                status: 'completed',
                 position: 'left',
+                status: 'completed',
+                title: 'Getting Started',
             },
             {
                 id: 2,
-                title: 'Current Lesson',
-                status: 'active',
                 position: 'right',
                 progress: 75,
+                status: 'active',
+                title: 'Current Lesson',
             },
             {
                 id: 3,
-                title: 'Next Lesson',
-                status: 'locked',
                 position: 'left',
+                status: 'locked',
+                title: 'Next Lesson',
             },
         ],
     },
@@ -151,52 +152,52 @@ export const HighProgress: Story = {
         lessons: [
             {
                 id: 1,
-                title: 'Module 1',
-                status: 'completed',
                 position: 'left',
+                status: 'completed',
+                title: 'Module 1',
             },
             {
                 id: 2,
-                title: 'Module 2',
-                status: 'completed',
                 position: 'right',
+                status: 'completed',
+                title: 'Module 2',
             },
             {
                 id: 3,
-                title: 'Module 3',
-                status: 'completed',
                 position: 'left',
+                status: 'completed',
+                title: 'Module 3',
             },
             {
                 id: 4,
-                title: 'Module 4',
-                status: 'completed',
                 position: 'right',
+                status: 'completed',
+                title: 'Module 4',
             },
             {
                 id: 5,
-                title: 'Module 5',
-                status: 'completed',
                 position: 'left',
+                status: 'completed',
+                title: 'Module 5',
             },
             {
                 id: 6,
-                title: 'Module 6',
-                status: 'completed',
                 position: 'right',
+                status: 'completed',
+                title: 'Module 6',
             },
             {
                 id: 7,
-                title: 'Current Module',
-                status: 'active',
                 position: 'left',
                 progress: 90,
+                status: 'active',
+                title: 'Current Module',
             },
             {
                 id: 8,
-                title: 'Future Module',
-                status: 'locked',
                 position: 'right',
+                status: 'locked',
+                title: 'Future Module',
             },
         ],
     },

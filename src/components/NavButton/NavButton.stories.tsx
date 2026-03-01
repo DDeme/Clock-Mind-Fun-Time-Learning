@@ -2,18 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { NavButton } from './NavButton'
 
 const meta = {
-    title: 'Components/NavButton',
-    component: NavButton,
-    tags: ['autodocs'],
     argTypes: {
-        icon: {
-            control: 'text',
-            description: 'Material Symbols icon name',
-        },
-        label: {
-            control: 'text',
-            description: 'Button label text',
-        },
         active: {
             control: 'boolean',
             description: 'Whether the button is in active state',
@@ -22,10 +11,21 @@ const meta = {
             control: 'boolean',
             description: 'Whether to use the filled icon variant',
         },
+        icon: {
+            control: 'text',
+            description: 'Material Symbols icon name',
+        },
+        label: {
+            control: 'text',
+            description: 'Button label text',
+        },
     },
+    component: NavButton,
     parameters: {
         layout: 'centered',
     },
+    tags: ['autodocs'],
+    title: 'Components/NavButton',
 } satisfies Meta<typeof NavButton>
 
 export default meta
@@ -33,54 +33,54 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
     args: {
+        active: false,
         icon: 'menu_book',
         label: 'LEARN',
-        active: false,
     },
 }
 
 export const Active: Story = {
     args: {
-        icon: 'videogame_asset',
-        label: 'PLAY',
         active: true,
         fill: true,
+        icon: 'videogame_asset',
+        label: 'PLAY',
     },
 }
 
 export const Inactive: Story = {
     args: {
+        active: false,
         icon: 'emoji_events',
         label: 'AWARDS',
-        active: false,
     },
 }
 
 export const Profile: Story = {
     args: {
+        active: false,
         icon: 'person',
         label: 'PROFILE',
-        active: false,
     },
 }
 
 export const ActiveWithoutFill: Story = {
     args: {
-        icon: 'menu_book',
-        label: 'LEARN',
         active: true,
         fill: false,
+        icon: 'menu_book',
+        label: 'LEARN',
     },
 }
 
 export const AllNavButtons: Story = {
     args: {
+        active: false,
         icon: 'menu_book',
         label: 'LEARN',
-        active: false,
     },
     render: () => (
-        <nav className="flex justify-around items-center gap-8 bg-white border-t border-slate-100 pb-8 pt-3 px-6">
+        <nav className="flex items-center justify-around gap-8 border-t border-slate-100 bg-white px-6 pt-3 pb-8">
             <NavButton
                 icon="menu_book"
                 label="LEARN"

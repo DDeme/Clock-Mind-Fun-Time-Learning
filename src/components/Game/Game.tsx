@@ -135,21 +135,21 @@ export const Game = () => {
     }
 
     const gameProps = {
-        question: {
-            text: 'Look at the clock! What time is it?',
-            questionType: 'analog-clock' as const,
-            value: questionValue,
-        },
-        scoreValue: {
-            positiveScore: 20,
-            negativeScore: 0,
-        },
         answer: {
-            type: type,
             options: options as {
                 hours: number
                 minutes: number
             }[],
+            type: type,
+        },
+        question: {
+            questionType: 'analog-clock' as const,
+            text: 'Look at the clock! What time is it?',
+            value: questionValue,
+        },
+        scoreValue: {
+            negativeScore: 0,
+            positiveScore: 20,
         },
     }
 
@@ -165,26 +165,26 @@ export const Game = () => {
         ...gameProps,
         answer: {
             ...gameProps.answer,
-            value: answer,
-            onChange: setAnswer,
             isDisabled: isFeedbackVisible,
+            onChange: setAnswer,
+            value: answer,
         },
         footer: {
-            isFeedbackVisible,
             isCorrect,
             isDisabled: answer === null,
+            isFeedbackVisible,
             onCheckAnswer,
             onNext,
         },
     }
     return (
-        <div className="flex p-6 flex-col min-h-screen max-w-md mx-auto bg-background-light relative overflow-hidden">
+        <div className="bg-background-light relative mx-auto flex min-h-screen max-w-md flex-col overflow-hidden p-6">
             <Header
                 currentQuestionIdx={currentQuestionIdx}
                 totalQuestions={totalQuestions}
                 score={score}
             />
-            <main className="flex-1 flex flex-col items-center overflow-y-auto gap-3 justify-between">
+            <main className="flex flex-1 flex-col items-center justify-between gap-3 overflow-y-auto">
                 {props.question.text && (
                     <MascotBubble message={props.question.text} />
                 )}

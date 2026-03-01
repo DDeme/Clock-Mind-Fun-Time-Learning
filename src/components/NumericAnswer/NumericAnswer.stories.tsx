@@ -3,21 +3,16 @@ import { fn, within, userEvent, expect } from 'storybook/test'
 import { NumericAnswer } from './NumericAnswer'
 
 const meta = {
-    title: 'Components/NumericAnswer',
-    component: NumericAnswer,
-    tags: ['autodocs'],
     args: {
+        isDisabled: false,
         onChange: fn(),
         options: [
             [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
             [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55],
         ],
         value: { hours: 0, minutes: 0 },
-        isDisabled: false,
     },
-    parameters: {
-        layout: 'centered',
-    },
+    component: NumericAnswer,
     decorators: [
         (Story) => (
             <div style={{ width: 400 }}>
@@ -25,6 +20,11 @@ const meta = {
             </div>
         ),
     ],
+    parameters: {
+        layout: 'centered',
+    },
+    tags: ['autodocs'],
+    title: 'Components/NumericAnswer',
 } satisfies Meta<typeof NumericAnswer>
 
 export default meta

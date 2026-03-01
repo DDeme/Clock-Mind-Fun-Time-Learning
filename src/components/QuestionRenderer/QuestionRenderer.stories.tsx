@@ -2,23 +2,23 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { QuestionRenderer } from './QuestionRenderer'
 
 const meta = {
-    title: 'Components/QuestionRenderer',
-    component: QuestionRenderer,
-    tags: ['autodocs'],
     argTypes: {
         questionType: {
             control: { type: 'select' },
-            options: ['analog-clock', 'digital-clock'],
             description: 'Type of question to render',
+            options: ['analog-clock', 'digital-clock'],
         },
         value: {
             control: { type: 'object' },
             description: 'Props for the specific question component',
         },
     },
+    component: QuestionRenderer,
     parameters: {
         layout: 'centered',
     },
+    tags: ['autodocs'],
+    title: 'Components/QuestionRenderer',
 } satisfies Meta<typeof QuestionRenderer>
 
 export default meta

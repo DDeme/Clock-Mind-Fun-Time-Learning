@@ -2,15 +2,10 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { CheckAnswer } from './CheckAnswer'
 
 const meta = {
-    title: 'Components/CheckAnswer',
-    component: CheckAnswer,
-    tags: ['autodocs'],
     args: {
         onCheckAnswer: () => {},
     },
-    parameters: {
-        layout: 'padded',
-    },
+    component: CheckAnswer,
     decorators: [
         (Story) => (
             <div style={{ maxWidth: 448 }}>
@@ -18,6 +13,11 @@ const meta = {
             </div>
         ),
     ],
+    parameters: {
+        layout: 'padded',
+    },
+    tags: ['autodocs'],
+    title: 'Components/CheckAnswer',
 } satisfies Meta<typeof CheckAnswer>
 
 export default meta

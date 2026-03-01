@@ -7,22 +7,22 @@ describe('TimelineContent', () => {
     const mockLessons = [
         {
             id: 1,
-            title: 'Clock Face',
-            status: 'completed' as const,
             position: 'left' as const,
+            status: 'completed' as const,
+            title: 'Clock Face',
         },
         {
             id: 2,
-            title: 'The Hour Hand',
-            status: 'active' as const,
             position: 'right' as const,
             progress: 43,
+            status: 'active' as const,
+            title: 'The Hour Hand',
         },
         {
             id: 3,
-            title: 'Minute Hand',
-            status: 'locked' as const,
             position: 'left' as const,
+            status: 'locked' as const,
+            title: 'Minute Hand',
         },
     ]
 
@@ -92,9 +92,9 @@ describe('TimelineContent', () => {
     it('should handle active lesson without progress', () => {
         const activeLessonNoProgress = {
             id: 2,
-            title: 'The Hour Hand',
-            status: 'active' as const,
             position: 'right' as const,
+            status: 'active' as const,
+            title: 'The Hour Hand',
         }
 
         render(<TimelineContent lessons={[activeLessonNoProgress]} />)

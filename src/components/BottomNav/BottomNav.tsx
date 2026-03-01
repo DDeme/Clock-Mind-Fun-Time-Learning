@@ -2,7 +2,7 @@ import React from 'react'
 import { NavButton } from '../NavButton'
 
 export const BottomNav: React.FC = () => (
-    <nav className="flex justify-around items-center bg-white  border-t border-slate-100  pb-8 pt-3 px-6">
+    <nav className="flex items-center justify-around border-t border-slate-100 bg-white px-6 pt-3 pb-8">
         <NavButton
             icon="menu_book"
             label="LEARN"

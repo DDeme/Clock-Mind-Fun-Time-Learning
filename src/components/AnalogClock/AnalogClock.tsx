@@ -21,8 +21,8 @@ export const AnalogClock: React.FC<AnalogClockProps> = ({
 
     return (
         <div
-            className="relative rounded-full border-10 border-white  bg-white  clock-shadow flex items-center justify-center transition-all duration-500 ease-in-out"
-            style={{ width: size, height: size }}
+            className="clock-shadow relative flex items-center justify-center rounded-full border-10 border-white bg-white transition-all duration-500 ease-in-out"
+            style={{ height: size, width: size }}
         >
             <Dial />
             <ClockHands

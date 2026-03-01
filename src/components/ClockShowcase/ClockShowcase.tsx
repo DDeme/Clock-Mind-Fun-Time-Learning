@@ -10,11 +10,7 @@ import {
     Sun,
     Moon,
     Lightbulb,
-    Home,
-    Clock,
-    HelpCircle,
     RefreshCcw,
-    Play,
 } from 'lucide-react'
 import { motion, AnimatePresence } from 'motion/react'
 
@@ -81,10 +77,10 @@ export const ClockShowcase = () => {
     }
 
     return (
-        <div className="flex flex-col min-h-screen bg-background-light font-sans text-slate-800">
+        <div className="bg-background-light flex min-h-screen flex-col font-sans text-slate-800">
             {/* Header */}
             <header className="flex items-center justify-between px-6 pt-8 pb-4">
-                <button className="w-10 h-10 flex items-center justify-center rounded-full neumorphic-flat text-blue-500 active:neumorphic-inset transition-all">
+                <button className="neumorphic-flat active:neumorphic-inset flex h-10 w-10 items-center justify-center rounded-full text-blue-500 transition-all">
                     <ChevronLeft size={20} />
                 </button>
                 <div className="flex flex-col items-center">
@@ -95,35 +91,35 @@ export const ClockShowcase = () => {
                         <motion.span
                             initial={{ opacity: 0, y: -5 }}
                             animate={{ opacity: 1, y: 0 }}
-                            className="text-[10px] font-bold text-orange-500 uppercase tracking-widest"
+                            className="text-[10px] font-bold tracking-widest text-orange-500 uppercase"
                         >
                             Manual Mode
                         </motion.span>
                     )}
                 </div>
-                <button className="w-10 h-10 flex items-center justify-center rounded-full neumorphic-flat text-blue-500 active:neumorphic-inset transition-all">
+                <button className="neumorphic-flat active:neumorphic-inset flex h-10 w-10 items-center justify-center rounded-full text-blue-500 transition-all">
                     <Settings size={20} />
                 </button>
             </header>
 
             {/* Main Content */}
-            <main className="flex-1 px-6 py-4 space-y-8 overflow-y-auto pb-24">
+            <main className="flex-1 space-y-8 overflow-y-auto px-6 py-4 pb-24">
                 {/* Digital Display Card */}
-                <section className="flex flex-col items-center relative">
+                <section className="relative flex flex-col items-center">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="w-full py-10 rounded-3xl neumorphic-flat flex flex-col items-center justify-center border-4 border-white/50"
+                        className="neumorphic-flat flex w-full flex-col items-center justify-center rounded-3xl border-4 border-white/50 py-10"
                     >
-                        <span className="text-xs font-bold uppercase tracking-widest text-blue-500/60 mb-2">
+                        <span className="mb-2 text-xs font-bold tracking-widest text-blue-500/60 uppercase">
                             Digital Time
                         </span>
                         <div className="flex items-baseline gap-1">
-                            <span className="text-7xl font-extrabold text-blue-500 glow-text tracking-tighter">
+                            <span className="glow-text text-7xl font-extrabold tracking-tighter text-blue-500">
                                 {displayHours}:{displayMinutes}
                             </span>
                             {!is24Hour && (
-                                <span className="text-2xl font-bold text-blue-500/40 ml-2">
+                                <span className="ml-2 text-2xl font-bold text-blue-500/40">
                                     {ampm}
                                 </span>
                             )}
@@ -137,7 +133,7 @@ export const ClockShowcase = () => {
                                 animate={{ opacity: 1, scale: 1 }}
                                 exit={{ opacity: 0, scale: 0.8 }}
                                 onClick={resetToLive}
-                                className="absolute -bottom-4 bg-blue-500 text-white px-4 py-2 rounded-full shadow-lg flex items-center gap-2 text-xs font-bold z-20 hover:bg-blue-500/90 transition-colors"
+                                className="absolute -bottom-4 z-20 flex items-center gap-2 rounded-full bg-blue-500 px-4 py-2 text-xs font-bold text-white shadow-lg transition-colors hover:bg-blue-500/90"
                             >
                                 <RefreshCcw size={14} />
                                 Sync to Live
@@ -148,78 +144,78 @@ export const ClockShowcase = () => {
 
                 {/* Analog Reference */}
                 <section className="flex flex-col items-center space-y-4">
-                    <div className="flex items-center justify-between w-full max-w-[256px]">
-                        <h2 className="text-sm font-bold text-slate-500 uppercase tracking-widest">
+                    <div className="flex w-full max-w-[256px] items-center justify-between">
+                        <h2 className="text-sm font-bold tracking-widest text-slate-500 uppercase">
                             Analog Reference
                         </h2>
-                        <div className="text-[10px] font-bold text-slate-400 uppercase bg-slate-100 px-2 py-0.5 rounded">
+                        <div className="rounded bg-slate-100 px-2 py-0.5 text-[10px] font-bold text-slate-400 uppercase">
                             Drag Hands
                         </div>
                     </div>
 
                     <div
                         ref={clockRef}
-                        className="relative w-64 h-64 rounded-full clock-face flex items-center justify-center border-[12px] border-white touch-none"
+                        className="clock-face relative flex h-64 w-64 touch-none items-center justify-center rounded-full border-[12px] border-white"
                     >
                         {/* Clock Numbers */}
-                        <div className="absolute inset-6 flex justify-center text-slate-400 font-bold select-none">
+                        <div className="absolute inset-6 flex justify-center font-bold text-slate-400 select-none">
                             12
                         </div>
-                        <div className="absolute inset-6 flex items-center justify-end text-slate-400 font-bold select-none">
+                        <div className="absolute inset-6 flex items-center justify-end font-bold text-slate-400 select-none">
                             3
                         </div>
-                        <div className="absolute inset-6 flex items-end justify-center text-slate-400 font-bold select-none">
+                        <div className="absolute inset-6 flex items-end justify-center font-bold text-slate-400 select-none">
                             6
                         </div>
-                        <div className="absolute inset-6 flex items-center justify-start text-slate-400 font-bold select-none">
+                        <div className="absolute inset-6 flex items-center justify-start font-bold text-slate-400 select-none">
                             9
                         </div>
 
                         {/* Clock Hands */}
                         {/* Hour Hand */}
                         <motion.div
-                            className="absolute w-2 h-16 bg-slate-800 rounded-full origin-bottom mb-16 cursor-grab active:cursor-grabbing z-10"
+                            className="absolute z-10 mb-16 h-16 w-2 origin-bottom cursor-grab rounded-full bg-slate-800 active:cursor-grabbing"
                             animate={{ rotate: hourRotation }}
                             transition={
                                 isDragging
                                     ? { type: 'just' }
-                                    : { type: 'spring', stiffness: 50 }
+                                    : { stiffness: 50, type: 'spring' }
                             }
                             onPanStart={() => setIsDragging(true)}
                             onPan={(e, info) => handlePan(e, info, 'hour')}
                             onPanEnd={() => setIsDragging(false)}
                         >
-                            <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-slate-800/20" />
+                            <div className="absolute -top-2 left-1/2 h-4 w-4 -translate-x-1/2 rounded-full bg-slate-800/20" />
                         </motion.div>
 
                         {/* Minute Hand */}
                         <motion.div
-                            className="absolute w-1.5 h-24 bg-blue-500 rounded-full origin-bottom mb-24 cursor-grab active:cursor-grabbing z-10"
+                            className="absolute z-10 mb-24 h-24 w-1.5 origin-bottom cursor-grab rounded-full bg-blue-500 active:cursor-grabbing"
                             animate={{ rotate: minuteRotation }}
                             transition={
                                 isDragging
                                     ? { type: 'just' }
-                                    : { type: 'spring', stiffness: 50 }
+                                    : { stiffness: 50, type: 'spring' }
                             }
                             onPanStart={() => setIsDragging(true)}
                             onPan={(e, info) => handlePan(e, info, 'minute')}
                             onPanEnd={() => setIsDragging(false)}
                         >
-                            <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-blue-500/20" />
+                            <div className="absolute -top-2 left-1/2 h-4 w-4 -translate-x-1/2 rounded-full bg-blue-500/20" />
                         </motion.div>
 
-                        <div className="w-4 h-4 bg-blue-500 rounded-full z-20 border-2 border-white shadow-sm"></div>
+                        <div className="z-20 h-4 w-4 rounded-full border-2 border-white bg-blue-500 shadow-sm"></div>
                     </div>
                 </section>
 
                 {/* Settings Toggles */}
                 <section className="grid grid-cols-2 gap-4">
                     {/* AM/PM Display */}
-                    <div className="p-4 rounded-2xl neumorphic-flat space-y-3">
+                    <div className="neumorphic-flat space-y-3 rounded-2xl p-4">
                         <p className="text-xs font-bold text-slate-400 uppercase">
                             Period
                         </p>
-                        <div className="flex p-1 bg-slate-200/30 rounded-xl neumorphic-inset">
+                        <div className="neumorphic-inset flex rounded-xl bg-slate-200/30 p-1">
                             <button
                                 onClick={() => {
                                     const newTime = new Date(time)
@@ -230,7 +226,7 @@ export const ClockShowcase = () => {
                                     setTime(newTime)
                                     setIsManual(true)
                                 }}
-                                className={`flex-1 py-2 rounded-lg flex items-center justify-center gap-1 transition-all ${ampm === 'AM' ? 'bg-blue-500 text-white shadow-md' : 'text-slate-500'}`}
+                                className={`flex flex-1 items-center justify-center gap-1 rounded-lg py-2 transition-all ${ampm === 'AM' ? 'bg-blue-500 text-white shadow-md' : 'text-slate-500'}`}
                             >
                                 <Sun size={14} />
                                 <span className="text-sm font-bold">AM</span>
@@ -245,7 +241,7 @@ export const ClockShowcase = () => {
                                     setTime(newTime)
                                     setIsManual(true)
                                 }}
-                                className={`flex-1 py-2 rounded-lg flex items-center justify-center gap-1 transition-all ${ampm === 'PM' ? 'bg-blue-500 text-white shadow-md' : 'text-slate-500'}`}
+                                className={`flex flex-1 items-center justify-center gap-1 rounded-lg py-2 transition-all ${ampm === 'PM' ? 'bg-blue-500 text-white shadow-md' : 'text-slate-500'}`}
                             >
                                 <Moon size={14} />
                                 <span className="text-sm font-bold">PM</span>
@@ -254,20 +250,20 @@ export const ClockShowcase = () => {
                     </div>
 
                     {/* 12h/24h Toggle */}
-                    <div className="p-4 rounded-2xl neumorphic-flat space-y-3">
+                    <div className="neumorphic-flat space-y-3 rounded-2xl p-4">
                         <p className="text-xs font-bold text-slate-400 uppercase">
                             Format
                         </p>
-                        <div className="flex p-1 bg-slate-200/30 rounded-xl neumorphic-inset">
+                        <div className="neumorphic-inset flex rounded-xl bg-slate-200/30 p-1">
                             <button
                                 onClick={() => setIs24Hour(false)}
-                                className={`flex-1 py-2 rounded-lg text-sm font-bold transition-all ${!is24Hour ? 'bg-blue-500 text-white shadow-md' : 'text-slate-500'}`}
+                                className={`flex-1 rounded-lg py-2 text-sm font-bold transition-all ${!is24Hour ? 'bg-blue-500 text-white shadow-md' : 'text-slate-500'}`}
                             >
                                 12h
                             </button>
                             <button
                                 onClick={() => setIs24Hour(true)}
-                                className={`flex-1 py-2 rounded-lg text-sm font-bold transition-all ${is24Hour ? 'bg-blue-500 text-white shadow-md' : 'text-slate-500'}`}
+                                className={`flex-1 rounded-lg py-2 text-sm font-bold transition-all ${is24Hour ? 'bg-blue-500 text-white shadow-md' : 'text-slate-500'}`}
                             >
                                 24h
                             </button>
@@ -278,19 +274,19 @@ export const ClockShowcase = () => {
                 {/* Educational Prompt */}
                 <motion.div
                     whileHover={{ scale: 1.02 }}
-                    className="bg-blue-500/10 rounded-3xl p-5 border border-blue-500/20 flex items-start gap-4"
+                    className="flex items-start gap-4 rounded-3xl border border-blue-500/20 bg-blue-500/10 p-5"
                 >
-                    <div className="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center shrink-0 shadow-lg shadow-blue-500/30">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-blue-500 shadow-lg shadow-blue-500/30">
                         <Lightbulb
                             size={20}
                             className="text-white"
                         />
                     </div>
                     <div>
-                        <h4 className="font-bold text-blue-500 text-sm">
+                        <h4 className="text-sm font-bold text-blue-500">
                             Did you know?
                         </h4>
-                        <p className="text-xs text-slate-600 leading-relaxed mt-1">
+                        <p className="mt-1 text-xs leading-relaxed text-slate-600">
                             {minutes === 45
                                 ? 'When the big hand points to 9, it\'s "quarter to" the next hour!'
                                 : minutes === 15

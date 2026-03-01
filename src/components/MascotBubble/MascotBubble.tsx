@@ -7,18 +7,18 @@ type MascotBubbleProps = {
 
 export const MascotBubble: React.FC<MascotBubbleProps> = ({ message }) => {
     return (
-        <div className="flex items-start gap-3 w-full max-w-sm mx-auto animate-bounce-slow">
-            <div className="relative bg-white  px-5 py-3 rounded-2xl shadow-lg border border-blue-400/10 flex-1">
+        <div className="animate-bounce-slow mx-auto flex w-full max-w-sm items-start gap-3">
+            <div className="relative flex-1 rounded-2xl border border-blue-400/10 bg-white px-5 py-3 shadow-lg">
                 <p className="text-sm font-semibold text-slate-700">
                     {message}
                 </p>
-                <div className="absolute top-5 -right-1 w-4 h-4 bg-white  rotate-45 border-b border-r border-blue-400/10"></div>
+                <div className="absolute top-5 -right-1 h-4 w-4 rotate-45 border-r border-b border-blue-400/10 bg-white"></div>
             </div>
-            <div className="size-16 rounded-full bg-blue-400/20 flex items-center justify-center overflow-hidden border-2 border-white  shadow-md shrink-0">
+            <div className="flex size-16 shrink-0 items-center justify-center overflow-hidden rounded-full border-2 border-white bg-blue-400/20 shadow-md">
                 <img
                     alt="Friendly redhead cat mascot"
                     src={imgUrl}
-                    className="w-full h-full object-cover"
+                    className="h-full w-full object-cover"
                 />
             </div>
         </div>

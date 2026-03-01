@@ -31,36 +31,36 @@ export const ClockHands: React.FC<ClockHandsProps> = ({
     }, [seconds])
 
     return (
-        <div className="relative w-full h-full flex justify-center">
+        <div className="relative flex h-full w-full justify-center">
             {/* Minute Hand */}
             <div
-                className="absolute w-1.5 rounded-full  origin-bottom transition-transform duration-700 ease-out"
+                className="absolute w-1.5 origin-bottom rounded-full transition-transform duration-700 ease-out"
                 style={{
                     height: '50%',
                     transform: `rotate(${minuteRotation}deg)`,
                 }}
             >
-                <div className="absolute w-1 h-6/12 rounded-full bg-blue-500 bottom-0 left-1/2 -translate-x-1/2 z-10 mb-2"></div>
+                <div className="absolute bottom-0 left-1/2 z-10 mb-2 h-6/12 w-1 -translate-x-1/2 rounded-full bg-blue-500"></div>
             </div>
 
             <div
-                className="absolute w-2 rounded-full origin-bottom transition-transform duration-700 ease-out"
+                className="absolute w-2 origin-bottom rounded-full transition-transform duration-700 ease-out"
                 style={{
-                    transform: `rotate(${hourRotation}deg)`,
                     height: '50%',
+                    transform: `rotate(${hourRotation}deg)`,
                 }}
             >
-                <div className="absolute w-2 h-4/12 rounded-full bg-slate-800 bottom-0 left-1/2 -translate-x-1/2 z-10 mb-2"></div>
+                <div className="absolute bottom-0 left-1/2 z-10 mb-2 h-4/12 w-2 -translate-x-1/2 rounded-full bg-slate-800"></div>
             </div>
             {!hideSeconds && (
                 <div
-                    className="absolute w-1 rounded-full  origin-bottom transition-transform duration-700 ease-out"
+                    className="absolute w-1 origin-bottom rounded-full transition-transform duration-700 ease-out"
                     style={{
-                        transform: `rotate(${secondRotation}deg)`,
                         height: '50%',
+                        transform: `rotate(${secondRotation}deg)`,
                     }}
                 >
-                    <div className="absolute w-0.5 h-8/12 rounded-full bg-red-500 bottom-0 left-1/2 -translate-x-1/2 z-10 mb-2 opacity-50"></div>
+                    <div className="absolute bottom-0 left-1/2 z-10 mb-2 h-8/12 w-0.5 -translate-x-1/2 rounded-full bg-red-500 opacity-50"></div>
                 </div>
             )}
 

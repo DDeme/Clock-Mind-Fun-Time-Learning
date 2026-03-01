@@ -2,12 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { TimelineProgress } from './TimelineProgress'
 
 const meta = {
-    title: 'Components/TimelineProgress',
     component: TimelineProgress,
-    tags: ['autodocs'],
-    parameters: {
-        layout: 'padded',
-    },
     decorators: [
         (Story) => (
             <div style={{ maxWidth: 448 }}>
@@ -15,6 +10,11 @@ const meta = {
             </div>
         ),
     ],
+    parameters: {
+        layout: 'padded',
+    },
+    tags: ['autodocs'],
+    title: 'Components/TimelineProgress',
 } satisfies Meta<typeof TimelineProgress>
 
 export default meta

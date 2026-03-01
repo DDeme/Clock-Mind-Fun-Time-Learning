@@ -2,19 +2,28 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { Dial } from './Dial'
 
 const meta = {
-    title: 'Components/AnalogClock/Dial',
     component: Dial,
-    tags: ['autodocs'],
-    parameters: {
-        layout: 'centered',
-    },
     decorators: [
         (Story) => (
-            <div style={{ width: 200, height: 200, position: 'relative', backgroundColor: 'white', border: '2px solid #e5e7eb', borderRadius: '50%' }}>
+            <div
+                style={{
+                    backgroundColor: 'white',
+                    border: '2px solid #e5e7eb',
+                    borderRadius: '50%',
+                    height: 200,
+                    position: 'relative',
+                    width: 200,
+                }}
+            >
                 <Story />
             </div>
         ),
     ],
+    parameters: {
+        layout: 'centered',
+    },
+    tags: ['autodocs'],
+    title: 'Components/AnalogClock/Dial',
 } satisfies Meta<typeof Dial>
 
 export default meta

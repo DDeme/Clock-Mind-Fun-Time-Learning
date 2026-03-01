@@ -3,30 +3,30 @@ import { AnalogClock } from './AnalogClock'
 import { useEffect, useState } from 'react'
 
 const meta = {
-    title: 'Components/AnalogClock',
-    component: AnalogClock,
-    tags: ['autodocs'],
     argTypes: {
         hours: {
-            control: { type: 'number', min: 1, max: 12 },
+            control: { max: 12, min: 1, type: 'number' },
             description: 'Hour value (1–12)',
         },
         minutes: {
-            control: { type: 'number', min: 0, max: 59 },
+            control: { max: 59, min: 0, type: 'number' },
             description: 'Minute value (0–59)',
         },
         seconds: {
-            control: { type: 'number', min: 0, max: 59 },
+            control: { max: 59, min: 0, type: 'number' },
             description: 'Minute value (0–59)',
         },
         size: {
-            control: { type: 'number', min: 100, max: 500 },
+            control: { max: 500, min: 100, type: 'number' },
             description: 'Clock diameter in pixels',
         },
     },
+    component: AnalogClock,
     parameters: {
         layout: 'centered',
     },
+    tags: ['autodocs'],
+    title: 'Components/AnalogClock',
 } satisfies Meta<typeof AnalogClock>
 
 export default meta
