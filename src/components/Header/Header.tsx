@@ -40,7 +40,7 @@ export const Header: React.FC<HeaderProps> = ({
                             }}
                         />
                     </div>
-                    <span className="mt-1 text-[10px] font-bold tracking-widest text-slate-500 uppercase">
+                    <span className="mt-1 text-[10px] font-bold tracking-widest text-slate-600 uppercase">
                         Question {currentQuestionIdx} of {totalQuestions}
                     </span>
                 </div>
@@ -51,13 +51,13 @@ export const Header: React.FC<HeaderProps> = ({
                     aria-label={`Score: ${score} points`}
                 >
                     <span
-                        className="material-symbols-outlined text-xl text-blue-400"
+                        className="material-symbols-outlined text-xl text-blue-600"
                         aria-hidden="true"
                         style={{ fontVariationSettings: "'FILL' 1" }}
                     >
                         star
                     </span>
-                    <span className="font-bold text-blue-400">{score}</span>
+                    <span className="font-bold text-blue-600">{score}</span>
                 </div>
             </div>
         </header>

@@ -184,7 +184,11 @@ export const Game = () => {
                 totalQuestions={totalQuestions}
                 score={score}
             />
-            <main className="flex flex-1 flex-col items-center justify-between gap-3 overflow-y-auto">
+            <main
+                className="flex flex-1 flex-col items-center justify-between gap-3 overflow-y-auto"
+                role="main"
+                aria-label="Game content"
+            >
                 {props.question.text && (
                     <MascotBubble message={props.question.text} />
                 )}
@@ -201,7 +205,15 @@ export const Game = () => {
                     }
                 />
             </main>
-            {/* <BottomNav /> */}
+            {/* Game state announcement for screen readers */}
+            <div
+                aria-live="polite"
+                aria-atomic="true"
+                className="sr-only"
+            >
+                Question {currentQuestionIdx} of {totalQuestions}, Score:{' '}
+                {score} points
+            </div>
         </div>
     )
 }

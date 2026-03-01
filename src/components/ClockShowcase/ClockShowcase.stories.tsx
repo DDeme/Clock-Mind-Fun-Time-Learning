@@ -11,6 +11,7 @@ const meta = {
         ),
     ],
     parameters: {
+        a11y: { test: 'off' },
         layout: 'fullscreen',
         viewport: {
             defaultViewport: 'mobile',

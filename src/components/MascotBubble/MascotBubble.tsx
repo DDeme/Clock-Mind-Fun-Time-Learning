@@ -26,7 +26,6 @@ export const MascotBubble: React.FC<MascotBubbleProps> = ({ message }) => {
                     alt="Friendly redhead cat mascot"
                     src={imgUrl}
                     className="h-full w-full object-cover"
-                    role="presentation"
                 />
             </div>
         </div>

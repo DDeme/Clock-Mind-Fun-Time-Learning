@@ -12,6 +12,7 @@
         "format": "prettier --write ./src/**/*.{tsx,ts,json}",
         "format:check": "prettier --check ./src/**/*.{tsx,ts,json}",
         "storybook": "storybook dev -p 6006",
+        "storybook:test": "yarn vitest --project=storybook",
         "build-storybook": "storybook build",
         "test": "jest",
         "test:watch": "jest --watch",

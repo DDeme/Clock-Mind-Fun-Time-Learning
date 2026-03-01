@@ -6,7 +6,7 @@ export const IntroPage = () => {
     const navigate = useNavigate()
 
     const handleEnter = () => {
-        navigate('/game')
+        navigate('/timeline')
     }
 
     return (
@@ -22,7 +22,7 @@ export const IntroPage = () => {
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.2, duration: 0.6 }}
-                    className="text-4xl font-extrabold text-blue-500"
+                    className="text-4xl font-extrabold text-blue-600"
                 >
                     Clock Mind Fun
                 </motion.h1>
@@ -39,12 +39,12 @@ export const IntroPage = () => {
                     challenges.
                 </motion.p>
 
-                {/* Enter Button */}
+                {/* Buttons */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.6, duration: 0.6 }}
-                    className="w-full max-w-xs"
+                    className="flex w-full max-w-xs flex-col gap-4"
                 >
                     <Button
                         onClick={handleEnter}

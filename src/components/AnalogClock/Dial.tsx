@@ -54,6 +54,7 @@ export const Dial: React.FC = () => (
         <div className="relative flex h-full w-full justify-center">
             {new Array(60).fill(0).map((_, index) => (
                 <div
+                    key={index}
                     className="absolute w-0.5 origin-bottom rounded-full transition-transform duration-700 ease-out"
                     style={{
                         height: '50%',

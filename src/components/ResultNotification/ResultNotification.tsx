@@ -17,7 +17,7 @@ export const ResultNotification: React.FC<ResultNotificationProps> = ({
         aria-live="assertive"
     >
         <div
-            className={`flex items-center gap-3 rounded-xl p-4 ${isCorrect ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}
+            className={`flex items-center gap-3 rounded-xl p-4 ${isCorrect ? 'bg-green-700 text-white' : 'bg-red-700 text-white'}`}
         >
             <span
                 className="material-symbols-outlined text-3xl"
@@ -29,7 +29,7 @@ export const ResultNotification: React.FC<ResultNotificationProps> = ({
                 <p className="text-lg font-black">
                     {isCorrect ? 'Amazing Job!' : 'Not Quite Right'}
                 </p>
-                <p className="text-sm opacity-80">
+                <p className="text-sm">
                     {isCorrect
                         ? `You earned +${earnedStars} stars!`
                         : `The correct answer was ${correctAnswer}`}

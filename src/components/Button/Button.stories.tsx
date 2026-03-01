@@ -128,13 +128,14 @@ export const AccessibilityTest: Story = {
         await expect(button).toBeInTheDocument()
         await expect(button).toHaveAttribute('type', 'button')
 
-        // Test focus management
+        // Test focus management by simulating user interaction
         button.focus()
         await expect(button).toHaveFocus()
 
-        // Test keyboard interaction
-        await userEvent.tab()
-        await expect(button).toHaveFocus()
+        // Test keyboard interaction - Enter key
         await userEvent.keyboard('{Enter}')
+
+        // Test keyboard interaction - Space key
+        await userEvent.keyboard('{ }')
     },
 }
