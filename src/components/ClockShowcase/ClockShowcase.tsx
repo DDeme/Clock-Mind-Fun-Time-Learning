@@ -80,7 +80,10 @@ export const ClockShowcase = () => {
         <div className="bg-background-light flex min-h-screen flex-col font-sans text-slate-800">
             {/* Header */}
             <header className="flex items-center justify-between px-6 pt-8 pb-4">
-                <button className="neumorphic-flat active:neumorphic-inset flex h-10 w-10 items-center justify-center rounded-full text-blue-500 transition-all">
+                <button
+                    aria-label="Go back"
+                    className="neumorphic-flat active:neumorphic-inset flex h-10 w-10 items-center justify-center rounded-full text-blue-600 transition-all"
+                >
                     <ChevronLeft size={20} />
                 </button>
                 <div className="flex flex-col items-center">
@@ -97,7 +100,10 @@ export const ClockShowcase = () => {
                         </motion.span>
                     )}
                 </div>
-                <button className="neumorphic-flat active:neumorphic-inset flex h-10 w-10 items-center justify-center rounded-full text-blue-500 transition-all">
+                <button
+                    aria-label="Settings"
+                    className="neumorphic-flat active:neumorphic-inset flex h-10 w-10 items-center justify-center rounded-full text-blue-600 transition-all"
+                >
                     <Settings size={20} />
                 </button>
             </header>
@@ -111,15 +117,15 @@ export const ClockShowcase = () => {
                         animate={{ opacity: 1, y: 0 }}
                         className="neumorphic-flat flex w-full flex-col items-center justify-center rounded-3xl border-4 border-white/50 py-10"
                     >
-                        <span className="mb-2 text-xs font-bold tracking-widest text-blue-500/60 uppercase">
+                        <span className="mb-2 text-xs font-bold tracking-widest text-blue-600 uppercase">
                             Digital Time
                         </span>
                         <div className="flex items-baseline gap-1">
-                            <span className="glow-text text-7xl font-extrabold tracking-tighter text-blue-500">
+                            <span className="glow-text text-7xl font-extrabold tracking-tighter text-blue-600">
                                 {displayHours}:{displayMinutes}
                             </span>
                             {!is24Hour && (
-                                <span className="ml-2 text-2xl font-bold text-blue-500/40">
+                                <span className="ml-2 text-2xl font-bold text-blue-700/40">
                                     {ampm}
                                 </span>
                             )}
@@ -155,7 +161,7 @@ export const ClockShowcase = () => {
 
                     <div
                         ref={clockRef}
-                        className="clock-face relative flex h-64 w-64 touch-none items-center justify-center rounded-full border-[12px] border-white"
+                        className="clock-face relative flex h-64 w-64 touch-none items-center justify-center rounded-full border-12 border-white"
                     >
                         {/* Clock Numbers */}
                         <div className="absolute inset-6 flex justify-center font-bold text-slate-400 select-none">
@@ -283,7 +289,7 @@ export const ClockShowcase = () => {
                         />
                     </div>
                     <div>
-                        <h4 className="text-sm font-bold text-blue-500">
+                        <h4 className="text-sm font-bold text-blue-600">
                             Did you know?
                         </h4>
                         <p className="mt-1 text-xs leading-relaxed text-slate-600">

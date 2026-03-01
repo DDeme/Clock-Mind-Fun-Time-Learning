@@ -50,15 +50,25 @@ export const TimelineProgress = () => {
                 <TimelineContent lessons={lessons} />
 
                 {/* Dynamic Floating Action Button */}
-                <button className="absolute right-6 bottom-28 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-blue-500 text-white shadow-xl transition-transform active:scale-95">
+                <button
+                    aria-label="Start lesson"
+                    className="absolute right-6 bottom-28 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-blue-500 text-white shadow-xl transition-transform active:scale-95"
+                >
                     <Play className="size-6 fill-white" />
                 </button>
 
                 {/* Bottom Navigation Bar */}
-                <nav className="sticky bottom-0 z-30 w-full border-t border-slate-200 bg-white/95 px-6 pt-4 pb-8 backdrop-blur-lg">
+                <nav
+                    role="navigation"
+                    aria-label="Main navigation"
+                    className="sticky bottom-0 z-30 w-full border-t border-slate-200 bg-white/95 px-6 pt-4 pb-8 backdrop-blur-lg"
+                >
                     <div className="flex items-center justify-between gap-2">
                         {/* Home */}
-                        <button className="flex flex-1 flex-col items-center gap-1 text-blue-500">
+                        <button
+                            aria-label="Go to home"
+                            className="flex flex-1 flex-col items-center gap-1 text-blue-600"
+                        >
                             <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-500/10">
                                 <Home className="size-5 fill-blue-500" />
                             </div>
@@ -67,7 +77,10 @@ export const TimelineProgress = () => {
                             </span>
                         </button>
                         {/* Practice */}
-                        <button className="flex flex-1 flex-col items-center gap-1 text-slate-400 transition-colors hover:text-blue-500">
+                        <button
+                            aria-label="View practice exercises"
+                            className="flex flex-1 flex-col items-center gap-1 text-slate-400 transition-colors hover:text-blue-600"
+                        >
                             <div className="flex h-10 w-10 items-center justify-center">
                                 <History className="size-5" />
                             </div>
@@ -76,7 +89,10 @@ export const TimelineProgress = () => {
                             </span>
                         </button>
                         {/* Quiz */}
-                        <button className="flex flex-1 flex-col items-center gap-1 text-slate-400 transition-colors hover:text-blue-500">
+                        <button
+                            aria-label="Take quiz"
+                            className="flex flex-1 flex-col items-center gap-1 text-slate-400 transition-colors hover:text-blue-600"
+                        >
                             <div className="flex h-10 w-10 items-center justify-center">
                                 <ClipboardCheck className="size-5" />
                             </div>
@@ -85,7 +101,10 @@ export const TimelineProgress = () => {
                             </span>
                         </button>
                         {/* Profile */}
-                        <button className="flex flex-1 flex-col items-center gap-1 text-slate-400 transition-colors hover:text-blue-500">
+                        <button
+                            aria-label="View profile"
+                            className="flex flex-1 flex-col items-center gap-1 text-slate-400 transition-colors hover:text-blue-600"
+                        >
                             <div className="flex h-10 w-10 items-center justify-center">
                                 <User className="size-5" />
                             </div>

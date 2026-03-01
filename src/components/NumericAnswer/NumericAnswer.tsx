@@ -17,12 +17,13 @@ export const NumericAnswer = ({
     isDisabled,
 }: NumericAnswerProps) => {
     return (
-        <div className="w-full rounded-2xl border border-blue-400/5 bg-white p-6 shadow-xl">
+        <fieldset className="w-full rounded-2xl border border-blue-400/5 bg-white p-6 shadow-xl">
+            <legend className="sr-only">Select time</legend>
             <div className="flex items-center justify-center gap-4">
                 <div className="flex flex-col items-center gap-2">
                     <label
-                        className="text-[10px] font-extrabold tracking-widest text-slate-400 uppercase"
-                        htmlFor="hours"
+                        className="text-[10px] font-extrabold tracking-widest text-slate-600 uppercase"
+                        htmlFor="numeric-hours"
                     >
                         Hours
                     </label>
@@ -34,9 +35,10 @@ export const NumericAnswer = ({
                                 minutes: value?.minutes,
                             })
                         }
-                        id="hours"
+                        id="numeric-hours"
                         disabled={isDisabled}
-                        className={`bg-background-light h-15 w-20 rounded-xl border-2 border-blue-400/20 text-center text-3xl font-black text-blue-400 transition-all outline-none focus:border-blue-400 focus:ring-4 focus:ring-blue-400/10 ${isDisabled ? 'cursor-not-allowed opacity-50' : ''}`}
+                        aria-label="Select hours"
+                        className={`bg-background-light h-15 w-20 rounded-xl border-2 border-blue-400/20 text-center text-3xl font-black text-blue-600 transition-all outline-none focus:border-blue-400 focus:ring-4 focus:ring-blue-400/10 ${isDisabled ? 'cursor-not-allowed opacity-50' : ''}`}
                     >
                         <option value="">--</option>
                         {options[0].map((hour) => (
@@ -49,11 +51,16 @@ export const NumericAnswer = ({
                         ))}
                     </select>
                 </div>
-                <div className="mt-6 text-4xl font-bold text-slate-300">:</div>
+                <div
+                    className="mt-6 text-4xl font-bold text-slate-300"
+                    aria-hidden="true"
+                >
+                    :
+                </div>
                 <div className="flex flex-col items-center gap-2">
                     <label
-                        className="text-[10px] font-extrabold tracking-widest text-slate-400 uppercase"
-                        htmlFor="minutes"
+                        className="text-[10px] font-extrabold tracking-widest text-slate-600 uppercase"
+                        htmlFor="numeric-minutes"
                     >
                         Minutes
                     </label>
@@ -66,8 +73,9 @@ export const NumericAnswer = ({
                                 minutes: Number(e.target.value),
                             })
                         }
-                        id="minutes"
-                        className={`bg-background-light h-15 w-20 rounded-xl border-2 border-blue-400/20 text-center text-3xl font-black text-blue-400 transition-all outline-none focus:border-blue-400 focus:ring-4 focus:ring-blue-400/10 ${isDisabled ? 'cursor-not-allowed opacity-50' : ''}`}
+                        id="numeric-minutes"
+                        aria-label="Select minutes"
+                        className={`bg-background-light h-15 w-20 rounded-xl border-2 border-blue-400/20 text-center text-3xl font-black text-blue-600 transition-all outline-none focus:border-blue-400 focus:ring-4 focus:ring-blue-400/10 ${isDisabled ? 'cursor-not-allowed opacity-50' : ''}`}
                     >
                         <option value="">--</option>
                         {options[1].map((minute) => (
@@ -81,6 +89,6 @@ export const NumericAnswer = ({
                     </select>
                 </div>
             </div>
-        </div>
+        </fieldset>
     )
 }

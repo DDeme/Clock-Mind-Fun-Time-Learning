@@ -87,3 +87,23 @@ export const ClickOption: Story = {
         })
     },
 }
+
+export const AccessibilityDemo: Story = {
+    args: {
+        isDisabled: false,
+        options: [
+            { hours: 3, minutes: 45 },
+            { hours: 6, minutes: 30 },
+            { hours: 9, minutes: 15 },
+            { hours: 12, minutes: 0 },
+        ],
+        value: { hours: 3, minutes: 45 },
+    },
+    parameters: {
+        docs: {
+            description: {
+                story: 'SingleChoice component with proper ARIA attributes. Uses role="radiogroup", role="radio", aria-checked, and aria-label for screen reader compatibility. Supports keyboard navigation and focus management.',
+            },
+        },
+    },
+}

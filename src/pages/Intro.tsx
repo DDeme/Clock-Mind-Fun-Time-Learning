@@ -22,7 +22,7 @@ export const IntroPage = () => {
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.2, duration: 0.6 }}
-                    className="text-4xl font-extrabold text-blue-500"
+                    className="text-4xl font-extrabold text-blue-600"
                 >
                     Clock Mind Fun
                 </motion.h1>
