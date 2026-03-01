@@ -1,11 +1,15 @@
 import { motion } from 'motion/react'
+import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router'
 
 import { Button } from '../components/Button/Button'
+import { LanguagePicker } from '../components/LanguagePicker'
 import { Layout } from '../components/Layout'
+import i18n from '../i18n'
 
 export const IntroPage = () => {
     const navigate = useNavigate()
+    const { t } = useTranslation()
 
     const handleEnter = () => {
         navigate('/timeline')
@@ -27,7 +31,7 @@ export const IntroPage = () => {
                         transition={{ delay: 0.2, duration: 0.6 }}
                         className="text-4xl font-extrabold text-blue-600"
                     >
-                        Clock Mind Fun
+                        {t('intro.title')}
                     </motion.h1>
 
                     {/* Description */}
@@ -37,10 +41,24 @@ export const IntroPage = () => {
                         transition={{ delay: 0.4, duration: 0.6 }}
                         className="text-lg leading-relaxed text-slate-600"
                     >
-                        Learn to tell time in a fun and interactive way!
-                        Practice reading analog and digital clocks with engaging
-                        games and challenges.
+                        {t('intro.description')}
                     </motion.p>
+
+                    {/* Language Selector */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.5, duration: 0.6 }}
+                        className="flex w-full max-w-xs justify-center"
+                    >
+                        <LanguagePicker
+                            selectedLanguage={i18n.language}
+                            onLanguageChange={(lang) =>
+                                i18n.changeLanguage(lang)
+                            }
+                            ariaLabel="Select application language"
+                        />
+                    </motion.div>
 
                     {/* Buttons */}
                     <motion.div
@@ -53,7 +71,7 @@ export const IntroPage = () => {
                             onClick={handleEnter}
                             variant="primary"
                         >
-                            Enter Game
+                            {t('intro.enterButton')}
                         </Button>
                     </motion.div>
                 </motion.div>

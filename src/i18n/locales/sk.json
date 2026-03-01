@@ -22,5 +22,10 @@
         "minutes": "Minúty",
         "seconds": "Sekundy",
         "time": "Čas"
+    },
+    "intro": {
+        "title": "Hodiny Mysl Zábava",
+        "description": "Naučte sa čítať čas zábavnou a interaktívnou formou! Cvičte čítanie analógových a digitálnych hodín so zaujímavými hrami a výzvami.",
+        "enterButton": "Vstúpiť do hry"
     }
 }
