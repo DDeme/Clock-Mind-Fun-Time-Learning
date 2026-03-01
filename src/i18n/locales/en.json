@@ -1,0 +1,26 @@
+{
+    "language": {
+        "select": "Select Language",
+        "english": "English",
+        "slovak": "Slovak",
+        "czech": "Czech",
+        "russian": "Russian",
+        "ukrainian": "Ukrainian"
+    },
+    "common": {
+        "loading": "Loading...",
+        "error": "Error",
+        "retry": "Retry",
+        "cancel": "Cancel",
+        "save": "Save",
+        "delete": "Delete",
+        "edit": "Edit",
+        "close": "Close"
+    },
+    "clock": {
+        "hours": "Hours",
+        "minutes": "Minutes",
+        "seconds": "Seconds",
+        "time": "Time"
+    }
+}

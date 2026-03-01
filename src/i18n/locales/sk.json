@@ -1,0 +1,26 @@
+{
+    "language": {
+        "select": "Vybrať jazyk",
+        "english": "Angličtina",
+        "slovak": "Slovenčina",
+        "czech": "Čeština",
+        "russian": "Ruština",
+        "ukrainian": "Ukrajinčina"
+    },
+    "common": {
+        "loading": "Načítava sa...",
+        "error": "Chyba",
+        "retry": "Skúsiť znova",
+        "cancel": "Zrušiť",
+        "save": "Uložiť",
+        "delete": "Vymazať",
+        "edit": "Upraviť",
+        "close": "Zavrieť"
+    },
+    "clock": {
+        "hours": "Hodiny",
+        "minutes": "Minúty",
+        "seconds": "Sekundy",
+        "time": "Čas"
+    }
+}
