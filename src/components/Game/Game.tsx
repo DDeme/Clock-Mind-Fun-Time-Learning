@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback, type ComponentProps } from 'react'
+import { useNavigate } from 'react-router'
 
 import { ActionFooter } from '../ActionFooter'
 import { Answers } from '../Answers'
@@ -35,6 +36,8 @@ const numericOptions = [
 ]
 
 export const Game = () => {
+    const navigate = useNavigate()
+
     const [currentQuestionIdx, setCurrentQuestionIdx] = useState(1)
     const [totalQuestions] = useState(10)
     const [score, setScore] = useState(0)
@@ -176,9 +179,10 @@ export const Game = () => {
                 currentQuestionIdx={currentQuestionIdx}
                 totalQuestions={totalQuestions}
                 score={score}
+                onClose={() => navigate('/timeline')}
             />
             <main
-                className="flex flex-1 flex-col items-center justify-between gap-3 overflow-y-auto"
+                className="flex flex-1 flex-col items-center justify-between gap-3 overflow-y-auto p-6"
                 role="main"
                 aria-label="Game content"
             >

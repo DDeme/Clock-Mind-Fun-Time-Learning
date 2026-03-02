@@ -27,5 +27,14 @@
         "title": "Hodiny Mysl Zábava",
         "description": "Naučte se číst čas zábavnou a interaktivní formou! Procvičujte čtení analogových a digitálních hodin se zajímavými hrami a výzvami.",
         "enterButton": "Vstoupit do hry"
+    },
+    "settings": {
+        "title": "Nastavení",
+        "language": "Jazyk",
+        "languageDescription": "Vyberte si preferovaný jazyk",
+        "sound": "Zvuk",
+        "soundDescription": "Povolit nebo zakázat zvukové efekty",
+        "difficulty": "Obtížnost",
+        "difficultyDescription": "Upravte úroveň obtížnosti"
     }
 }

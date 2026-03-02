@@ -11,7 +11,7 @@ export const Layout = ({
     hideNavigation = false,
 }: PropsWithChildren<LayoutProps>) => {
     return (
-        <div className="bg-background-light relative mx-auto flex min-h-screen max-w-md flex-col overflow-hidden p-6">
+        <div className="bg-background-light relative mx-auto flex min-h-screen max-w-md flex-col">
             {children}
             {hideNavigation ? null : <BottomNavigation />}
         </div>

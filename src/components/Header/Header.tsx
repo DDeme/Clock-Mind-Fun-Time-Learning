@@ -11,18 +11,19 @@ export const Header: React.FC<HeaderProps> = ({
     currentQuestionIdx,
     totalQuestions,
     score,
+    onClose,
 }) => {
     return (
-        <header className="pb-3">
+        <header className="pt-6 pb-3">
             <div className="flex items-center justify-center">
-                {/* <button
-          onClick={onClose}
-          className="flex items-center justify-center size-10 rounded-full bg-white  shadow-sm border border-slate-200  active:scale-90 transition-transform"
-        >
-          <span className="material-symbols-outlined text-slate-600 ">
-            close
-          </span>
-        </button> */}
+                <button
+                    onClick={onClose}
+                    className="flex size-10 items-center justify-center rounded-full border border-slate-200 bg-white shadow-sm transition-transform active:scale-90"
+                >
+                    <span className="material-symbols-outlined text-slate-600">
+                        close
+                    </span>
+                </button>
 
                 <div className="mx-4 flex flex-1 flex-col items-center py-2">
                     <div
