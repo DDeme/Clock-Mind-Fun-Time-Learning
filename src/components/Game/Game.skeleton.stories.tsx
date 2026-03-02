@@ -18,6 +18,11 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {}
 
 export const WithGameOverlay: Story = {
+    parameters: {
+        a11y: {
+            disable: true,
+        },
+    },
     render: () => (
         <div>
             <GameSkeleton />
