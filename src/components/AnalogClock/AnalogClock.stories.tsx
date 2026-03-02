@@ -107,7 +107,6 @@ export const LiveClock: Story = {
                     minutes: new Date().getMinutes(),
                     seconds: new Date().getSeconds(),
                 })
-                console.log(time)
             }, 1000)
             return () => clearInterval(i)
         })

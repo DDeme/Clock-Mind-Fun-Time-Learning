@@ -22,5 +22,19 @@
         "minutes": "Minutes",
         "seconds": "Seconds",
         "time": "Time"
+    },
+    "intro": {
+        "title": "Clock Mind Fun",
+        "description": "Learn to tell time in a fun and interactive way! Practice reading analog and digital clocks with engaging games and challenges.",
+        "enterButton": "Enter Game"
+    },
+    "settings": {
+        "title": "Settings",
+        "language": "Language",
+        "languageDescription": "Choose your preferred language",
+        "sound": "Sound",
+        "soundDescription": "Enable or disable sound effects",
+        "difficulty": "Difficulty",
+        "difficultyDescription": "Adjust the difficulty level"
     }
 }
