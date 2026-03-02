@@ -1,4 +1,4 @@
-import { ActionFooter } from './ActionFooter'
+import { GameFooter } from './GameFooter'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
@@ -7,7 +7,7 @@ const meta = {
         onCheckAnswer: () => {},
         onNext: () => {},
     },
-    component: ActionFooter,
+    component: GameFooter,
     decorators: [
         (Story) => (
             <div style={{ maxWidth: 448 }}>
@@ -19,8 +19,8 @@ const meta = {
         layout: 'padded',
     },
     tags: ['autodocs'],
-    title: 'Components/ActionFooter',
-} satisfies Meta<typeof ActionFooter>
+    title: 'Components/GameFooter',
+} satisfies Meta<typeof GameFooter>
 
 export default meta
 type Story = StoryObj<typeof meta>

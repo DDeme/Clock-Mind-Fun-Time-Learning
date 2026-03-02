@@ -1,17 +1,21 @@
 import { useState, type ComponentProps, useCallback } from 'react'
 import { useNavigate } from 'react-router'
 
-import { ActionFooter } from '../ActionFooter'
+import {
+    type AnswerType,
+    type ClockTime,
+    type Question,
+} from '../../utils/gameGenerator/gameGenerator'
 import { Answers } from '../Answers'
+import { GameFooter } from '../GameFooter'
 import { Header } from '../Header'
 import { Layout } from '../Layout'
+import { Main } from '../Main/Main'
 import { MascotBubble } from '../MascotBubble/MascotBubble'
 import { QuestionRenderer } from '../QuestionRenderer/QuestionRenderer'
 import { ResultNotification } from '../ResultNotification'
 
 import type { QuestionRendererProps } from '../QuestionRenderer/QuestionRenderer'
-
-export type AnswerType = ComponentProps<typeof Answers>['type']
 
 export type GameState = {
     currentQuestion: number
@@ -20,113 +24,22 @@ export type GameState = {
     type: AnswerType
 }
 
-export type ClockTime = {
-    hours: number
-    minutes: number
-}
-
 export type GameDefinition = {
     questions: number
     initialMode?: AnswerType
 }
 
-const numericOptions = [
-    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-    [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55],
-]
-
-type Question = {
-    id: string
-    answer: {
-        options:
-            | {
-                  hours: number
-                  minutes: number
-              }[]
-            | number[][]
-        type: 'single-choice' | 'numeric-answer'
-    }
-    question: {
-        questionType: 'analog-clock'
-        text: string
-        value: ClockTime
-    }
-    scoreValue: {
-        negativeScore: number
-        positiveScore: number
-    }
-}
-
 type GameProps = {
-    id?: string
-    questions?: Question[]
-    onComplete?: (score: number) => void
+    id: string
+    questions: Question[]
+    onComplete: (score: number) => void
 }
 
-const generateRandomTime = () => {
-    const hours = Math.floor(Math.random() * 12) + 1
-    const minutes = Math.floor(Math.random() * 12) * 5 // Use 5 min intervals for beginner
-    return { hours, minutes }
-}
-
-const generateOptions = (
-    type: AnswerType,
-    value: ClockTime,
-): ClockTime[] | number[][] => {
-    if (type === 'single-choice') {
-        const correct = value
-        const distractors: ClockTime[] = []
-        while (distractors.length < 3) {
-            const d = generateRandomTime()
-            const isDuplicate = distractors.some(
-                (existing) =>
-                    existing.hours === d.hours &&
-                    existing.minutes === d.minutes,
-            )
-            const isCorrect =
-                d.hours === correct.hours && d.minutes === correct.minutes
-            if (!isDuplicate && !isCorrect) distractors.push(d)
-        }
-        const allOptions = distractors
-        allOptions.splice(Math.floor(Math.random() * 4), 0, correct)
-        return allOptions
-    }
-    return numericOptions
-}
-
-const questionsGenerator = (count: number): Question[] => {
-    return Array.from({ length: count }, (_, i) => {
-        const type: AnswerType =
-            Math.random() > 0.5 ? 'numeric-answer' : 'single-choice'
-
-        const value = generateRandomTime()
-
-        return {
-            answer: {
-                options: generateOptions(type, value),
-                type,
-            },
-            id: String(i + 1),
-            question: {
-                questionType: 'analog-clock',
-                text: 'Look at the clock! What time is it?',
-                value,
-            },
-            scoreValue: {
-                negativeScore: 0,
-                positiveScore: 30,
-            },
-        }
-    })
-}
-
-const g = questionsGenerator(5)
-
-export const Game = ({ id, questions = g, onComplete }: GameProps) => {
+export const Game = ({ id, questions, onComplete }: GameProps) => {
     const navigate = useNavigate()
     const game = {
         id: id || 'default',
-        onComplete: onComplete || (() => {}),
+        onComplete,
         questions,
     }
 
@@ -175,9 +88,7 @@ export const Game = ({ id, questions = g, onComplete }: GameProps) => {
             setCurrentStep((prev) => prev + 1)
             startNewQuestion()
         } else {
-            // Game over logic could go here
-            // implements socreboard screen
-            alert('Practice complete! Great job!')
+            onComplete(score)
             setCurrentStep(0)
             setScore(0)
             startNewQuestion()
@@ -188,7 +99,7 @@ export const Game = ({ id, questions = g, onComplete }: GameProps) => {
     const props: {
         question: QuestionRendererProps & { text: string }
         answer: ComponentProps<typeof Answers>
-        footer: Omit<ComponentProps<typeof ActionFooter>, 'feedback'>
+        footer: Omit<ComponentProps<typeof GameFooter>, 'feedback'>
         scoreValue: {
             positiveScore: number
             negativeScore: number
@@ -218,17 +129,13 @@ export const Game = ({ id, questions = g, onComplete }: GameProps) => {
                 score={score}
                 onClose={() => navigate('/timeline')}
             />
-            <main
-                className="flex flex-1 flex-col items-center justify-between gap-3 overflow-y-auto p-6"
-                role="main"
-                aria-label="Game content"
-            >
+            <Main ariaLabel="Game content">
                 {props.question.text && (
                     <MascotBubble message={props.question.text} />
                 )}
                 <QuestionRenderer {...props.question} />
                 <Answers {...props.answer} />
-                <ActionFooter
+                <GameFooter
                     {...props.footer}
                     feedback={
                         <ResultNotification
@@ -238,7 +145,7 @@ export const Game = ({ id, questions = g, onComplete }: GameProps) => {
                         />
                     }
                 />
-            </main>
+            </Main>
             {/* Game state announcement for screen readers */}
             <div
                 aria-live="polite"

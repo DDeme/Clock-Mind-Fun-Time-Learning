@@ -1,0 +1,1 @@
+open storybook of component in ide
