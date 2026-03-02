@@ -4,7 +4,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
     argTypes: {
-        currentQuestionIdx: {
+        currentStep: {
             control: { max: 20, min: 1, type: 'number' },
             description: 'Current question number',
         },
@@ -34,7 +34,7 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
     args: {
-        currentQuestionIdx: 1,
+        currentStep: 1,
         score: 120,
         totalQuestions: 5,
     },
@@ -42,7 +42,7 @@ export const Default: Story = {
 
 export const MidProgress: Story = {
     args: {
-        currentQuestionIdx: 3,
+        currentStep: 3,
         score: 60,
         totalQuestions: 5,
     },
@@ -50,7 +50,7 @@ export const MidProgress: Story = {
 
 export const LastQuestion: Story = {
     args: {
-        currentQuestionIdx: 5,
+        currentStep: 5,
         score: 200,
         totalQuestions: 5,
     },
@@ -58,7 +58,7 @@ export const LastQuestion: Story = {
 
 export const ZeroScore: Story = {
     args: {
-        currentQuestionIdx: 1,
+        currentStep: 1,
         score: 0,
         totalQuestions: 10,
     },
@@ -66,7 +66,7 @@ export const ZeroScore: Story = {
 
 export const HighScore: Story = {
     args: {
-        currentQuestionIdx: 8,
+        currentStep: 8,
         score: 9999,
         totalQuestions: 10,
     },

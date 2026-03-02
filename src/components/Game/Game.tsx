@@ -69,7 +69,10 @@ const generateRandomTime = () => {
     return { hours, minutes }
 }
 
-const generateOptions = (type: AnswerType, value: ClockTime) => {
+const generateOptions = (
+    type: AnswerType,
+    value: ClockTime,
+): ClockTime[] | number[][] => {
     if (type === 'single-choice') {
         const correct = value
         const distractors = new Set<ClockTime>()
@@ -81,9 +84,7 @@ const generateOptions = (type: AnswerType, value: ClockTime) => {
         allOptions.splice(Math.floor(Math.random() * 4), 0, correct)
         return allOptions
     }
-    if (type === 'numeric-answer') {
-        return numericOptions
-    }
+    return numericOptions
 }
 
 const questionsGenerator = (count: number): Question[] => {

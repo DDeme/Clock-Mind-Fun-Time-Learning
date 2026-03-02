@@ -1,4 +1,4 @@
-import { Game } from './Game'
+import { Game, type ClockTime } from './Game'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
@@ -11,13 +11,26 @@ const mockMathRandom = (value: number) => {
     }
 }
 
-const meta = {
-    argTypes: {
-        totalQuestions: {
-            control: { max: 20, min: 1, type: 'number' },
-            description: 'Total number of questions in the game',
+const makeQuestions = (count: number) =>
+    Array.from({ length: count }, (_, i) => ({
+        answer: {
+            options: [
+                [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+                [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55],
+            ] as number[][],
+            type: 'numeric-answer' as const,
         },
-    },
+        id: String(i + 1),
+        question: {
+            questionType: 'analog-clock' as const,
+            text: 'Look at the clock! What time is it?',
+            value: { hours: (i % 12) + 1, minutes: (i % 12) * 5 } as ClockTime,
+        },
+        scoreValue: { negativeScore: 0, positiveScore: 30 },
+    }))
+
+const meta = {
+    argTypes: {},
     component: Game,
     parameters: {
         layout: 'fullscreen',
@@ -33,13 +46,13 @@ export const Default: Story = {}
 
 export const ShortGame: Story = {
     args: {
-        totalQuestions: 3,
+        questions: makeQuestions(3),
     },
 }
 
 export const LongGame: Story = {
     args: {
-        totalQuestions: 15,
+        questions: makeQuestions(15),
     },
 }
 
@@ -95,7 +108,7 @@ export const MixedModeGame: Story = {
 
 export const WithCustomQuestionCount: Story = {
     args: {
-        totalQuestions: 5,
+        questions: makeQuestions(5),
     },
     decorators: [
         (Story) => {
