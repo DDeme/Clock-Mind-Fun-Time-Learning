@@ -1,13 +1,13 @@
-import { useCallback, useMemo } from 'react'
+import { useCallback } from 'react'
 import { useNavigate } from 'react-router'
 
 import { Game } from '../components/Game'
-import { questionsGenerator } from '../utils/gameGenerator/gameGenerator'
+import { useGameData } from '../hooks/useGameData'
 
 const GamePage = () => {
     const navigate = useNavigate()
 
-    const questions = useMemo(() => questionsGenerator(5), [])
+    const { data, isSuccess } = useGameData('1')
 
     const handleComplete = useCallback(
         (score: number) => {
@@ -15,13 +15,13 @@ const GamePage = () => {
         },
         [navigate],
     )
-
     return (
-        <Game
-            id="game"
-            questions={questions}
-            onComplete={handleComplete}
-        />
+        isSuccess && (
+            <Game
+                {...data}
+                onComplete={handleComplete}
+            />
+        )
     )
 }
 
