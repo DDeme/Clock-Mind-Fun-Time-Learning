@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, type ComponentProps } from 'react'
+import { useState, type ComponentProps, useCallback } from 'react'
 import { useNavigate } from 'react-router'
 
 import { ActionFooter } from '../ActionFooter'
@@ -25,41 +25,110 @@ export type ClockTime = {
     minutes: number
 }
 
-export type GameProps = {
-    totalQuestions?: number
+export type GameDefinition = {
+    questions: number
     initialMode?: AnswerType
 }
 
 const numericOptions = [
-    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
     [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55],
 ]
 
-export const Game = () => {
-    const navigate = useNavigate()
+type Question = {
+    id: string
+    answer: {
+        options:
+            | {
+                  hours: number
+                  minutes: number
+              }[]
+            | number[][]
+        type: 'single-choice' | 'numeric-answer'
+    }
+    question: {
+        questionType: 'analog-clock'
+        text: string
+        value: ClockTime
+    }
+    scoreValue: {
+        negativeScore: number
+        positiveScore: number
+    }
+}
 
-    const [currentQuestionIdx, setCurrentQuestionIdx] = useState(1)
-    const [totalQuestions] = useState(10)
-    const [score, setScore] = useState(0)
-    // const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
-    const [type, setType] = useState<'single-choice' | 'numeric-answer'>(
-        'single-choice',
-    )
-    const [questionValue, setQuestionValue] = useState<ClockTime>({
-        hours: 0,
-        minutes: 0,
+type GameProps = {
+    id?: string
+    questions?: Question[]
+    onComplete?: (score: number) => void
+}
+
+const generateRandomTime = () => {
+    const hours = Math.floor(Math.random() * 12) + 1
+    const minutes = Math.floor(Math.random() * 12) * 5 // Use 5 min intervals for beginner
+    return { hours, minutes }
+}
+
+const generateOptions = (type: AnswerType, value: ClockTime) => {
+    if (type === 'single-choice') {
+        const correct = value
+        const distractors = new Set<ClockTime>()
+        while (distractors.size < 3) {
+            const d = generateRandomTime()
+            if (d !== correct) distractors.add(d)
+        }
+        const allOptions = Array.from(distractors)
+        allOptions.splice(Math.floor(Math.random() * 4), 0, correct)
+        return allOptions
+    }
+    if (type === 'numeric-answer') {
+        return numericOptions
+    }
+}
+
+const questionsGenerator = (count: number): Question[] => {
+    return Array.from({ length: count }, (_, i) => {
+        const type: AnswerType =
+            Math.random() > 0.5 ? 'numeric-answer' : 'single-choice'
+
+        const value = generateRandomTime()
+
+        return {
+            answer: {
+                options: generateOptions(type, value),
+                type,
+            },
+            id: String(i + 1),
+            question: {
+                questionType: 'analog-clock',
+                text: 'Look at the clock! What time is it?',
+                value,
+            },
+            scoreValue: {
+                negativeScore: 0,
+                positiveScore: 30,
+            },
+        }
     })
+}
+
+const g = questionsGenerator(5)
+
+export const Game = ({ id, questions = g, onComplete }: GameProps) => {
+    const navigate = useNavigate()
+    const game = {
+        id: id || 'default',
+        onComplete: onComplete || (() => {}),
+        questions,
+    }
+
+    const [currentStep, setCurrentStep] = useState(0)
+    const [totalQuestions] = useState(game.questions.length)
+    const [score, setScore] = useState(0)
     const [answer, setAnswer] = useState<ClockTime | null>(null)
 
-    const [options, setOptions] = useState<ClockTime[] | number[][]>([])
     const [isFeedbackVisible, setIsFeedbackVisible] = useState(false)
     const [isCorrect, setIsCorrect] = useState<boolean | null>(null)
-
-    const generateRandomTime = useCallback(() => {
-        const hours = Math.floor(Math.random() * 12) + 1
-        const minutes = Math.floor(Math.random() * 12) * 5 // Use 5 min intervals for beginner
-        return { hours, minutes }
-    }, [])
 
     const formatTime = (time: ClockTime) => {
         const h = time.hours
@@ -68,43 +137,18 @@ export const Game = () => {
     }
 
     const startNewQuestion = useCallback(() => {
-        const newTime = generateRandomTime()
-        setQuestionValue(newTime)
         setAnswer(null)
         setIsFeedbackVisible(false)
         setIsCorrect(null)
-
-        // Swap modes for variety
-        const newType: AnswerType =
-            Math.random() > 0.5 ? 'numeric-answer' : 'single-choice'
-        setType(newType)
-
-        if (newType === 'single-choice') {
-            const correct = newTime
-            const distractors = new Set<ClockTime>()
-            while (distractors.size < 3) {
-                const d = generateRandomTime()
-                if (d !== correct) distractors.add(d)
-            }
-            const allOptions = Array.from(distractors)
-            allOptions.splice(Math.floor(Math.random() * 4), 0, correct)
-            setOptions(allOptions)
-        }
-        if (newType === 'numeric-answer') {
-            setOptions(numericOptions)
-        }
-    }, [generateRandomTime])
-
-    useEffect(() => {
-        startNewQuestion()
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     const onCheckAnswer = () => {
         let correct = false
         if (
-            questionValue.hours === answer?.hours &&
-            questionValue.minutes === answer?.minutes
+            game.questions[currentStep].question.value.hours ===
+                answer?.hours &&
+            game.questions[currentStep].question.value.minutes ===
+                answer?.minutes
         ) {
             correct = true
         }
@@ -112,43 +156,27 @@ export const Game = () => {
         setIsCorrect(correct)
         setIsFeedbackVisible(true)
         if (correct) {
-            setScore((s) => s + 20)
+            setScore(
+                (s) => s + game.questions[currentStep].scoreValue.positiveScore,
+            )
         }
     }
 
     const onNext = () => {
-        if (currentQuestionIdx < totalQuestions) {
-            setCurrentQuestionIdx((prev) => prev + 1)
+        if (currentStep < totalQuestions) {
+            setCurrentStep((prev) => prev + 1)
             startNewQuestion()
         } else {
             // Game over logic could go here
             // implements socreboard screen
             alert('Practice complete! Great job!')
-            setCurrentQuestionIdx(1)
+            setCurrentStep(1)
             setScore(0)
             startNewQuestion()
         }
     }
 
-    const gameProps = {
-        answer: {
-            options: options as {
-                hours: number
-                minutes: number
-            }[],
-            type: type,
-        },
-        question: {
-            questionType: 'analog-clock' as const,
-            text: 'Look at the clock! What time is it?',
-            value: questionValue,
-        },
-        scoreValue: {
-            negativeScore: 0,
-            positiveScore: 20,
-        },
-    }
-
+    const questionProps: Question = game.questions[currentStep]
     const props: {
         question: QuestionRendererProps & { text: string }
         answer: ComponentProps<typeof Answers>
@@ -158,9 +186,9 @@ export const Game = () => {
             negativeScore: number
         }
     } = {
-        ...gameProps,
+        ...questionProps,
         answer: {
-            ...gameProps.answer,
+            ...questionProps.answer,
             isDisabled: isFeedbackVisible,
             onChange: setAnswer,
             value: answer,
@@ -173,10 +201,11 @@ export const Game = () => {
             onNext,
         },
     }
+
     return (
         <Layout hideNavigation>
             <Header
-                currentQuestionIdx={currentQuestionIdx}
+                currentStep={currentStep + 1}
                 totalQuestions={totalQuestions}
                 score={score}
                 onClose={() => navigate('/timeline')}
@@ -208,8 +237,8 @@ export const Game = () => {
                 aria-atomic="true"
                 className="sr-only"
             >
-                Question {currentQuestionIdx} of {totalQuestions}, Score:{' '}
-                {score} points
+                Question {currentStep + 1} of {totalQuestions}, Score: {score}{' '}
+                points
             </div>
         </Layout>
     )

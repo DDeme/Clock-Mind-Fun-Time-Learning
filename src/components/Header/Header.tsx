@@ -1,14 +1,14 @@
 import React from 'react'
 
 type HeaderProps = {
-    currentQuestionIdx: number
+    currentStep: number
     totalQuestions: number
     score: number
     onClose?: () => void
 }
 
 export const Header: React.FC<HeaderProps> = ({
-    currentQuestionIdx,
+    currentStep,
     totalQuestions,
     score,
     onClose,
@@ -29,20 +29,20 @@ export const Header: React.FC<HeaderProps> = ({
                     <div
                         className="h-3 w-full overflow-hidden rounded-full bg-slate-200"
                         role="progressbar"
-                        aria-valuenow={currentQuestionIdx}
+                        aria-valuenow={currentStep}
                         aria-valuemin={0}
                         aria-valuemax={totalQuestions}
-                        aria-label={`Progress: ${currentQuestionIdx} of ${totalQuestions} questions completed`}
+                        aria-label={`Progress: ${currentStep} of ${totalQuestions} questions completed`}
                     >
                         <div
                             className="h-full rounded-full bg-blue-400 transition-all duration-500"
                             style={{
-                                width: `${(currentQuestionIdx / totalQuestions) * 100}%`,
+                                width: `${(currentStep / totalQuestions) * 100}%`,
                             }}
                         />
                     </div>
                     <span className="mt-1 text-[10px] font-bold tracking-widest text-slate-600 uppercase">
-                        Question {currentQuestionIdx} of {totalQuestions}
+                        Question {currentStep} of {totalQuestions}
                     </span>
                 </div>
 
