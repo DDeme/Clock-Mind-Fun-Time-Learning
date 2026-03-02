@@ -2,12 +2,13 @@ import { useCallback } from 'react'
 import { useNavigate } from 'react-router'
 
 import { Game } from '../components/Game'
+import { GameSkeleton } from '../components/Game/Game.skeleton'
 import { useGameData } from '../hooks/useGameData'
 
 const GamePage = () => {
     const navigate = useNavigate()
 
-    const { data, isSuccess } = useGameData('1')
+    const { data, isLoading, isSuccess } = useGameData('1')
 
     const handleComplete = useCallback(
         (score: number) => {
@@ -16,12 +17,15 @@ const GamePage = () => {
         [navigate],
     )
     return (
-        isSuccess && (
-            <Game
-                {...data}
-                onComplete={handleComplete}
-            />
-        )
+        <>
+            {isLoading && <GameSkeleton />}
+            {isSuccess && (
+                <Game
+                    {...data}
+                    onComplete={handleComplete}
+                />
+            )}
+        </>
     )
 }
 
