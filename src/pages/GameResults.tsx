@@ -1,1 +1,3 @@
-export { GameResults } from '../components/GameResults/GameResults'
+import { GameResults } from '../components/GameResults'
+
+export default GameResults

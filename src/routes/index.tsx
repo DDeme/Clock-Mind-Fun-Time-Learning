@@ -1,30 +1,53 @@
+import { Suspense, lazy } from 'react'
 import { createBrowserRouter } from 'react-router'
 
-import { GamePage } from '../pages/Game'
-import { GameResults } from '../pages/GameResults'
-import { IntroPage } from '../pages/Intro'
-import { SettingsPage } from '../pages/Settings'
-import { TimelinePage } from '../pages/Timeline'
+import { Loading } from '../components/Loading/Loading'
+
+const GamePage = lazy(() => import('../pages/Game'))
+const GameResults = lazy(() => import('../pages/GameResults'))
+const IntroPage = lazy(() => import('../pages/Intro'))
+const SettingsPage = lazy(() => import('../pages/Settings'))
+const TimelinePage = lazy(() => import('../pages/Timeline'))
 
 export const router = createBrowserRouter([
     {
-        element: <IntroPage />,
+        element: (
+            <Suspense fallback={<Loading />}>
+                <IntroPage />
+            </Suspense>
+        ),
         path: '/',
     },
     {
-        element: <GamePage />,
+        element: (
+            <Suspense fallback={<Loading />}>
+                <GamePage />
+            </Suspense>
+        ),
         path: '/game',
     },
     {
-        element: <SettingsPage />,
+        element: (
+            <Suspense fallback={<Loading />}>
+                <SettingsPage />
+            </Suspense>
+        ),
         path: '/settings',
     },
     {
-        element: <TimelinePage />,
+        element: (
+            <Suspense fallback={<Loading />}>
+                <TimelinePage />
+            </Suspense>
+        ),
         path: '/timeline',
     },
     {
-        element: <GameResults />,
+        element: (
+            <Suspense fallback={<Loading />}>
+                <GameResults />
+            </Suspense>
+        ),
         path: '/results',
     },
 ])

@@ -48,7 +48,7 @@ export const GameResults = () => {
     return (
         <Layout hideNavigation>
             {/* Header Section */}
-            <header className="relative overflow-hidden rounded-b-[3rem] bg-blue-600 px-6 pt-12 pb-10 text-center">
+            <header className="relative overflow-hidden rounded-b-[3rem] bg-blue-700 px-6 pt-12 pb-10 text-center">
                 <motion.div
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
@@ -67,7 +67,7 @@ export const GameResults = () => {
                         transition={{ delay: 0.3 }}
                         className="flex gap-3 rounded-full bg-white px-8 py-3 shadow-xl"
                     >
-                        <span className="text-2xl font-bold text-blue-500">
+                        <span className="text-2xl font-bold text-blue-700">
                             Stars: 8/10
                         </span>
                     </motion.div>

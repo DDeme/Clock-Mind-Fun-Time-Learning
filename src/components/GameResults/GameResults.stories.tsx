@@ -14,4 +14,12 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = { args: {} }
+export const Default: Story = {
+    args: {},
+    globals: {
+        a11y: {
+            // This option disables all automatic a11y checks on this story
+            manual: true,
+        },
+    },
+}

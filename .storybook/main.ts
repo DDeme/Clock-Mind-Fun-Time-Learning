@@ -20,8 +20,11 @@ const config: StorybookConfig = {
         },
     ],
     features: {
-        experimentalComponentsManifest: true, // Enable manifest generation for the docs toolset, only supported in React-based setups.
+        // Enable manifest generation for the docs toolset, only supported in React-based setups.
+        developmentModeForBuild: true,
+        experimentalComponentsManifest: true,
     },
+
     framework: '@storybook/react-vite',
     stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
 }

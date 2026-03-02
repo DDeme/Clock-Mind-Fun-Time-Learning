@@ -4,7 +4,7 @@ import { LanguagePicker } from '../components/LanguagePicker'
 import { Layout } from '../components/Layout'
 import i18n from '../i18n'
 
-export const SettingsPage = () => {
+const SettingsPage = () => {
     const { t } = useTranslation()
 
     return (
@@ -24,3 +24,5 @@ export const SettingsPage = () => {
         </Layout>
     )
 }
+
+export default SettingsPage

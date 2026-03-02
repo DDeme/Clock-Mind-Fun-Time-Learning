@@ -1,3 +1,3 @@
 import { TimelineProgress } from '../components/TimelineProgress/TimelineProgress'
 
-export const TimelinePage = () => <TimelineProgress />
+export default TimelineProgress

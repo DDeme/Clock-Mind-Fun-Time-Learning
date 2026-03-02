@@ -1,4 +1,6 @@
-import { Game, type ClockTime } from './Game'
+import { type ClockTime } from '../../utils/gameGenerator/gameGenerator'
+
+import { Game } from './Game'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
@@ -38,22 +40,34 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {}
+export const Default: Story = {
+    args: {
+        id: 'default-game',
+        onComplete: () => {},
+        questions: makeQuestions(5),
+    },
+}
 
 export const ShortGame: Story = {
     args: {
+        id: 'short-game',
+        onComplete: () => {},
         questions: makeQuestions(3),
     },
 }
 
 export const LongGame: Story = {
     args: {
+        id: 'long-game',
+        onComplete: () => {},
         questions: makeQuestions(15),
     },
 }
 
 export const NumericAnswerMode: Story = {
     args: {
+        id: 'numeric-answer-mode',
+        onComplete: () => {},
         questions: Array.from({ length: 5 }, (_, i) => ({
             answer: {
                 options: numericOptions,
@@ -72,6 +86,8 @@ export const NumericAnswerMode: Story = {
 
 export const SingleChoiceMode: Story = {
     args: {
+        id: 'single-choice-mode',
+        onComplete: () => {},
         questions: Array.from({ length: 5 }, (_, i) => {
             const value = { hours: (i % 12) + 1, minutes: (i % 12) * 5 }
             return {
@@ -99,6 +115,8 @@ export const SingleChoiceMode: Story = {
 
 export const DeterministicTime: Story = {
     args: {
+        id: 'deterministic-time',
+        onComplete: () => {},
         questions: Array.from({ length: 5 }, (_, i) => ({
             answer: {
                 options: [
@@ -120,6 +138,8 @@ export const DeterministicTime: Story = {
 
 export const MixedModeGame: Story = {
     args: {
+        id: 'mixed-mode-game',
+        onComplete: () => {},
         questions: Array.from({ length: 5 }, (_, i) => {
             const value = { hours: (i % 12) + 1, minutes: (i % 12) * 5 }
             const isNumeric = i % 2 === 0
@@ -155,6 +175,8 @@ export const MixedModeGame: Story = {
 
 export const WithCustomQuestionCount: Story = {
     args: {
+        id: 'custom-question-count',
+        onComplete: () => {},
         questions: makeQuestions(5),
     },
 }

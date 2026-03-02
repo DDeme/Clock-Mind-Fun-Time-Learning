@@ -3,8 +3,6 @@ import React from 'react'
 import { NumericAnswer } from '../NumericAnswer/NumericAnswer'
 import { SingleChoice } from '../SingleChoice/SingleChoice'
 
-import type { AnswerType } from '../Game/Game'
-
 const AnswerType = {
     NUMERIC_ANSWER: 'numeric-answer',
     SINGLE_CHOICE: 'single-choice',
