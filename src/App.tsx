@@ -1,14 +1,17 @@
 import { Suspense } from 'react'
 import { RouterProvider } from 'react-router'
 
+import { ErrorBoundary } from './components/ErrorBoundary'
 import { Loading } from './components/Loading/Loading'
 import { router } from './routes'
 
 function App() {
     return (
-        <Suspense fallback={<Loading />}>
-            <RouterProvider router={router} />
-        </Suspense>
+        <ErrorBoundary>
+            <Suspense fallback={<Loading />}>
+                <RouterProvider router={router} />
+            </Suspense>
+        </ErrorBoundary>
     )
 }
 
