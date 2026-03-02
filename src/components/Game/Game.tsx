@@ -75,12 +75,19 @@ const generateOptions = (
 ): ClockTime[] | number[][] => {
     if (type === 'single-choice') {
         const correct = value
-        const distractors = new Set<ClockTime>()
-        while (distractors.size < 3) {
+        const distractors: ClockTime[] = []
+        while (distractors.length < 3) {
             const d = generateRandomTime()
-            if (d !== correct) distractors.add(d)
+            const isDuplicate = distractors.some(
+                (existing) =>
+                    existing.hours === d.hours &&
+                    existing.minutes === d.minutes,
+            )
+            const isCorrect =
+                d.hours === correct.hours && d.minutes === correct.minutes
+            if (!isDuplicate && !isCorrect) distractors.push(d)
         }
-        const allOptions = Array.from(distractors)
+        const allOptions = distractors
         allOptions.splice(Math.floor(Math.random() * 4), 0, correct)
         return allOptions
     }
@@ -164,14 +171,14 @@ export const Game = ({ id, questions = g, onComplete }: GameProps) => {
     }
 
     const onNext = () => {
-        if (currentStep < totalQuestions) {
+        if (currentStep < totalQuestions - 1) {
             setCurrentStep((prev) => prev + 1)
             startNewQuestion()
         } else {
             // Game over logic could go here
             // implements socreboard screen
             alert('Practice complete! Great job!')
-            setCurrentStep(1)
+            setCurrentStep(0)
             setScore(0)
             startNewQuestion()
         }

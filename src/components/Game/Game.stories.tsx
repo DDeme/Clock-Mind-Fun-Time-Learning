@@ -2,14 +2,10 @@ import { Game, type ClockTime } from './Game'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-// Mock Math.random for deterministic stories
-const mockMathRandom = (value: number) => {
-    const originalRandom = Math.random
-    Math.random = () => value
-    return () => {
-        Math.random = originalRandom
-    }
-}
+const numericOptions = [
+    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55],
+]
 
 const makeQuestions = (count: number) =>
     Array.from({ length: count }, (_, i) => ({
@@ -57,65 +53,108 @@ export const LongGame: Story = {
 }
 
 export const NumericAnswerMode: Story = {
-    decorators: [
-        (Story) => {
-            const restoreRandom = mockMathRandom(0.3) // Forces numeric-answer mode
-            const result = Story()
-            restoreRandom()
-            return result
-        },
-    ],
+    args: {
+        questions: Array.from({ length: 5 }, (_, i) => ({
+            answer: {
+                options: numericOptions,
+                type: 'numeric-answer' as const,
+            },
+            id: String(i + 1),
+            question: {
+                questionType: 'analog-clock' as const,
+                text: 'Look at the clock! What time is it?',
+                value: { hours: (i % 12) + 1, minutes: (i % 12) * 5 },
+            },
+            scoreValue: { negativeScore: 0, positiveScore: 30 },
+        })),
+    },
 }
 
 export const SingleChoiceMode: Story = {
-    decorators: [
-        (Story) => {
-            const restoreRandom = mockMathRandom(0.7) // Forces single-choice mode
-            const result = Story()
-            restoreRandom()
-            return result
-        },
-    ],
+    args: {
+        questions: Array.from({ length: 5 }, (_, i) => {
+            const value = { hours: (i % 12) + 1, minutes: (i % 12) * 5 }
+            return {
+                answer: {
+                    options: [
+                        ...Array.from({ length: 3 }, () => ({
+                            hours: ((i + 1) % 12) + 1,
+                            minutes: ((i + 1) % 12) * 5,
+                        })),
+                        value,
+                    ].sort(() => Math.random() - 0.5),
+                    type: 'single-choice' as const,
+                },
+                id: String(i + 1),
+                question: {
+                    questionType: 'analog-clock' as const,
+                    text: 'Look at the clock! What time is it?',
+                    value,
+                },
+                scoreValue: { negativeScore: 0, positiveScore: 30 },
+            }
+        }),
+    },
 }
 
 export const DeterministicTime: Story = {
-    decorators: [
-        (Story) => {
-            const restoreRandom = mockMathRandom(0.1) // Predictable random values
-            const result = Story()
-            restoreRandom()
-            return result
-        },
-    ],
+    args: {
+        questions: Array.from({ length: 5 }, (_, i) => ({
+            answer: {
+                options: [
+                    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+                    [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55],
+                ],
+                type: 'numeric-answer' as const,
+            },
+            id: String(i + 1),
+            question: {
+                questionType: 'analog-clock' as const,
+                text: 'Look at the clock! What time is it?',
+                value: { hours: 1, minutes: 0 },
+            },
+            scoreValue: { negativeScore: 0, positiveScore: 30 },
+        })),
+    },
 }
 
 export const MixedModeGame: Story = {
-    decorators: [
-        (Story) => {
-            let callCount = 0
-            const originalRandom = Math.random
-            Math.random = () => {
-                callCount++
-                // Alternate between modes for variety
-                return callCount % 2 === 0 ? 0.3 : 0.7
+    args: {
+        questions: Array.from({ length: 5 }, (_, i) => {
+            const value = { hours: (i % 12) + 1, minutes: (i % 12) * 5 }
+            const isNumeric = i % 2 === 0
+            return {
+                answer: {
+                    options: isNumeric
+                        ? [
+                              [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+                              [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55],
+                          ]
+                        : [
+                              ...Array.from({ length: 3 }, () => ({
+                                  hours: ((i + 1) % 12) + 1,
+                                  minutes: ((i + 1) % 12) * 5,
+                              })),
+                              value,
+                          ].sort(() => Math.random() - 0.5),
+                    type: isNumeric
+                        ? ('numeric-answer' as const)
+                        : ('single-choice' as const),
+                },
+                id: String(i + 1),
+                question: {
+                    questionType: 'analog-clock' as const,
+                    text: 'Look at the clock! What time is it?',
+                    value,
+                },
+                scoreValue: { negativeScore: 0, positiveScore: 30 },
             }
-            const result = Story()
-            Math.random = originalRandom
-            return result
-        },
-    ],
+        }),
+    },
 }
 
 export const WithCustomQuestionCount: Story = {
     args: {
         questions: makeQuestions(5),
     },
-    decorators: [
-        (Story) => {
-            const restoreRandom = mockMathRandom(0.6)
-            const result = Story()
-            restoreRandom()
-            return result
-        },
-    ],
 }
