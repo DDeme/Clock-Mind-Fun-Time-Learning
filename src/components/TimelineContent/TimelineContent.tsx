@@ -1,12 +1,6 @@
 import { Check, Clock, Lock, Flag } from 'lucide-react'
 
-interface Lesson {
-    id: number
-    title: string
-    status: 'completed' | 'active' | 'locked'
-    position: 'left' | 'right'
-    progress?: number
-}
+import type { Lesson } from '../../types/lesson'
 
 interface TimelineContentProps {
     lessons: Lesson[]
