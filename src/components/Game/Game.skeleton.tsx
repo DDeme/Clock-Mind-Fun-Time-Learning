@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { Layout } from '../Layout'
 import { Main } from '../Main/Main'
 import { Skeleton } from '../Skeleton/Skeleton'
