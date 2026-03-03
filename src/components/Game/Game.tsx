@@ -18,6 +18,21 @@ import { ResultNotification } from '../ResultNotification'
 
 import type { QuestionRendererProps } from '../QuestionRenderer/QuestionRenderer'
 
+export type GameResult = {
+    id: string
+    started: Date
+    finished: Date
+    totalScore: number
+    questionsAnswers: {
+        id: string
+        started: number
+        finished: number
+        answer: string
+        isCorrect: boolean
+        scoreDiff: number
+    }[]
+}
+
 export type GameState = {
     currentQuestion: number
     totalQuestions: number
@@ -33,7 +48,7 @@ export type GameDefinition = {
 type GameProps = {
     id: string
     questions: Question[]
-    onComplete: (score: number) => void
+    onComplete: (gameResult: GameResult) => void
 }
 
 export const Game = ({ id, questions, onComplete }: GameProps) => {
@@ -49,13 +64,25 @@ export const Game = ({ id, questions, onComplete }: GameProps) => {
     const [totalQuestions] = useState(game.questions.length)
     const [score, setScore] = useState(0)
     const [answer, setAnswer] = useState<ClockTime | null>(null)
+    const [gameStartTime] = useState(() => new Date())
+    const [questionStartTime, setQuestionStartTime] = useState(() => Date.now())
+    const [questionsAnswers, setQuestionsAnswers] = useState<
+        {
+            id: string
+            started: number
+            finished: number
+            answer: string
+            isCorrect: boolean
+            scoreDiff: number
+        }[]
+    >([])
 
     const [isFeedbackVisible, setIsFeedbackVisible] = useState(false)
     const [isCorrect, setIsCorrect] = useState<boolean | null>(null)
 
     const formatTime = (time: ClockTime) => {
         const h = time.hours
-        const m = time.minutes.toString().padStart(2, '0')
+        const m = time.minutes ? time.minutes.toString().padStart(2, '0') : ''
         return `${h}:${m}`
     }
 
@@ -63,6 +90,7 @@ export const Game = ({ id, questions, onComplete }: GameProps) => {
         setAnswer(null)
         setIsFeedbackVisible(false)
         setIsCorrect(null)
+        setQuestionStartTime(Date.now())
     }, [])
 
     const onCheckAnswer = () => {
@@ -78,6 +106,24 @@ export const Game = ({ id, questions, onComplete }: GameProps) => {
 
         setIsCorrect(correct)
         setIsFeedbackVisible(true)
+
+        const scoreDiff = correct
+            ? game.questions[currentStep].scoreValue.positiveScore
+            : game.questions[currentStep].scoreValue.negativeScore
+
+        // Record the question answer data
+        setQuestionsAnswers((prev) => [
+            ...prev,
+            {
+                answer: answer ? formatTime(answer) : '',
+                finished: Date.now(),
+                id: game.questions[currentStep].id,
+                isCorrect: correct,
+                scoreDiff: scoreDiff,
+                started: questionStartTime,
+            },
+        ])
+
         if (correct) {
             setScore(
                 (s) => s + game.questions[currentStep].scoreValue.positiveScore,
@@ -90,9 +136,18 @@ export const Game = ({ id, questions, onComplete }: GameProps) => {
             setCurrentStep((prev) => prev + 1)
             startNewQuestion()
         } else {
-            onComplete(score)
+            // Create GameResult object
+            const gameResult: GameResult = {
+                finished: new Date(),
+                id: game.id,
+                questionsAnswers: questionsAnswers,
+                started: gameStartTime,
+                totalScore: score,
+            }
+            onComplete(gameResult)
             setCurrentStep(0)
             setScore(0)
+            setQuestionsAnswers([])
             startNewQuestion()
         }
     }
@@ -154,7 +209,11 @@ export const Game = ({ id, questions, onComplete }: GameProps) => {
                 aria-atomic="true"
                 className="sr-only"
             >
-                {t('game.gameState', { current: currentStep + 1, score, total: totalQuestions })}{' '}
+                {t('game.gameState', {
+                    current: currentStep + 1,
+                    score,
+                    total: totalQuestions,
+                })}{' '}
                 points
             </div>
         </Layout>
