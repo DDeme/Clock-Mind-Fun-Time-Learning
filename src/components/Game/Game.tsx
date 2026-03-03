@@ -1,4 +1,5 @@
 import { useState, type ComponentProps, useCallback } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router'
 
 import {
@@ -37,6 +38,7 @@ type GameProps = {
 
 export const Game = ({ id, questions, onComplete }: GameProps) => {
     const navigate = useNavigate()
+    const { t } = useTranslation()
     const game = {
         id: id || 'default',
         onComplete,
@@ -129,7 +131,7 @@ export const Game = ({ id, questions, onComplete }: GameProps) => {
                 score={score}
                 onClose={() => navigate('/timeline')}
             />
-            <Main ariaLabel="Game content">
+            <Main ariaLabel={t('game.gameContent')}>
                 {props.question.text && (
                     <MascotBubble message={props.question.text} />
                 )}
@@ -152,7 +154,7 @@ export const Game = ({ id, questions, onComplete }: GameProps) => {
                 aria-atomic="true"
                 className="sr-only"
             >
-                Question {currentStep + 1} of {totalQuestions}, Score: {score}{' '}
+                {t('game.gameState', { current: currentStep + 1, score, total: totalQuestions })}{' '}
                 points
             </div>
         </Layout>

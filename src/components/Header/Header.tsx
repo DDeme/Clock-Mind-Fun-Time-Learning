@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 
 type HeaderProps = {
     currentStep: number
@@ -13,6 +14,8 @@ export const Header: React.FC<HeaderProps> = ({
     score,
     onClose,
 }) => {
+    const { t } = useTranslation()
+    
     return (
         <header className="pt-6 pb-3">
             <div className="flex items-center justify-center">
@@ -32,7 +35,7 @@ export const Header: React.FC<HeaderProps> = ({
                         aria-valuenow={currentStep}
                         aria-valuemin={0}
                         aria-valuemax={totalQuestions}
-                        aria-label={`Progress: ${currentStep} of ${totalQuestions} questions completed`}
+                        aria-label={t('game.progress', { current: currentStep, total: totalQuestions })}
                     >
                         <div
                             className="h-full rounded-full bg-blue-400 transition-all duration-500"
@@ -42,14 +45,14 @@ export const Header: React.FC<HeaderProps> = ({
                         />
                     </div>
                     <span className="mt-1 text-[10px] font-bold tracking-widest text-slate-600 uppercase">
-                        Question {currentStep} of {totalQuestions}
+                        {t('game.questionCounter', { current: currentStep, total: totalQuestions })}
                     </span>
                 </div>
 
                 <div
                     className="flex items-center gap-1 rounded-full border border-blue-400/20 bg-blue-400/10 px-3 py-1"
                     role="status"
-                    aria-label={`Score: ${score} points`}
+                    aria-label={t('game.score', { score })}
                 >
                     <span
                         className="material-symbols-outlined text-xl text-blue-600"

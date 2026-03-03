@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 
 type ResultNotificationProps = {
     isCorrect: boolean | null
@@ -10,31 +11,35 @@ export const ResultNotification: React.FC<ResultNotificationProps> = ({
     isCorrect,
     correctAnswer,
     earnedStars,
-}) => (
-    <div
-        className={`animate-slide-up flex flex-col gap-4`}
-        role="alert"
-        aria-live="assertive"
-    >
+}) => {
+    const { t } = useTranslation()
+    
+    return (
         <div
-            className={`flex items-center gap-3 rounded-xl p-4 ${isCorrect ? 'bg-green-700 text-white' : 'bg-red-700 text-white'}`}
+            className={`animate-slide-up flex flex-col gap-4`}
+            role="alert"
+            aria-live="assertive"
         >
-            <span
-                className="material-symbols-outlined text-3xl"
-                aria-hidden="true"
+            <div
+                className={`flex items-center gap-3 rounded-xl p-4 ${isCorrect ? 'bg-green-700 text-white' : 'bg-red-700 text-white'}`}
             >
-                {isCorrect ? 'check_circle' : 'cancel'}
-            </span>
-            <div>
-                <p className="text-lg font-black">
-                    {isCorrect ? 'Amazing Job!' : 'Not Quite Right'}
-                </p>
-                <p className="text-sm">
-                    {isCorrect
-                        ? `You earned +${earnedStars} stars!`
-                        : `The correct answer was ${correctAnswer}`}
-                </p>
+                <span
+                    className="material-symbols-outlined text-3xl"
+                    aria-hidden="true"
+                >
+                    {isCorrect ? 'check_circle' : 'cancel'}
+                </span>
+                <div>
+                    <p className="text-lg font-black">
+                        {isCorrect ? t('result.success') : t('result.error')}
+                    </p>
+                    <p className="text-sm">
+                        {isCorrect
+                            ? t('result.earnedStars', { stars: earnedStars })
+                            : t('result.correctAnswer', { answer: correctAnswer })}
+                    </p>
+                </div>
             </div>
         </div>
-    </div>
-)
+    )
+}

@@ -36,5 +36,33 @@
         "soundDescription": "Включить или выключить звуковые эффекты",
         "difficulty": "Сложность",
         "difficultyDescription": "Настройте уровень сложности"
+    },
+    "game": {
+        "progress": "Прогресс: {{current}} из {{total}} вопросов завершено",
+        "questionCounter": "Вопрос {{current}} из {{total}}",
+        "score": "Счёт: {{score}} очков",
+        "checkAnswer": "ПРОВЕРИТЬ ОТВЕТ",
+        "nextQuestion": "Следующий вопрос",
+        "question": "Посмотрите на часы! Сколько времени?",
+        "gameComplete": "Практика завершена! Отличная работа!",
+        "gameContent": "Содержимое игры",
+        "gameState": "Вопрос {{current}} из {{total}}, Счёт: {{score}} очков"
+    },
+    "result": {
+        "success": "Отличная работа!",
+        "error": "Не совсем правильно",
+        "earnedStars": "Вы заработали +{{stars}} звёзд!",
+        "correctAnswer": "Правильный ответ был {{answer}}"
+    },
+    "navigation": {
+        "home": "Главная",
+        "game": "Игра",
+        "settings": "Настройки",
+        "main": "Основная навигация"
+    },
+    "accessibility": {
+        "timeOptions": "Варианты времени",
+        "selectTime": "Выбрать {{time}}",
+        "mascotAlt": "Дружелюбный рыжий кот-талисман"
     }
 }

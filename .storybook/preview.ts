@@ -1,10 +1,13 @@
 import { withRouter } from 'storybook-addon-remix-react-router'
 
+import { withI18n } from './decorators'
+
 import type { Preview } from '@storybook/react-vite'
+
 import '../src/index.css'
 
 const preview: Preview = {
-    decorators: [withRouter],
+    decorators: [withI18n, withRouter],
     parameters: {
         a11y: {
             // 'todo' - show a11y violations in the test UI only

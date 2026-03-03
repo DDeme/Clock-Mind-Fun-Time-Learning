@@ -36,5 +36,33 @@
         "soundDescription": "Povolit nebo zakázat zvukové efekty",
         "difficulty": "Obtížnost",
         "difficultyDescription": "Upravte úroveň obtížnosti"
+    },
+    "game": {
+        "progress": "Postup: {{current}} z {{total}} otázek dokončeno",
+        "questionCounter": "Otázka {{current}} z {{total}}",
+        "score": "Skóre: {{score}} bodů",
+        "checkAnswer": "ZKONTROLOVAT ODPOVĚĎ",
+        "nextQuestion": "Další otázka",
+        "question": "Podívejte se na hodiny! Kolik je hodin?",
+        "gameComplete": "Procvičování dokončeno! Skvělá práce!",
+        "gameContent": "Obsah hry",
+        "gameState": "Otázka {{current}} z {{total}}, Skóre: {{score}} bodů"
+    },
+    "result": {
+        "success": "Úžasná práce!",
+        "error": "Není to úplně správně",
+        "earnedStars": "Získali jste +{{stars}} hvězdiček!",
+        "correctAnswer": "Správná odpověď byla {{answer}}"
+    },
+    "navigation": {
+        "home": "Domů",
+        "game": "Hra",
+        "settings": "Nastavení",
+        "main": "Hlavní navigace"
+    },
+    "accessibility": {
+        "timeOptions": "Možnosti času",
+        "selectTime": "Vybrat {{time}}",
+        "mascotAlt": "Přátelská ryšavá kočka maskot"
     }
 }
