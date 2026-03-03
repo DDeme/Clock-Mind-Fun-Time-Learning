@@ -9,7 +9,7 @@ export const fetchGameData = async (
     id: string = 'id',
 ): Promise<GameDataResponse> => {
     try {
-        const response = await fetch(`/src/assets/api/game/${id}.json`)
+        const response = await fetch(`/api/game/${id}.json`)
 
         if (!response.ok) {
             throw new Error(

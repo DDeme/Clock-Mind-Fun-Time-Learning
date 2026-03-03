@@ -25,7 +25,7 @@ i18n.use(initReactI18next).init({
     },
     lng: 'en',
     react: {
-        useSuspense: false, // Disable suspense mode
+        useSuspense: true, // Disable suspense mode
     },
     resources,
 })
