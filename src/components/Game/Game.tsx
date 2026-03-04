@@ -173,6 +173,7 @@ export const Game = ({ id, questions, onComplete }: GameProps) => {
             isCorrect,
             isDisabled: answer === null,
             isFeedbackVisible,
+            isLastQuestion: currentStep === totalQuestions - 1,
             onCheckAnswer,
             onNext,
         },

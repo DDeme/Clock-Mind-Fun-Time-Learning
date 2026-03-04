@@ -2,8 +2,8 @@ import { Clock, Check, X } from 'lucide-react'
 import { motion } from 'motion/react'
 
 type ResultItem = {
-    correct: boolean
-    id: number
+    isCorrect: boolean
+    id: string
 }
 
 type ClockMasteryProps = {
@@ -29,7 +29,7 @@ export const ClockMastery = ({ results }: ClockMasteryProps) => {
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ delay: index * 0.05 }}
                         className={`relative flex aspect-square items-center justify-center rounded-2xl border-2 bg-white shadow-sm ${
-                            item.correct
+                            item.isCorrect
                                 ? 'border-emerald-500'
                                 : 'border-rose-500'
                         }`}
@@ -37,10 +37,12 @@ export const ClockMastery = ({ results }: ClockMasteryProps) => {
                         <Clock className="h-7 w-7 text-slate-700" />
                         <div
                             className={`absolute -top-2 -right-2 flex h-5 w-5 items-center justify-center rounded-full text-white shadow-md ${
-                                item.correct ? 'bg-emerald-500' : 'bg-rose-500'
+                                item.isCorrect
+                                    ? 'bg-emerald-500'
+                                    : 'bg-rose-500'
                             }`}
                         >
-                            {item.correct ? (
+                            {item.isCorrect ? (
                                 <Check className="h-3 w-3 stroke-[4px]" />
                             ) : (
                                 <X className="h-3 w-3 stroke-[4px]" />

@@ -43,6 +43,7 @@
         "score": "Score: {{score}} points",
         "checkAnswer": "CHECK ANSWER",
         "nextQuestion": "Next question",
+        "finishGame": "SEE RESULTS",
         "question": "Look at the clock! What time is it?",
         "gameComplete": "Practice complete! Great job!",
         "gameContent": "Game content",

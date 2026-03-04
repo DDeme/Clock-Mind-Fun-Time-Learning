@@ -3,6 +3,7 @@ import React from 'react'
 import { ActionFooter } from '../ActionFooter'
 import { CheckAnswer } from '../CheckAnswer'
 import { ContinueButton } from '../ContinueButton'
+import { FinishButton } from '../FinishButton'
 
 type GameFooterProps = {
     isFeedbackVisible: boolean
@@ -11,6 +12,7 @@ type GameFooterProps = {
     onCheckAnswer: () => void
     onNext: () => void
     feedback: React.ReactNode
+    isLastQuestion: boolean
 }
 
 export const GameFooter: React.FC<GameFooterProps> = ({
@@ -20,15 +22,25 @@ export const GameFooter: React.FC<GameFooterProps> = ({
     onCheckAnswer,
     onNext,
     feedback,
+    isLastQuestion,
 }) => (
     <ActionFooter>
         {isFeedbackVisible && feedback}
+
         {!isCorrect && !isFeedbackVisible && (
             <CheckAnswer
                 isDisabled={isDisabled}
                 onCheckAnswer={onCheckAnswer}
             />
         )}
-        {isCorrect !== null && <ContinueButton onNext={onNext} />}
+        {isCorrect !== null && !isLastQuestion && (
+            <ContinueButton onNext={onNext} />
+        )}
+        {isCorrect !== null && isLastQuestion && (
+            <FinishButton
+                onClick={onNext}
+                isDisabled={isDisabled}
+            />
+        )}
     </ActionFooter>
 )

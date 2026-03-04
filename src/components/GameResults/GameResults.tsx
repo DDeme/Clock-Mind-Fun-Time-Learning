@@ -9,18 +9,7 @@ import { Layout } from '../Layout'
 import { Main } from '../Main/Main'
 import { StrengthsSection } from '../StrengthsSection'
 
-const RESULTS = [
-    { correct: true, id: 1 },
-    { correct: true, id: 2 },
-    { correct: false, id: 3 },
-    { correct: true, id: 4 },
-    { correct: true, id: 5 },
-    { correct: true, id: 6 },
-    { correct: false, id: 7 },
-    { correct: true, id: 8 },
-    { correct: true, id: 9 },
-    { correct: true, id: 10 },
-]
+import type { GameResult } from '../Game'
 
 const STRENGTHS = [
     {
@@ -43,8 +32,13 @@ const STRENGTHS = [
     },
 ]
 
-export const GameResults = () => {
+export const GameResults = ({
+    totalScore,
+    questionsAnswers,
+    ...rest
+}: GameResult) => {
     const navigate = useNavigate()
+    console.log({ questionsAnswers, totalScore, ...rest })
     return (
         <Layout hideNavigation>
             {/* Header Section */}
@@ -68,7 +62,7 @@ export const GameResults = () => {
                         className="flex gap-3 rounded-full bg-white px-8 py-3 shadow-xl"
                     >
                         <span className="text-2xl font-bold text-blue-700">
-                            Stars: 8/10
+                            Stars: {totalScore}/10
                         </span>
                     </motion.div>
                 </motion.div>
@@ -76,7 +70,7 @@ export const GameResults = () => {
 
             <Main ariaLabel="Game results">
                 {/* Clock Mastery Section */}
-                <ClockMastery results={RESULTS} />
+                <ClockMastery results={questionsAnswers} />
 
                 {/* Strengths Section */}
                 <StrengthsSection strengths={STRENGTHS} />

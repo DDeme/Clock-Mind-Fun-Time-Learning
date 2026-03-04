@@ -3,6 +3,11 @@ import { TimeToHumanText } from './RelativeTime'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
+    argTypes: {
+        dateISOString: {
+            control: 'date',
+        },
+    },
     component: TimeToHumanText,
     decorators: [
         (Story) => (
@@ -27,54 +32,54 @@ export const CurrentTime: Story = {
 
 export const Midnight: Story = {
     args: {
-        date: new Date(2024, 0, 1, 0, 0),
+        dateISOString: new Date(2024, 0, 1, 0, 0).toISOString(),
     },
 }
 
 export const Noon: Story = {
     args: {
-        date: new Date(2024, 0, 1, 12, 0),
+        dateISOString: new Date(2024, 0, 1, 12, 0).toISOString(),
     },
 }
 
 export const QuarterPast: Story = {
     args: {
-        date: new Date(2024, 0, 1, 3, 15),
+        dateISOString: new Date(2024, 0, 1, 3, 15).toISOString(),
     },
 }
 
 export const HalfPast: Story = {
     args: {
-        date: new Date(2024, 0, 1, 5, 30),
+        dateISOString: new Date(2024, 0, 1, 5, 30).toISOString(),
     },
 }
 
 export const QuarterTo: Story = {
     args: {
-        date: new Date(2024, 0, 1, 8, 45),
+        dateISOString: new Date(2024, 0, 1, 8, 45).toISOString(),
     },
 }
 
 export const EarlyMorning: Story = {
     args: {
-        date: new Date(2024, 0, 1, 1, 7),
+        dateISOString: new Date(2024, 0, 1, 1, 7).toISOString(),
     },
 }
 
 export const Morning: Story = {
     args: {
-        date: new Date(2024, 0, 1, 6, 10),
+        dateISOString: new Date(2024, 0, 1, 6, 10).toISOString(),
     },
 }
 
 export const LateMorning: Story = {
     args: {
-        date: new Date(2024, 0, 1, 9, 59),
+        dateISOString: new Date(2024, 0, 1, 9, 59).toISOString(),
     },
 }
 
 export const LateEvening: Story = {
     args: {
-        date: new Date(2024, 0, 1, 11, 29),
+        dateISOString: new Date(2024, 0, 1, 11, 29).toISOString(),
     },
 }

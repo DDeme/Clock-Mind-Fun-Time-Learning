@@ -1,0 +1,41 @@
+{
+    "id": "2",
+    "questions": [
+        {
+            "answer": {
+                "options": [
+                    {
+                        "hours": 4,
+                        "minutes": 0
+                    },
+                    {
+                        "hours": 5,
+                        "minutes": 20
+                    },
+                    {
+                        "hours": 5,
+                        "minutes": 10
+                    },
+                    {
+                        "hours": 5,
+                        "minutes": 45
+                    }
+                ],
+                "type": "single-choice"
+            },
+            "id": "10",
+            "question": {
+                "questionType": "analog-clock",
+                "text": "Look at the clock! What time is it?",
+                "value": {
+                    "hours": 5,
+                    "minutes": 20
+                }
+            },
+            "scoreValue": {
+                "negativeScore": 0,
+                "positiveScore": 30
+            }
+        }
+    ]
+}

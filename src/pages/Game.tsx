@@ -10,12 +10,11 @@ import type { GameResult } from '../components/Game'
 const GamePage = () => {
     const navigate = useNavigate()
 
-    const { data, isLoading, isSuccess } = useGameData('1')
+    const { data, isLoading, isSuccess } = useGameData('2')
 
     const handleComplete = useCallback(
         (gameResult: GameResult) => {
-            alert(gameResult)
-            navigate('/results')
+            navigate('/results', { state: { gameResult } })
         },
         [navigate],
     )
