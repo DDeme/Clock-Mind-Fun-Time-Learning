@@ -133,7 +133,7 @@
             },
             "id": "3",
             "question": {
-                "questionType": "analog-clock",
+                "questionType": "text-clock",
                 "text": "Look at the clock! What time is it?",
                 "value": {
                     "hours": 8,
@@ -385,7 +385,7 @@
             },
             "id": "9",
             "question": {
-                "questionType": "analog-clock",
+                "questionType": "text-clock",
                 "text": "Look at the clock! What time is it?",
                 "value": {
                     "hours": 6,

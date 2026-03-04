@@ -1,11 +1,18 @@
-import { TimeToHumanText } from './RelativeTime'
+import { TimeToHumanText } from './TimeToHuman'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
     argTypes: {
-        dateISOString: {
-            control: 'date',
+        hours: {
+            control: 'number',
+            max: 23,
+            min: 0,
+        },
+        minutes: {
+            control: 'number',
+            max: 59,
+            min: 0,
         },
     },
     component: TimeToHumanText,
@@ -27,59 +34,71 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const CurrentTime: Story = {
-    args: {},
+    args: {
+        hours: new Date().getHours(),
+        minutes: new Date().getMinutes(),
+    },
 }
 
 export const Midnight: Story = {
     args: {
-        dateISOString: new Date(2024, 0, 1, 0, 0).toISOString(),
+        hours: 0,
+        minutes: 0,
     },
 }
 
 export const Noon: Story = {
     args: {
-        dateISOString: new Date(2024, 0, 1, 12, 0).toISOString(),
+        hours: 12,
+        minutes: 0,
     },
 }
 
 export const QuarterPast: Story = {
     args: {
-        dateISOString: new Date(2024, 0, 1, 3, 15).toISOString(),
+        hours: 3,
+        minutes: 15,
     },
 }
 
 export const HalfPast: Story = {
     args: {
-        dateISOString: new Date(2024, 0, 1, 5, 30).toISOString(),
+        hours: 5,
+        minutes: 30,
     },
 }
 
 export const QuarterTo: Story = {
     args: {
-        dateISOString: new Date(2024, 0, 1, 8, 45).toISOString(),
+        hours: 8,
+        minutes: 45,
     },
 }
 
 export const EarlyMorning: Story = {
     args: {
-        dateISOString: new Date(2024, 0, 1, 1, 7).toISOString(),
+        hours: 1,
+        minutes: 7,
     },
 }
 
 export const Morning: Story = {
     args: {
-        dateISOString: new Date(2024, 0, 1, 6, 10).toISOString(),
+        hours: 6,
+        minutes: 10,
     },
 }
 
 export const LateMorning: Story = {
     args: {
-        dateISOString: new Date(2024, 0, 1, 9, 59).toISOString(),
+        hours: 9,
+        minutes: 59,
     },
 }
 
 export const LateEvening: Story = {
     args: {
-        dateISOString: new Date(2024, 0, 1, 11, 29).toISOString(),
+        hours: 23,
+        minutes: 29,
     },
 }

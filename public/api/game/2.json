@@ -25,7 +25,7 @@
             },
             "id": "10",
             "question": {
-                "questionType": "analog-clock",
+                "questionType": "text-clock",
                 "text": "Look at the clock! What time is it?",
                 "value": {
                     "hours": 5,
