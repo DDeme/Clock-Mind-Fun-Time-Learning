@@ -1,15 +1,18 @@
 import { useQuery } from '@tanstack/react-query'
 
-import { fetchGameData, type GameDataResponse } from '../utils/api'
+import { fetchFromAPI } from '../utils/api'
+
+import type { Question } from '../utils/gameGenerator/gameGenerator'
+
+export interface GameDataResponse {
+    id: string
+    questions: Question[]
+}
 
 export const useGameData = (id: string) => {
     return useQuery<GameDataResponse>({
-        queryFn: () => fetchGameData(id),
+        queryFn: () => fetchFromAPI(`/api/game/${id}.json`),
         queryKey: ['gameData', id],
-        // 10 minutes
-        retry: 2,
-        retryDelay: (attemptIndex: number) =>
-            Math.min(1000 * 2 ** attemptIndex, 30000),
         staleTime: 1000 * 60 * 10,
     })
 }
