@@ -15,7 +15,7 @@ export const Header: React.FC<HeaderProps> = ({
     onClose,
 }) => {
     const { t } = useTranslation()
-    
+
     return (
         <header className="pt-6 pb-3">
             <div className="flex items-center justify-center">
@@ -35,7 +35,10 @@ export const Header: React.FC<HeaderProps> = ({
                         aria-valuenow={currentStep}
                         aria-valuemin={0}
                         aria-valuemax={totalQuestions}
-                        aria-label={t('game.progress', { current: currentStep, total: totalQuestions })}
+                        aria-label={t('game.progress', {
+                            current: currentStep,
+                            total: totalQuestions,
+                        })}
                     >
                         <div
                             className="h-full rounded-full bg-blue-400 transition-all duration-500"
@@ -45,7 +48,10 @@ export const Header: React.FC<HeaderProps> = ({
                         />
                     </div>
                     <span className="mt-1 text-[10px] font-bold tracking-widest text-slate-600 uppercase">
-                        {t('game.questionCounter', { current: currentStep, total: totalQuestions })}
+                        {t('game.questionCounter', {
+                            current: currentStep,
+                            total: totalQuestions,
+                        })}
                     </span>
                 </div>
 

@@ -32,13 +32,8 @@ const STRENGTHS = [
     },
 ]
 
-export const GameResults = ({
-    totalScore,
-    questionsAnswers,
-    ...rest
-}: GameResult) => {
+export const GameResults = ({ totalScore, questionsAnswers }: GameResult) => {
     const navigate = useNavigate()
-    console.log({ questionsAnswers, totalScore, ...rest })
     return (
         <Layout hideNavigation>
             {/* Header Section */}

@@ -1,0 +1,555 @@
+[
+    {
+        "id": 1,
+        "title": "Seconds, Minutes, and Hours",
+        "explanation": "Time has small units like seconds (fast tick-tock, like a heartbeat), minutes (60 seconds = 1 minute, like waiting for a song), and hours (60 minutes = 1 hour, like from breakfast to lunch). A day has 24 hours!",
+        "examples": [
+            "Brushing teeth: 2 minutes.",
+            "School day: 6 hours.",
+            "Running: 10 seconds."
+        ],
+        "position": "left",
+        "status": "completed",
+        "quiz": [
+            {
+                "id": "1-1",
+                "question": {
+                    "text": "How many seconds in 1 minute?",
+                    "questionType": "text-only"
+                },
+                "answer": {
+                    "options": ["10", "60", "100"],
+                    "type": "single-choice",
+                    "correct": "60"
+                },
+                "scoreValue": {
+                    "positiveScore": 30,
+                    "negativeScore": 0
+                }
+            },
+            {
+                "id": "1-2",
+                "question": {
+                    "text": "How many minutes in 1 hour?",
+                    "questionType": "text-only"
+                },
+                "answer": {
+                    "options": ["60", "24", "10"],
+                    "type": "single-choice",
+                    "correct": "60"
+                },
+                "scoreValue": {
+                    "positiveScore": 30,
+                    "negativeScore": 0
+                }
+            },
+            {
+                "id": "1-3",
+                "question": {
+                    "text": "What takes about 1 hour?",
+                    "questionType": "text-only"
+                },
+                "answer": {
+                    "options": [
+                        "Watching a cartoon",
+                        "Blinking",
+                        "Eating one candy"
+                    ],
+                    "type": "single-choice",
+                    "correct": "Watching a cartoon"
+                },
+                "scoreValue": {
+                    "positiveScore": 30,
+                    "negativeScore": 0
+                }
+            },
+            {
+                "id": "1-4",
+                "question": {
+                    "text": "How many seconds to count '1-Mississippi'?",
+                    "questionType": "text-only"
+                },
+                "answer": {
+                    "options": ["1", "60", "24"],
+                    "type": "single-choice",
+                    "correct": "1"
+                },
+                "scoreValue": {
+                    "positiveScore": 30,
+                    "negativeScore": 0
+                }
+            },
+            {
+                "id": "1-5",
+                "question": {
+                    "text": "True or False: A day has 24 hours.",
+                    "questionType": "text-only"
+                },
+                "answer": {
+                    "options": ["True", "False"],
+                    "type": "single-choice",
+                    "correct": "True"
+                },
+                "scoreValue": {
+                    "positiveScore": 30,
+                    "negativeScore": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "title": "Days and Basic Time Words",
+        "explanation": "7 days = 1 week. Time words: o'clock (full hour), half (halfway), quarter (1/4 of hour). Morning (AM), afternoon, evening, night.",
+        "examples": ["Monday to Sunday = week.", "3 o'clock = full hour."],
+        "position": "right",
+        "status": "active",
+        "progress": 0,
+        "quiz": [
+            {
+                "id": "2-1",
+                "question": {
+                    "text": "How many days in a week?",
+                    "questionType": "text-only"
+                },
+                "answer": {
+                    "options": ["5", "7", "24"],
+                    "type": "single-choice",
+                    "correct": "7"
+                },
+                "scoreValue": {
+                    "positiveScore": 30,
+                    "negativeScore": 0
+                }
+            },
+            {
+                "id": "2-2",
+                "question": {
+                    "text": "What is 'half past 2'?",
+                    "questionType": "text-only"
+                },
+                "answer": {
+                    "options": ["2:00", "2:30", "3:00"],
+                    "type": "single-choice",
+                    "correct": "2:30"
+                },
+                "scoreValue": {
+                    "positiveScore": 30,
+                    "negativeScore": 0
+                }
+            },
+            {
+                "id": "2-3",
+                "question": {
+                    "text": "School is usually in the ____.",
+                    "questionType": "text-only"
+                },
+                "answer": {
+                    "options": ["Morning", "Night", "Midnight"],
+                    "type": "single-choice",
+                    "correct": "Morning"
+                },
+                "scoreValue": {
+                    "positiveScore": 30,
+                    "negativeScore": 0
+                }
+            },
+            {
+                "id": "2-4",
+                "question": {
+                    "text": "15 minutes is a ____ of an hour.",
+                    "questionType": "text-only"
+                },
+                "answer": {
+                    "options": ["Half", "Quarter", "Full"],
+                    "type": "single-choice",
+                    "correct": "Quarter"
+                },
+                "scoreValue": {
+                    "positiveScore": 30,
+                    "negativeScore": 0
+                }
+            },
+            {
+                "id": "2-5",
+                "question": {
+                    "text": "How many days are in March?",
+                    "questionType": "text-only"
+                },
+                "answer": {
+                    "options": ["28", "30", "31"],
+                    "type": "single-choice",
+                    "correct": "31"
+                },
+                "scoreValue": {
+                    "positiveScore": 30,
+                    "negativeScore": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "title": "Digital Clock Basics",
+        "explanation": "Digital clocks show numbers like a calculator: HH:MM (hours:minutes). No hands! 12-hour (AM/PM) or 24-hour format.",
+        "examples": ["09:00 = 9 AM.", "14:30 = 2:30 PM."],
+        "position": "left",
+        "status": "locked",
+        "quiz": [
+            {
+                "id": "3-1",
+                "question": {
+                    "text": "What time is 3:00 on digital?",
+                    "questionType": "text-only"
+                },
+                "answer": {
+                    "options": ["03:00", "12:00", "00:03"],
+                    "type": "single-choice",
+                    "correct": "03:00"
+                },
+                "scoreValue": {
+                    "positiveScore": 30,
+                    "negativeScore": 0
+                }
+            },
+            {
+                "id": "3-2",
+                "question": {
+                    "text": "12:00 is ____.",
+                    "questionType": "text-only"
+                },
+                "answer": {
+                    "options": ["Midnight", "Noon", "Evening"],
+                    "type": "single-choice",
+                    "correct": "Noon"
+                },
+                "scoreValue": {
+                    "positiveScore": 30,
+                    "negativeScore": 0
+                }
+            },
+            {
+                "id": "3-3",
+                "question": {
+                    "text": "PM means ____.",
+                    "questionType": "text-only"
+                },
+                "answer": {
+                    "options": ["Before noon", "After noon", "Past Midnight"],
+                    "type": "single-choice",
+                    "correct": "After noon"
+                },
+                "scoreValue": {
+                    "positiveScore": 30,
+                    "negativeScore": 0
+                }
+            },
+            {
+                "id": "3-4",
+                "question": {
+                    "text": "What is 7:45 PM in 24-hour format?",
+                    "questionType": "text-only"
+                },
+                "answer": {
+                    "options": ["07:45", "17:45", "19:45"],
+                    "type": "single-choice",
+                    "correct": "19:45"
+                },
+                "scoreValue": {
+                    "positiveScore": 30,
+                    "negativeScore": 0
+                }
+            },
+            {
+                "id": "3-5",
+                "question": {
+                    "text": "Bedtime example: 8:00 PM = ?",
+                    "questionType": "text-only"
+                },
+                "answer": {
+                    "options": ["18:00", "20:00", "22:00"],
+                    "type": "single-choice",
+                    "correct": "20:00"
+                },
+                "scoreValue": {
+                    "positiveScore": 30,
+                    "negativeScore": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "title": "Analog Clock - Hours and Half Hours",
+        "explanation": "Analog clocks have hands: short hour hand, long minute hand. Circle = 12 hours. Full hour: hour hand on number. Half past: minute hand on 6.",
+        "examples": ["2:00: Hour on 2, minute at 12.", "4:30: Minute on 6."],
+        "position": "right",
+        "status": "locked",
+        "quiz": [
+            {
+                "id": "4-1",
+                "question": {
+                    "text": "Where is minute hand at 3:00?",
+                    "questionType": "text-only"
+                },
+                "answer": {
+                    "options": ["3", "6", "12"],
+                    "type": "single-choice",
+                    "correct": "12"
+                },
+                "scoreValue": {
+                    "positiveScore": 30,
+                    "negativeScore": 0
+                }
+            },
+            {
+                "id": "4-2",
+                "question": {
+                    "text": "6:30 on analog: Minute hand on?",
+                    "questionType": "text-only"
+                },
+                "answer": {
+                    "options": ["6", "12", "3"],
+                    "type": "single-choice",
+                    "correct": "6"
+                },
+                "scoreValue": {
+                    "positiveScore": 30,
+                    "negativeScore": 0
+                }
+            },
+            {
+                "id": "4-3",
+                "question": {
+                    "text": "Hour hand at 10 o'clock is on?",
+                    "questionType": "text-only"
+                },
+                "answer": {
+                    "options": ["10", "12", "2"],
+                    "type": "single-choice",
+                    "correct": "10"
+                },
+                "scoreValue": {
+                    "positiveScore": 30,
+                    "negativeScore": 0
+                }
+            },
+            {
+                "id": "4-4",
+                "question": {
+                    "text": "What time: Hour on 5, minute on 12?",
+                    "questionType": "text-only"
+                },
+                "answer": {
+                    "options": ["5:00", "12:05", "5:30"],
+                    "type": "single-choice",
+                    "correct": "5:00"
+                },
+                "scoreValue": {
+                    "positiveScore": 30,
+                    "negativeScore": 0
+                }
+            },
+            {
+                "id": "4-5",
+                "question": {
+                    "text": "What is half past 1?",
+                    "questionType": "text-only"
+                },
+                "answer": {
+                    "options": ["1:00", "1:30", "2:30"],
+                    "type": "single-choice",
+                    "correct": "1:30"
+                },
+                "scoreValue": {
+                    "positiveScore": 30,
+                    "negativeScore": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "title": "Analog Clock - Quarter Hours",
+        "explanation": "Quarter past (:15, minute on 3), quarter to (:45, minute on 9). Practice moving hands.",
+        "examples": ["2:15 = quarter past 2.", "5:45 = quarter to 6."],
+        "position": "left",
+        "status": "locked",
+        "quiz": [
+            {
+                "id": "5-1",
+                "question": {
+                    "text": "What is quarter past 4?",
+                    "questionType": "text-only"
+                },
+                "answer": {
+                    "options": ["4:15", "4:30", "4:45"],
+                    "type": "single-choice",
+                    "correct": "4:15"
+                },
+                "scoreValue": {
+                    "positiveScore": 30,
+                    "negativeScore": 0
+                }
+            },
+            {
+                "id": "5-2",
+                "question": {
+                    "text": "Minute hand on 3 = ? minutes past.",
+                    "questionType": "text-only"
+                },
+                "answer": {
+                    "options": ["5", "10", "15"],
+                    "type": "single-choice",
+                    "correct": "15"
+                },
+                "scoreValue": {
+                    "positiveScore": 30,
+                    "negativeScore": 0
+                }
+            },
+            {
+                "id": "5-3",
+                "question": {
+                    "text": "What is quarter to 7?",
+                    "questionType": "text-only"
+                },
+                "answer": {
+                    "options": ["7:15", "6:45", "7:45"],
+                    "type": "single-choice",
+                    "correct": "6:45"
+                },
+                "scoreValue": {
+                    "positiveScore": 30,
+                    "negativeScore": 0
+                }
+            },
+            {
+                "id": "5-4",
+                "question": {
+                    "text": "Minute on 9 means what?",
+                    "questionType": "text-only"
+                },
+                "answer": {
+                    "options": ["Quarter past", "Quarter to", "Half past"],
+                    "type": "single-choice",
+                    "correct": "Quarter to"
+                },
+                "scoreValue": {
+                    "positiveScore": 30,
+                    "negativeScore": 0
+                }
+            },
+            {
+                "id": "5-5",
+                "question": {
+                    "text": "10:15 is quarter ____ 10.",
+                    "questionType": "text-only"
+                },
+                "answer": {
+                    "options": ["Past", "To", "Before"],
+                    "type": "single-choice",
+                    "correct": "Past"
+                },
+                "scoreValue": {
+                    "positiveScore": 30,
+                    "negativeScore": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "title": "Mixed Clocks and Word Problems",
+        "explanation": "Combine digital/analog. Read schedules: 'What time is snack? 10:30.'",
+        "examples": ["Digital 11:45 = Analog quarter to 12."],
+        "position": "right",
+        "status": "locked",
+        "quiz": [
+            {
+                "id": "6-1",
+                "question": {
+                    "text": "Digital 09:30 is the same as which analog time?",
+                    "questionType": "text-only"
+                },
+                "answer": {
+                    "options": ["Half past 9", "Quarter past 9", "9 o'clock"],
+                    "type": "single-choice",
+                    "correct": "Half past 9"
+                },
+                "scoreValue": {
+                    "positiveScore": 30,
+                    "negativeScore": 0
+                }
+            },
+            {
+                "id": "6-2",
+                "question": {
+                    "text": "Recess at 2:45 PM is ____.",
+                    "questionType": "text-only"
+                },
+                "answer": {
+                    "options": [
+                        "Quarter past 2",
+                        "Quarter to 3",
+                        "Half past 2"
+                    ],
+                    "type": "single-choice",
+                    "correct": "Quarter to 3"
+                },
+                "scoreValue": {
+                    "positiveScore": 30,
+                    "negativeScore": 0
+                }
+            },
+            {
+                "id": "6-3",
+                "question": {
+                    "text": "How many hours from 8 AM to 12 PM?",
+                    "questionType": "text-only"
+                },
+                "answer": {
+                    "options": ["2", "4", "6"],
+                    "type": "single-choice",
+                    "correct": "4"
+                },
+                "scoreValue": {
+                    "positiveScore": 30,
+                    "negativeScore": 0
+                }
+            },
+            {
+                "id": "6-4",
+                "question": {
+                    "text": "Analog: Hour between 3-4, minute on 6?",
+                    "questionType": "text-only"
+                },
+                "answer": {
+                    "options": ["3:30", "4:30", "6:15"],
+                    "type": "single-choice",
+                    "correct": "3:30"
+                },
+                "scoreValue": {
+                    "positiveScore": 30,
+                    "negativeScore": 0
+                }
+            },
+            {
+                "id": "6-5",
+                "question": {
+                    "text": "Bedtime 60 minutes after 7:30 PM?",
+                    "questionType": "text-only"
+                },
+                "answer": {
+                    "options": ["8:00 PM", "8:30 PM", "9:00 PM"],
+                    "type": "single-choice",
+                    "correct": "8:30 PM"
+                },
+                "scoreValue": {
+                    "positiveScore": 30,
+                    "negativeScore": 0
+                }
+            }
+        ]
+    }
+]

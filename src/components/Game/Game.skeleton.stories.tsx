@@ -29,6 +29,8 @@ export const WithGameOverlay: Story = {
             <div className="absolute inset-0 opacity-20">
                 <Game
                     id="id"
+                    title="Overlay Game"
+                    description="A game overlaid on skeleton for demonstration"
                     questions={[
                         {
                             answer: {
@@ -38,17 +40,16 @@ export const WithGameOverlay: Story = {
                                         0, 5, 10, 15, 20, 25, 30, 35, 40, 45,
                                         50, 55,
                                     ],
-                                ],
-                                type: 'numeric-answer',
+                                ]
+                                    .flat()
+                                    .map(String),
+                                type: 'numeric-answer' as const,
                             },
                             id: '1',
                             question: {
-                                questionType: 'analog-clock',
+                                questionType: 'analog-clock' as const,
                                 text: 'Look at the clock! What time is it?',
-                                value: {
-                                    hours: 4,
-                                    minutes: 35,
-                                },
+                                value: `${4}:${35}`,
                             },
                             scoreValue: {
                                 negativeScore: 0,

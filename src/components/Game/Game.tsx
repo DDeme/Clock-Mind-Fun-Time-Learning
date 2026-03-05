@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router'
 
 import {
     type AnswerType,
-    type ClockTime,
     type Question,
 } from '../../utils/gameGenerator/gameGenerator'
 import { Answers } from '../Answers'
@@ -47,6 +46,8 @@ export type GameDefinition = {
 
 type GameProps = {
     id: string
+    title: string
+    description: string
     questions: Question[]
     onComplete: (gameResult: GameResult) => void
 }
@@ -63,7 +64,7 @@ export const Game = ({ id, questions, onComplete }: GameProps) => {
     const [currentStep, setCurrentStep] = useState(0)
     const [totalQuestions] = useState(game.questions.length)
     const [score, setScore] = useState(0)
-    const [answer, setAnswer] = useState<ClockTime | null>(null)
+    const [answer, setAnswer] = useState<string | null>(null)
     const [gameStartTime] = useState(() => new Date())
     const [questionStartTime, setQuestionStartTime] = useState(() => Date.now())
     const [questionsAnswers, setQuestionsAnswers] = useState<
@@ -80,12 +81,6 @@ export const Game = ({ id, questions, onComplete }: GameProps) => {
     const [isFeedbackVisible, setIsFeedbackVisible] = useState(false)
     const [isCorrect, setIsCorrect] = useState<boolean | null>(null)
 
-    const formatTime = (time: ClockTime) => {
-        const h = time.hours
-        const m = time.minutes ? time.minutes.toString().padStart(2, '0') : ''
-        return `${h}:${m}`
-    }
-
     const startNewQuestion = useCallback(() => {
         setAnswer(null)
         setIsFeedbackVisible(false)
@@ -95,12 +90,7 @@ export const Game = ({ id, questions, onComplete }: GameProps) => {
 
     const onCheckAnswer = () => {
         let correct = false
-        if (
-            game.questions[currentStep].question.value.hours ===
-                answer?.hours &&
-            game.questions[currentStep].question.value.minutes ===
-                answer?.minutes
-        ) {
+        if (game.questions[currentStep].question.value === answer) {
             correct = true
         }
 
@@ -115,7 +105,7 @@ export const Game = ({ id, questions, onComplete }: GameProps) => {
         setQuestionsAnswers((prev) => [
             ...prev,
             {
-                answer: answer ? formatTime(answer) : '',
+                answer: answer || '',
                 finished: Date.now(),
                 id: game.questions[currentStep].id,
                 isCorrect: correct,
@@ -198,7 +188,7 @@ export const Game = ({ id, questions, onComplete }: GameProps) => {
                     feedback={
                         <ResultNotification
                             isCorrect={props.footer.isCorrect}
-                            correctAnswer={formatTime(props.question.value)}
+                            correctAnswer={props.question.value}
                             earnedStars={props.scoreValue.positiveScore}
                         />
                     }

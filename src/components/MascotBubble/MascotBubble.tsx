@@ -9,7 +9,7 @@ type MascotBubbleProps = {
 
 export const MascotBubble: React.FC<MascotBubbleProps> = ({ message }) => {
     const { t } = useTranslation()
-    
+
     return (
         <div
             className="animate-bounce-slow mx-auto flex w-full max-w-sm items-start gap-3"

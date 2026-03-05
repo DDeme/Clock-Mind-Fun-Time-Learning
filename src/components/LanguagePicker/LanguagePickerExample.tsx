@@ -17,7 +17,7 @@ export const LanguagePickerExample: React.FC = () => {
                     <span className="text-sm text-slate-500">Changing...</span>
                 )}
             </div>
-            
+
             <div className="space-y-2">
                 <label className="block text-sm font-medium text-slate-700">
                     Select Language
@@ -28,7 +28,7 @@ export const LanguagePickerExample: React.FC = () => {
                     ariaLabel="Select application language"
                 />
             </div>
-            
+
             <div className="text-sm text-slate-600">
                 Current language: <strong>{currentLanguage}</strong>
             </div>

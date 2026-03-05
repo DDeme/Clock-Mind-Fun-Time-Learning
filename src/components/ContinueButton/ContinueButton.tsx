@@ -9,7 +9,7 @@ type ContinueButtonProps = {
 
 export const ContinueButton: React.FC<ContinueButtonProps> = ({ onNext }) => {
     const { t } = useTranslation()
-    
+
     return (
         <Button
             onClick={onNext}

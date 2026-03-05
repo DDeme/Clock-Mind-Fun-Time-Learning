@@ -81,7 +81,8 @@ export const Complete: Story = {
                 />
             </svg>
         ),
-        message: 'You haven\'t practiced any clock exercises yet. Start learning to track your progress!',
+        message:
+            "You haven't practiced any clock exercises yet. Start learning to track your progress!",
         title: 'No Clock Data',
     },
 }
