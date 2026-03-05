@@ -9,13 +9,13 @@ const GameResultsPage = () => {
     const location = useLocation()
     const gameResult = location.state?.gameResult as unknown as GameResult
 
-    const totalTime = gameResult.started - gameResult.ended
-
-    console.log(totalTime)
     if (!gameResult) {
         navigate('/timeline')
         return null
     }
+    // const totalTime =
+    //     new Date(gameResult.finished).getTime() -
+    //     new Date(gameResult.started).getTime()
     return <GameResults {...gameResult} />
 }
 

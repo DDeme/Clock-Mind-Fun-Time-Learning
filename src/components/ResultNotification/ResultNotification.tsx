@@ -13,7 +13,7 @@ export const ResultNotification: React.FC<ResultNotificationProps> = ({
     earnedStars,
 }) => {
     const { t } = useTranslation()
-    
+
     return (
         <div
             className={`animate-slide-up flex flex-col gap-4`}
@@ -36,7 +36,9 @@ export const ResultNotification: React.FC<ResultNotificationProps> = ({
                     <p className="text-sm">
                         {isCorrect
                             ? t('result.earnedStars', { stars: earnedStars })
-                            : t('result.correctAnswer', { answer: correctAnswer })}
+                            : t('result.correctAnswer', {
+                                  answer: correctAnswer,
+                              })}
                     </p>
                 </div>
             </div>

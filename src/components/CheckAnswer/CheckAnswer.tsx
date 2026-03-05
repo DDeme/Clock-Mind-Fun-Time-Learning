@@ -13,7 +13,7 @@ export const CheckAnswer: React.FC<CheckAnswerProps> = ({
     onCheckAnswer,
 }) => {
     const { t } = useTranslation()
-    
+
     return (
         <Button
             onClick={onCheckAnswer}

@@ -16,18 +16,13 @@ export type ClockTime = {
 export type Question = {
     id: string
     answer: {
-        options:
-            | {
-                  hours: number
-                  minutes: number
-              }[]
-            | number[][]
+        options: string[]
         type: 'single-choice' | 'numeric-answer'
     }
     question: {
         questionType: 'analog-clock'
         text: string
-        value: ClockTime
+        value: string
     }
     scoreValue: {
         negativeScore: number
@@ -41,10 +36,7 @@ const generateRandomTime = () => {
     return { hours, minutes }
 }
 
-const generateOptions = (
-    type: AnswerType,
-    value: ClockTime,
-): ClockTime[] | number[][] => {
+const generateOptions = (type: AnswerType, value: ClockTime): string[] => {
     if (type === 'single-choice') {
         const correct = value
         const distractors: ClockTime[] = []
@@ -61,9 +53,9 @@ const generateOptions = (
         }
         const allOptions = distractors
         allOptions.splice(Math.floor(Math.random() * 4), 0, correct)
-        return allOptions
+        return allOptions.map((option) => `${option.hours}:${option.minutes}`)
     }
-    return numericOptions
+    return numericOptions.flat().map((option) => String(option))
 }
 
 export const questionsGenerator = (count: number): Question[] => {
@@ -82,7 +74,7 @@ export const questionsGenerator = (count: number): Question[] => {
             question: {
                 questionType: 'analog-clock',
                 text: 'Look at the clock! What time is it?',
-                value,
+                value: `${value.hours}:${value.minutes.toString().padStart(2, '0')}`,
             },
             scoreValue: {
                 negativeScore: 0,

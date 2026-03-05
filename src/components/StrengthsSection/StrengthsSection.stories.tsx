@@ -55,19 +55,25 @@ export const ManyStrengths: Story = {
             ...defaultStrengths,
             {
                 bgColor: 'bg-purple-50',
-                icon: <Medal className="h-8 w-8 fill-purple-500/20 text-purple-500" />,
+                icon: (
+                    <Medal className="h-8 w-8 fill-purple-500/20 text-purple-500" />
+                ),
                 id: 'accuracy',
                 title: 'Accuracy Pro',
             },
             {
                 bgColor: 'bg-rose-50',
-                icon: <Sparkles className="h-8 w-8 fill-rose-500/20 text-rose-500" />,
+                icon: (
+                    <Sparkles className="h-8 w-8 fill-rose-500/20 text-rose-500" />
+                ),
                 id: 'consistent',
                 title: 'Consistent Player',
             },
             {
                 bgColor: 'bg-indigo-50',
-                icon: <Zap className="h-8 w-8 fill-indigo-500/20 text-indigo-500" />,
+                icon: (
+                    <Zap className="h-8 w-8 fill-indigo-500/20 text-indigo-500" />
+                ),
                 id: 'focused',
                 title: 'Focused Mind',
             },

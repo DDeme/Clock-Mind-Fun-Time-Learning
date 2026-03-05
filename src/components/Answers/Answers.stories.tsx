@@ -1,4 +1,4 @@
-import { fn , within, userEvent, expect } from 'storybook/test'
+import { fn, within, userEvent, expect } from 'storybook/test'
 
 import { Answers } from './Answers'
 
@@ -27,12 +27,7 @@ export const SingleChoice: Story = {
     args: {
         isDisabled: false,
         onChange: fn(),
-        options: [
-            { hours: 3, minutes: 45 },
-            { hours: 6, minutes: 30 },
-            { hours: 9, minutes: 15 },
-            { hours: 12, minutes: 0 },
-        ],
+        options: ['3:45', '6:30', '9:15', '12:00'],
         type: 'single-choice' as const,
         value: null,
     },
@@ -40,10 +35,7 @@ export const SingleChoice: Story = {
         const canvas = within(canvasElement)
         const option = canvas.getByText('6:30')
         await userEvent.click(option)
-        await expect(args.onChange).toHaveBeenCalledWith({
-            hours: 6,
-            minutes: 30,
-        })
+        await expect(args.onChange).toHaveBeenCalledWith('6:30')
     },
 }
 
@@ -51,14 +43,9 @@ export const SingleChoiceSelected: Story = {
     args: {
         isDisabled: false,
         onChange: fn(),
-        options: [
-            { hours: 3, minutes: 45 },
-            { hours: 6, minutes: 30 },
-            { hours: 9, minutes: 15 },
-            { hours: 12, minutes: 0 },
-        ],
+        options: ['3:45', '6:30', '9:15', '12:00'],
         type: 'single-choice' as const,
-        value: { hours: 3, minutes: 45 },
+        value: '3:45',
     },
 }
 
@@ -66,12 +53,9 @@ export const NumericAnswer: Story = {
     args: {
         isDisabled: false,
         onChange: fn(),
-        options: [
-            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-            [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55],
-        ],
+        options: [], // This gets overridden by numOptions in Answers component
         type: 'numeric-answer' as const,
-        value: { hours: 0, minutes: 0 },
+        value: '0:00',
     },
 }
 
@@ -79,11 +63,8 @@ export const NumericAnswerWithValues: Story = {
     args: {
         isDisabled: false,
         onChange: fn(),
-        options: [
-            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-            [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55],
-        ],
+        options: [], // This gets overridden by numOptions in Answers component
         type: 'numeric-answer' as const,
-        value: { hours: 3, minutes: 45 },
+        value: '3:45',
     },
 }

@@ -15,16 +15,16 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 const defaultResults = [
-    { correct: true, id: 1 },
-    { correct: true, id: 2 },
-    { correct: false, id: 3 },
-    { correct: true, id: 4 },
-    { correct: true, id: 5 },
-    { correct: true, id: 6 },
-    { correct: false, id: 7 },
-    { correct: true, id: 8 },
-    { correct: true, id: 9 },
-    { correct: true, id: 10 },
+    { id: '1', isCorrect: true },
+    { id: '2', isCorrect: true },
+    { id: '3', isCorrect: false },
+    { id: '4', isCorrect: true },
+    { id: '5', isCorrect: true },
+    { id: '6', isCorrect: true },
+    { id: '7', isCorrect: false },
+    { id: '8', isCorrect: true },
+    { id: '9', isCorrect: true },
+    { id: '10', isCorrect: true },
 ]
 
 export const Default: Story = {
@@ -35,23 +35,23 @@ export const Default: Story = {
 
 export const PerfectScore: Story = {
     args: {
-        results: defaultResults.map(item => ({ ...item, correct: true })),
+        results: defaultResults.map((item) => ({ ...item, isCorrect: true })),
     },
 }
 
 export const MixedResults: Story = {
     args: {
         results: [
-            { correct: true, id: 1 },
-            { correct: false, id: 2 },
-            { correct: true, id: 3 },
-            { correct: false, id: 4 },
-            { correct: true, id: 5 },
-            { correct: false, id: 6 },
-            { correct: true, id: 7 },
-            { correct: false, id: 8 },
-            { correct: true, id: 9 },
-            { correct: false, id: 10 },
+            { id: '1', isCorrect: true },
+            { id: '2', isCorrect: false },
+            { id: '3', isCorrect: true },
+            { id: '4', isCorrect: false },
+            { id: '5', isCorrect: true },
+            { id: '6', isCorrect: false },
+            { id: '7', isCorrect: true },
+            { id: '8', isCorrect: false },
+            { id: '9', isCorrect: true },
+            { id: '10', isCorrect: false },
         ],
     },
 }
@@ -59,16 +59,16 @@ export const MixedResults: Story = {
 export const LowScore: Story = {
     args: {
         results: [
-            { correct: true, id: 1 },
-            { correct: false, id: 2 },
-            { correct: false, id: 3 },
-            { correct: false, id: 4 },
-            { correct: true, id: 5 },
-            { correct: false, id: 6 },
-            { correct: false, id: 7 },
-            { correct: false, id: 8 },
-            { correct: true, id: 9 },
-            { correct: false, id: 10 },
+            { id: '1', isCorrect: true },
+            { id: '2', isCorrect: false },
+            { id: '3', isCorrect: false },
+            { id: '4', isCorrect: false },
+            { id: '5', isCorrect: true },
+            { id: '6', isCorrect: false },
+            { id: '7', isCorrect: false },
+            { id: '8', isCorrect: false },
+            { id: '9', isCorrect: true },
+            { id: '10', isCorrect: false },
         ],
     },
 }
@@ -76,9 +76,9 @@ export const LowScore: Story = {
 export const FewResults: Story = {
     args: {
         results: [
-            { correct: true, id: 1 },
-            { correct: false, id: 2 },
-            { correct: true, id: 3 },
+            { id: '1', isCorrect: true },
+            { id: '2', isCorrect: false },
+            { id: '3', isCorrect: true },
         ],
     },
 }

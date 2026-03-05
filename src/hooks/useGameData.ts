@@ -6,6 +6,8 @@ import type { Question } from '../utils/gameGenerator/gameGenerator'
 
 export interface GameDataResponse {
     id: string
+    title: string
+    description: string
     questions: Question[]
 }
 
