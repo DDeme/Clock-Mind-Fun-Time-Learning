@@ -3322,6 +3322,11 @@ chromatic@^13.3.4:
   resolved "https://registry.npmjs.org/chromatic/-/chromatic-13.3.5.tgz"
   integrity sha512-MzPhxpl838qJUo0A55osCF2ifwPbjcIPeElr1d4SHcjnHoIcg7l1syJDrAYK/a+PcCBrOGi06jPNpQAln5hWgw==
 
+chromatic@^15.2.0:
+  version "15.2.0"
+  resolved "https://registry.yarnpkg.com/chromatic/-/chromatic-15.2.0.tgz#35dc769219d43749acd84c067331e57ea25d0676"
+  integrity sha512-c9tDfE62aiPVPnVab8jQLz+9c9II/CUFZ6T2Kk3hi2hSL+HLkRwX3zjwRYW1z9Shn57R/ORBEpQ3ftufp8EgWA==
+
 ci-info@^4.2.0:
   version "4.4.0"
   resolved "https://registry.npmjs.org/ci-info/-/ci-info-4.4.0.tgz"
@@ -8036,12 +8041,7 @@ yocto-queue@^0.1.0:
   resolved "https://registry.npmjs.org/zod-validation-error/-/zod-validation-error-4.0.2.tgz"
   integrity sha512-Q6/nZLe6jxuU80qb/4uJ4t5v2VEZ44lzQjPDhYJNztRQ4wyWc6VF3D3Kb/fAuPetZQnhS3hnajCf9CsWesghLQ==
 
-"zod@^3.25.0 || ^4.0.0":
-  version "4.3.6"
-  resolved "https://registry.npmjs.org/zod/-/zod-4.3.6.tgz"
-  integrity sha512-rftlrkhHZOcjDwkGlnUtZZkvaPHCsDATp4pGpuOOMDaTdDDXF91wuVDJoWoPsKX/3YPQ5fHuF3STjcYyKr+Qhg==
-
-zod@^4.3.6:
+"zod@^3.25.0 || ^4.0.0", zod@^4.3.6:
   version "4.3.6"
   resolved "https://registry.yarnpkg.com/zod/-/zod-4.3.6.tgz#89c56e0aa7d2b05107d894412227087885ab112a"
   integrity sha512-rftlrkhHZOcjDwkGlnUtZZkvaPHCsDATp4pGpuOOMDaTdDDXF91wuVDJoWoPsKX/3YPQ5fHuF3STjcYyKr+Qhg==

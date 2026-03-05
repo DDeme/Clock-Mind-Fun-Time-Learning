@@ -24,6 +24,7 @@ export const PlayButton = ({
         <div className="fixed bottom-40 left-0 z-40 w-full">
             <div className="bg-background-light relative mx-auto flex max-w-md flex-col items-end px-10">
                 <button
+                    data-testid="play-button"
                     aria-label={ariaLabel}
                     className="flex h-14 w-14 items-center justify-center rounded-full bg-blue-500 text-white shadow-xl transition-transform active:scale-95"
                     onClick={handleClick}
