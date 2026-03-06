@@ -37,7 +37,7 @@ export const GameResults = ({ totalScore, questionsAnswers }: GameResult) => {
     return (
         <Layout hideNavigation>
             {/* Header Section */}
-            <header className="relative overflow-hidden rounded-b-[3rem] bg-blue-700 px-6 pt-12 pb-10 text-center">
+            <header className="relative overflow-hidden rounded-b-[3rem] bg-blue-700 px-6 pt-6 pb-10 text-center">
                 <motion.div
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}

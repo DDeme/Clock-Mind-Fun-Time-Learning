@@ -68,8 +68,8 @@ export const TimelineContent = ({ lessons }: TimelineContentProps) => {
     const renderLessonLabel = (lesson: Lesson) => {
         const positionClasses =
             lesson.position === 'left'
-                ? 'absolute left-[calc(50%+40px)] w-40 translate-y-0'
-                : 'absolute right-[calc(50%+40px)] w-40 text-right translate-y-0'
+                ? 'absolute left-[calc(50%+40px)] w-40 translate-y-0 pl-4'
+                : 'absolute right-[calc(50%+40px)] w-40 text-right translate-y-0 pr-4'
 
         const textAlign = lesson.position === 'left' ? '' : 'text-right'
 
