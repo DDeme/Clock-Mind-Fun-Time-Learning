@@ -68,3 +68,20 @@ export const NumericAnswerWithValues: Story = {
         value: '3:45',
     },
 }
+
+export const ThreeOptions: Story = {
+    args: {
+        isDisabled: true,
+        onChange: fn(),
+        options: ['3:45', '6:30', '9:15'],
+        type: 'single-choice',
+        value: null,
+    },
+
+    play: async ({ canvasElement }) => {
+        const canvas = within(canvasElement)
+        const option = canvas.getByText('6:30')
+        await userEvent.click(option)
+        await expect(args.onChange).toHaveBeenCalledWith('6:30')
+    },
+}

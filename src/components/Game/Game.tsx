@@ -41,7 +41,6 @@ export type GameState = {
 
 export type GameDefinition = {
     questions: number
-    initialMode?: AnswerType
 }
 
 type GameProps = {

@@ -1,3 +1,4 @@
+import clsx from 'clsx'
 import { Check, Clock, Lock, Flag } from 'lucide-react'
 
 interface Lesson {
@@ -67,7 +68,7 @@ export const TimelineContent = ({ lessons }: TimelineContentProps) => {
     const renderLessonLabel = (lesson: Lesson) => {
         const positionClasses =
             lesson.position === 'left'
-                ? 'absolute left-[calc(50%+40px)] w-32 translate-y-2'
+                ? 'absolute left-[calc(50%+40px)] w-40 translate-y-0'
                 : 'absolute right-[calc(50%+40px)] w-40 text-right translate-y-0'
 
         const textAlign = lesson.position === 'left' ? '' : 'text-right'
@@ -91,7 +92,18 @@ export const TimelineContent = ({ lessons }: TimelineContentProps) => {
         }
 
         return (
-            <div className={`${positionClasses} ${textAlign}`}>
+            <div
+                className={clsx(
+                    positionClasses,
+                    textAlign,
+                    'flex',
+                    'flex-col',
+                    'justify-center',
+                    lesson.status === 'active' && 'size-24',
+                    lesson.status === 'locked' && 'size-16',
+                    lesson.status === 'completed' && 'size-16',
+                )}
+            >
                 <span
                     className={`block text-sm font-bold ${
                         lesson.status === 'completed'

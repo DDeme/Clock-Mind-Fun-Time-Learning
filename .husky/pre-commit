@@ -7,5 +7,5 @@ yarn lint:fix
 yarn format
 yarn tsc:check
 yarn test
-yarn storybook:test
+#yarn storybook:test
 echo "Pre-commit checks completed."

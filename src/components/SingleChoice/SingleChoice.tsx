@@ -20,11 +20,9 @@ export const SingleChoice: React.FC<SingleChoiceProps> = ({
     isDisabled,
 }) => {
     const { t } = useTranslation()
-    const maxCharLength = getMaxCharLength(options)
-
-    console.log(maxCharLength)
 
     const getGridCols = () => {
+        const maxCharLength = getMaxCharLength(options)
         if (maxCharLength >= 10) {
             return 'grid-cols-1'
         }
@@ -36,6 +34,14 @@ export const SingleChoice: React.FC<SingleChoiceProps> = ({
             return 'grid-cols-1'
         }
         return 'grid-cols-2'
+    }
+
+    const getTextSize = () => {
+        const maxCharLength = getMaxCharLength(options)
+        if (maxCharLength >= 10) {
+            return 'text-2xl'
+        }
+        return 'text-xl'
     }
 
     return (
@@ -66,7 +72,7 @@ export const SingleChoice: React.FC<SingleChoiceProps> = ({
                     >
                         <span
                             className={clsx(
-                                maxCharLength >= 18 ? 'text-xl' : 'text-2xl',
+                                getTextSize(),
                                 'font-bold',
                                 isSelected ? 'text-blue-600' : 'text-slate-700',
                             )}
