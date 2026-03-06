@@ -17,7 +17,7 @@ export const Header: React.FC<HeaderProps> = ({
     const { t } = useTranslation()
 
     return (
-        <header className="pt-6 pb-3">
+        <header className="p-6">
             <div className="flex items-center justify-center">
                 <button
                     onClick={onClose}
