@@ -45,22 +45,22 @@ const variantMap: Record<
     { classes: string; defaultTag: React.ElementType }
 > = {
     body: { classes: 'text-sm font-medium', defaultTag: 'p' },
-    'body-lg': { classes: 'text-lg', defaultTag: 'p' },
     'body-bold': { classes: 'text-sm font-semibold', defaultTag: 'p' },
-    display: { classes: 'text-4xl font-extrabold', defaultTag: 'h1' },
+    'body-lg': { classes: 'text-lg', defaultTag: 'p' },
     'body-strong': { classes: 'text-lg font-black', defaultTag: 'p' },
-    h1: { classes: 'text-3xl font-extrabold tracking-tight', defaultTag: 'h1' },
     caption: { classes: 'text-xs', defaultTag: 'span' },
-    'h1-sm': {
-        classes: 'text-2xl font-bold tracking-tight',
-        defaultTag: 'h1',
-    },
     'caption-bold': { classes: 'text-xs font-bold', defaultTag: 'span' },
-    h2: { classes: 'text-xl font-bold', defaultTag: 'h2' },
     'clock-display': {
         classes: 'text-7xl font-extrabold tracking-tighter',
         defaultTag: 'span',
     },
+    display: { classes: 'text-4xl font-extrabold', defaultTag: 'h1' },
+    h1: { classes: 'text-3xl font-extrabold tracking-tight', defaultTag: 'h1' },
+    'h1-sm': {
+        classes: 'text-2xl font-bold tracking-tight',
+        defaultTag: 'h1',
+    },
+    h2: { classes: 'text-xl font-bold', defaultTag: 'h2' },
     'h2-hero': {
         classes: 'text-xl font-extrabold tracking-tight',
         defaultTag: 'h2',
