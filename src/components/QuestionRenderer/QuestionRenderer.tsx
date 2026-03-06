@@ -4,9 +4,10 @@ import { parseTime } from '../../utils/parseTime/parseTime'
 import { AnalogClock } from '../AnalogClock/AnalogClock'
 import { TimeToHumanText } from '../TimeToHuman/TimeToHuman'
 
-const QuestionType = {
+export const QuestionType = {
     ANALOG_CLOCK: 'analog-clock',
     DIGITAL_CLOCK: 'digital-clock',
+    EMPTY: 'empty',
     TEXT: 'text',
     TEXT_CLOCK: 'text-clock',
 } as const
@@ -29,6 +30,8 @@ export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
             return <TimeToHumanText {...parseTime(value)} />
         case QuestionType.TEXT:
             return <div>{value}</div>
+        case QuestionType.EMPTY:
+            return <div></div>
         default:
             throw new Error('Invalid question type')
     }

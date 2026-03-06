@@ -3,7 +3,7 @@ import { TimelineProgress } from '../components/TimelineProgress'
 import { useLessonData } from '../hooks/useLessonData'
 
 const TimelineProgressPage = () => {
-    const { data, isLoading, isSuccess } = useLessonData('time-clock')
+    const { data, isLoading, isSuccess } = useLessonData('1')
 
     return (
         <>

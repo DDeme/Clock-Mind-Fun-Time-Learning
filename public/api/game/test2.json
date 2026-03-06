@@ -1,0 +1,21 @@
+{
+    "id": "2",
+    "questions": [
+        {
+            "answer": {
+                "options": ["4:00", "5:20", "5:10", "5:45"],
+                "type": "single-choice"
+            },
+            "id": "10",
+            "question": {
+                "questionType": "text-clock",
+                "text": "Look at the clock! What time is it?",
+                "value": "5:20"
+            },
+            "scoreValue": {
+                "negativeScore": 0,
+                "positiveScore": 30
+            }
+        }
+    ]
+}

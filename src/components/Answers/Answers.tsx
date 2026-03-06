@@ -3,7 +3,7 @@ import React from 'react'
 import { NumericAnswer } from '../NumericAnswer/NumericAnswer'
 import { SingleChoice } from '../SingleChoice/SingleChoice'
 
-const AnswerType = {
+export const AnswerType = {
     NUMERIC_ANSWER: 'numeric-answer',
     SINGLE_CHOICE: 'single-choice',
 } as const

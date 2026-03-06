@@ -1,53 +1,11 @@
 [
     {
         "games": [
-            "1",
-            "2"
+            "1"
         ],
         "id": 1,
         "position": "left",
-        "status": "completed",
-        "title": "Clock Face"
-    },
-    {
-        "games": [
-            "1",
-            "2"
-        ],
-        "id": 2,
-        "position": "right",
-        "progress": 43,
         "status": "active",
-        "title": "The Hour Hand"
-    },
-    {
-        "games": [
-            "1",
-            "2"
-        ],
-        "id": 3,
-        "position": "left",
-        "status": "locked",
-        "title": "Minute Hand"
-    },
-    {
-        "games": [
-            "1",
-            "2"
-        ],
-        "id": 4,
-        "position": "right",
-        "status": "locked",
-        "title": "Half Past & Quarter"
-    },
-    {
-        "games": [
-            "1",
-            "2"
-        ],
-        "id": 5,
-        "position": "left",
-        "status": "locked",
-        "title": "Seconds"
+        "title": "Seconds, Minutes, and Hours"
     }
 ]
