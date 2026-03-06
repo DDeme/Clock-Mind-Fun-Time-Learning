@@ -34,7 +34,7 @@ export const BottomNavigation = () => {
         <nav
             role="navigation"
             aria-label={t('navigation.main')}
-            className="sticky bottom-0 z-30 w-full border-t border-slate-200 bg-white/95 px-6 pt-4 pb-8 backdrop-blur-lg"
+            className="sticky bottom-0 z-30 w-full border-t border-slate-200 bg-white/95 p-6 backdrop-blur-lg"
         >
             <div className="flex items-center justify-between gap-2">
                 {items.map((item) => (
