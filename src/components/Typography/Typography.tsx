@@ -44,13 +44,23 @@ const variantMap: Record<
     TypographyVariant,
     { classes: string; defaultTag: React.ElementType }
 > = {
+    body: { classes: 'text-sm font-medium', defaultTag: 'p' },
+    'body-lg': { classes: 'text-lg', defaultTag: 'p' },
+    'body-bold': { classes: 'text-sm font-semibold', defaultTag: 'p' },
     display: { classes: 'text-4xl font-extrabold', defaultTag: 'h1' },
+    'body-strong': { classes: 'text-lg font-black', defaultTag: 'p' },
     h1: { classes: 'text-3xl font-extrabold tracking-tight', defaultTag: 'h1' },
+    caption: { classes: 'text-xs', defaultTag: 'span' },
     'h1-sm': {
         classes: 'text-2xl font-bold tracking-tight',
         defaultTag: 'h1',
     },
+    'caption-bold': { classes: 'text-xs font-bold', defaultTag: 'span' },
     h2: { classes: 'text-xl font-bold', defaultTag: 'h2' },
+    'clock-display': {
+        classes: 'text-7xl font-extrabold tracking-tighter',
+        defaultTag: 'span',
+    },
     'h2-hero': {
         classes: 'text-xl font-extrabold tracking-tight',
         defaultTag: 'h2',
@@ -58,12 +68,6 @@ const variantMap: Record<
     h3: { classes: 'text-lg font-bold', defaultTag: 'h3' },
     'h3-sm': { classes: 'text-lg font-semibold', defaultTag: 'h3' },
     h4: { classes: 'text-sm font-bold', defaultTag: 'h4' },
-    'body-lg': { classes: 'text-lg', defaultTag: 'p' },
-    body: { classes: 'text-sm font-medium', defaultTag: 'p' },
-    'body-bold': { classes: 'text-sm font-semibold', defaultTag: 'p' },
-    'body-strong': { classes: 'text-lg font-black', defaultTag: 'p' },
-    caption: { classes: 'text-xs', defaultTag: 'span' },
-    'caption-bold': { classes: 'text-xs font-bold', defaultTag: 'span' },
     label: {
         classes: 'text-xs font-bold tracking-widest uppercase',
         defaultTag: 'span',
@@ -73,22 +77,18 @@ const variantMap: Record<
         defaultTag: 'span',
     },
     score: { classes: 'text-2xl font-bold', defaultTag: 'span' },
-    'clock-display': {
-        classes: 'text-7xl font-extrabold tracking-tighter',
-        defaultTag: 'span',
-    },
 }
 
 const colorMap: Record<TypographyColor, string> = {
-    default: '',
-    primary: 'text-blue-600',
     accent: 'text-blue-700',
     'accent-dark': 'text-blue-800',
-    heading: 'text-slate-800',
     dark: 'text-slate-900',
-    muted: 'text-slate-600',
-    subtle: 'text-slate-500',
+    default: '',
     faint: 'text-slate-400',
+    heading: 'text-slate-800',
+    muted: 'text-slate-600',
+    primary: 'text-blue-600',
+    subtle: 'text-slate-500',
     white: 'text-white',
 }
 
