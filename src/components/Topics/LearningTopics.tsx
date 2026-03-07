@@ -1,8 +1,9 @@
 import { Clock, PieChart, ArrowLeftRight, Medal } from 'lucide-react'
 import React from 'react'
 
-import { TopicCard } from './TopicCard'
 import { Typography } from '../Typography'
+
+import { TopicCard } from './TopicCard'
 
 interface LearningTopicsProps {
     onSeeAll?: () => void
