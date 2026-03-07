@@ -84,11 +84,11 @@ const colorMap: Record<TypographyColor, string> = {
     'accent-dark': 'text-blue-800',
     dark: 'text-slate-900',
     default: '',
-    faint: 'text-slate-400',
+    faint: 'text-slate-600',
     heading: 'text-slate-800',
-    muted: 'text-slate-600',
+    muted: 'text-slate-700',
     primary: 'text-blue-600',
-    subtle: 'text-slate-500',
+    subtle: 'text-slate-600',
     white: 'text-white',
 }
 

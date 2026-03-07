@@ -230,7 +230,7 @@ export const ElementOverride: Story = {
 export const CustomColorViaClassName: Story = {
     args: {
         children: 'Custom color via className',
-        className: 'text-emerald-600',
+        className: 'text-emerald-700',
         variant: 'h3',
     },
 }
