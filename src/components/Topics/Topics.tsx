@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { ContinueLearning } from './ContinueLearning'
 import { LearningTopics } from './LearningTopics'
 import { TopicsHeader } from './TopicsHeader'
