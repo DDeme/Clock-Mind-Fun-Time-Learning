@@ -1,5 +1,5 @@
-import { fn } from 'storybook/test'
 import { Clock, PieChart, ArrowLeftRight, Medal } from 'lucide-react'
+import { fn } from 'storybook/test'
 
 import { TopicCard } from './TopicCard'
 

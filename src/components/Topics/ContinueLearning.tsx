@@ -60,7 +60,7 @@ export const ContinueLearning: React.FC<ContinueLearningProps> = ({
                         </Typography>
                         <Typography
                             variant="label"
-                            className="text-[#0369a1] tracking-tighter"
+                            className="tracking-tighter text-[#0369a1]"
                         >
                             {percentage}%
                         </Typography>
