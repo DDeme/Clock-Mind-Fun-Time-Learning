@@ -1,4 +1,4 @@
-import { Home, ClipboardCheck, User } from 'lucide-react'
+import { Home, ClipboardCheck, User, PieChart } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { useLocation, useNavigate } from 'react-router'
 
@@ -15,6 +15,12 @@ export const BottomNavigation = () => {
             icon: Home,
             label: t('navigation.home'),
             to: '/timeline',
+        },
+        {
+            ariaLabel: 'Topics',
+            icon: PieChart,
+            label: 'Topics',
+            to: '/topics',
         },
         {
             ariaLabel: 'Game',
