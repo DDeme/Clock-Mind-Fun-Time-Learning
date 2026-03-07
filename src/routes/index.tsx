@@ -8,6 +8,7 @@ const GameResults = lazy(() => import('../pages/GameResults'))
 const IntroPage = lazy(() => import('../pages/Intro'))
 const SettingsPage = lazy(() => import('../pages/Settings'))
 const TimelinePage = lazy(() => import('../pages/Timeline'))
+const TopicsPage = lazy(() => import('../pages/Topics'))
 
 export const router = createBrowserRouter([
     {
@@ -17,6 +18,14 @@ export const router = createBrowserRouter([
             </Suspense>
         ),
         path: '/',
+    },
+    {
+        element: (
+            <Suspense fallback={<Loading />}>
+                <TopicsPage />
+            </Suspense>
+        ),
+        path: '/topics',
     },
     {
         element: (
