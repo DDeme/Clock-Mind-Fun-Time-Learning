@@ -1,11 +1,12 @@
+import { Layout } from '../Layout'
 import { ContinueLearning } from './ContinueLearning'
 import { LearningTopics } from './LearningTopics'
 import { TopicsHeader } from './TopicsHeader'
 
 export const Topics = () => {
     return (
-        <div className="flex min-h-screen justify-center bg-slate-100">
-            <div className="relative flex min-h-screen w-full max-w-[430px] flex-col overflow-hidden bg-gradient-to-b from-sky-100 to-white pb-24 shadow-xl">
+        <Layout>
+            <div className="flex flex-1 flex-col bg-gradient-to-b from-sky-100 to-white pb-24">
                 <TopicsHeader
                     userName="Time Traveler"
                     streak={7}
@@ -26,6 +27,6 @@ export const Topics = () => {
                     }
                 />
             </div>
-        </div>
+        </Layout>
     )
 }
