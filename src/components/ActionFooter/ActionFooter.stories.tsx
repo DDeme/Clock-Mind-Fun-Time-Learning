@@ -17,7 +17,7 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
     args: {
         children: (
-            <button className="rounded bg-blue-500 px-4 py-2 text-white">
+            <button className="rounded bg-blue-600 px-4 py-2 text-white">
                 Action Button
             </button>
         ),
@@ -31,7 +31,7 @@ export const WithMultipleActions: Story = {
                 <button className="rounded bg-gray-500 px-4 py-2 text-white">
                     Cancel
                 </button>
-                <button className="rounded bg-blue-500 px-4 py-2 text-white">
+                <button className="rounded bg-blue-600 px-4 py-2 text-white">
                     Submit
                 </button>
             </div>

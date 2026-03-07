@@ -14,7 +14,7 @@ export const Topics = () => {
                 {/* Header */}
                 <header className="mt-4 flex items-center justify-between p-6 pb-2">
                     <div className="flex items-center gap-3">
-                        <div className="flex size-14 shrink-0 items-center justify-center overflow-hidden rounded-full border-2 border-white bg-[#2094f3]/20">
+                        <div className="flex size-14 shrink-0 items-center justify-center overflow-hidden rounded-full border-2 border-white bg-[#0369a1]/20">
                             {/* <Image
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqCI3w1iuLnF_FX1O3jfGLPJA2g1ZL5O1FGvfvn0Ai9O6_R12kaCvMq-Mve3nglfsVso3vH87oudakC-p5i98NsCsV9v-Di1JrDqAlR0AtBbTvUQWyv9SCjT3habtm6LMcTaPbt81ibTkrl6IWtHwnYQpJoHpNSrvGHxPfUdLcG3EJg1Q3bh6ftdP7VIorRld3PaKUhvY9hZpxcnEcKv1EejKrgG4dGKAmoNFzj4_UDv2ZHGgMgMA2xHIdPKFEW00AdW7CLi1lWzo"
                 alt="Avatar"
@@ -53,8 +53,8 @@ export const Topics = () => {
                     </h3>
                     <div className="flex flex-col gap-5 rounded-[1.5rem] bg-white p-5 shadow-[8px_8px_16px_#e0e5e9,-8px_-8px_16px_#ffffff]">
                         <div className="flex items-center gap-4">
-                            <div className="flex size-16 items-center justify-center rounded-2xl border border-[#2094f3]/20 bg-[#2094f3]/10">
-                                <Clock className="h-8 w-8 text-[#2094f3]" />
+                            <div className="flex size-16 items-center justify-center rounded-2xl border border-[#0369a1]/20 bg-[#0369a1]/10">
+                                <Clock className="h-8 w-8 text-[#0369a1]" />
                             </div>
                             <div className="flex-1">
                                 <p className="text-lg leading-tight font-bold text-slate-900">
@@ -66,18 +66,18 @@ export const Topics = () => {
                             </div>
                         </div>
                         <div className="mt-2 space-y-2">
-                            <div className="flex items-center justify-between text-xs font-bold tracking-tighter text-slate-400 uppercase">
+                            <div className="flex items-center justify-between text-xs font-bold tracking-tighter text-slate-600 uppercase">
                                 <span>Progress</span>
-                                <span className="text-[#2094f3]">40%</span>
+                                <span className="text-[#0369a1]">40%</span>
                             </div>
                             <div className="h-3 w-full overflow-hidden rounded-full bg-slate-100">
                                 <div
-                                    className="h-full rounded-full bg-[#2094f3]"
+                                    className="h-full rounded-full bg-[#0369a1]"
                                     style={{ width: '40%' }}
                                 ></div>
                             </div>
                         </div>
-                        <button className="mt-1 w-full rounded-xl bg-[#2094f3] py-3.5 text-base font-bold text-white shadow-lg shadow-[#2094f3]/30 transition-transform active:scale-95">
+                        <button className="mt-1 w-full rounded-xl bg-[#0369a1] py-3.5 text-base font-bold text-white shadow-lg shadow-[#0369a1]/30 transition-transform active:scale-95">
                             Resume Lesson
                         </button>
                     </div>
@@ -89,7 +89,7 @@ export const Topics = () => {
                         <h3 className="text-xl font-bold text-slate-800">
                             Learning Topics
                         </h3>
-                        <button className="text-sm font-bold text-[#2094f3]">
+                        <button className="text-sm font-bold text-[#0369a1]">
                             See All
                         </button>
                     </div>
@@ -105,7 +105,7 @@ export const Topics = () => {
                                 </h4>
                                 <div className="mt-1 flex items-center gap-1">
                                     <Star className="h-3.5 w-3.5 fill-yellow-400 text-yellow-400" />
-                                    <span className="text-xs font-bold text-slate-400">
+                                    <span className="text-xs font-bold text-slate-600">
                                         4.9 (2k+)
                                     </span>
                                 </div>
@@ -125,7 +125,7 @@ export const Topics = () => {
                                 </h4>
                                 <div className="mt-1 flex items-center gap-1">
                                     <Star className="h-3.5 w-3.5 fill-yellow-400 text-yellow-400" />
-                                    <span className="text-xs font-bold text-slate-400">
+                                    <span className="text-xs font-bold text-slate-600">
                                         4.8 (1k+)
                                     </span>
                                 </div>
@@ -145,7 +145,7 @@ export const Topics = () => {
                                 </h4>
                                 <div className="mt-1 flex items-center gap-1">
                                     <Star className="h-3.5 w-3.5 fill-yellow-400 text-yellow-400" />
-                                    <span className="text-xs font-bold text-slate-400">
+                                    <span className="text-xs font-bold text-slate-600">
                                         4.7 (800)
                                     </span>
                                 </div>
@@ -165,7 +165,7 @@ export const Topics = () => {
                                 </h4>
                                 <div className="mt-1 flex items-center gap-1">
                                     <Star className="h-3.5 w-3.5 fill-yellow-400 text-yellow-400" />
-                                    <span className="text-xs font-bold text-slate-400">
+                                    <span className="text-xs font-bold text-slate-600">
                                         4.9 (500)
                                     </span>
                                 </div>
