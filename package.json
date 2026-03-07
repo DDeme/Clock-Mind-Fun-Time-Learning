@@ -15,7 +15,7 @@
         "format:check": "prettier --check ./src/**/*.{tsx,ts,json}",
         "tsc:check": "tsc --noEmit",
         "storybook": "storybook dev -p 6006",
-        "storybook:test": "yarn vitest --project=storybook",
+        "storybook:test": "yarn vitest --project=storybook --run",
         "build-storybook": "storybook build",
         "test": "jest",
         "test:watch": "jest --watch",

@@ -71,14 +71,14 @@ export const NumericAnswerWithValues: Story = {
 
 export const ThreeOptions: Story = {
     args: {
-        isDisabled: true,
+        isDisabled: false,
         onChange: fn(),
         options: ['3:45', '6:30', '9:15'],
         type: 'single-choice',
         value: null,
     },
 
-    play: async ({ canvasElement }) => {
+    play: async ({ canvasElement, args }) => {
         const canvas = within(canvasElement)
         const option = canvas.getByText('6:30')
         await userEvent.click(option)
