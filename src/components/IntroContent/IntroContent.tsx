@@ -64,7 +64,7 @@ export const IntroContent = () => {
                         className="flex w-full max-w-xs flex-col gap-4"
                     >
                         <Button
-                            onClick={() => navigate('/timeline')}
+                            onClick={() => navigate('/lesson')}
                             variant="primary"
                         >
                             {t('intro.enterButton')}

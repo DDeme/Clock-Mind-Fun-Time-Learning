@@ -9,11 +9,11 @@ interface Lesson {
     progress?: number
 }
 
-interface TimelineContentProps {
+interface LessonContentProps {
     lessons: Lesson[]
 }
 
-export const TimelineContent = ({ lessons }: TimelineContentProps) => {
+export const LessonContent = ({ lessons }: LessonContentProps) => {
     const renderLessonNode = (lesson: Lesson) => {
         switch (lesson.status) {
             case 'completed':

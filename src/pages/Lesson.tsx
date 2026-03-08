@@ -1,15 +1,15 @@
 import { GameSkeleton } from '../components/Game/Game.skeleton'
-import { TimelineProgress } from '../components/TimelineProgress'
+import { LessonProgress } from '../components/LessonProgress'
 import { useLessonData } from '../hooks/useLessonData'
 
-const TimelineProgressPage = () => {
+const LessonPage = () => {
     const { data, isLoading, isSuccess } = useLessonData('1')
 
     return (
         <>
             {isLoading && <GameSkeleton />}
-            {isSuccess && data && <TimelineProgress lessons={data} />}
+            {isSuccess && data && <LessonProgress lessons={data} />}
         </>
     )
 }
-export default TimelineProgressPage
+export default LessonPage

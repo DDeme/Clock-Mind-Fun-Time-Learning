@@ -10,7 +10,7 @@ const GameResultsPage = () => {
     const gameResult = location.state?.gameResult as unknown as GameResult
 
     if (!gameResult) {
-        navigate('/timeline')
+        navigate('/lesson')
         return null
     }
     // const totalTime =

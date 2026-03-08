@@ -1,7 +1,7 @@
 import { Layout } from '../Layout'
 import { PlayButton } from '../PlayButton'
 import { ProgressHeader } from '../ProgressHeader/ProgressHeader'
-import { TimelineContent } from '../TimelineContent/TimelineContent'
+import { LessonContent } from '../LessonContent/LessonContent'
 
 export interface Lesson {
     id: number
@@ -12,11 +12,11 @@ export interface Lesson {
     games: string[]
 }
 
-export interface TimelineProgressProps {
+export interface LessonProgressProps {
     lessons: Lesson[]
 }
 
-export const TimelineProgress = ({ lessons }: TimelineProgressProps) => {
+export const LessonProgress = ({ lessons }: LessonProgressProps) => {
     const currentLesson = lessons.find((lesson) => lesson.status === 'active')
     const level = currentLesson ? lessons.indexOf(currentLesson) + 1 : 1
 
@@ -31,7 +31,7 @@ export const TimelineProgress = ({ lessons }: TimelineProgressProps) => {
                 }
                 totalLessons={lessons.length}
             />
-            <TimelineContent lessons={lessons} />
+            <LessonContent lessons={lessons} />
             <PlayButton />
         </Layout>
     )

@@ -1,4 +1,4 @@
-import { TimelineContent } from './TimelineContent'
+import { LessonContent } from './LessonContent'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
@@ -10,7 +10,7 @@ const meta = {
                 'Array of lesson objects with id, title, status, position, and optional progress',
         },
     },
-    component: TimelineContent,
+    component: LessonContent,
     decorators: [
         (Story) => (
             <div style={{ height: 600, maxWidth: 448, overflow: 'hidden' }}>
@@ -22,8 +22,8 @@ const meta = {
         layout: 'padded',
     },
     tags: ['autodocs'],
-    title: 'Components/TimelineContent',
-} satisfies Meta<typeof TimelineContent>
+    title: 'Components/LessonContent',
+} satisfies Meta<typeof LessonContent>
 
 export default meta
 type Story = StoryObj<typeof meta>

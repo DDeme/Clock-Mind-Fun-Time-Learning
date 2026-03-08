@@ -14,7 +14,7 @@ export const BottomNavigation = () => {
             ariaLabel: 'Go to home',
             icon: Home,
             label: t('navigation.home'),
-            to: '/timeline',
+            to: '/lesson',
         },
         {
             ariaLabel: 'Topics',
