@@ -1,9 +1,9 @@
-import { TimelineProgress } from './TimelineProgress'
+import { LessonProgress } from './LessonProgress'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
-    component: TimelineProgress,
+    component: LessonProgress,
     decorators: [
         (Story) => (
             <div style={{ maxWidth: 448 }}>
@@ -15,8 +15,8 @@ const meta = {
         layout: 'padded',
     },
     tags: ['autodocs'],
-    title: 'Components/TimelineProgress',
-} satisfies Meta<typeof TimelineProgress>
+    title: 'Components/LessonProgress',
+} satisfies Meta<typeof LessonProgress>
 
 export default meta
 type Story = StoryObj<typeof meta>

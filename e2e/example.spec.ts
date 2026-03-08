@@ -1,47 +1,47 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from '@playwright/test'
 
 test('has title', async ({ page }) => {
-  await page.goto('/');
+    await page.goto('/')
 
-  // Expect a title "to contain" a substring.
-  await expect(page).toHaveTitle(/Clock Mind Fun/);
-});
+    // Expect a title "to contain" a substring.
+    await expect(page).toHaveTitle(/Clock Mind Fun/)
+})
 
 test('intro page loads correctly', async ({ page }) => {
-  await page.goto('/');
+    await page.goto('/')
 
-  // Check main heading
-  await expect(page.locator('h1')).toContainText('Clock Mind Fun');
-  
-  // Check description
-  await expect(page.locator('p')).toContainText('Learn to tell time');
-  
-  // Check enter button
-  await expect(page.locator('button')).toContainText('Enter Game');
-});
+    // Check main heading
+    await expect(page.locator('h1')).toContainText('Clock Mind Fun')
 
-test('navigation to game page', async ({ page }) => {
-  await page.goto('/');
+    // Check description
+    await expect(page.locator('p')).toContainText('Learn to tell time')
 
-  // Click the enter button
-  await page.click('button:has-text("Enter Game")');
+    // Check enter button
+    await expect(page.locator('button')).toContainText('Enter Game')
+})
 
-  // Should navigate to timeline page
-  await expect(page).toHaveURL(/\/timeline/);
-});
+test('navigation to lesson page', async ({ page }) => {
+    await page.goto('/')
+
+    // Click the enter button
+    await page.click('button:has-text("Enter Game")')
+
+    // Should navigate to timeline page
+    await expect(page).toHaveURL(/\/timeline/)
+})
 
 test('responsive design', async ({ page }) => {
-  await page.goto('/');
+    await page.goto('/')
 
-  // Test mobile viewport
-  await page.setViewportSize({ height: 667, width: 375 });
-  await expect(page.locator('h1')).toBeVisible();
-  
-  // Test tablet viewport
-  await page.setViewportSize({ height: 1024, width: 768 });
-  await expect(page.locator('h1')).toBeVisible();
-  
-  // Test desktop viewport
-  await page.setViewportSize({ height: 800, width: 1200 });
-  await expect(page.locator('h1')).toBeVisible();
-});
+    // Test mobile viewport
+    await page.setViewportSize({ height: 667, width: 375 })
+    await expect(page.locator('h1')).toBeVisible()
+
+    // Test tablet viewport
+    await page.setViewportSize({ height: 1024, width: 768 })
+    await expect(page.locator('h1')).toBeVisible()
+
+    // Test desktop viewport
+    await page.setViewportSize({ height: 800, width: 1200 })
+    await expect(page.locator('h1')).toBeVisible()
+})

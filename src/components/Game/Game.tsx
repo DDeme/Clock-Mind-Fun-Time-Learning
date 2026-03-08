@@ -174,7 +174,7 @@ export const Game = ({ id, questions, onComplete }: GameProps) => {
                 currentStep={currentStep + 1}
                 totalQuestions={totalQuestions}
                 score={score}
-                onClose={() => navigate('/timeline')}
+                onClose={() => navigate('/lesson')}
             />
             <Main ariaLabel={t('game.gameContent')}>
                 {props.question.text && (

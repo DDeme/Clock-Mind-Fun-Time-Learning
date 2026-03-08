@@ -81,9 +81,9 @@ export const GameResults = ({ totalScore, questionsAnswers }: GameResult) => {
 
                     <Button
                         variant="dark"
-                        onClick={() => navigate('/timeline')}
+                        onClick={() => navigate('/lesson')}
                     >
-                        Back to Timeline
+                        Back to Lessons
                     </Button>
                 </ActionFooter>
             </Main>
