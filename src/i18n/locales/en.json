@@ -1,0 +1,69 @@
+{
+    "language": {
+        "select": "Select Language",
+        "english": "English",
+        "slovak": "Slovak",
+        "czech": "Czech",
+        "russian": "Russian",
+        "ukrainian": "Ukrainian"
+    },
+    "common": {
+        "loading": "Loading...",
+        "error": "Error",
+        "retry": "Retry",
+        "cancel": "Cancel",
+        "save": "Save",
+        "delete": "Delete",
+        "edit": "Edit",
+        "close": "Close"
+    },
+    "clock": {
+        "hours": "Hours",
+        "minutes": "Minutes",
+        "seconds": "Seconds",
+        "time": "Time"
+    },
+    "intro": {
+        "title": "Clock Mind Fun",
+        "description": "Learn to tell time in a fun and interactive way! Practice reading analog and digital clocks with engaging games and challenges.",
+        "enterButton": "Enter Game"
+    },
+    "settings": {
+        "title": "Settings",
+        "language": "Language",
+        "languageDescription": "Choose your preferred language",
+        "sound": "Sound",
+        "soundDescription": "Enable or disable sound effects",
+        "difficulty": "Difficulty",
+        "difficultyDescription": "Adjust the difficulty level"
+    },
+    "game": {
+        "progress": "Progress: {{current}} of {{total}} questions completed",
+        "questionCounter": "Question {{current}} of {{total}}",
+        "score": "Score: {{score}} points",
+        "checkAnswer": "CHECK ANSWER",
+        "nextQuestion": "Next question",
+        "finishGame": "SEE RESULTS",
+        "question": "Look at the clock! What time is it?",
+        "gameComplete": "Practice complete! Great job!",
+        "gameContent": "Game content",
+        "gameState": "Question {{current}} of {{total}}, Score: {{score}} points"
+    },
+    "result": {
+        "success": "Amazing Job!",
+        "error": "Not Quite Right",
+        "earnedStars": "You earned +{{stars}} stars!",
+        "correctAnswer": "The correct answer was {{answer}}"
+    },
+    "navigation": {
+        "home": "Home",
+        "game": "Game",
+        "settings": "Settings",
+        "main": "Main navigation"
+    },
+    "accessibility": {
+        "timeOptions": "Time options",
+        "selectTime": "Select {{time}}",
+        "mascotAlt": "Friendly redhead cat mascot"
+    }
+}

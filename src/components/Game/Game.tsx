@@ -1,16 +1,36 @@
-import { useState, useEffect, useCallback, type ComponentProps } from 'react'
+import { useState, type ComponentProps, useCallback } from 'react'
+import { useTranslation } from 'react-i18next'
+import { useNavigate } from 'react-router'
 
-import { ActionFooter } from '../ActionFooter'
+import {
+    type AnswerType,
+    type Question,
+} from '../../utils/gameGenerator/gameGenerator'
 import { Answers } from '../Answers'
+import { GameFooter } from '../GameFooter'
 import { Header } from '../Header'
 import { Layout } from '../Layout'
+import { Main } from '../Main/Main'
 import { MascotBubble } from '../MascotBubble/MascotBubble'
 import { QuestionRenderer } from '../QuestionRenderer/QuestionRenderer'
 import { ResultNotification } from '../ResultNotification'
 
 import type { QuestionRendererProps } from '../QuestionRenderer/QuestionRenderer'
 
-export type AnswerType = ComponentProps<typeof Answers>['type']
+export type GameResult = {
+    id: string
+    started: Date
+    finished: Date
+    totalScore: number
+    questionsAnswers: {
+        id: string
+        started: number
+        finished: number
+        answer: string
+        isCorrect: boolean
+        scoreDiff: number
+    }[]
+}
 
 export type GameState = {
     currentQuestion: number
@@ -19,204 +39,172 @@ export type GameState = {
     type: AnswerType
 }
 
-export type ClockTime = {
-    hours: number
-    minutes: number
+export type GameDefinition = {
+    questions: number
 }
 
-export type GameProps = {
-    totalQuestions?: number
-    initialMode?: AnswerType
+type GameProps = {
+    id: string
+    title: string
+    description: string
+    questions: Question[]
+    onComplete: (gameResult: GameResult) => void
 }
 
-const numericOptions = [
-    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-    [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55],
-]
+export const Game = ({ id, questions, onComplete }: GameProps) => {
+    const navigate = useNavigate()
+    const { t } = useTranslation()
+    const game = {
+        id: id || 'default',
+        onComplete,
+        questions,
+    }
 
-// eslint-disable-next-line unused-imports/no-unused-vars
-const question = {
-    id: 1,
-    title: 'Look at the clock! What time is it?',
-    type: 'analog-clock',
-    value: {
-        hours: 3,
-        minutes: 45,
-    },
-}
-
-export const Game = () => {
-    const [currentQuestionIdx, setCurrentQuestionIdx] = useState(1)
-    const [totalQuestions] = useState(10)
+    const [currentStep, setCurrentStep] = useState(0)
+    const [totalQuestions] = useState(game.questions.length)
     const [score, setScore] = useState(0)
-    // const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
-    const [type, setType] = useState<'single-choice' | 'numeric-answer'>(
-        'single-choice',
-    )
-    const [questionValue, setQuestionValue] = useState<ClockTime>({
-        hours: 0,
-        minutes: 0,
-    })
-    const [answer, setAnswer] = useState<ClockTime | null>(null)
+    const [answer, setAnswer] = useState<string | null>(null)
+    const [gameStartTime] = useState(() => new Date())
+    const [questionStartTime, setQuestionStartTime] = useState(() => Date.now())
+    const [questionsAnswers, setQuestionsAnswers] = useState<
+        {
+            id: string
+            started: number
+            finished: number
+            answer: string
+            isCorrect: boolean
+            scoreDiff: number
+        }[]
+    >([])
 
-    const [options, setOptions] = useState<ClockTime[] | number[][]>([])
     const [isFeedbackVisible, setIsFeedbackVisible] = useState(false)
     const [isCorrect, setIsCorrect] = useState<boolean | null>(null)
 
-    const generateRandomTime = useCallback(() => {
-        const hours = Math.floor(Math.random() * 12) + 1
-        const minutes = Math.floor(Math.random() * 12) * 5 // Use 5 min intervals for beginner
-        return { hours, minutes }
-    }, [])
-
-    const formatTime = (time: ClockTime) => {
-        const h = time.hours
-        const m = time.minutes.toString().padStart(2, '0')
-        return `${h}:${m}`
-    }
-
     const startNewQuestion = useCallback(() => {
-        const newTime = generateRandomTime()
-        setQuestionValue(newTime)
         setAnswer(null)
         setIsFeedbackVisible(false)
         setIsCorrect(null)
-
-        // Swap modes for variety
-        const newType: AnswerType =
-            Math.random() > 0.5 ? 'numeric-answer' : 'single-choice'
-        setType(newType)
-
-        if (newType === 'single-choice') {
-            const correct = newTime
-            const distractors = new Set<ClockTime>()
-            while (distractors.size < 3) {
-                const d = generateRandomTime()
-                if (d !== correct) distractors.add(d)
-            }
-            const allOptions = Array.from(distractors)
-            allOptions.splice(Math.floor(Math.random() * 4), 0, correct)
-            setOptions(allOptions)
-        }
-        if (newType === 'numeric-answer') {
-            setOptions(numericOptions)
-        }
-    }, [generateRandomTime])
-
-    useEffect(() => {
-        startNewQuestion()
-        // eslint-disable-next-line react-hooks/exhaustive-deps
+        setQuestionStartTime(Date.now())
     }, [])
 
     const onCheckAnswer = () => {
         let correct = false
-        if (
-            questionValue.hours === answer?.hours &&
-            questionValue.minutes === answer?.minutes
-        ) {
+        if (game.questions[currentStep].question.value === answer) {
             correct = true
         }
 
         setIsCorrect(correct)
         setIsFeedbackVisible(true)
+
+        const scoreDiff = correct
+            ? game.questions[currentStep].scoreValue.positiveScore
+            : game.questions[currentStep].scoreValue.negativeScore
+
+        // Record the question answer data
+        setQuestionsAnswers((prev) => [
+            ...prev,
+            {
+                answer: answer || '',
+                finished: Date.now(),
+                id: game.questions[currentStep].id,
+                isCorrect: correct,
+                scoreDiff: scoreDiff,
+                started: questionStartTime,
+            },
+        ])
+
         if (correct) {
-            setScore((s) => s + 20)
+            setScore(
+                (s) => s + game.questions[currentStep].scoreValue.positiveScore,
+            )
         }
     }
 
     const onNext = () => {
-        if (currentQuestionIdx < totalQuestions) {
-            setCurrentQuestionIdx((prev) => prev + 1)
+        if (currentStep < totalQuestions - 1) {
+            setCurrentStep((prev) => prev + 1)
             startNewQuestion()
         } else {
-            // Game over logic could go here
-            // implements socreboard screen
-            alert('Practice complete! Great job!')
-            setCurrentQuestionIdx(1)
+            // Create GameResult object
+            const gameResult: GameResult = {
+                finished: new Date(),
+                id: game.id,
+                questionsAnswers: questionsAnswers,
+                started: gameStartTime,
+                totalScore: score,
+            }
+            onComplete(gameResult)
+            setCurrentStep(0)
             setScore(0)
+            setQuestionsAnswers([])
             startNewQuestion()
         }
     }
 
-    const gameProps = {
-        answer: {
-            options: options as {
-                hours: number
-                minutes: number
-            }[],
-            type: type,
-        },
-        question: {
-            questionType: 'analog-clock' as const,
-            text: 'Look at the clock! What time is it?',
-            value: questionValue,
-        },
-        scoreValue: {
-            negativeScore: 0,
-            positiveScore: 20,
-        },
-    }
-
+    const questionProps: Question = game.questions[currentStep]
     const props: {
         question: QuestionRendererProps & { text: string }
         answer: ComponentProps<typeof Answers>
-        footer: Omit<ComponentProps<typeof ActionFooter>, 'feedback'>
+        footer: Omit<ComponentProps<typeof GameFooter>, 'feedback'>
         scoreValue: {
             positiveScore: number
             negativeScore: number
         }
     } = {
-        ...gameProps,
+        ...questionProps,
         answer: {
-            ...gameProps.answer,
+            ...questionProps.answer,
             isDisabled: isFeedbackVisible,
             onChange: setAnswer,
             value: answer,
-        },
+        } as ComponentProps<typeof Answers>,
         footer: {
             isCorrect,
             isDisabled: answer === null,
             isFeedbackVisible,
+            isLastQuestion: currentStep === totalQuestions - 1,
             onCheckAnswer,
             onNext,
         },
     }
+
     return (
         <Layout hideNavigation>
             <Header
-                currentQuestionIdx={currentQuestionIdx}
+                currentStep={currentStep + 1}
                 totalQuestions={totalQuestions}
                 score={score}
+                onClose={() => navigate('/timeline')}
             />
-            <main
-                className="flex flex-1 flex-col items-center justify-between gap-3 overflow-y-auto"
-                role="main"
-                aria-label="Game content"
-            >
+            <Main ariaLabel={t('game.gameContent')}>
                 {props.question.text && (
                     <MascotBubble message={props.question.text} />
                 )}
                 <QuestionRenderer {...props.question} />
                 <Answers {...props.answer} />
-                <ActionFooter
+                <GameFooter
                     {...props.footer}
                     feedback={
                         <ResultNotification
                             isCorrect={props.footer.isCorrect}
-                            correctAnswer={formatTime(props.question.value)}
+                            correctAnswer={props.question.value}
                             earnedStars={props.scoreValue.positiveScore}
                         />
                     }
                 />
-            </main>
+            </Main>
             {/* Game state announcement for screen readers */}
             <div
                 aria-live="polite"
                 aria-atomic="true"
                 className="sr-only"
             >
-                Question {currentQuestionIdx} of {totalQuestions}, Score:{' '}
-                {score} points
+                {t('game.gameState', {
+                    current: currentStep + 1,
+                    score,
+                    total: totalQuestions,
+                })}{' '}
+                points
             </div>
         </Layout>
     )

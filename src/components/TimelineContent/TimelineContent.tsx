@@ -1,5 +1,5 @@
+import clsx from 'clsx'
 import { Check, Clock, Lock, Flag } from 'lucide-react'
-import React from 'react'
 
 interface Lesson {
     id: number
@@ -68,8 +68,8 @@ export const TimelineContent = ({ lessons }: TimelineContentProps) => {
     const renderLessonLabel = (lesson: Lesson) => {
         const positionClasses =
             lesson.position === 'left'
-                ? 'absolute left-[calc(50%+40px)] w-32 translate-y-2'
-                : 'absolute right-[calc(50%+40px)] w-40 text-right translate-y-0'
+                ? 'absolute left-[calc(50%+40px)] w-40 translate-y-0 pl-4'
+                : 'absolute right-[calc(50%+40px)] w-40 text-right translate-y-0 pr-4'
 
         const textAlign = lesson.position === 'left' ? '' : 'text-right'
 
@@ -92,7 +92,18 @@ export const TimelineContent = ({ lessons }: TimelineContentProps) => {
         }
 
         return (
-            <div className={`${positionClasses} ${textAlign}`}>
+            <div
+                className={clsx(
+                    positionClasses,
+                    textAlign,
+                    'flex',
+                    'flex-col',
+                    'justify-center',
+                    lesson.status === 'active' && 'size-24',
+                    lesson.status === 'locked' && 'size-16',
+                    lesson.status === 'completed' && 'size-16',
+                )}
+            >
                 <span
                     className={`block text-sm font-bold ${
                         lesson.status === 'completed'
@@ -118,7 +129,10 @@ export const TimelineContent = ({ lessons }: TimelineContentProps) => {
     }
 
     return (
-        <main className="relative flex-1 overflow-y-auto px-6 py-8" tabIndex={0}>
+        <main
+            className="relative flex-1 overflow-y-auto px-6 py-8"
+            tabIndex={0}
+        >
             <div className="relative flex flex-col items-center">
                 {/* Central Vertical Line */}
                 <div className="absolute top-0 left-1/2 h-full w-1 -translate-x-1/2 rounded-full border-l-2 border-dashed border-slate-300"></div>

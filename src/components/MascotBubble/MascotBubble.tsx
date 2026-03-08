@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 
 import imgUrl from '../../assets/pixel-cat.svg'
 
@@ -7,6 +8,8 @@ type MascotBubbleProps = {
 }
 
 export const MascotBubble: React.FC<MascotBubbleProps> = ({ message }) => {
+    const { t } = useTranslation()
+
     return (
         <div
             className="animate-bounce-slow mx-auto flex w-full max-w-sm items-start gap-3"
@@ -24,7 +27,7 @@ export const MascotBubble: React.FC<MascotBubbleProps> = ({ message }) => {
             </div>
             <div className="flex size-16 shrink-0 items-center justify-center overflow-hidden rounded-full border-2 border-white bg-blue-400/20 shadow-md">
                 <img
-                    alt="Friendly redhead cat mascot"
+                    alt={t('accessibility.mascotAlt')}
                     src={imgUrl}
                     className="h-full w-full object-cover"
                 />

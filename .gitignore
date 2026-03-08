@@ -9,6 +9,9 @@ lerna-debug.log*
 
 storybook-static
 coverage
+playwright-report
+chromatic.config.json
+#test-results
 
 node_modules
 dist
@@ -25,3 +28,4 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+

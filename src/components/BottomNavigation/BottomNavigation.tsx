@@ -1,61 +1,58 @@
-import { Home, History, ClipboardCheck, User } from 'lucide-react'
+import { Home, ClipboardCheck, User, PieChart } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
+import { useLocation, useNavigate } from 'react-router'
+
+import { BottomNavigationItem } from '../BottomNavigationItem/BottomNavigationItem'
 
 export const BottomNavigation = () => {
+    const location = useLocation()
+    const navigation = useNavigate()
+    const { t } = useTranslation()
+
+    const items = [
+        {
+            ariaLabel: 'Go to home',
+            icon: Home,
+            label: t('navigation.home'),
+            to: '/timeline',
+        },
+        {
+            ariaLabel: 'Topics',
+            icon: PieChart,
+            label: 'Topics',
+            to: '/topics',
+        },
+        {
+            ariaLabel: 'Game',
+            icon: ClipboardCheck,
+            label: t('navigation.game'),
+            to: '/game',
+        },
+        {
+            ariaLabel: 'Settings',
+            icon: User,
+            label: t('navigation.settings'),
+            to: '/settings',
+        },
+    ]
+
     return (
         <nav
             role="navigation"
-            aria-label="Main navigation"
-            className="sticky bottom-0 z-30 w-full border-t border-slate-200 bg-white/95 px-6 pt-4 pb-8 backdrop-blur-lg"
+            aria-label={t('navigation.main')}
+            className="sticky bottom-0 z-30 w-full border-t border-slate-200 bg-white/95 p-6 backdrop-blur-lg"
         >
             <div className="flex items-center justify-between gap-2">
-                {/* Home */}
-                <button
-                    aria-label="Go to home"
-                    className="flex flex-1 flex-col items-center gap-1 text-blue-600"
-                >
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-500/10">
-                        <Home className="size-5 fill-blue-500" />
-                    </div>
-                    <span className="text-[10px] font-bold tracking-tight uppercase">
-                        Home
-                    </span>
-                </button>
-                {/* Practice */}
-                <button
-                    aria-label="View practice exercises"
-                    className="flex flex-1 flex-col items-center gap-1 text-slate-500 transition-colors hover:text-blue-600"
-                >
-                    <div className="flex h-10 w-10 items-center justify-center">
-                        <History className="size-5" />
-                    </div>
-                    <span className="text-[10px] font-bold tracking-tight uppercase">
-                        Practice
-                    </span>
-                </button>
-                {/* Quiz */}
-                <button
-                    aria-label="Take quiz"
-                    className="flex flex-1 flex-col items-center gap-1 text-slate-500 transition-colors hover:text-blue-600"
-                >
-                    <div className="flex h-10 w-10 items-center justify-center">
-                        <ClipboardCheck className="size-5" />
-                    </div>
-                    <span className="text-[10px] font-bold tracking-tight uppercase">
-                        Quiz
-                    </span>
-                </button>
-                {/* Profile */}
-                <button
-                    aria-label="View profile"
-                    className="flex flex-1 flex-col items-center gap-1 text-slate-500 transition-colors hover:text-blue-600"
-                >
-                    <div className="flex h-10 w-10 items-center justify-center">
-                        <User className="size-5" />
-                    </div>
-                    <span className="text-[10px] font-bold tracking-tight uppercase">
-                        Me
-                    </span>
-                </button>
+                {items.map((item) => (
+                    <BottomNavigationItem
+                        key={item.to}
+                        icon={item.icon}
+                        label={item.label}
+                        ariaLabel={item.ariaLabel}
+                        isActive={location.pathname === item.to}
+                        onClick={() => navigation(item.to)}
+                    />
+                ))}
             </div>
         </nav>
     )

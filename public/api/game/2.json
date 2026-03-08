@@ -1,0 +1,107 @@
+{
+    "id": "2",
+    "title": "Days and Basic Time Words",
+    "description": "7 days = 1 week. Time words: o'clock (full hour), half (halfway), quarter (1/4 of hour). Morning (AM), afternoon, evening, night.",
+    "questions": [
+        {
+            "id": "2-1",
+            "question": {
+                "text": "How many days in a week?",
+                "questionType": "empty",
+                "value": "7"
+            },
+            "answer": {
+                "options": [
+                    "5",
+                    "7",
+                    "24"
+                ],
+                "type": "single-choice"
+            },
+            "scoreValue": {
+                "positiveScore": 30,
+                "negativeScore": 0
+            }
+        },
+        {
+            "id": "2-2",
+            "question": {
+                "text": "What is 'half past 2'?",
+                "questionType": "empty",
+                "value": "2:30"
+            },
+            "answer": {
+                "options": [
+                    "2:00",
+                    "2:30",
+                    "3:00"
+                ],
+                "type": "single-choice"
+            },
+            "scoreValue": {
+                "positiveScore": 30,
+                "negativeScore": 0
+            }
+        },
+        {
+            "id": "2-3",
+            "question": {
+                "text": "School is usually in the ____.",
+                "questionType": "empty",
+                "value": "Morning"
+            },
+            "answer": {
+                "options": [
+                    "Morning",
+                    "Night",
+                    "Midnight"
+                ],
+                "type": "single-choice"
+            },
+            "scoreValue": {
+                "positiveScore": 30,
+                "negativeScore": 0
+            }
+        },
+        {
+            "id": "2-4",
+            "question": {
+                "text": "15 minutes is a ____ of an hour.",
+                "questionType": "empty",
+                "value": "Quarter"
+            },
+            "answer": {
+                "options": [
+                    "Half",
+                    "Quarter",
+                    "Full"
+                ],
+                "type": "single-choice"
+            },
+            "scoreValue": {
+                "positiveScore": 30,
+                "negativeScore": 0
+            }
+        },
+        {
+            "id": "2-5",
+            "question": {
+                "text": "How many days are in March?",
+                "questionType": "empty",
+                "value": "31"
+            },
+            "answer": {
+                "options": [
+                    "28",
+                    "30",
+                    "31"
+                ],
+                "type": "single-choice"
+            },
+            "scoreValue": {
+                "positiveScore": 30,
+                "negativeScore": 0
+            }
+        }
+    ]
+}

@@ -1,22 +1,16 @@
+import clsx from 'clsx'
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 
 type SingleChoiceProps = {
-    options: {
-        hours: number
-        minutes: number
-    }[]
-    value: {
-        hours: number
-        minutes: number
-    } | null
-    onChange: (option: { hours: number; minutes: number }) => void
+    options: string[]
+    value: string | null
+    onChange: (option: string) => void
     isDisabled: boolean
 }
 
-const formatTime = (time: { hours: number; minutes: number }) => {
-    const h = time.hours
-    const m = time.minutes.toString().padStart(2, '0')
-    return `${h}:${m}`
+const getMaxCharLength = (options: string[]): number => {
+    return options.reduce((max, option) => Math.max(max, option.length), 0)
 }
 
 export const SingleChoice: React.FC<SingleChoiceProps> = ({
@@ -24,44 +18,70 @@ export const SingleChoice: React.FC<SingleChoiceProps> = ({
     value,
     onChange,
     isDisabled,
-}) => (
-    <div
-        role="radiogroup"
-        aria-label="Time options"
-        className="grid w-full grid-cols-2 gap-4"
-    >
-        {options.map((option) => {
-            const isSelected =
-                value?.hours === Number(option.hours) &&
-                value?.minutes === Number(option.minutes)
-            const timeString = formatTime(option)
+}) => {
+    const { t } = useTranslation()
 
-            return (
-                <button
-                    key={timeString}
-                    role="radio"
-                    aria-checked={isSelected}
-                    aria-label={`Select ${timeString}`}
-                    onClick={() =>
-                        onChange({
-                            hours: Number(option.hours),
-                            minutes: Number(option.minutes),
-                        })
-                    }
-                    disabled={isDisabled}
-                    className={`rounded-2xl border-2 p-3 text-center transition-all duration-200 focus:ring-4 focus:ring-blue-400/50 focus:outline-none active:scale-95 ${
-                        isSelected
-                            ? 'border-blue-400 bg-blue-400/5 shadow-md ring-4 ring-blue-200/10'
-                            : 'border-slate-100 bg-white shadow-sm hover:border-blue-500/40'
-                    } ${isDisabled ? 'cursor-not-allowed opacity-50' : ''} `}
-                >
-                    <span
-                        className={`text-2xl font-bold ${isSelected ? 'text-blue-600' : 'text-slate-700'}`}
+    const getGridCols = () => {
+        const maxCharLength = getMaxCharLength(options)
+        if (maxCharLength >= 10) {
+            return 'grid-cols-1'
+        }
+
+        if (maxCharLength <= 3) {
+            return `grid-cols-${options.length > 12 ? 12 : options.length}`
+        }
+        if ([3, 5, 7, 9].includes(options.length)) {
+            return 'grid-cols-1'
+        }
+        return 'grid-cols-2'
+    }
+
+    const getTextSize = () => {
+        const maxCharLength = getMaxCharLength(options)
+        if (maxCharLength >= 10) {
+            return 'text-2xl'
+        }
+        return 'text-xl'
+    }
+
+    return (
+        <div
+            role="radiogroup"
+            aria-label={t('accessibility.timeOptions')}
+            className={clsx('grid w-full gap-4', getGridCols())}
+        >
+            {options.map((option) => {
+                const isSelected = value === option
+                return (
+                    <button
+                        key={option}
+                        role="radio"
+                        aria-checked={isSelected}
+                        aria-label={t('accessibility.selectTime', {
+                            time: option,
+                        })}
+                        onClick={() => onChange(option)}
+                        disabled={isDisabled}
+                        className={clsx(
+                            'rounded-2xl border-2 p-3 text-center transition-all duration-200 focus:ring-4 focus:ring-blue-400/50 focus:outline-none active:scale-95',
+                            isSelected
+                                ? 'border-blue-400 bg-blue-400/5 shadow-md ring-4 ring-blue-200/10'
+                                : 'border-slate-100 bg-white shadow-sm hover:border-blue-500/40',
+                            isDisabled && 'cursor-not-allowed opacity-50',
+                        )}
                     >
-                        {timeString}
-                    </span>
-                </button>
-            )
-        })}
-    </div>
-)
+                        <span
+                            className={clsx(
+                                getTextSize(),
+                                'font-bold',
+                                isSelected ? 'text-blue-600' : 'text-slate-700',
+                            )}
+                        >
+                            {option}
+                        </span>
+                    </button>
+                )
+            })}
+        </div>
+    )
+}

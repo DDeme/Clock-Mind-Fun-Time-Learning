@@ -3,6 +3,9 @@
 
 # Run linting and formatting on pre-commit
 echo "Running pre-commit checks..."
-npm run lint:fix
-npm run format
+yarn lint:fix
+yarn format
+yarn tsc:check
+yarn test
+#yarn storybook:test
 echo "Pre-commit checks completed."

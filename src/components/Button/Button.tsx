@@ -1,3 +1,4 @@
+import { motion } from 'motion/react'
 import React from 'react'
 
 type ButtonVariant = 'primary' | 'dark' | 'success' | 'warning' | 'error'
@@ -52,15 +53,17 @@ export const Button: React.FC<ButtonProps> = ({
     const styles = variantStyles[variant]
 
     return (
-        <button
-            type="button"
-            onClick={onClick}
-            disabled={disabled}
-            aria-label={ariaLabel}
-            aria-describedby={ariaDescribedBy}
-            className={`flex w-full items-center justify-center gap-3 rounded-2xl py-5 text-xl font-extrabold transition-all focus:ring-4 focus:ring-blue-400/50 focus:outline-none ${disabled ? styles.disabled : styles.enabled} `}
-        >
-            {children}
-        </button>
+        <motion.div whileTap={{ scale: 0.98 }}>
+            <button
+                type="button"
+                onClick={onClick}
+                disabled={disabled}
+                aria-label={ariaLabel}
+                aria-describedby={ariaDescribedBy}
+                className={`flex w-full items-center justify-center gap-3 rounded-2xl py-5 text-xl font-extrabold transition-all focus:ring-4 focus:ring-blue-400/50 focus:outline-none ${disabled ? styles.disabled : styles.enabled} `}
+            >
+                {children}
+            </button>
+        </motion.div>
     )
 }

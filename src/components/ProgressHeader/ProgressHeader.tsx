@@ -16,7 +16,7 @@ export const ProgressHeader = ({
     const progressPercentage = (currentLessons / totalLessons) * 100
 
     return (
-        <header className="sticky top-0 z-20 flex flex-col gap-4 bg-white/80 px-6 pt-12 pb-6 backdrop-blur-md">
+        <header className="sticky top-0 z-20 flex flex-col gap-4 bg-white/80 px-6 pt-6 pb-6 backdrop-blur-md">
             <div className="flex items-center justify-between">
                 <div className="flex flex-col">
                     <h1 className="text-2xl font-bold tracking-tight text-slate-900">

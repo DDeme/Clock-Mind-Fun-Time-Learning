@@ -1,0 +1,68 @@
+{
+    "language": {
+        "select": "Выбрать язык",
+        "english": "Английский",
+        "slovak": "Словацкий",
+        "czech": "Чешский",
+        "russian": "Русский",
+        "ukrainian": "Украинский"
+    },
+    "common": {
+        "loading": "Загрузка...",
+        "error": "Ошибка",
+        "retry": "Повторить",
+        "cancel": "Отмена",
+        "save": "Сохранить",
+        "delete": "Удалить",
+        "edit": "Редактировать",
+        "close": "Закрыть"
+    },
+    "clock": {
+        "hours": "Часы",
+        "minutes": "Минуты",
+        "seconds": "Секунды",
+        "time": "Время"
+    },
+    "intro": {
+        "title": "Часы Ум Веселье",
+        "description": "Научитесь определять время веселым и интерактивным способом! Практикуйте чтение аналоговых и цифровых часов с увлекательными играми и вызовами.",
+        "enterButton": "Войти в игру"
+    },
+    "settings": {
+        "title": "Настройки",
+        "language": "Язык",
+        "languageDescription": "Выберите предпочитаемый язык",
+        "sound": "Звук",
+        "soundDescription": "Включить или выключить звуковые эффекты",
+        "difficulty": "Сложность",
+        "difficultyDescription": "Настройте уровень сложности"
+    },
+    "game": {
+        "progress": "Прогресс: {{current}} из {{total}} вопросов завершено",
+        "questionCounter": "Вопрос {{current}} из {{total}}",
+        "score": "Счёт: {{score}} очков",
+        "checkAnswer": "ПРОВЕРИТЬ ОТВЕТ",
+        "nextQuestion": "Следующий вопрос",
+        "question": "Посмотрите на часы! Сколько времени?",
+        "gameComplete": "Практика завершена! Отличная работа!",
+        "gameContent": "Содержимое игры",
+        "gameState": "Вопрос {{current}} из {{total}}, Счёт: {{score}} очков"
+    },
+    "result": {
+        "success": "Отличная работа!",
+        "error": "Не совсем правильно",
+        "earnedStars": "Вы заработали +{{stars}} звёзд!",
+        "correctAnswer": "Правильный ответ был {{answer}}"
+    },
+    "navigation": {
+        "home": "Главная",
+        "game": "Игра",
+        "settings": "Настройки",
+        "main": "Основная навигация"
+    },
+    "accessibility": {
+        "timeOptions": "Варианты времени",
+        "selectTime": "Выбрать {{time}}",
+        "mascotAlt": "Дружелюбный рыжий кот-талисман"
+    }
+}

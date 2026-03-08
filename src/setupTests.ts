@@ -3,23 +3,23 @@ import { jest } from '@jest/globals'
 
 // Mock window.matchMedia
 Object.defineProperty(window, 'matchMedia', {
-    value: jest.fn().mockImplementation((query: string) => ({
+    value: jest.fn().mockImplementation((query: unknown) => ({
         // deprecated
-addEventListener: jest.fn(),
-        
-addListener: jest.fn(),
-        
-dispatchEvent: jest.fn(),
-        
-matches: false, 
-        
-media: query, 
-        
-onchange: null,
-        
-removeEventListener: jest.fn(),
+        addEventListener: jest.fn(),
+
+        addListener: jest.fn(),
+
+        dispatchEvent: jest.fn(),
+
+        matches: false,
+
+        media: query as string,
+
+        onchange: null,
+
+        removeEventListener: jest.fn(),
         // deprecated
-removeListener: jest.fn(),
+        removeListener: jest.fn(),
     })),
     writable: true,
 })
@@ -29,14 +29,14 @@ global.ResizeObserver = jest.fn().mockImplementation(() => ({
     disconnect: jest.fn(),
     observe: jest.fn(),
     unobserve: jest.fn(),
-}))
+})) as unknown as typeof ResizeObserver
 
 // Mock IntersectionObserver
 global.IntersectionObserver = jest.fn().mockImplementation(() => ({
     disconnect: jest.fn(),
     observe: jest.fn(),
     unobserve: jest.fn(),
-}))
+})) as unknown as typeof IntersectionObserver
 
 // Mock motion/framer-motion
 jest.mock('motion/react', () => ({

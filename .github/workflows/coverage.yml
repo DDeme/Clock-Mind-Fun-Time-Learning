@@ -1,0 +1,89 @@
+name: Coverage Tests
+
+on:
+    push:
+        branches: [main, develop]
+    pull_request:
+        branches: [main, develop]
+
+jobs:
+    coverage:
+        runs-on: ubuntu-latest
+
+        strategy:
+            matrix:
+                node-version: [20.x]
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+            - name: Setup Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v4
+              with:
+                  node-version: ${{ matrix.node-version }}
+                  cache: 'yarn'
+
+            - name: Install playwright browsers
+              run: npx playwright install --with-deps
+
+            - name: Install dependencies
+              run: yarn install --frozen-lockfile
+
+            - name: Run type check
+              run: yarn tsc:check
+
+            - name: Run linting
+              run: yarn lint
+
+            - name: Run coverage tests
+              run: yarn test:coverage:all
+
+            - name: Upload coverage reports
+              uses: codecov/codecov-action@v4
+              with:
+                  token: ${{ secrets.CODECOV_TOKEN }}
+                  files: ./coverage/merged/coverage-merged.json
+                  flags: unittests
+                  name: codecov-umbrella
+                  fail_ci_if_error: false
+
+            - name: Upload coverage artifacts
+              uses: actions/upload-artifact@v4
+              with:
+                  name: coverage-report
+                  path: coverage/merged/
+                  retention-days: 30
+
+            - name: Comment coverage on PR
+              if: github.event_name == 'pull_request'
+              uses: actions/github-script@v7
+              with:
+                  script: |
+                      const fs = require('fs');
+                      const path = './coverage/merged/coverage-merged.json';
+
+                      if (fs.existsSync(path)) {
+                        const coverage = JSON.parse(fs.readFileSync(path, 'utf8'));
+                        const total = coverage.total;
+                        
+                        const comment = `
+                        ## 📊 Coverage Report
+                        
+                        | Metric | Coverage |
+                        |--------|----------|
+                        | Lines | ${total.lines.pct}% |
+                        | Functions | ${total.functions.pct}% |
+                        | Branches | ${total.branches.pct}% |
+                        | Statements | ${total.statements.pct}% |
+                        
+                        [View detailed coverage report](https://codecov.io/gh/${{ github.repository }}/pull/${{ github.event.number }})
+                        `;
+                        
+                        github.rest.issues.createComment({
+                          issue_number: context.issue.number,
+                          owner: context.repo.owner,
+                          repo: context.repo.repo,
+                          body: comment
+                        });
+                      }

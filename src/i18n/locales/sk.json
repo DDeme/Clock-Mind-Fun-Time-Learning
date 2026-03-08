@@ -1,0 +1,68 @@
+{
+    "language": {
+        "select": "Vybrať jazyk",
+        "english": "Angličtina",
+        "slovak": "Slovenčina",
+        "czech": "Čeština",
+        "russian": "Ruština",
+        "ukrainian": "Ukrajinčina"
+    },
+    "common": {
+        "loading": "Načítava sa...",
+        "error": "Chyba",
+        "retry": "Skúsiť znova",
+        "cancel": "Zrušiť",
+        "save": "Uložiť",
+        "delete": "Vymazať",
+        "edit": "Upraviť",
+        "close": "Zavrieť"
+    },
+    "clock": {
+        "hours": "Hodiny",
+        "minutes": "Minúty",
+        "seconds": "Sekundy",
+        "time": "Čas"
+    },
+    "intro": {
+        "title": "Hodiny Mysl Zábava",
+        "description": "Naučte sa čítať čas zábavnou a interaktívnou formou! Cvičte čítanie analógových a digitálnych hodín so zaujímavými hrami a výzvami.",
+        "enterButton": "Vstúpiť do hry"
+    },
+    "settings": {
+        "title": "Nastavenia",
+        "language": "Jazyk",
+        "languageDescription": "Vyberte si preferovaný jazyk",
+        "sound": "Zvuk",
+        "soundDescription": "Povoliť alebo zakázať zvukové efekty",
+        "difficulty": "Obtiažnosť",
+        "difficultyDescription": "Upravte úroveň obtiažnosti"
+    },
+    "game": {
+        "progress": "Postup: {{current}} z {{total}} otázok dokončených",
+        "questionCounter": "Otázka {{current}} z {{total}}",
+        "score": "Skóre: {{score}} bodov",
+        "checkAnswer": "SKONTROLOVAŤ ODPOVEĎ",
+        "nextQuestion": "Ďalšia otázka",
+        "question": "Pozrite sa na hodiny! Koľko je hodín?",
+        "gameComplete": "Cvičenie dokončené! Skvelá práca!",
+        "gameContent": "Obsah hry",
+        "gameState": "Otázka {{current}} z {{total}}, Skóre: {{score}} bodov"
+    },
+    "result": {
+        "success": "Úžasná práca!",
+        "error": "Nie je to úplne správne",
+        "earnedStars": "Získali ste +{{stars}} hviezdičiek!",
+        "correctAnswer": "Správna odpoveď bola {{answer}}"
+    },
+    "navigation": {
+        "home": "Domov",
+        "game": "Hra",
+        "settings": "Nastavenia",
+        "main": "Hlavná navigácia"
+    },
+    "accessibility": {
+        "timeOptions": "Možnosti času",
+        "selectTime": "Vybrať {{time}}",
+        "mascotAlt": "Priateľská ryšavá mačka maskot"
+    }
+}

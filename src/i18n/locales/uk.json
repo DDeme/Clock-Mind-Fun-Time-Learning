@@ -1,0 +1,68 @@
+{
+    "language": {
+        "select": "Вибрати мову",
+        "english": "Англійська",
+        "slovak": "Словацька",
+        "czech": "Чеська",
+        "russian": "Російська",
+        "ukrainian": "Українська"
+    },
+    "common": {
+        "loading": "Завантаження...",
+        "error": "Помилка",
+        "retry": "Повторити",
+        "cancel": "Скасувати",
+        "save": "Зберегти",
+        "delete": "Видалити",
+        "edit": "Редагувати",
+        "close": "Закрити"
+    },
+    "clock": {
+        "hours": "Години",
+        "minutes": "Хвилини",
+        "seconds": "Секунди",
+        "time": "Час"
+    },
+    "intro": {
+        "title": "Години Думки Розваги",
+        "description": "Навчіться визначати час веселим та інтерактивним способом! Практикуйте читання аналогових та цифрових годинників із захоплюючими іграми та викликами.",
+        "enterButton": "Увійти в гру"
+    },
+    "settings": {
+        "title": "Налаштування",
+        "language": "Мова",
+        "languageDescription": "Виберіть бажану мову",
+        "sound": "Звук",
+        "soundDescription": "Увімкнути або вимкнути звукові ефекти",
+        "difficulty": "Складність",
+        "difficultyDescription": "Налаштуйте рівень складності"
+    },
+    "game": {
+        "progress": "Прогрес: {{current}} з {{total}} питань завершено",
+        "questionCounter": "Питання {{current}} з {{total}}",
+        "score": "Рахунок: {{score}} очок",
+        "checkAnswer": "ПЕРЕВІРИТИ ВІДПОВІДЬ",
+        "nextQuestion": "Наступне питання",
+        "question": "Подивіться на годинник! Скільки часу?",
+        "gameComplete": "Практика завершена! Чудова робота!",
+        "gameContent": "Вміст гри",
+        "gameState": "Питання {{current}} з {{total}}, Рахунок: {{score}} очок"
+    },
+    "result": {
+        "success": "Чудова робота!",
+        "error": "Не зовсім правильно",
+        "earnedStars": "Ви заробили +{{stars}} зірок!",
+        "correctAnswer": "Правильна відповідь була {{answer}}"
+    },
+    "navigation": {
+        "home": "Головна",
+        "game": "Гра",
+        "settings": "Налаштування",
+        "main": "Основна навігація"
+    },
+    "accessibility": {
+        "timeOptions": "Варіанти часу",
+        "selectTime": "Вибрати {{time}}",
+        "mascotAlt": "Дружній рудий кіт-талісман"
+    }
+}

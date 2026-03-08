@@ -216,6 +216,11 @@ export const timeToHumanText = (hours: number, minutes: number): string => {
         return specialCase
     }
 
+    // Special handling for midnight times (00:01-00:59)
+    if (hours === 0 && minutes > 0) {
+        return `${numbers[minutes]}${getExtension(minutes, 'min')} po polnoci`
+    }
+
     const specialCaseMinutesText = getSpecialCaseMinutesText(hours, minutes)
     const period = periodsOfTheDay.find(
         (period) => period.start <= hours && period.end > hours,

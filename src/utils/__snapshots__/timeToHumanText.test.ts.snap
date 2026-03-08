@@ -2,7 +2,7 @@
 
 exports[`timeToHumanText 0:0 1`] = `"polnoc"`;
 
-exports[`timeToHumanText 0:7 1`] = `"nula hodina a sedem minút v noci"`;
+exports[`timeToHumanText 0:7 1`] = `"sedem minút po polnoci"`;
 
 exports[`timeToHumanText 1:0 1`] = `"jedna hodina v noci"`;
 

@@ -1,0 +1,253 @@
+{
+    "id": "1",
+    "title": "Game 1",
+    "description": "Description of game 1",
+    "questions": [
+        {
+            "answer": {
+                "options": [
+                    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+                    [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55]
+                ],
+                "type": "numeric-answer"
+            },
+            "id": "1",
+            "question": {
+                "questionType": "analog-clock",
+                "text": "Look at the clock! What time is it?",
+                "value": "4:35"
+            },
+            "scoreValue": {
+                "negativeScore": 0,
+                "positiveScore": 30
+            }
+        },
+        {
+            "answer": {
+                "options": [
+                    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+                    [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55]
+                ],
+                "type": "numeric-answer"
+            },
+            "id": "2",
+            "question": {
+                "questionType": "analog-clock",
+                "text": "Look at the clock! What time is it?",
+                "value": "2:35"
+            },
+            "scoreValue": {
+                "negativeScore": 0,
+                "positiveScore": 30
+            }
+        },
+        {
+            "answer": {
+                "options": [
+                    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+                    [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55]
+                ],
+                "type": "numeric-answer"
+            },
+            "id": "3",
+            "question": {
+                "questionType": "text-clock",
+                "text": "Look at the clock! What time is it?",
+                "value": "8:35"
+            },
+            "scoreValue": {
+                "negativeScore": 0,
+                "positiveScore": 30
+            }
+        },
+        {
+            "answer": {
+                "options": [
+                    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+                    [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55]
+                ],
+                "type": "numeric-answer"
+            },
+            "id": "4",
+            "question": {
+                "questionType": "analog-clock",
+                "text": "Look at the clock! What time is it?",
+                "value": "5:00"
+            },
+            "scoreValue": {
+                "negativeScore": 0,
+                "positiveScore": 30
+            }
+        },
+        {
+            "answer": {
+                "options": [
+                    {
+                        "hours": 9,
+                        "minutes": 35
+                    },
+                    {
+                        "hours": 12,
+                        "minutes": 45
+                    },
+                    {
+                        "hours": 11,
+                        "minutes": 50
+                    },
+                    {
+                        "hours": 12,
+                        "minutes": 30
+                    }
+                ],
+                "type": "single-choice"
+            },
+            "id": "5",
+            "question": {
+                "questionType": "analog-clock",
+                "text": "Look at the clock! What time is it?",
+                "value": "9:35"
+            },
+            "scoreValue": {
+                "negativeScore": 0,
+                "positiveScore": 30
+            }
+        },
+        {
+            "answer": {
+                "options": [
+                    {
+                        "hours": 9,
+                        "minutes": 55
+                    },
+                    {
+                        "hours": 6,
+                        "minutes": 45
+                    },
+                    {
+                        "hours": 6,
+                        "minutes": 30
+                    },
+                    {
+                        "hours": 4,
+                        "minutes": 10
+                    }
+                ],
+                "type": "single-choice"
+            },
+            "id": "6",
+            "question": {
+                "questionType": "analog-clock",
+                "text": "Look at the clock! What time is it?",
+                "value": "6:45"
+            },
+            "scoreValue": {
+                "negativeScore": 0,
+                "positiveScore": 30
+            }
+        },
+        {
+            "answer": {
+                "options": [
+                    {
+                        "hours": 9,
+                        "minutes": 55
+                    },
+                    {
+                        "hours": 10,
+                        "minutes": 35
+                    },
+                    {
+                        "hours": 3,
+                        "minutes": 45
+                    },
+                    {
+                        "hours": 12,
+                        "minutes": 30
+                    }
+                ],
+                "type": "single-choice"
+            },
+            "id": "7",
+            "question": {
+                "questionType": "analog-clock",
+                "text": "Look at the clock! What time is it?",
+                "value": "12:30"
+            },
+            "scoreValue": {
+                "negativeScore": 0,
+                "positiveScore": 30
+            }
+        },
+        {
+            "answer": {
+                "options": [
+                    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+                    [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55]
+                ],
+                "type": "numeric-answer"
+            },
+            "id": "8",
+            "question": {
+                "questionType": "analog-clock",
+                "text": "Look at the clock! What time is it?",
+                "value": "2:10"
+            },
+            "scoreValue": {
+                "negativeScore": 0,
+                "positiveScore": 30
+            }
+        },
+        {
+            "answer": {
+                "options": [
+                    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+                    [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55]
+                ],
+                "type": "numeric-answer"
+            },
+            "id": "9",
+            "question": {
+                "questionType": "text-clock",
+                "text": "Look at the clock! What time is it?",
+                "value": "6:00"
+            },
+            "scoreValue": {
+                "negativeScore": 0,
+                "positiveScore": 30
+            }
+        },
+        {
+            "answer": {
+                "options": [
+                    {
+                        "hours": 4,
+                        "minutes": 0
+                    },
+                    {
+                        "hours": 5,
+                        "minutes": 20
+                    },
+                    {
+                        "hours": 5,
+                        "minutes": 10
+                    },
+                    {
+                        "hours": 5,
+                        "minutes": 45
+                    }
+                ],
+                "type": "single-choice"
+            },
+            "id": "10",
+            "question": {
+                "questionType": "analog-clock",
+                "text": "Look at the clock! What time is it?",
+                "value": "5:20"
+            },
+            "scoreValue": {
+                "negativeScore": 0,
+                "positiveScore": 30
+            }
+        }
+    ]
+}

@@ -21,4 +21,30 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {}
+export const Default: Story = {
+    args: {
+        lessons: [
+            {
+                games: [],
+                id: 1,
+                position: 'left',
+                status: 'completed',
+                title: 'Lesson 1',
+            },
+            {
+                games: [],
+                id: 2,
+                position: 'right',
+                status: 'active',
+                title: 'Lesson 2',
+            },
+            {
+                games: [],
+                id: 3,
+                position: 'left',
+                status: 'locked',
+                title: 'Lesson 3',
+            },
+        ],
+    },
+}
