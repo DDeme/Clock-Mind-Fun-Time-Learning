@@ -23,12 +23,6 @@ export const BottomNavigation = () => {
             to: '/topics',
         },
         {
-            ariaLabel: 'Game',
-            icon: ClipboardCheck,
-            label: t('navigation.game'),
-            to: '/game/1',
-        },
-        {
             ariaLabel: 'Settings',
             icon: User,
             label: t('navigation.settings'),
