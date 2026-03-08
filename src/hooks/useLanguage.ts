@@ -14,6 +14,8 @@ export const useLanguage = () => {
         const savedLanguage = localStorage.getItem(LANGUAGE_STORAGE_KEY)
         if (savedLanguage && savedLanguage !== i18n.language) {
             i18n.changeLanguage(savedLanguage)
+        } else if (!savedLanguage && i18n.language !== DEFAULT_LANGUAGE) {
+            i18n.changeLanguage(DEFAULT_LANGUAGE)
         }
     }, [i18n])
 
