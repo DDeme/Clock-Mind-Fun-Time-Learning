@@ -1,4 +1,4 @@
-import { Home, ClipboardCheck, User, PieChart } from 'lucide-react'
+import { Home, User, PieChart } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { useLocation, useNavigate } from 'react-router'
 
