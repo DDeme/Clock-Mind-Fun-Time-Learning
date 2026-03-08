@@ -266,7 +266,7 @@ module.exports = {
     // dependency-cruiser's current working directory). When not provided
     // defaults to './tsconfig.json'.
     tsConfig: {
-      fileName: 'tsconfig.json'
+      fileName: 'tsconfig.app.json'
     },
 
     // Webpack configuration to use to get resolve options from.
@@ -366,4 +366,4 @@ module.exports = {
     }
   }
 };
-// generated: dependency-cruiser@17.3.8 on 2026-03-01T04:02:34.154Z
+// generated: dependency-cruiser@17.3.8 on 2026-03-08T23:12:02.126Z
