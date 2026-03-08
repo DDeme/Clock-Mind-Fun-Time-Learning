@@ -45,7 +45,7 @@ export const IntroContent = () => {
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.5, duration: 0.6 }}
-                        className="flex w-full max-w-xs justify-center"
+                        className="w-full max-w-xs"
                     >
                         <LanguagePicker
                             selectedLanguage={i18n.language}
