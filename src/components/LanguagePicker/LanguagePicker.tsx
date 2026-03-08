@@ -79,9 +79,7 @@ export const LanguagePicker: React.FC<LanguagePickerProps> = ({
                     >
                         {currentLanguage.flag}
                     </span>
-                    <span className="inline">
-                        {currentLanguage.nativeName}
-                    </span>
+                    <span className="inline">{currentLanguage.nativeName}</span>
                 </div>
                 <ChevronDown
                     className={`h-5 w-5 text-slate-400 transition-transform duration-200 ${
@@ -95,7 +93,7 @@ export const LanguagePicker: React.FC<LanguagePickerProps> = ({
                 <ul
                     role="listbox"
                     aria-label="Language options"
-                    className="absolute left-0 z-50 mt-2 max-h-64 w-full overflow-auto rounded-xl border-2 border-slate-100 bg-white p-1 shadow-2xl animate-slide-up focus:outline-none"
+                    className="animate-slide-up absolute left-0 z-50 mt-2 max-h-64 w-full overflow-auto rounded-xl border-2 border-slate-100 bg-white p-1 shadow-2xl focus:outline-none"
                 >
                     {SUPPORTED_LANGUAGES.map((language) => (
                         <li
@@ -123,7 +121,7 @@ export const LanguagePicker: React.FC<LanguagePickerProps> = ({
                                     {language.flag}
                                 </span>
                                 <div className="flex-1">
-                                    <div className="font-bold leading-none">
+                                    <div className="leading-none font-bold">
                                         {language.nativeName}
                                     </div>
                                     <div className="mt-1 text-xs font-medium text-slate-400">
