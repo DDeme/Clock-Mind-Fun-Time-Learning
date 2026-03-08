@@ -1,5 +1,5 @@
 import { useCallback } from 'react'
-import { useNavigate } from 'react-router'
+import { useNavigate, useParams } from 'react-router'
 
 import { Game } from '../components/Game'
 import { GameSkeleton } from '../components/Game/Game.skeleton'
@@ -9,8 +9,9 @@ import type { GameResult } from '../components/Game'
 
 const GamePage = () => {
     const navigate = useNavigate()
+    const { id } = useParams<{ id: string }>()
 
-    const { data, isLoading, isSuccess } = useGameData('2')
+    const { data, isLoading, isSuccess } = useGameData(id || '1')
 
     const handleComplete = useCallback(
         (gameResult: GameResult) => {

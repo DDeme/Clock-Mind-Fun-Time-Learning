@@ -16,7 +16,7 @@ export const PlayButton = ({
         if (onClick) {
             onClick()
         } else {
-            navigate('/game')
+            navigate('/game/1')
         }
     }
 
