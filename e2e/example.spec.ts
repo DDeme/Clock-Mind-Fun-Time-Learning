@@ -26,8 +26,8 @@ test('navigation to game page', async ({ page }) => {
   // Click the enter button
   await page.click('button:has-text("Enter Game")');
 
-  // Should navigate to game page
-  await expect(page).toHaveURL(/\/game/);
+  // Should navigate to timeline page
+  await expect(page).toHaveURL(/\/timeline/);
 });
 
 test('responsive design', async ({ page }) => {

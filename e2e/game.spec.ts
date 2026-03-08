@@ -2,12 +2,12 @@ import { test, expect } from '@playwright/test';
 
 test.describe('Game Page', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/game');
+    await page.goto('/game/1');
   });
 
   test('game page loads', async ({ page }) => {
     // Should be on game page
-    await expect(page).toHaveURL(/\/game/);
+    await expect(page).toHaveURL(/\/game\/1/);
     
     // Game component should be present
     await expect(page.locator('[data-testid="game-container"]')).toBeVisible();
@@ -20,7 +20,7 @@ test.describe('Game Page', () => {
     await page.click('button:has-text("Enter Game")');
     
     // Verify game page loaded
-    await expect(page).toHaveURL(/\/game/);
+    await expect(page).toHaveURL(/\/timeline/);
   });
 
   test('game page responsive design', async ({ page }) => {

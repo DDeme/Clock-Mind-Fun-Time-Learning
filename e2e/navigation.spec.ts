@@ -11,16 +11,16 @@ test.describe('Navigation', () => {
     // Click enter button
     await page.click('button:has-text("Enter Game")');
     
-    // Verify navigation to game page
-    await expect(page).toHaveURL(/\/game/);
+    // Verify navigation to timeline page
+    await expect(page).toHaveURL(/\/timeline/);
   });
 
   test('browser back button works', async ({ page }) => {
     await page.goto('/');
     
-    // Navigate to game page
+    // Navigate to timeline page
     await page.click('button:has-text("Enter Game")');
-    await expect(page).toHaveURL(/\/game/);
+    await expect(page).toHaveURL(/\/timeline/);
     
     // Use browser back button
     await page.goBack();
@@ -32,10 +32,10 @@ test.describe('Navigation', () => {
 
   test('direct game page access', async ({ page }) => {
     // Go directly to game page
-    await page.goto('/game');
+    await page.goto('/game/1');
     
     // Should load game page
-    await expect(page).toHaveURL(/\/game/);
+    await expect(page).toHaveURL(/\/game\/1/);
   });
 
   test('URL changes correctly on navigation', async ({ page }) => {
@@ -46,7 +46,7 @@ test.describe('Navigation', () => {
     
     // After clicking enter button, URL should change
     await page.click('button:has-text("Enter Game")');
-    await expect(page).toHaveURL(/\/game/);
+    await expect(page).toHaveURL(/\/timeline/);
   });
 
   test('page reload maintains state', async ({ page }) => {

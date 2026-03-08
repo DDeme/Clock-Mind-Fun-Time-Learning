@@ -26,7 +26,7 @@ export const BottomNavigation = () => {
             ariaLabel: 'Game',
             icon: ClipboardCheck,
             label: t('navigation.game'),
-            to: '/game',
+            to: '/game/1',
         },
         {
             ariaLabel: 'Settings',
