@@ -11,20 +11,26 @@ test('intro page loads correctly', async ({ page }) => {
     await page.goto('/')
 
     // Check main heading
-    await expect(page.locator('h1')).toContainText('Clock Mind Fun')
+    await expect(page.locator('[data-testid="intro-title"]')).toContainText(
+        'Clock Mind Fun',
+    )
 
     // Check description
-    await expect(page.locator('p')).toContainText('Learn to tell time')
+    await expect(
+        page.locator('[data-testid="intro-description"]'),
+    ).toContainText('Learn to tell time')
 
     // Check enter button
-    await expect(page.locator('button')).toContainText('Enter Game')
+    await expect(
+        page.locator('[data-testid="enter-game-button"]'),
+    ).toContainText('Enter Game')
 })
 
 test('navigation to lesson page', async ({ page }) => {
     await page.goto('/')
 
     // Click the enter button
-    await page.click('button:has-text("Enter Game")')
+    await page.click('[data-testid="enter-game-button"]')
 
     // Should navigate to lesson page
     await expect(page).toHaveURL(/\/lesson/)
@@ -35,13 +41,13 @@ test('responsive design', async ({ page }) => {
 
     // Test mobile viewport
     await page.setViewportSize({ height: 667, width: 375 })
-    await expect(page.locator('h1')).toBeVisible()
+    await expect(page.locator('[data-testid="intro-title"]')).toBeVisible()
 
     // Test tablet viewport
     await page.setViewportSize({ height: 1024, width: 768 })
-    await expect(page.locator('h1')).toBeVisible()
+    await expect(page.locator('[data-testid="intro-title"]')).toBeVisible()
 
     // Test desktop viewport
     await page.setViewportSize({ height: 800, width: 1200 })
-    await expect(page.locator('h1')).toBeVisible()
+    await expect(page.locator('[data-testid="intro-title"]')).toBeVisible()
 })

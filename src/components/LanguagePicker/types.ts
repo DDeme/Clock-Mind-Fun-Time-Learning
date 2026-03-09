@@ -10,4 +10,5 @@ export interface LanguagePickerProps {
     onLanguageChange: (languageCode: string) => void
     className?: string
     ariaLabel?: string
+    'data-testid'?: string
 }

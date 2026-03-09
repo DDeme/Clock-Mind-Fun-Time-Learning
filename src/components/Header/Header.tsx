@@ -29,6 +29,12 @@ export const Header: React.FC<HeaderProps> = ({
                 </button>
 
                 <div className="mx-4 flex flex-1 flex-col items-center py-2">
+                    <h1 className="sr-only">
+                        {t('game.questionCounter', {
+                            current: currentStep,
+                            total: totalQuestions,
+                        })}
+                    </h1>
                     <div
                         className="h-3 w-full overflow-hidden rounded-full bg-slate-200"
                         role="progressbar"

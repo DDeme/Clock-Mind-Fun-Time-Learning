@@ -10,6 +10,7 @@ export const LanguagePicker: React.FC<LanguagePickerProps> = ({
     onLanguageChange,
     className = '',
     ariaLabel = 'Language selector',
+    'data-testid': dataTestId,
 }) => {
     const [isOpen, setIsOpen] = useState(false)
     const dropdownRef = useRef<HTMLDivElement>(null)
@@ -60,6 +61,7 @@ export const LanguagePicker: React.FC<LanguagePickerProps> = ({
 
     return (
         <div
+            data-testid={dataTestId}
             className={`relative ${className}`}
             ref={dropdownRef}
         >
