@@ -1,0 +1,1 @@
+export { LecturerCat } from './LecturerCat'

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useLayoutEffect, useRef } from 'react'
 
 import { CenterPin } from './CenterPin'
 
@@ -19,16 +19,83 @@ export const ClockHands: React.FC<ClockHandsProps> = ({
     const [hourRotation, setHourRotation] = React.useState(12)
     const [secondRotation, setSecondRotation] = React.useState(0)
 
-    useEffect(() => {
-        setHourRotation((hours % 12) * 30 + minutes * 0.5)
+    const prevHourRotation = useRef(12)
+    const prevMinuteRotation = useRef(0)
+    const prevSecondRotation = useRef(0)
+
+    useLayoutEffect(() => {
+        const targetRotation = (hours % 12) * 30 + minutes * 0.5
+        const currentRotation = prevHourRotation.current
+
+        // Calculate the shortest path for smooth animation
+        const diff = targetRotation - currentRotation
+        const absDiff = Math.abs(diff)
+
+        let newRotation
+        if (absDiff <= 180) {
+            // Short path is direct
+            newRotation = targetRotation
+        } else if (diff > 0) {
+            // Going forward but long path, go backward instead
+            newRotation = targetRotation - 360
+        } else {
+            // Going backward but long path, go forward instead
+            newRotation = targetRotation + 360
+        }
+
+        // eslint-disable-next-line react-hooks/set-state-in-effect
+        setHourRotation(newRotation)
+        prevHourRotation.current = newRotation
     }, [hours, minutes])
 
-    useEffect(() => {
-        setMinuteRotation(minutes * 6)
+    useLayoutEffect(() => {
+        const targetRotation = minutes * 6
+        const currentRotation = prevMinuteRotation.current
+
+        // Calculate the shortest path for smooth animation
+        const diff = targetRotation - currentRotation
+        const absDiff = Math.abs(diff)
+
+        let newRotation
+        if (absDiff <= 180) {
+            // Short path is direct
+            newRotation = targetRotation
+        } else if (diff > 0) {
+            // Going forward but long path, go backward instead
+            newRotation = targetRotation - 360
+        } else {
+            // Going backward but long path, go forward instead
+            newRotation = targetRotation + 360
+        }
+
+        // eslint-disable-next-line react-hooks/set-state-in-effect
+        setMinuteRotation(newRotation)
+        prevMinuteRotation.current = newRotation
     }, [minutes])
 
-    useEffect(() => {
-        setSecondRotation(seconds * 6)
+    useLayoutEffect(() => {
+        const targetRotation = seconds * 6
+        const currentRotation = prevSecondRotation.current
+
+        // Calculate the shortest path for smooth animation
+        const diff = targetRotation - currentRotation
+        const absDiff = Math.abs(diff)
+
+        let newRotation
+        if (absDiff <= 180) {
+            // Short path is direct
+            newRotation = targetRotation
+        } else if (diff > 0) {
+            // Going forward but long path, go backward instead
+            newRotation = targetRotation - 360
+        } else {
+            // Going backward but long path, go forward instead
+            newRotation = targetRotation + 360
+        }
+
+        // eslint-disable-next-line react-hooks/set-state-in-effect
+        setSecondRotation(newRotation)
+        prevSecondRotation.current = newRotation
     }, [seconds])
 
     return (

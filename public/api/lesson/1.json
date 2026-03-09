@@ -1,9 +1,7 @@
 [
     {
-        "games": [
-            "1"
-        ],
-        "id": 1,
+        "games": ["1", "2"],
+        "id": "1",
         "position": "left",
         "status": "active",
         "title": "Seconds, Minutes, and Hours"
