@@ -1,4 +1,4 @@
-import { Home, User, PieChart } from 'lucide-react'
+import { Home, User, PieChart, BookOpen } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { useLocation, useNavigate } from 'react-router'
 
@@ -14,13 +14,13 @@ export const BottomNavigation = () => {
             ariaLabel: 'Go to home',
             icon: Home,
             label: t('navigation.home'),
-            to: '/lesson',
+            to: '/topics',
         },
         {
-            ariaLabel: 'Topics',
-            icon: PieChart,
-            label: 'Topics',
-            to: '/topics',
+            ariaLabel: 'Current Lesson',
+            icon: BookOpen,
+            label: t('navigation.currentLesson'),
+            to: '/lesson',
         },
         {
             ariaLabel: 'Settings',
