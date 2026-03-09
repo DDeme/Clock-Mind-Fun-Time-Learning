@@ -7,15 +7,15 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 const meta = {
     argTypes: {
         hours: {
-            control: { max: 12, min: 1, type: 'number' },
+            control: { max: 25, min: 1, type: 'number' },
             description: 'Hour value (1–12)',
         },
         minutes: {
-            control: { max: 59, min: 0, type: 'number' },
+            control: { max: 150, min: 0, type: 'number' },
             description: 'Minute value (0–59)',
         },
         seconds: {
-            control: { max: 59, min: 0, type: 'number' },
+            control: { max: 150, min: 0, type: 'number' },
             description: 'Minute value (0–59)',
         },
         size: {
