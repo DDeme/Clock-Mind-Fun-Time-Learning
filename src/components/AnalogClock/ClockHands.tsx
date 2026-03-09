@@ -43,6 +43,7 @@ export const ClockHands: React.FC<ClockHandsProps> = ({
             newRotation = targetRotation + 360
         }
 
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setHourRotation(newRotation)
         prevHourRotation.current = newRotation
     }, [hours, minutes])
@@ -67,6 +68,7 @@ export const ClockHands: React.FC<ClockHandsProps> = ({
             newRotation = targetRotation + 360
         }
 
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setMinuteRotation(newRotation)
         prevMinuteRotation.current = newRotation
     }, [minutes])
@@ -91,6 +93,7 @@ export const ClockHands: React.FC<ClockHandsProps> = ({
             newRotation = targetRotation + 360
         }
 
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setSecondRotation(newRotation)
         prevSecondRotation.current = newRotation
     }, [seconds])
