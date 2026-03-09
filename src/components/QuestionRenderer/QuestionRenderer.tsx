@@ -1,19 +1,14 @@
 import React from 'react'
 
+import { QuestionTypeValues } from '../../types/questionType.d'
 import { parseTime } from '../../utils/parseTime/parseTime'
 import { AnalogClock } from '../AnalogClock/AnalogClock'
 import { TimeToHumanText } from '../TimeToHuman/TimeToHuman'
 
-export const QuestionType = {
-    ANALOG_CLOCK: 'analog-clock',
-    DIGITAL_CLOCK: 'digital-clock',
-    EMPTY: 'empty',
-    TEXT: 'text',
-    TEXT_CLOCK: 'text-clock',
-} as const
+import type { QuestionType } from '../../types/questionType.d'
 
 type QuestionRendererProps = {
-    questionType: (typeof QuestionType)[keyof typeof QuestionType]
+    questionType: QuestionType
     value: string
 }
 
@@ -24,13 +19,13 @@ export const QuestionRenderer: React.FC<QuestionRendererProps> = ({
     value,
 }) => {
     switch (questionType) {
-        case QuestionType.ANALOG_CLOCK:
+        case QuestionTypeValues.ANALOG_CLOCK:
             return <AnalogClock {...parseTime(value)} />
-        case QuestionType.TEXT_CLOCK:
+        case QuestionTypeValues.TEXT_CLOCK:
             return <TimeToHumanText {...parseTime(value)} />
-        case QuestionType.TEXT:
+        case QuestionTypeValues.TEXT:
             return <div>{value}</div>
-        case QuestionType.EMPTY:
+        case QuestionTypeValues.EMPTY:
             return <div></div>
         default:
             throw new Error('Invalid question type')

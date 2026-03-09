@@ -1,15 +1,11 @@
 import React from 'react'
 
+import { type AnswerType, AnswerTypeValues } from '../../types/answerType.d'
 import { NumericAnswer } from '../NumericAnswer/NumericAnswer'
 import { SingleChoice } from '../SingleChoice/SingleChoice'
 
-export const AnswerType = {
-    NUMERIC_ANSWER: 'numeric-answer',
-    SINGLE_CHOICE: 'single-choice',
-} as const
-
 type AnswersProps = {
-    type: (typeof AnswerType)[keyof typeof AnswerType]
+    type: AnswerType
     options: string[]
     value: string | null
     onChange: (option: string | null) => void
@@ -23,9 +19,9 @@ const numOptions = [
 
 export const Answers: React.FC<AnswersProps> = (props) => {
     switch (props.type) {
-        case AnswerType.SINGLE_CHOICE:
+        case AnswerTypeValues.SINGLE_CHOICE:
             return <SingleChoice {...props} />
-        case AnswerType.NUMERIC_ANSWER:
+        case AnswerTypeValues.NUMERIC_ANSWER:
             return (
                 <NumericAnswer
                     {...props}
