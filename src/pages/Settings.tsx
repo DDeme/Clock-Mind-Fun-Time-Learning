@@ -48,7 +48,9 @@ const SettingsPage = () => {
                         </div>
                         <LanguagePicker
                             selectedLanguage={i18n.language}
-                            onLanguageChange={(lang) => i18n.changeLanguage(lang)}
+                            onLanguageChange={(lang) =>
+                                i18n.changeLanguage(lang)
+                            }
                             ariaLabel="Select application language"
                         />
                     </section>
