@@ -1,6 +1,5 @@
 import { describe, expect, it, jest } from '@jest/globals'
 import { render } from '@testing-library/react'
-import React from 'react'
 
 import { PixelCatDiorama } from './PixelCatDiorama'
 
@@ -8,13 +7,14 @@ describe('PixelCatDiorama', () => {
     it('renders without crashing', () => {
         render(<PixelCatDiorama />)
         const container = document.querySelector('section')
-        expect(container).toBeInTheDocument()
+        expect(container).toBeTruthy()
+        expect(container?.tagName).toBe('SECTION')
     })
 
     it('applies custom className', () => {
         render(<PixelCatDiorama className="custom-class" />)
         const container = document.querySelector('section')
-        expect(container).toHaveClass('custom-class')
+        expect(container?.className).toContain('custom-class')
     })
 
     it('calls onMeow callback when provided', () => {
@@ -28,46 +28,48 @@ describe('PixelCatDiorama', () => {
     it('has correct default props', () => {
         render(<PixelCatDiorama />)
         const container = document.querySelector('section')
-        expect(container).toHaveClass('diorama-frame')
-        expect(container).toHaveClass('aspect-square')
-        expect(container).toHaveClass('max-w-[400px]')
+        expect(container?.className).toContain('diorama-frame')
+        expect(container?.className).toContain('aspect-square')
+        expect(container?.className).toContain('max-w-[400px]')
     })
 
     it('contains SVG elements for the cat', () => {
         render(<PixelCatDiorama />)
         const svg = document.querySelector('svg')
-        expect(svg).toBeInTheDocument()
-        expect(svg).toHaveAttribute('viewBox', '0 0 16 16')
-        expect(svg).toHaveAttribute('style', 'shape-rendering: crispEdges;')
+        expect(svg).toBeTruthy()
+        expect(svg?.getAttribute('viewBox')).toBe('0 0 16 16')
+        expect(svg?.getAttribute('style')).toContain(
+            'shape-rendering: crispEdges',
+        )
     })
 
     it('has proper accessibility structure', () => {
         render(<PixelCatDiorama />)
         const container = document.querySelector('section')
-        expect(container).toBeInTheDocument()
+        expect(container).toBeTruthy()
+        expect(container?.tagName).toBe('SECTION')
     })
 
     it('contains diorama elements', () => {
         render(<PixelCatDiorama />)
         const container = document.querySelector('section')
 
-        // Check for diorama-floor and cat-shadow-oval classes
-        expect(container.querySelector('.diorama-floor')).toBeInTheDocument()
-        expect(container.querySelector('.cat-shadow-oval')).toBeInTheDocument()
+        expect(container?.querySelector('.diorama-floor')).toBeTruthy()
+        expect(container?.querySelector('.cat-shadow-oval')).toBeTruthy()
     })
 
     it('has proper z-index layering', () => {
         render(<PixelCatDiorama />)
         const catContainer = document.querySelector('.relative.z-10')
-        expect(catContainer).toBeInTheDocument()
+        expect(catContainer).toBeTruthy()
     })
 
     it('has drop shadow styling', () => {
         render(<PixelCatDiorama />)
         // Use a simpler approach to find the element with drop shadow
         const catContainer = document.querySelector('.relative.z-10')
-        expect(catContainer).toBeInTheDocument()
-        expect(catContainer).toHaveClass(
+        expect(catContainer).toBeTruthy()
+        expect(catContainer?.className).toContain(
             'drop-shadow-[0_12px_0_rgba(0,0,0,0.5)]',
         )
     })

@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import React, { useState, useEffect } from 'react'
 
-type PixelCatDioramaProps = {
+export type PixelCatDioramaProps = {
     onMeow?: () => void
     className?: string
 }
