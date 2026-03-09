@@ -6,6 +6,7 @@ import i18n from '../../i18n'
 import { Button } from '../Button/Button'
 import { LanguagePicker } from '../LanguagePicker'
 import { Layout } from '../Layout'
+import { PixelCatDiorama } from '../PixelCatDiorama'
 
 export const IntroContent = () => {
     const navigate = useNavigate()
@@ -40,11 +41,21 @@ export const IntroContent = () => {
                         {t('intro.description')}
                     </motion.p>
 
+                    {/* Pixel Cat Diorama */}
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: 0.5, duration: 0.6 }}
+                        className="flex justify-center"
+                    >
+                        <PixelCatDiorama className="max-w-50" />
+                    </motion.div>
+
                     {/* Language Selector */}
                     <motion.div
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.5, duration: 0.6 }}
+                        transition={{ delay: 0.7, duration: 0.6 }}
                         className="w-full max-w-xs"
                     >
                         <LanguagePicker
@@ -60,7 +71,7 @@ export const IntroContent = () => {
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.6, duration: 0.6 }}
+                        transition={{ delay: 0.8, duration: 0.6 }}
                         className="flex w-full max-w-xs flex-col gap-4"
                     >
                         <Button

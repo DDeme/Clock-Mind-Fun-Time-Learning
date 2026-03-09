@@ -1,7 +1,7 @@
 import { Layout } from '../Layout'
+import { LessonContent } from '../LessonContent/LessonContent'
 import { PlayButton } from '../PlayButton'
 import { ProgressHeader } from '../ProgressHeader/ProgressHeader'
-import { LessonContent } from '../LessonContent/LessonContent'
 
 export interface Lesson {
     id: number

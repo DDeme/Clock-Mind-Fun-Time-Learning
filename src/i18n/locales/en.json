@@ -64,6 +64,12 @@
     "accessibility": {
         "timeOptions": "Time options",
         "selectTime": "Select {{time}}",
-        "mascotAlt": "Friendly redhead cat mascot"
+        "mascotAlt": "Friendly redhead cat mascot",
+        "lecturerCatAlt": "Professor cat with graduation cap",
+        "lecturerCatStatus": "Professor cat is teaching"
+    },
+    "lecturerCat": {
+        "defaultMessage": "Welcome to your time-telling lesson! I'm here to help you master the art of reading clocks.",
+        "subMessage": "Let's make learning fun and interactive!"
     }
 }
