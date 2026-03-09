@@ -58,6 +58,7 @@
     "navigation": {
         "home": "Home",
         "game": "Game",
+        "currentLesson": "Current Lesson",
         "settings": "Settings",
         "main": "Main navigation"
     },

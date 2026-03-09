@@ -26,8 +26,8 @@ test('navigation to lesson page', async ({ page }) => {
     // Click the enter button
     await page.click('button:has-text("Enter Game")')
 
-    // Should navigate to timeline page
-    await expect(page).toHaveURL(/\/timeline/)
+    // Should navigate to lesson page
+    await expect(page).toHaveURL(/\/lesson/)
 })
 
 test('responsive design', async ({ page }) => {

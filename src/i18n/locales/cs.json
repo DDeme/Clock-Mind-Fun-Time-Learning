@@ -57,6 +57,7 @@
     "navigation": {
         "home": "Domů",
         "game": "Hra",
+        "currentLesson": "Aktuální lekce",
         "settings": "Nastavení",
         "main": "Hlavní navigace"
     },

@@ -22,7 +22,7 @@ test.describe('Game Page', () => {
         await page.click('button:has-text("Enter Game")')
 
         // Verify game page loaded
-        await expect(page).toHaveURL(/\/timeline/)
+        await expect(page).toHaveURL(/\/lesson/)
     })
 
     test('game page responsive design', async ({ page }) => {

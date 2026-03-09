@@ -57,6 +57,7 @@
     "navigation": {
         "home": "Главная",
         "game": "Игра",
+        "currentLesson": "Текущий урок",
         "settings": "Настройки",
         "main": "Основная навигация"
     },

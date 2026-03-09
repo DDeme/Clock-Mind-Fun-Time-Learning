@@ -57,6 +57,7 @@
     "navigation": {
         "home": "Domov",
         "game": "Hra",
+        "currentLesson": "Aktuálna lekcia",
         "settings": "Nastavenia",
         "main": "Hlavná navigácia"
     },
