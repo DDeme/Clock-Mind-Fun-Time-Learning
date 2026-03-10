@@ -36,7 +36,7 @@ export const Default: Story = {
                         </p>
                     </header>
 
-                    <main className="space-y-4">
+                    <div className="space-y-4">
                         <section className="rounded-lg bg-white p-6 shadow-sm">
                             <h2 className="text-lg font-semibold text-slate-800">
                                 Content Section
@@ -56,7 +56,7 @@ export const Default: Story = {
                                 for your application content.
                             </p>
                         </section>
-                    </main>
+                    </div>
                 </div>
             </Main>
         </div>
