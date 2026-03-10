@@ -50,6 +50,16 @@ This project enforces consistent file and directory naming using ls-lint:
 - **Directories**: kebab-case (e.g., `user-profile/`, `date-picker/`)
 - **Config files**: kebab-case (e.g., `vite.config.ts`, `eslint.config.js`)
 
+### Component Organization
+
+The project separates components into three categories:
+
+- **`src/components/containers/`**: Page-level containers with business logic, state management, and orchestration (Game, GameResults, Topics, LessonProgress, IntroContent)
+- **`src/components/ui/`**: Pure presentational UI components (ActionFooter, Button, Typography, Layout, Skeleton, Loading, NoData, Main, NavButton, StrengthsSection)
+- **`src/components/`**: Feature-specific components with domain logic (AnalogClock, LanguagePicker, Header, etc.)
+
+UI components are reusable across the application and contain no business logic or data fetching. Container components orchestrate entire page experiences and manage complex state.
+
 ### Pre-commit Hooks
 
 The project uses Husky for pre-commit hooks that automatically run:

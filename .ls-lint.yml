@@ -26,6 +26,10 @@ ls:
         .css: kebab-case
         .dir: kebab-case | regex:__[a-z]+__
 
+    # Feature subdirectories - allow kebab-case for feature names
+    src/components/features/**/*:
+        .dir: kebab-case | PascalCase
+
     # Components - PascalCase for React components, but allow index.ts
     src/components/**/*:
         .ts: PascalCase | regex:^index$ | regex:^constants$ | regex:^types$
@@ -38,7 +42,7 @@ ls:
         .stories.ts: PascalCase
         .constants.ts: PascalCase
         .types.ts: PascalCase
-        .dir: PascalCase
+        .dir: PascalCase | regex:^ui$ | regex:^old- | regex:^containers$ | regex:^features$ | regex:^system$ | regex:^clock$ | regex:^content$ | regex:^forms$ | regex:^game$ | regex:^navigation$
 
     # Pages - PascalCase for page components
     src/pages/**/*:

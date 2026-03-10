@@ -1,4 +1,4 @@
-import type { Answers } from '../../components/Answers'
+import type { Answers } from '../../components/features/game/Answers'
 import type { ComponentProps } from 'react'
 
 export type AnswerType = ComponentProps<typeof Answers>['type']

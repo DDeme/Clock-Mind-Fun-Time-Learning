@@ -1,3 +1,3 @@
-import { IntroContent } from '../components/IntroContent'
+import { IntroContent } from '../components/containers/IntroContent'
 
 export default IntroContent

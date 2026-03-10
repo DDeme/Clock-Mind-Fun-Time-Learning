@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import {
     DEFAULT_LANGUAGE,
     LANGUAGE_STORAGE_KEY,
-} from '../components/LanguagePicker'
+} from '../components/system/LanguagePicker'
 
 export const useLanguage = () => {
     const { i18n } = useTranslation()

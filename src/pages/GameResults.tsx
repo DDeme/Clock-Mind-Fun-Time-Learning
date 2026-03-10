@@ -1,8 +1,8 @@
 import { useLocation, useNavigate } from 'react-router'
 
-import { GameResults } from '../components/GameResults'
+import { GameResults } from '../components/containers/GameResults'
 
-import type { GameResult } from '../components/Game'
+import type { GameResult } from '../components/containers/Game'
 
 const GameResultsPage = () => {
     const navigate = useNavigate()

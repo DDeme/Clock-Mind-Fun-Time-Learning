@@ -1,8 +1,8 @@
 import { Suspense } from 'react'
 import { RouterProvider } from 'react-router'
 
-import { ErrorBoundary } from './components/ErrorBoundary'
-import { Loading } from './components/Loading/Loading'
+import { ErrorBoundary } from './components/system/ErrorBoundary'
+import { Loading } from './components/ui'
 import { router } from './routes'
 
 function App() {
