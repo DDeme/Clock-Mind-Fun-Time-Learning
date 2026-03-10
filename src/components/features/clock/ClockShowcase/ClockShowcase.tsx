@@ -7,22 +7,22 @@ import {
     RefreshCcw,
 } from 'lucide-react'
 import { motion, AnimatePresence } from 'motion/react'
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
+
+import { AnalogClock } from '../AnalogClock'
 
 export const ClockShowcase = () => {
     const [time, setTime] = useState(new Date())
     const [is24Hour, setIs24Hour] = useState(false)
     const [isManual, setIsManual] = useState(false)
-    const [isDragging, setIsDragging] = useState(false)
-    const clockRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
-        if (isManual || isDragging) return
+        if (isManual) return
         const timer = setInterval(() => {
             setTime(new Date())
         }, 1000)
         return () => clearInterval(timer)
-    }, [isManual, isDragging])
+    }, [isManual])
 
     const hours = time.getHours()
     const minutes = time.getMinutes()
@@ -33,41 +33,6 @@ export const ClockShowcase = () => {
 
     const displayMinutes = minutes.toString().padStart(2, '0')
     const ampm = hours >= 12 ? 'PM' : 'AM'
-
-    // Analog clock rotations
-    const hourRotation = (hours % 12) * 30 + minutes * 0.5
-    const minuteRotation = minutes * 6
-
-    const handlePan = (
-        _event: unknown,
-        info: { point: { x: number; y: number } },
-        type: 'hour' | 'minute',
-    ) => {
-        if (!clockRef.current) return
-        const rect = clockRef.current.getBoundingClientRect()
-        const centerX = rect.left + rect.width / 2
-        const centerY = rect.top + rect.height / 2
-
-        const x = info.point.x - centerX
-        const y = info.point.y - centerY
-
-        let angle = Math.atan2(y, x) * (180 / Math.PI) + 90
-        if (angle < 0) angle += 360
-
-        const newTime = new Date(time)
-        if (type === 'minute') {
-            const mins = Math.round(angle / 6) % 60
-            newTime.setMinutes(mins)
-            newTime.setSeconds(0)
-        } else {
-            const h = Math.floor(angle / 30) % 12
-            const currentH = newTime.getHours()
-            const isPM = currentH >= 12
-            newTime.setHours(isPM ? (h === 0 ? 12 : h + 12) : h === 0 ? 0 : h)
-        }
-        setTime(newTime)
-        setIsManual(true)
-    }
 
     const resetToLive = () => {
         setIsManual(false)
@@ -157,59 +122,19 @@ export const ClockShowcase = () => {
                         </div>
                     </div>
 
-                    <div
-                        ref={clockRef}
-                        className="clock-face relative flex h-64 w-64 touch-none items-center justify-center rounded-full border-12 border-white"
-                    >
-                        {/* Clock Numbers */}
-                        <div className="absolute inset-6 flex justify-center font-bold text-slate-800 select-none">
-                            12
-                        </div>
-                        <div className="absolute inset-6 flex items-center justify-end font-bold text-slate-800 select-none">
-                            3
-                        </div>
-                        <div className="absolute inset-6 flex items-end justify-center font-bold text-slate-800 select-none">
-                            6
-                        </div>
-                        <div className="absolute inset-6 flex items-center justify-start font-bold text-slate-800 select-none">
-                            9
-                        </div>
-
-                        {/* Clock Hands */}
-                        {/* Hour Hand */}
-                        <motion.div
-                            className="absolute z-10 mb-16 h-16 w-2 origin-bottom cursor-grab rounded-full bg-slate-800 active:cursor-grabbing"
-                            animate={{ rotate: hourRotation }}
-                            transition={
-                                isDragging
-                                    ? { type: 'tween' }
-                                    : { stiffness: 50, type: 'spring' }
-                            }
-                            onPanStart={() => setIsDragging(true)}
-                            onPan={(e, info) => handlePan(e, info, 'hour')}
-                            onPanEnd={() => setIsDragging(false)}
-                        >
-                            <div className="absolute -top-2 left-1/2 h-4 w-4 -translate-x-1/2 rounded-full bg-slate-800/20" />
-                        </motion.div>
-
-                        {/* Minute Hand */}
-                        <motion.div
-                            className="absolute z-10 mb-24 h-24 w-1.5 origin-bottom cursor-grab rounded-full bg-blue-500 active:cursor-grabbing"
-                            animate={{ rotate: minuteRotation }}
-                            transition={
-                                isDragging
-                                    ? { type: 'tween' }
-                                    : { stiffness: 50, type: 'spring' }
-                            }
-                            onPanStart={() => setIsDragging(true)}
-                            onPan={(e, info) => handlePan(e, info, 'minute')}
-                            onPanEnd={() => setIsDragging(false)}
-                        >
-                            <div className="absolute -top-2 left-1/2 h-4 w-4 -translate-x-1/2 rounded-full bg-blue-500/20" />
-                        </motion.div>
-
-                        <div className="z-20 h-4 w-4 rounded-full border-2 border-white bg-blue-500 shadow-sm"></div>
-                    </div>
+                    <AnalogClock
+                        hours={hours}
+                        minutes={minutes}
+                        seconds={time.getSeconds()}
+                        size={256}
+                        hideSeconds={true}
+                        draggable={true}
+                        time={time}
+                        onChange={(newTime) => {
+                            setTime(newTime)
+                            setIsManual(true)
+                        }}
+                    />
                 </section>
 
                 {/* Settings Toggles */}

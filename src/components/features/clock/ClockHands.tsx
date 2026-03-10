@@ -1,3 +1,4 @@
+import { motion } from 'motion/react'
 import React, { useLayoutEffect, useRef } from 'react'
 
 import { CenterPin } from './CenterPin'
@@ -7,6 +8,14 @@ type ClockHandsProps = {
     hours: number
     seconds: number
     hideSeconds?: boolean
+    draggable?: boolean
+    isDragging?: boolean
+    setIsDragging?: (dragging: boolean) => void
+    onPan?: (
+        _event: unknown,
+        info: { point: { x: number; y: number } },
+        type: 'hour' | 'minute',
+    ) => void
 }
 
 export const ClockHands: React.FC<ClockHandsProps> = ({
@@ -14,6 +23,10 @@ export const ClockHands: React.FC<ClockHandsProps> = ({
     hours,
     seconds,
     hideSeconds = false,
+    draggable = false,
+    isDragging = false,
+    setIsDragging,
+    onPan,
 }) => {
     const [minuteRotation, setMinuteRotation] = React.useState(0)
     const [hourRotation, setHourRotation] = React.useState(12)
@@ -101,25 +114,67 @@ export const ClockHands: React.FC<ClockHandsProps> = ({
     return (
         <div className="relative flex h-full w-full justify-center">
             {/* Minute Hand */}
-            <div
-                className="absolute w-1.5 origin-bottom rounded-full transition-transform duration-700 ease-out"
-                style={{
-                    height: '50%',
-                    transform: `rotate(${minuteRotation}deg)`,
-                }}
-            >
-                <div className="absolute bottom-0 left-1/2 z-10 mb-2 h-6/12 w-1 -translate-x-1/2 rounded-full bg-blue-500"></div>
-            </div>
+            {draggable ? (
+                <motion.div
+                    className="absolute mb-24 w-1.5 origin-bottom cursor-grab rounded-full active:cursor-grabbing"
+                    style={{
+                        height: '50%',
+                    }}
+                    animate={{ rotate: minuteRotation }}
+                    transition={
+                        isDragging
+                            ? { type: 'tween' }
+                            : { stiffness: 50, type: 'spring' }
+                    }
+                    onPanStart={() => setIsDragging?.(true)}
+                    onPan={(e, info) => onPan?.(e, info, 'minute')}
+                    onPanEnd={() => setIsDragging?.(false)}
+                >
+                    <div className="absolute bottom-0 left-1/2 z-10 mb-2 h-6/12 w-1 -translate-x-1/2 rounded-full bg-blue-500"></div>
+                </motion.div>
+            ) : (
+                <div
+                    className="absolute w-1.5 origin-bottom rounded-full transition-transform duration-700 ease-out"
+                    style={{
+                        height: '50%',
+                        transform: `rotate(${minuteRotation}deg)`,
+                    }}
+                >
+                    <div className="absolute bottom-0 left-1/2 z-10 mb-2 h-6/12 w-1 -translate-x-1/2 rounded-full bg-blue-500"></div>
+                </div>
+            )}
 
-            <div
-                className="absolute w-2 origin-bottom rounded-full transition-transform duration-700 ease-out"
-                style={{
-                    height: '50%',
-                    transform: `rotate(${hourRotation}deg)`,
-                }}
-            >
-                <div className="absolute bottom-0 left-1/2 z-10 mb-2 h-4/12 w-2 -translate-x-1/2 rounded-full bg-slate-800"></div>
-            </div>
+            {/* Hour Hand */}
+            {draggable ? (
+                <motion.div
+                    className="absolute mb-16 w-2 origin-bottom cursor-grab rounded-full active:cursor-grabbing"
+                    style={{
+                        height: '50%',
+                    }}
+                    animate={{ rotate: hourRotation }}
+                    transition={
+                        isDragging
+                            ? { type: 'tween' }
+                            : { stiffness: 50, type: 'spring' }
+                    }
+                    onPanStart={() => setIsDragging?.(true)}
+                    onPan={(e, info) => onPan?.(e, info, 'hour')}
+                    onPanEnd={() => setIsDragging?.(false)}
+                >
+                    <div className="absolute bottom-0 left-1/2 z-10 mb-2 h-4/12 w-2 -translate-x-1/2 rounded-full bg-slate-800"></div>
+                </motion.div>
+            ) : (
+                <div
+                    className="absolute w-2 origin-bottom rounded-full transition-transform duration-700 ease-out"
+                    style={{
+                        height: '50%',
+                        transform: `rotate(${hourRotation}deg)`,
+                    }}
+                >
+                    <div className="absolute bottom-0 left-1/2 z-10 mb-2 h-4/12 w-2 -translate-x-1/2 rounded-full bg-slate-800"></div>
+                </div>
+            )}
+
             {!hideSeconds && (
                 <div
                     className="absolute w-1 origin-bottom rounded-full transition-transform duration-700 ease-out"
