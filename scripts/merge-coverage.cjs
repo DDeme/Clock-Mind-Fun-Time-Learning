@@ -100,7 +100,7 @@ try {
         { stdio: 'inherit' },
     )
 
-    // Generate final report
+    // Generate final report with summary
     execSync('npx nyc report --reporter=text --reporter=html --reporter=json', {
         stdio: 'inherit',
     })
