@@ -35,18 +35,18 @@ export const Default: Story = {
                             This is the main content wrapper component
                         </p>
                     </header>
-                    
+
                     <main className="space-y-4">
                         <section className="rounded-lg bg-white p-6 shadow-sm">
                             <h2 className="text-lg font-semibold text-slate-800">
                                 Content Section
                             </h2>
                             <p className="text-slate-600">
-                                This content is wrapped in the Main component with
-                                proper semantic markup and accessibility.
+                                This content is wrapped in the Main component
+                                with proper semantic markup and accessibility.
                             </p>
                         </section>
-                        
+
                         <section className="rounded-lg bg-white p-6 shadow-sm">
                             <h2 className="text-lg font-semibold text-slate-800">
                                 Another Section
@@ -80,8 +80,9 @@ export const WithLongContent: Story = {
                                 Section {i}
                             </h2>
                             <p className="text-slate-600">
-                                This demonstrates the scrollable nature of the Main
-                                component when content exceeds the viewport height.
+                                This demonstrates the scrollable nature of the
+                                Main component when content exceeds the viewport
+                                height.
                             </p>
                         </section>
                     ))}

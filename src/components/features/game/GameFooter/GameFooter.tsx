@@ -1,9 +1,9 @@
 import React from 'react'
 
+import { ActionFooter } from '../../../ui'
 import { CheckAnswer } from '../CheckAnswer'
 import { ContinueButton } from '../ContinueButton'
 import { FinishButton } from '../FinishButton'
-import { ActionFooter } from '../../../ui'
 
 type GameFooterProps = {
     isFeedbackVisible: boolean

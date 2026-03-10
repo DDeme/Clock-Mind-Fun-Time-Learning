@@ -26,7 +26,8 @@ export const Default: Story = {}
 
 export const CustomMessage: Story = {
     args: {
-        message: 'No games found for your current filter. Try adjusting your search criteria.',
+        message:
+            'No games found for your current filter. Try adjusting your search criteria.',
         title: 'No Games Available',
     },
 }

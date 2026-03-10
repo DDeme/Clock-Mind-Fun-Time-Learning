@@ -6,10 +6,10 @@ import {
     type AnswerType,
     type Question,
 } from '../../../utils/gameGenerator/gameGenerator'
+import { MascotBubble } from '../../features/content/MascotBubble/MascotBubble'
 import { Answers } from '../../features/game/Answers'
 import { GameFooter } from '../../features/game/GameFooter'
 import { Header } from '../../features/game/Header'
-import { MascotBubble } from '../../features/content/MascotBubble/MascotBubble'
 import { QuestionRenderer } from '../../features/game/QuestionRenderer/QuestionRenderer'
 import { ResultNotification } from '../../features/game/ResultNotification'
 import { Layout, Main } from '../../ui'

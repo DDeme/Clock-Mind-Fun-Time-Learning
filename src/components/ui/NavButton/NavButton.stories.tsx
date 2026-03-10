@@ -106,7 +106,7 @@ export const AllVariants: Story = {
                     />
                 </div>
             </div>
-            
+
             <div>
                 <h3 className="mb-4 text-sm font-medium text-slate-600">
                     Active State
