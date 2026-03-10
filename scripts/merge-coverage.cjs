@@ -22,9 +22,20 @@ try {
 // Run Vitest Storybook tests with coverage
 console.log('📚 Running Storybook tests with coverage...')
 try {
-    execSync('yarn vitest --project=storybook --coverage', { stdio: 'inherit' })
+    execSync('yarn vitest --project=storybook --coverage --run', {
+        stdio: 'inherit',
+    })
 } catch (error) {
     console.error('❌ Storybook tests failed')
+    process.exit(1)
+}
+
+// Run E2E tests with coverage
+console.log('🎭 Running E2E tests with coverage...')
+try {
+    execSync('node scripts/collect-e2e-coverage.cjs', { stdio: 'inherit' })
+} catch (error) {
+    console.error('❌ E2E coverage collection failed')
     process.exit(1)
 }
 
@@ -72,6 +83,14 @@ try {
         fs.copyFileSync(
             './coverage/vitest/coverage-final.json',
             `${tempDir}/vitest-coverage.json`,
+        )
+    }
+
+    // Copy E2E coverage
+    if (fs.existsSync('./coverage/e2e/coverage-final.json')) {
+        fs.copyFileSync(
+            './coverage/e2e/coverage-final.json',
+            `${tempDir}/e2e-coverage.json`,
         )
     }
 
