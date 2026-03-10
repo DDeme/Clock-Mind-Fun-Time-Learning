@@ -64,7 +64,7 @@ export const LearningTopics: React.FC<LearningTopicsProps> = ({
                 </Typography>
                 <button
                     onClick={onSeeAll}
-                    className="text-sm font-bold text-[#0369a1] active:scale-95"
+                    className="text-sm font-bold text-blue-600 active:scale-95"
                 >
                     See All
                 </button>

@@ -14,7 +14,7 @@ export const IntroContent = () => {
 
     return (
         <Layout hideNavigation>
-            <div className="relative flex min-h-screen flex-col items-center justify-center">
+            <div className="relative flex min-h-screen flex-col items-center justify-center p-6">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}

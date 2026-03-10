@@ -29,8 +29,8 @@ export const ContinueLearning: React.FC<ContinueLearningProps> = ({
             </Typography>
             <div className="flex flex-col gap-5 rounded-[1.5rem] bg-white p-5 shadow-[8px_8px_16px_#e0e5e9,-8px_-8px_16px_#ffffff]">
                 <div className="flex items-center gap-4">
-                    <div className="flex size-16 items-center justify-center rounded-2xl border border-[#0369a1]/20 bg-[#0369a1]/10">
-                        <Clock className="h-8 w-8 text-[#0369a1]" />
+                    <div className="flex size-16 items-center justify-center rounded-2xl border border-blue-600/20 bg-blue-600/10">
+                        <Clock className="h-8 w-8 text-blue-600" />
                     </div>
                     <div className="flex-1">
                         <Typography
@@ -60,21 +60,21 @@ export const ContinueLearning: React.FC<ContinueLearningProps> = ({
                         </Typography>
                         <Typography
                             variant="label"
-                            className="tracking-tighter text-[#0369a1]"
+                            className="tracking-tighter text-blue-600"
                         >
                             {percentage}%
                         </Typography>
                     </div>
                     <div className="h-3 w-full overflow-hidden rounded-full bg-slate-100">
                         <div
-                            className="h-full rounded-full bg-[#0369a1]"
+                            className="h-full rounded-full bg-blue-600"
                             style={{ width: `${percentage}%` }}
                         ></div>
                     </div>
                 </div>
                 <button
                     onClick={onAction}
-                    className="mt-1 w-full rounded-xl bg-[#0369a1] py-3.5 text-base font-bold text-white shadow-lg shadow-[#0369a1]/30 transition-transform active:scale-95"
+                    className="mt-1 w-full rounded-xl bg-blue-600 py-3.5 text-base font-bold text-white shadow-lg shadow-blue-600/30 transition-transform active:scale-95"
                 >
                     Resume Lesson
                 </button>
