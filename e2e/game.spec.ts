@@ -19,9 +19,9 @@ test.describe('Game Page', () => {
         await page.goto('/')
 
         // Navigate to game page
-        await page.click('button:has-text("Enter Game")')
+        await page.click('[data-testid="enter-game-button"]')
 
-        // Verify game page loaded
+        // Verify lesson page loaded (since intro navigates to lesson)
         await expect(page).toHaveURL(/\/lesson/)
     })
 

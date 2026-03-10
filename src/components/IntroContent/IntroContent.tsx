@@ -23,6 +23,7 @@ export const IntroContent = () => {
                 >
                     {/* Title */}
                     <motion.h1
+                        data-testid="intro-title"
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ delay: 0.2, duration: 0.6 }}
@@ -33,6 +34,7 @@ export const IntroContent = () => {
 
                     {/* Description */}
                     <motion.p
+                        data-testid="intro-description"
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.4, duration: 0.6 }}
@@ -59,6 +61,7 @@ export const IntroContent = () => {
                         className="w-full max-w-xs"
                     >
                         <LanguagePicker
+                            data-testid="language-picker"
                             selectedLanguage={i18n.language}
                             onLanguageChange={(lang) =>
                                 i18n.changeLanguage(lang)
@@ -75,6 +78,7 @@ export const IntroContent = () => {
                         className="flex w-full max-w-xs flex-col gap-4"
                     >
                         <Button
+                            data-testid="enter-game-button"
                             onClick={() => navigate('/lesson')}
                             variant="primary"
                         >

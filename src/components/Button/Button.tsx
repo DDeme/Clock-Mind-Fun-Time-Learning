@@ -10,6 +10,7 @@ type ButtonProps = {
     variant?: ButtonVariant
     ariaLabel?: string
     ariaDescribedBy?: string
+    'data-testid'?: string
 }
 
 const variantStyles: Record<
@@ -49,12 +50,14 @@ export const Button: React.FC<ButtonProps> = ({
     variant = 'primary',
     ariaLabel,
     ariaDescribedBy,
+    'data-testid': dataTestId,
 }) => {
     const styles = variantStyles[variant]
 
     return (
         <motion.div whileTap={{ scale: 0.98 }}>
             <button
+                data-testid={dataTestId}
                 type="button"
                 onClick={onClick}
                 disabled={disabled}
