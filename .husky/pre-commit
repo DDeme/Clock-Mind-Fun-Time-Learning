@@ -3,6 +3,7 @@
 
 # Run linting and formatting on pre-commit
 echo "Running pre-commit checks..."
+yarn lint:structure
 yarn lint:fix
 yarn format
 yarn tsc:check
