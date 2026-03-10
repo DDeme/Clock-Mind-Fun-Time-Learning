@@ -17,7 +17,7 @@ export const TopicsHeader: React.FC<TopicsHeaderProps> = ({
     return (
         <header className="mt-4 flex items-center justify-between p-6 pb-2">
             <div className="flex items-center gap-3">
-                <div className="flex size-14 shrink-0 items-center justify-center overflow-hidden rounded-full border-2 border-white bg-[#0369a1]/20">
+                <div className="flex size-14 shrink-0 items-center justify-center overflow-hidden rounded-full border-2 border-white bg-blue-600/20">
                     {/* Avatar placeholder */}
                 </div>
                 <div>
