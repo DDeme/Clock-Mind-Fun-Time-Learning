@@ -1,0 +1,137 @@
+ls:
+    # Root level configuration
+    .:
+        .json: kebab-case
+        .md: kebab-case
+        .yml: kebab-case
+        .yaml: kebab-case
+        .js: kebab-case
+        .cjs: kebab-case
+        .ts: kebab-case
+        .svg: kebab-case
+        .ico: kebab-case
+        .html: kebab-case
+        .css: kebab-case
+        .txt: kebab-case
+        .gitignore: kebab-case
+        .prettierignore: kebab-case
+        .editorconfig: kebab-case
+        .geminiignore: kebab-case
+        .dir: kebab-case
+
+    # Source directory
+    src:
+        .ts: camelCase
+        .tsx: PascalCase | camelCase
+        .css: kebab-case
+        .dir: kebab-case | regex:__[a-z]+__
+
+    # Components - PascalCase for React components, but allow index.ts
+    src/components/**/*:
+        .ts: PascalCase | regex:^index$ | regex:^constants$ | regex:^types$
+        .tsx: PascalCase
+        .test.tsx: PascalCase
+        .test.ts: PascalCase
+        .spec.tsx: PascalCase
+        .spec.ts: PascalCase
+        .stories.tsx: PascalCase
+        .stories.ts: PascalCase
+        .constants.ts: PascalCase
+        .types.ts: PascalCase
+        .dir: PascalCase
+
+    # Pages - PascalCase for page components
+    src/pages/**/*:
+        .tsx: PascalCase
+        .ts: PascalCase
+        .test.tsx: PascalCase
+        .test.ts: PascalCase
+        .spec.tsx: PascalCase
+        .spec.ts: PascalCase
+        .dir: kebab-case
+
+    # Hooks - camelCase with 'use' prefix
+    src/hooks/**/*:
+        .ts: regex:^use[A-Z].*
+        .test.ts: regex:^use[A-Z].*
+        .spec.ts: regex:^use[A-Z].*
+        .dir: kebab-case
+
+    # Utils - camelCase, but allow special directories
+    src/utils/**/*:
+        .ts: camelCase
+        .test.ts: camelCase
+        .spec.ts: camelCase
+        .dir: kebab-case | regex:__[a-z]+__ | regex:[a-z]+[A-Z][a-z]+
+
+    # i18n - kebab-case
+    src/i18n/**/*:
+        .ts: camelCase
+        .json: kebab-case
+        .dir: kebab-case
+
+    # Assets - kebab-case
+    src/assets/**/*:
+        .svg: kebab-case
+        .png: kebab-case
+        .jpg: kebab-case
+        .jpeg: kebab-case
+        .gif: kebab-case
+        .webp: kebab-case
+        .dir: kebab-case
+
+    # E2E tests - kebab-case for directories, camelCase for files
+    e2e:
+        .ts: camelCase | regex:^[a-z]+-[a-z]+$
+        .spec.ts: camelCase
+        .fixture.ts: camelCase
+        .md: kebab-case | regex:^README$
+        .dir: kebab-case
+
+    # Public directory
+    public:
+        .md: kebab-case
+        .svg: kebab-case
+        .html: kebab-case
+        .dir: kebab-case
+
+    # Config files in root - kebab-case
+    '**/*.config.*':
+        .js: kebab-case
+        .ts: kebab-case
+        .cjs: kebab-case
+        .json: kebab-case
+
+    # Test files - camelCase with test/spec suffix
+    '**/*.test.*':
+        .ts: camelCase
+        .tsx: camelCase
+        .js: camelCase
+        .jsx: camelCase
+
+    '**/*.spec.*':
+        .ts: camelCase
+        .tsx: camelCase
+        .js: camelCase
+        .jsx: camelCase
+
+    # Story files - PascalCase
+    '**/*.stories.*':
+        .ts: PascalCase
+        .tsx: PascalCase
+
+ignore:
+    - node_modules
+    - dist
+    - coverage
+    - storybook-static
+    - test-results
+    - playwright-report
+    - .git
+    - .husky
+    - .vscode
+    - .storybook
+    - .windsurf
+    - .agents
+    - yarn.lock
+    - package-lock.json
