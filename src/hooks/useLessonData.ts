@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query'
 
 import { fetchFromAPI } from '../utils/api'
 
-import type { Lesson } from '../components/LessonProgress'
+import type { Lesson } from '../components/containers/LessonProgress'
 
 export const useLessonData = (id: string) => {
     return useQuery<Lesson[]>({

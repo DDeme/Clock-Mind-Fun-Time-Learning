@@ -1,8 +1,7 @@
 import { useTranslation } from 'react-i18next'
 
-import { LanguagePicker } from '../components/LanguagePicker'
-import { Layout } from '../components/Layout'
-import { Typography } from '../components/Typography'
+import { LanguagePicker } from '../components/system/LanguagePicker'
+import { Layout, Typography } from '../components/ui'
 import i18n from '../i18n'
 
 const SettingsPage = () => {

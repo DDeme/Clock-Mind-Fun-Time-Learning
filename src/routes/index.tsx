@@ -1,7 +1,7 @@
 import { Suspense, lazy } from 'react'
 import { createBrowserRouter } from 'react-router'
 
-import { Loading } from '../components/Loading/Loading'
+import { Loading } from '../components/ui'
 
 const GamePage = lazy(() => import('../pages/Game'))
 const LessonPage = lazy(() => import('../pages/Lesson'))

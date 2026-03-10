@@ -1,3 +1,3 @@
-import { Topics } from '../components/Topics/Topics'
+import { Topics } from '../components/containers/Topics/Topics'
 
 export default Topics

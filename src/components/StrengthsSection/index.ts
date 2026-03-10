@@ -1,1 +1,0 @@
-export { StrengthsSection } from './StrengthsSection'

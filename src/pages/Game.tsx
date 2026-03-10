@@ -1,11 +1,11 @@
 import { useCallback } from 'react'
 import { useNavigate, useParams } from 'react-router'
 
-import { Game } from '../components/Game'
-import { GameSkeleton } from '../components/Game/Game.skeleton'
+import { Game } from '../components/containers/Game'
+import { GameSkeleton } from '../components/containers/Game/Game.skeleton'
 import { useGameData } from '../hooks/useGameData'
 
-import type { GameResult } from '../components/Game'
+import type { GameResult } from '../components/containers/Game'
 
 const GamePage = () => {
     const navigate = useNavigate()

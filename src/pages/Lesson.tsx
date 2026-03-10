@@ -1,5 +1,5 @@
-import { GameSkeleton } from '../components/Game/Game.skeleton'
-import { LessonProgress } from '../components/LessonProgress'
+import { GameSkeleton } from '../components/containers/Game/Game.skeleton'
+import { LessonProgress } from '../components/containers/LessonProgress'
 import { useLessonData } from '../hooks/useLessonData'
 
 const LessonPage = () => {
