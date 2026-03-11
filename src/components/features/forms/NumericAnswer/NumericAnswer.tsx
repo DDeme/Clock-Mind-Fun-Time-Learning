@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Card } from '../../../ui'
 
 type NumericAnswerProps = {
     options: number[][]
@@ -19,7 +20,12 @@ export const NumericAnswer = ({
     )
 
     return (
-        <fieldset className="w-full rounded-2xl border border-blue-400/5 bg-white p-6 shadow-xl">
+        <Card
+            as="fieldset"
+            padding="lg"
+            shadow="xl"
+            className="w-full border-blue-400/5"
+        >
             <legend className="sr-only">Select time</legend>
             <div className="flex items-center justify-center gap-4">
                 <div className="flex flex-col items-center gap-2">
@@ -89,6 +95,6 @@ export const NumericAnswer = ({
                     </select>
                 </div>
             </div>
-        </fieldset>
+        </Card>
     )
 }

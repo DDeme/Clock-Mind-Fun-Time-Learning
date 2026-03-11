@@ -1,6 +1,7 @@
 import clsx from 'clsx'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
+import { Card } from '../../../ui'
 
 type SingleChoiceProps = {
     options: string[]
@@ -53,7 +54,8 @@ export const SingleChoice: React.FC<SingleChoiceProps> = ({
             {options.map((option) => {
                 const isSelected = value === option
                 return (
-                    <button
+                    <Card
+                        as="button"
                         key={option}
                         role="radio"
                         aria-checked={isSelected}
@@ -62,11 +64,15 @@ export const SingleChoice: React.FC<SingleChoiceProps> = ({
                         })}
                         onClick={() => onChange(option)}
                         disabled={isDisabled}
+                        padding="sm"
+                        rounded="2xl"
+                        border={false}
+                        shadow={isSelected ? 'md' : 'sm'}
                         className={clsx(
-                            'rounded-2xl border-2 p-3 text-center transition-all duration-200 focus:ring-4 focus:ring-blue-400/50 focus:outline-none active:scale-95',
+                            'border-2 text-center transition-all duration-200 focus:ring-4 focus:ring-blue-400/50 focus:outline-none active:scale-95',
                             isSelected
-                                ? 'border-blue-400 bg-blue-400/5 shadow-md ring-4 ring-blue-200/10'
-                                : 'border-slate-100 bg-white shadow-sm hover:border-blue-500/40',
+                                ? 'border-blue-400 bg-blue-400/5 ring-4 ring-blue-200/10'
+                                : 'border-slate-100 bg-white hover:border-blue-500/40',
                             isDisabled && 'cursor-not-allowed opacity-50',
                         )}
                     >
@@ -79,7 +85,7 @@ export const SingleChoice: React.FC<SingleChoiceProps> = ({
                         >
                             {option}
                         </span>
-                    </button>
+                    </Card>
                 )
             })}
         </div>

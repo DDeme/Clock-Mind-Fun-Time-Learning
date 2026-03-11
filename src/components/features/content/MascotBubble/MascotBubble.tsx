@@ -1,5 +1,6 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
+import { Card } from '../../../ui'
 
 import imgUrl from '../../../../assets/pixel-cat.svg'
 
@@ -16,7 +17,11 @@ export const MascotBubble: React.FC<MascotBubbleProps> = ({ message }) => {
             role="status"
             aria-live="polite"
         >
-            <div className="relative flex-1 rounded-2xl border border-blue-400/10 bg-white px-5 py-3 shadow-lg">
+            <Card
+                shadow="lg"
+                padding="none"
+                className="relative flex-1 border-blue-400/10 px-5 py-3"
+            >
                 <p className="text-sm font-semibold text-slate-700">
                     {message}
                 </p>
@@ -24,7 +29,7 @@ export const MascotBubble: React.FC<MascotBubbleProps> = ({ message }) => {
                     className="absolute top-5 -right-1 h-4 w-4 rotate-45 border-r border-b border-blue-400/10 bg-white"
                     aria-hidden="true"
                 ></div>
-            </div>
+            </Card>
             <div className="flex size-16 shrink-0 items-center justify-center overflow-hidden rounded-full border-2 border-white bg-blue-400/20 shadow-md">
                 <img
                     alt={t('accessibility.mascotAlt')}

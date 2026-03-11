@@ -1,7 +1,7 @@
 import { Clock } from 'lucide-react'
 import React from 'react'
 
-import { Typography } from '../../ui'
+import { Typography, Card } from '../../ui'
 
 interface ContinueLearningProps {
     lessonName?: string
@@ -27,7 +27,11 @@ export const ContinueLearning: React.FC<ContinueLearningProps> = ({
             >
                 Continue Learning
             </Typography>
-            <div className="flex flex-col gap-5 rounded-[1.5rem] bg-white p-5 shadow-[8px_8px_16px_#e0e5e9,-8px_-8px_16px_#ffffff]">
+            <Card
+                padding="lg"
+                rounded="3xl"
+                className="flex flex-col gap-5"
+            >
                 <div className="flex items-center gap-4">
                     <div className="flex size-16 items-center justify-center rounded-2xl border border-blue-600/20 bg-blue-600/10">
                         <Clock className="h-8 w-8 text-blue-600" />
@@ -78,7 +82,7 @@ export const ContinueLearning: React.FC<ContinueLearningProps> = ({
                 >
                     Resume Lesson
                 </button>
-            </div>
+            </Card>
         </section>
     )
 }

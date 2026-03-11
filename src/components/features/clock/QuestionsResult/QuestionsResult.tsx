@@ -1,5 +1,8 @@
 import { Clock, Check, X } from 'lucide-react'
 import { motion } from 'motion/react'
+import { Card } from '../../../ui'
+
+const MotionCard = motion(Card)
 
 type ResultItem = {
     isCorrect: boolean
@@ -22,12 +25,15 @@ export const QuestionsResult = ({ results, title }: QuestionsResultProps) => {
             </div>
             <div className="grid grid-cols-5 gap-3">
                 {results.map((item, index) => (
-                    <motion.div
+                    <MotionCard
                         key={item.id}
                         initial={{ opacity: 0, scale: 0 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ delay: index * 0.05 }}
-                        className={`relative flex aspect-square items-center justify-center rounded-2xl border-2 bg-white shadow-sm ${
+                        padding="none"
+                        rounded="2xl"
+                        border={false}
+                        className={`relative flex aspect-square items-center justify-center border-2 bg-white ${
                             item.isCorrect
                                 ? 'border-emerald-500'
                                 : 'border-rose-500'
@@ -47,7 +53,7 @@ export const QuestionsResult = ({ results, title }: QuestionsResultProps) => {
                                 <X className="h-3 w-3 stroke-[4px]" />
                             )}
                         </div>
-                    </motion.div>
+                    </MotionCard>
                 ))}
             </div>
         </section>

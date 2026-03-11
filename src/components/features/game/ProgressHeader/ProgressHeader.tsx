@@ -1,4 +1,5 @@
 import { Trophy } from 'lucide-react'
+import { Card } from '../../../ui'
 
 interface ProgressHeaderProps {
     title: string
@@ -32,7 +33,7 @@ export const ProgressHeader = ({
             </div>
 
             {/* Progress Summary Card */}
-            <div className="flex flex-col gap-3 rounded-2xl border border-slate-100 bg-white p-4 shadow-sm">
+            <Card className="flex flex-col gap-3">
                 <div className="flex items-center justify-between">
                     <span className="text-sm font-bold text-slate-700">
                         Overall Progress
@@ -47,7 +48,7 @@ export const ProgressHeader = ({
                         style={{ width: `${progressPercentage}%` }}
                     ></div>
                 </div>
-            </div>
+            </Card>
         </header>
     )
 }

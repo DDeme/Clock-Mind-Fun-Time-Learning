@@ -1,4 +1,8 @@
+import React from 'react'
 import { motion } from 'motion/react'
+import { Card } from '../Card'
+
+const MotionCard = motion(Card)
 
 type Strength = {
     id: string
@@ -24,10 +28,12 @@ export const StrengthsSection = ({ strengths }: StrengthsSectionProps) => {
                 tabIndex={0}
             >
                 {strengths.map((strength) => (
-                    <motion.div
+                    <MotionCard
                         key={strength.id}
                         whileHover={{ y: -5 }}
-                        className="flex w-36 shrink-0 snap-center flex-col items-center rounded-3xl border border-slate-100 bg-white p-5 text-center shadow-sm"
+                        padding="lg"
+                        rounded="3xl"
+                        className="flex w-36 shrink-0 snap-center flex-col items-center text-center"
                     >
                         <div
                             className={`h-16 w-16 rounded-full ${strength.bgColor} mb-4 flex items-center justify-center`}
@@ -37,7 +43,7 @@ export const StrengthsSection = ({ strengths }: StrengthsSectionProps) => {
                         <p className="text-sm leading-tight font-bold text-slate-700">
                             {strength.title}
                         </p>
-                    </motion.div>
+                    </MotionCard>
                 ))}
                 {/* Spacer for scroll end */}
                 <div className="w-2 shrink-0" />

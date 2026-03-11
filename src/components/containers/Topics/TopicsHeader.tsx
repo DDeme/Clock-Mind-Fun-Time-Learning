@@ -1,7 +1,7 @@
 import { Flame, Star } from 'lucide-react'
 import React from 'react'
 
-import { Typography } from '../../ui'
+import { Typography, Card } from '../../ui'
 
 interface TopicsHeaderProps {
     userName?: string
@@ -37,7 +37,11 @@ export const TopicsHeader: React.FC<TopicsHeaderProps> = ({
                     </Typography>
                 </div>
             </div>
-            <div className="flex items-center gap-2 rounded-full border border-slate-100 bg-white/80 px-3 py-1.5 shadow-sm backdrop-blur-sm">
+            <Card
+                rounded="full"
+                padding="none"
+                className="flex items-center gap-2 bg-white/80 px-3 py-1.5 backdrop-blur-sm"
+            >
                 <Flame className="h-4 w-4 fill-orange-500 text-orange-500" />
                 <Typography
                     variant="h4"
@@ -53,7 +57,7 @@ export const TopicsHeader: React.FC<TopicsHeaderProps> = ({
                 >
                     {stars}
                 </Typography>
-            </div>
+            </Card>
         </header>
     )
 }

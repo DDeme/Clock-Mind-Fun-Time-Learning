@@ -1,7 +1,7 @@
 import { Star, type LucideIcon } from 'lucide-react'
 import React from 'react'
 
-import { Typography } from '../../ui'
+import { Typography, Card } from '../../ui'
 
 interface TopicCardProps {
     title: string
@@ -23,7 +23,7 @@ export const TopicCard: React.FC<TopicCardProps> = ({
     onStart,
 }) => {
     return (
-        <div className="flex flex-col gap-3 rounded-2xl border border-slate-100 bg-white p-4 shadow-sm">
+        <Card className="flex flex-col gap-3">
             <div
                 className={`flex size-12 items-center justify-center rounded-xl ${iconBgColor}`}
             >
@@ -53,6 +53,6 @@ export const TopicCard: React.FC<TopicCardProps> = ({
             >
                 Start
             </button>
-        </div>
+        </Card>
     )
 }
