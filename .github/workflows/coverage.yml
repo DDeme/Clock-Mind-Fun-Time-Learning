@@ -5,6 +5,9 @@ on:
         branches: [main, develop]
     pull_request:
         branches: [main, develop]
+permissions:
+    issues: write
+    pull-requests: write
 
 jobs:
     coverage:
@@ -61,21 +64,62 @@ jobs:
               with:
                   script: |
                       const fs = require('fs');
-                      const path = './coverage/merged/coverage-merged.json';
+                      const path = './coverage/merged/coverage-final.json';
 
                       if (fs.existsSync(path)) {
                         const coverage = JSON.parse(fs.readFileSync(path, 'utf8'));
-                        const total = coverage.total;
+                        
+                        // Calculate total coverage from individual files
+                        let totalLines = 0, coveredLines = 0;
+                        let totalFunctions = 0, coveredFunctions = 0;
+                        let totalBranches = 0, coveredBranches = 0;
+                        let totalStatements = 0, coveredStatements = 0;
+                        
+                        Object.values(coverage).forEach(file => {
+                            // Statements
+                            if (file.s) {
+                                Object.values(file.s).forEach(stat => {
+                                    totalStatements += 1;
+                                    if (stat > 0) coveredStatements += 1;
+                                });
+                            }
+                            // Functions
+                            if (file.f) {
+                                Object.values(file.f).forEach(func => {
+                                    totalFunctions += 1;
+                                    if (func > 0) coveredFunctions += 1;
+                                });
+                            }
+                            // Branches
+                            if (file.b) {
+                                Object.values(file.b).forEach(branch => {
+                                    totalBranches += branch[0] + branch[1];
+                                    coveredBranches += branch[0];
+                                });
+                            }
+                            // Lines
+                            if (file.l) {
+                                Object.values(file.l).forEach(line => {
+                                    totalLines += 1;
+                                    if (line > 0) coveredLines += 1;
+                                });
+                            }
+                        });
+                        
+                        const linesPct = totalLines > 0 ? Math.round((coveredLines / totalLines) * 100) : 0;
+                        const functionsPct = totalFunctions > 0 ? Math.round((coveredFunctions / totalFunctions) * 100) : 0;
+                        const branchesPct = totalBranches > 0 ? Math.round((coveredBranches / totalBranches) * 100) : 0;
+                        const statementsPct = totalStatements > 0 ? Math.round((coveredStatements / totalStatements) * 100) : 0;
                         
                         const comment = `
                         ## 📊 Coverage Report
                         
                         | Metric | Coverage |
                         |--------|----------|
-                        | Lines | ${total.lines.pct}% |
-                        | Functions | ${total.functions.pct}% |
-                        | Branches | ${total.branches.pct}% |
-                        | Statements | ${total.statements.pct}% |
+                        | Lines | ${linesPct}% |
+                        | Functions | ${functionsPct}% |
+                        | Branches | ${branchesPct}% |
+                        | Statements | ${statementsPct}% |
                         
                         [View detailed coverage report](https://codecov.io/gh/${{ github.repository }}/pull/${{ github.event.number }})
                         `;

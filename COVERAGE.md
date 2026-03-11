@@ -8,6 +8,7 @@ The merged coverage report combines coverage from:
 
 1. **Jest** - Unit tests (`src/**/*.test.{ts,tsx}`)
 2. **Vitest** - Storybook component tests (`src/**/*.stories.{ts,tsx}`)
+3. **Playwright** - End-to-end tests (collected via V8 coverage)
 
 ## Running Coverage Reports
 
@@ -15,25 +16,29 @@ The merged coverage report combines coverage from:
 
 ```bash
 # Jest unit tests only
-npm run test:coverage
+yarn run test:coverage
 
 # Storybook component tests only
 yarn vitest --project=storybook --coverage
+
+# E2E tests with coverage only
+yarn run test:e2e:coverage
 ```
 
 ### Merged Coverage Report
 
 ```bash
 # Generate combined coverage report from all test runners
-npm run test:coverage:all
+yarn run test:coverage:all
 ```
 
 This will:
 
 1. Run Jest tests with coverage
 2. Run Vitest Storybook tests with coverage
-3. Merge all coverage reports into a single unified report
-4. Generate HTML, JSON, and text reports
+3. Run E2E tests with coverage collection
+4. Merge all coverage reports into a single unified report
+5. Generate HTML, JSON, and text reports
 
 ## GitHub Actions
 
@@ -46,9 +51,9 @@ The project includes a GitHub Actions workflow that automatically runs coverage 
 
 The coverage workflow:
 
-1. Runs type checking (`npm run tsc:check`)
-2. Runs linting (`npm run lint`)
-3. Generates merged coverage report (`npm run test:coverage:all`)
+1. Runs type checking (`yarn run tsc:check`)
+2. Runs linting (`yarn run lint`)
+3. Generates merged coverage report (`yarn run test:coverage:all`)
 4. Uploads coverage to Codecov (if `CODECOV_TOKEN` is configured)
 5. Uploads coverage artifacts for download
 6. Comments coverage summary on pull requests
@@ -70,7 +75,7 @@ To enable Codecov integration:
 
 ### Local Development
 
-After running `npm run test:coverage:all`, the merged report is available at:
+After running `yarn run test:coverage:all`, the merged report is available at:
 
 - **HTML Report**: `./coverage/merged/index.html`
 - **JSON Report**: `./coverage/merged/coverage-merged.json`
@@ -98,4 +103,5 @@ Coverage reports exclude:
 
 - Jest coverage: `./coverage/jest/`
 - Vitest coverage: `./coverage/vitest/`
+- E2E coverage: `./coverage/e2e/`
 - Merged coverage: `./coverage/merged/`
