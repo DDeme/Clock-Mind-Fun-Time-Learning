@@ -2,6 +2,7 @@ import { Home, User, BookOpen } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { useLocation, useNavigate } from 'react-router'
 
+import { Card } from '../../../ui'
 import { BottomNavigationItem } from '../BottomNavigationItem/BottomNavigationItem'
 
 export const BottomNavigation = () => {
@@ -31,10 +32,15 @@ export const BottomNavigation = () => {
     ]
 
     return (
-        <nav
+        <Card
+            as="nav"
             role="navigation"
             aria-label={t('navigation.main')}
-            className="sticky bottom-0 z-30 w-full border-t border-slate-200 bg-white/95 p-6 backdrop-blur-lg"
+            rounded="none"
+            shadow="none"
+            padding="none"
+            border={false}
+            className="sticky bottom-0 z-30 w-full border-t border-slate-100 bg-white/95 px-6 py-3 backdrop-blur-lg"
         >
             <div className="flex items-center justify-between gap-2">
                 {items.map((item) => (
@@ -48,6 +54,6 @@ export const BottomNavigation = () => {
                     />
                 ))}
             </div>
-        </nav>
+        </Card>
     )
 }
