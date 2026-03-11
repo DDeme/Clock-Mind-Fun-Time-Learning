@@ -19,7 +19,7 @@ const meta = {
         layout: 'padded',
     },
     tags: ['autodocs'],
-    title: 'Components/GameFooter',
+    title: 'Features/Game/GameFooter',
 } satisfies Meta<typeof GameFooter>
 
 export default meta

@@ -20,7 +20,7 @@ const meta = {
         layout: 'padded',
     },
     tags: ['autodocs'],
-    title: 'Components/Button',
+    title: 'UI/Button',
 } satisfies Meta<typeof Button>
 
 export default meta

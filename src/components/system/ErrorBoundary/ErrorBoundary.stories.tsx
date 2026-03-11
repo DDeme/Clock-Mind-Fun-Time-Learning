@@ -8,7 +8,7 @@ const meta = {
         layout: 'centered',
     },
     tags: ['autodocs'],
-    title: 'Components/ErrorBoundary',
+    title: 'System/ErrorBoundary',
 } satisfies Meta<typeof ErrorBoundary>
 
 export default meta

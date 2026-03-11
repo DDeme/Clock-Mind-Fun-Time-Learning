@@ -8,7 +8,7 @@ const meta = {
         layout: 'fullscreen',
     },
     tags: ['autodocs'],
-    title: 'Components/Layout',
+    title: 'UI/Layout',
 } satisfies Meta<typeof Layout>
 
 export default meta

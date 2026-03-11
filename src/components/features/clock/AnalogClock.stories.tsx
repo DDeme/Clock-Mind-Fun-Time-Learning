@@ -28,7 +28,7 @@ const meta = {
         layout: 'centered',
     },
     tags: ['autodocs'],
-    title: 'Components/AnalogClock',
+    title: 'Features/Clock/AnalogClock',
 } satisfies Meta<typeof AnalogClock>
 
 export default meta

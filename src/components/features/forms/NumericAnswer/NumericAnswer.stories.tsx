@@ -26,7 +26,7 @@ const meta = {
         layout: 'centered',
     },
     tags: ['autodocs'],
-    title: 'Components/NumericAnswer',
+    title: 'Features/Forms/NumericAnswer',
 } satisfies Meta<typeof NumericAnswer>
 
 export default meta

@@ -53,7 +53,7 @@ const meta = {
         layout: 'padded',
     },
     tags: ['autodocs'],
-    title: 'Components/Typography',
+    title: 'UI/Typography',
 } satisfies Meta<typeof Typography>
 
 export default meta

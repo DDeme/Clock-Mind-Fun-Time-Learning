@@ -8,7 +8,7 @@ const meta = {
         layout: 'fullscreen',
     },
     tags: ['autodocs'],
-    title: 'Components/Topics/TopicsHeader',
+    title: 'Containers/Topics/TopicsHeader',
 } satisfies Meta<typeof TopicsHeader>
 
 export default meta

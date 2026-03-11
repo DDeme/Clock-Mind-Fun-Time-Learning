@@ -22,7 +22,7 @@ const meta = {
         layout: 'centered',
     },
     tags: ['autodocs'],
-    title: 'Components/AnalogClock/CenterPin',
+    title: 'Features/Clock/CenterPin',
 } satisfies Meta<typeof CenterPin>
 
 export default meta

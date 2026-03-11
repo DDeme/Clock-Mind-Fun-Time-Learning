@@ -6,17 +6,16 @@ type ResultItem = {
     id: string
 }
 
-type ClockMasteryProps = {
+type QuestionsResultProps = {
     results: ResultItem[]
+    title: string
 }
 
-export const ClockMastery = ({ results }: ClockMasteryProps) => {
+export const QuestionsResult = ({ results, title }: QuestionsResultProps) => {
     return (
         <section className="flex w-full flex-col">
             <div className="mb-5 flex items-center justify-between">
-                <h2 className="text-xl font-bold text-slate-800">
-                    Clock Mastery
-                </h2>
+                <h2 className="text-xl font-bold text-slate-800">{title}</h2>
                 <button className="text-sm font-medium text-slate-600 transition-colors hover:text-slate-600">
                     Tap to review
                 </button>

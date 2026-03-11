@@ -22,7 +22,7 @@ const meta: Meta<typeof NavButton> = {
         layout: 'centered',
     },
     tags: ['autodocs'],
-    title: 'Components/NavButton',
+    title: 'UI/NavButton',
 }
 
 export default meta

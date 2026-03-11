@@ -18,7 +18,7 @@ const meta = {
         layout: 'padded',
     },
     tags: ['autodocs'],
-    title: 'Components/ContinueButton',
+    title: 'Features/Game/ContinueButton',
 } satisfies Meta<typeof ContinueButton>
 
 export default meta

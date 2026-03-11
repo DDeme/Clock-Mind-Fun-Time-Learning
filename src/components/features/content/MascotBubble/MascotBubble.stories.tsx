@@ -14,7 +14,7 @@ const meta = {
         layout: 'centered',
     },
     tags: ['autodocs'],
-    title: 'Components/MascotBubble',
+    title: 'Features/Content/MascotBubble',
 } satisfies Meta<typeof MascotBubble>
 
 export default meta

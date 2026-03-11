@@ -29,7 +29,7 @@ const meta = {
         layout: 'fullscreen',
     },
     tags: ['autodocs'],
-    title: 'Components/Game',
+    title: 'Containers/Game',
 } satisfies Meta<typeof Game>
 
 export default meta

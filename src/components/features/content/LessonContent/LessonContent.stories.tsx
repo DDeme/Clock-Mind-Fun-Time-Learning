@@ -22,7 +22,7 @@ const meta = {
         layout: 'padded',
     },
     tags: ['autodocs'],
-    title: 'Components/LessonContent',
+    title: 'Features/Content/LessonContent',
 } satisfies Meta<typeof LessonContent>
 
 export default meta

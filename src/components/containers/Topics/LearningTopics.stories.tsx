@@ -10,7 +10,7 @@ const meta = {
         layout: 'fullscreen',
     },
     tags: ['autodocs'],
-    title: 'Components/Topics/LearningTopics',
+    title: 'Containers/Topics/LearningTopics',
 } satisfies Meta<typeof LearningTopics>
 
 export default meta

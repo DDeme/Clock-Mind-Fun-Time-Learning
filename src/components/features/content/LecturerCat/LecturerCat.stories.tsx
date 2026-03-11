@@ -8,7 +8,7 @@ const meta = {
         layout: 'fullscreen',
     },
     tags: ['autodocs'],
-    title: 'Components/LecturerCat',
+    title: 'Features/Content/LecturerCat',
 } satisfies Meta<typeof LecturerCat>
 
 export default meta

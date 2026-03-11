@@ -10,7 +10,7 @@ const meta = {
         layout: 'padded',
     },
     tags: ['autodocs'],
-    title: 'Components/Topics/ContinueLearning',
+    title: 'Containers/Topics/ContinueLearning',
 } satisfies Meta<typeof ContinueLearning>
 
 export default meta

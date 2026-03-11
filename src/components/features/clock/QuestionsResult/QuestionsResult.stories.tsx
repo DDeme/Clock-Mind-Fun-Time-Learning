@@ -1,15 +1,15 @@
-import { ClockMastery } from './ClockMastery'
+import { QuestionsResult } from './QuestionsResult'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
-    component: ClockMastery,
+    component: QuestionsResult,
     parameters: {
         layout: 'centered',
     },
     tags: ['autodocs'],
-    title: 'Components/ClockMastery',
-} satisfies Meta<typeof ClockMastery>
+    title: 'Components/QuestionsResult',
+} satisfies Meta<typeof QuestionsResult>
 
 export default meta
 type Story = StoryObj<typeof meta>
@@ -30,12 +30,14 @@ const defaultResults = [
 export const Default: Story = {
     args: {
         results: defaultResults,
+        title: 'Questions Result',
     },
 }
 
 export const PerfectScore: Story = {
     args: {
         results: defaultResults.map((item) => ({ ...item, isCorrect: true })),
+        title: 'Perfect Score',
     },
 }
 
@@ -53,6 +55,7 @@ export const MixedResults: Story = {
             { id: '9', isCorrect: true },
             { id: '10', isCorrect: false },
         ],
+        title: 'Mixed Results',
     },
 }
 
@@ -70,6 +73,7 @@ export const LowScore: Story = {
             { id: '9', isCorrect: true },
             { id: '10', isCorrect: false },
         ],
+        title: 'Low Score',
     },
 }
 
@@ -80,5 +84,6 @@ export const FewResults: Story = {
             { id: '2', isCorrect: false },
             { id: '3', isCorrect: true },
         ],
+        title: 'Few Results',
     },
 }

@@ -26,7 +26,7 @@ const meta = {
         layout: 'padded',
     },
     tags: ['autodocs'],
-    title: 'Components/Header',
+    title: 'Features/Game/Header',
 } satisfies Meta<typeof Header>
 
 export default meta

@@ -17,7 +17,7 @@ const meta = {
         layout: 'centered',
     },
     tags: ['autodocs'],
-    title: 'Components/Answers',
+    title: 'Features/Game/Answers',
 } satisfies Meta<typeof Answers>
 
 export default meta

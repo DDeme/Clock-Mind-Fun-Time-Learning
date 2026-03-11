@@ -13,7 +13,7 @@ const meta: Meta<typeof Main> = {
         layout: 'fullscreen',
     },
     tags: ['autodocs'],
-    title: 'Components/Main',
+    title: 'UI/Main',
 }
 
 export default meta

@@ -15,7 +15,7 @@ const meta = {
         layout: 'padded',
     },
     tags: ['autodocs'],
-    title: 'Components/LessonProgress',
+    title: 'Containers/LessonProgress',
 } satisfies Meta<typeof LessonProgress>
 
 export default meta

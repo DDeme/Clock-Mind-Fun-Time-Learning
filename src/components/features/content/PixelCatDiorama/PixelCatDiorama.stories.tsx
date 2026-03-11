@@ -18,7 +18,7 @@ const meta = {
         layout: 'centered',
     },
     tags: ['autodocs'],
-    title: 'Components/PixelCatDiorama',
+    title: 'Features/Content/PixelCatDiorama',
 } satisfies Meta<typeof PixelCatDiorama>
 
 export default meta

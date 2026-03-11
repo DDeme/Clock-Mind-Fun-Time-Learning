@@ -15,7 +15,7 @@ const meta = {
         layout: 'padded',
     },
     tags: ['autodocs'],
-    title: 'Components/ResultNotification',
+    title: 'Features/Game/ResultNotification',
 } satisfies Meta<typeof ResultNotification>
 
 export default meta

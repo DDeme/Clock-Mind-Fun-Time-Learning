@@ -27,7 +27,7 @@ const meta = {
         layout: 'centered',
     },
     tags: ['autodocs'],
-    title: 'Components/RelativeTime',
+    title: 'Features/Clock/TimeToHuman',
 } satisfies Meta<typeof TimeToHumanText>
 
 export default meta

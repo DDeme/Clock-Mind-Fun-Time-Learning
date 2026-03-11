@@ -8,7 +8,7 @@ const meta = {
         layout: 'centered',
     },
     tags: ['autodocs'],
-    title: 'Components/ActionFooter',
+    title: 'UI/ActionFooter',
 } satisfies Meta<typeof ActionFooter>
 
 export default meta

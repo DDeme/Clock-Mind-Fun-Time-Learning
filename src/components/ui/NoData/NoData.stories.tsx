@@ -16,7 +16,7 @@ const meta: Meta<typeof NoData> = {
         layout: 'centered',
     },
     tags: ['autodocs'],
-    title: 'Components/NoData',
+    title: 'UI/NoData',
 }
 
 export default meta

@@ -24,7 +24,7 @@ const meta = {
         layout: 'centered',
     },
     tags: ['autodocs'],
-    title: 'Components/Topics/TopicCard',
+    title: 'Containers/Topics/TopicCard',
 } satisfies Meta<typeof TopicCard>
 
 export default meta

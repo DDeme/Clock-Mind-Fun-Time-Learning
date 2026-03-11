@@ -8,7 +8,7 @@ const meta: Meta<typeof Loading> = {
         layout: 'fullscreen',
     },
     tags: ['autodocs'],
-    title: 'Components/Loading',
+    title: 'UI/Loading',
 }
 
 export default meta

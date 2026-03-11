@@ -19,7 +19,7 @@ const meta = {
         layout: 'centered',
     },
     tags: ['autodocs'],
-    title: 'Components/QuestionRenderer',
+    title: 'Features/Game/QuestionRenderer',
 } satisfies Meta<typeof QuestionRenderer>
 
 export default meta

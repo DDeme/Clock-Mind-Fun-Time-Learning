@@ -24,7 +24,7 @@ const meta = {
         layout: 'centered',
     },
     tags: ['autodocs'],
-    title: 'Components/AnalogClock/Dial',
+    title: 'Features/Clock/Dial',
 } satisfies Meta<typeof Dial>
 
 export default meta

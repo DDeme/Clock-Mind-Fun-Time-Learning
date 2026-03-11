@@ -8,7 +8,7 @@ const meta: Meta<typeof StrengthsSection> = {
         layout: 'padded',
     },
     tags: ['autodocs'],
-    title: 'Components/StrengthsSection',
+    title: 'UI/StrengthsSection',
 }
 
 export default meta

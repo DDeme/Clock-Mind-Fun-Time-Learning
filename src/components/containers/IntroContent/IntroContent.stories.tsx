@@ -8,7 +8,7 @@ const meta = {
         layout: 'fullscreen',
     },
     tags: ['autodocs'],
-    title: 'Components/IntroContent',
+    title: 'Containers/IntroContent',
 } satisfies Meta<typeof IntroContent>
 
 export default meta

@@ -18,7 +18,7 @@ const meta = {
         layout: 'padded',
     },
     tags: ['autodocs'],
-    title: 'Components/CheckAnswer',
+    title: 'Features/Game/CheckAnswer',
 } satisfies Meta<typeof CheckAnswer>
 
 export default meta

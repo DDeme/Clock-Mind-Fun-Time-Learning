@@ -42,7 +42,7 @@ const meta = {
         layout: 'centered',
     },
     tags: ['autodocs'],
-    title: 'Components/AnalogClock/ClockHands',
+    title: 'Features/Clock/ClockHands',
 } satisfies Meta<typeof ClockHands>
 
 export default meta

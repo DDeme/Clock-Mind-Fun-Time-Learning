@@ -2,7 +2,7 @@ import { Trophy, Medal, Sparkles, Zap } from 'lucide-react'
 import { motion } from 'motion/react'
 import { useNavigate } from 'react-router'
 
-import { ClockMastery } from '../../features/clock/ClockMastery'
+import { QuestionsResult } from '../../features/clock/QuestionsResult'
 import { ActionFooter, Button, Layout, Main, StrengthsSection } from '../../ui'
 
 import type { GameResult } from '../Game'
@@ -61,7 +61,10 @@ export const GameResults = ({ totalScore, questionsAnswers }: GameResult) => {
 
             <Main ariaLabel="Game results">
                 {/* Clock Mastery Section */}
-                <ClockMastery results={questionsAnswers} />
+                <QuestionsResult
+                    results={questionsAnswers}
+                    title="Clock Mastery"
+                />
 
                 {/* Strengths Section */}
                 <StrengthsSection strengths={STRENGTHS} />

@@ -33,7 +33,7 @@ const meta = {
         layout: 'padded',
     },
     tags: ['autodocs'],
-    title: 'Components/ProgressHeader',
+    title: 'Features/Game/ProgressHeader',
 } satisfies Meta<typeof ProgressHeader>
 
 export default meta

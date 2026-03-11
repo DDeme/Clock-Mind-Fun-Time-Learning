@@ -40,7 +40,7 @@ const meta: Meta<typeof LanguagePicker> = {
         },
         layout: 'centered',
     },
-    title: 'Components/LanguagePicker',
+    title: 'System/LanguagePicker',
 }
 
 export default meta

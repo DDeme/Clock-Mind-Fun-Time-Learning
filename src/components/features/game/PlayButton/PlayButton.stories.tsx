@@ -13,7 +13,7 @@ const meta = {
         layout: 'centered',
     },
     tags: ['autodocs'],
-    title: 'Components/PlayButton',
+    title: 'Features/Game/PlayButton',
 } satisfies Meta<typeof PlayButton>
 
 export default meta

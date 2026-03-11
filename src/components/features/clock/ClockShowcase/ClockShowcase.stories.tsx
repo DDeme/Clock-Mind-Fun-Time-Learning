@@ -35,7 +35,7 @@ const meta = {
         },
     },
     tags: ['autodocs'],
-    title: 'Components/ClockShowcase',
+    title: 'Features/Clock/ClockShowcase',
 } satisfies Meta<typeof ClockShowcase>
 
 export default meta

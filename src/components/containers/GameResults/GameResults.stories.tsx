@@ -8,7 +8,7 @@ const meta = {
         layout: 'fullscreen',
     },
     tags: ['autodocs'],
-    title: 'Components/GameResults',
+    title: 'Containers/GameResults',
 } satisfies Meta<typeof GameResults>
 
 export default meta

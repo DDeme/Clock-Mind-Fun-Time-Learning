@@ -23,7 +23,7 @@ const meta = {
         layout: 'centered',
     },
     tags: ['autodocs'],
-    title: 'Components/SingleChoice',
+    title: 'Features/Forms/SingleChoice',
 } satisfies Meta<typeof SingleChoice>
 
 export default meta
