@@ -168,44 +168,46 @@ export const Game = ({ id, questions, onComplete }: GameProps) => {
     }
 
     return (
-        <Layout hideNavigation>
-            <div data-testid="game-container">
-                <Header
-                    currentStep={currentStep + 1}
-                    totalQuestions={totalQuestions}
-                    score={score}
-                    onClose={() => navigate('/lesson')}
+        <Layout
+            hideNavigation
+            data-testid="game-container"
+        >
+            <Header
+                currentStep={currentStep + 1}
+                totalQuestions={totalQuestions}
+                score={score}
+                onClose={() => navigate('/lesson')}
+            />
+            <Main ariaLabel={t('game.gameContent')}>
+                {props.question.text && (
+                    <MascotBubble message={props.question.text} />
+                )}
+                <QuestionRenderer {...props.question} />
+                <Answers {...props.answer} />
+
+                <GameFooter
+                    {...props.footer}
+                    feedback={
+                        <ResultNotification
+                            isCorrect={props.footer.isCorrect}
+                            correctAnswer={props.question.value}
+                            earnedStars={props.scoreValue.positiveScore}
+                        />
+                    }
                 />
-                <Main ariaLabel={t('game.gameContent')}>
-                    {props.question.text && (
-                        <MascotBubble message={props.question.text} />
-                    )}
-                    <QuestionRenderer {...props.question} />
-                    <Answers {...props.answer} />
-                    <GameFooter
-                        {...props.footer}
-                        feedback={
-                            <ResultNotification
-                                isCorrect={props.footer.isCorrect}
-                                correctAnswer={props.question.value}
-                                earnedStars={props.scoreValue.positiveScore}
-                            />
-                        }
-                    />
-                </Main>
-                {/* Game state announcement for screen readers */}
-                <div
-                    aria-live="polite"
-                    aria-atomic="true"
-                    className="sr-only"
-                >
-                    {t('game.gameState', {
-                        current: currentStep + 1,
-                        score,
-                        total: totalQuestions,
-                    })}{' '}
-                    points
-                </div>
+            </Main>
+            {/* Game state announcement for screen readers */}
+            <div
+                aria-live="polite"
+                aria-atomic="true"
+                className="sr-only"
+            >
+                {t('game.gameState', {
+                    current: currentStep + 1,
+                    score,
+                    total: totalQuestions,
+                })}{' '}
+                points
             </div>
         </Layout>
     )
