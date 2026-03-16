@@ -1,6 +1,7 @@
 import clsx from 'clsx'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
+
 import { Card } from '../../../ui'
 
 type SingleChoiceProps = {

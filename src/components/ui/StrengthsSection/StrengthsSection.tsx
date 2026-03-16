@@ -1,5 +1,6 @@
-import React from 'react'
 import { motion } from 'motion/react'
+import React from 'react'
+
 import { Card } from '../Card'
 
 const MotionCard = motion(Card)

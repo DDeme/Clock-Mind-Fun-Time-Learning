@@ -1,30 +1,31 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
 import { Card } from './Card'
 
+import type { Meta, StoryObj } from '@storybook/react-vite'
+
 const meta = {
-    title: 'UI/Card',
-    component: Card,
-    tags: ['autodocs'],
-    args: {
-        children: 'Card Content',
-    },
     argTypes: {
+        border: {
+            control: 'boolean',
+        },
         padding: {
             control: 'select',
             options: ['none', 'xs', 'sm', 'md', 'lg', 'xl'],
-        },
-        shadow: {
-            control: 'select',
-            options: ['none', 'sm', 'md', 'lg', 'xl', '2xl', 'inner'],
         },
         rounded: {
             control: 'select',
             options: ['none', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', 'full'],
         },
-        border: {
-            control: 'boolean',
+        shadow: {
+            control: 'select',
+            options: ['none', 'sm', 'md', 'lg', 'xl', '2xl', 'inner'],
         },
     },
+    args: {
+        children: 'Card Content',
+    },
+    component: Card,
+    tags: ['autodocs'],
+    title: 'UI/Card',
 } satisfies Meta<typeof Card>
 
 export default meta
@@ -92,7 +93,9 @@ export const Rounded: Story = {
                 <p className="text-center font-medium">3X Large</p>
             </Card>
             <Card rounded="full">
-                <p className="text-center font-medium text-nowrap">Full (Pill)</p>
+                <p className="text-center font-medium text-nowrap">
+                    Full (Pill)
+                </p>
             </Card>
         </div>
     ),
@@ -106,19 +109,25 @@ export const Padding: Story = {
                 <div className="bg-slate-100 p-2 text-center">Padding None</div>
             </Card>
             <Card padding="xs">
-                <div className="bg-slate-100 text-center">Padding Extra Small</div>
+                <div className="bg-slate-100 text-center">
+                    Padding Extra Small
+                </div>
             </Card>
             <Card padding="sm">
                 <div className="bg-slate-100 text-center">Padding Small</div>
             </Card>
             <Card padding="md">
-                <div className="bg-slate-100 text-center">Padding Medium (Default)</div>
+                <div className="bg-slate-100 text-center">
+                    Padding Medium (Default)
+                </div>
             </Card>
             <Card padding="lg">
                 <div className="bg-slate-100 text-center">Padding Large</div>
             </Card>
             <Card padding="xl">
-                <div className="bg-slate-100 text-center">Padding Extra Large</div>
+                <div className="bg-slate-100 text-center">
+                    Padding Extra Large
+                </div>
             </Card>
         </div>
     ),

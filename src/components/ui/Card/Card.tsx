@@ -1,5 +1,5 @@
-import React from 'react'
 import { clsx, type ClassValue } from 'clsx'
+import React from 'react'
 import { twMerge } from 'tailwind-merge'
 
 function cn(...inputs: ClassValue[]) {
@@ -8,7 +8,15 @@ function cn(...inputs: ClassValue[]) {
 
 export type CardPadding = 'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 export type CardShadow = 'none' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'inner'
-export type CardRounded = 'none' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | 'full'
+export type CardRounded =
+    | 'none'
+    | 'sm'
+    | 'md'
+    | 'lg'
+    | 'xl'
+    | '2xl'
+    | '3xl'
+    | 'full'
 
 export interface CardProps extends React.HTMLAttributes<HTMLElement> {
     padding?: CardPadding
@@ -23,33 +31,33 @@ export interface CardProps extends React.HTMLAttributes<HTMLElement> {
 }
 
 const paddingStyles: Record<CardPadding, string> = {
-    none: 'p-0',
-    xs: 'p-2',
-    sm: 'p-3',
-    md: 'p-4',
     lg: 'p-6',
+    md: 'p-4',
+    none: 'p-0',
+    sm: 'p-3',
     xl: 'p-8',
+    xs: 'p-2',
 }
 
 const shadowStyles: Record<CardShadow, string> = {
-    none: 'shadow-none',
-    sm: 'shadow-sm',
-    md: 'shadow-md',
-    lg: 'shadow-lg',
-    xl: 'shadow-xl',
     '2xl': 'shadow-2xl',
     inner: 'shadow-inner',
+    lg: 'shadow-lg',
+    md: 'shadow-md',
+    none: 'shadow-none',
+    sm: 'shadow-sm',
+    xl: 'shadow-xl',
 }
 
 const roundedStyles: Record<CardRounded, string> = {
-    none: 'rounded-none',
-    sm: 'rounded-sm',
-    md: 'rounded-md',
-    lg: 'rounded-lg',
-    xl: 'rounded-xl',
     '2xl': 'rounded-2xl',
     '3xl': 'rounded-3xl',
     full: 'rounded-full',
+    lg: 'rounded-lg',
+    md: 'rounded-md',
+    none: 'rounded-none',
+    sm: 'rounded-sm',
+    xl: 'rounded-xl',
 }
 
 export const Card = React.forwardRef<HTMLElement, CardProps>(

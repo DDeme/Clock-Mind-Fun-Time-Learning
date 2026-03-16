@@ -1,8 +1,8 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
-import { Card } from '../../../ui'
 
 import imgUrl from '../../../../assets/pixel-cat.svg'
+import { Card } from '../../../ui'
 
 type MascotBubbleProps = {
     message: string

@@ -1,4 +1,5 @@
 import { Trophy } from 'lucide-react'
+
 import { Card } from '../../../ui'
 
 interface ProgressHeaderProps {

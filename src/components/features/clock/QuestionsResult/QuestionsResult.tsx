@@ -1,5 +1,6 @@
 import { Clock, Check, X } from 'lucide-react'
 import { motion } from 'motion/react'
+
 import { Card } from '../../../ui'
 
 const MotionCard = motion(Card)
