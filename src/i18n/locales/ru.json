@@ -15,13 +15,31 @@
         "save": "Сохранить",
         "delete": "Удалить",
         "edit": "Редактировать",
-        "close": "Закрыть"
+        "close": "Закрыть",
+        "backToLessons": "Back to Lessons",
+        "changing": "Changing..."
     },
     "clock": {
         "hours": "Часы",
         "minutes": "Минуты",
         "seconds": "Секунды",
-        "time": "Время"
+        "time": "Время",
+        "am": "AM",
+        "pm": "PM",
+        "format12h": "12h",
+        "format24h": "24h",
+        "digitalTime": "Digital Time",
+        "analogReference": "Analog Reference",
+        "dragHands": "Drag Hands",
+        "manualMode": "Manual Mode",
+        "syncToLive": "Sync to Live",
+        "didYouKnow": "Did you know?",
+        "educational": {
+            "quarterTo": "When the big hand points to 9, it's \"quarter to\" the next hour!",
+            "quarterPast": "When the big hand points to 3, it's \"quarter past\" the hour!",
+            "halfPast": "When the big hand points to 6, it's \"half past\" the hour!",
+            "default": "The short hand shows the hour, and the long hand shows the minutes!"
+        }
     },
     "intro": {
         "title": "Часы Ум Веселье",
@@ -43,10 +61,12 @@
         "score": "Счёт: {{score}} очков",
         "checkAnswer": "ПРОВЕРИТЬ ОТВЕТ",
         "nextQuestion": "Следующий вопрос",
+        "finishGame": "SEE RESULTS",
         "question": "Посмотрите на часы! Сколько времени?",
         "gameComplete": "Практика завершена! Отличная работа!",
         "gameContent": "Содержимое игры",
-        "gameState": "Вопрос {{current}} из {{total}}, Счёт: {{score}} очков"
+        "gameState": "Вопрос {{current}} из {{total}}, Счёт: {{score}} очков",
+        "points": "points"
     },
     "result": {
         "success": "Отличная работа!",
@@ -64,6 +84,34 @@
     "accessibility": {
         "timeOptions": "Варианты времени",
         "selectTime": "Выбрать {{time}}",
-        "mascotAlt": "Дружелюбный рыжий кот-талисман"
+        "selectHours": "Select hours",
+        "selectMinutes": "Select minutes",
+        "goBack": "Go back",
+        "settings": "Settings",
+        "analogClockShowing": "Analog clock showing {{time}}",
+        "clockDescription": "Clock face showing {{time}}. Hour hand pointing to {{hours}}, minute hand pointing to {{minutes}}.",
+        "mascotAlt": "Дружелюбный рыжий кот-талисман",
+        "lecturerCatAlt": "Professor cat with graduation cap",
+        "lecturerCatStatus": "Professor cat is teaching"
+    },
+    "lecturerCat": {
+        "defaultMessage": "Welcome to your time-telling lesson! I'm here to help you master the art of reading clocks.",
+        "subMessage": "Let's make learning fun and interactive!"
+    },
+    "topics": {
+        "greeting": "Hi there, {{name}}!",
+        "readyToLearn": "Ready to learn?",
+        "continueLearning": "Continue Learning",
+        "learningTopics": "Learning Topics",
+        "seeAll": "See All",
+        "resumeLesson": "Resume Lesson",
+        "lessonProgress": "Lesson {{current}} of {{total}}",
+        "progress": "Progress",
+        "strengths": {
+            "hourTitle": "Hour Hand Expert",
+            "minuteTitle": "Minute Master",
+            "quickTitle": "Quick Thinker"
+        },
+        "clockMastery": "Clock Mastery"
     }
 }

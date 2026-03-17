@@ -1,0 +1,177 @@
+{
+    "id": "multiply",
+    "title": "Multiplication Practice",
+    "description": "Practice basic multiplication with numbers from 1 to 9. Multiplication is repeated addition - like 3 * 4 means adding 3 four times (3 + 3 + 3 + 3 = 12)!",
+    "questions": [
+        {
+            "id": "multiply-1",
+            "question": {
+                "text": "Koľko je  2 * 3?",
+                "questionType": "empty",
+                "value": "6"
+            },
+            "answer": {
+                "options": ["5", "6", "7", "8"],
+                "type": "single-choice",
+                "value": "6"
+            },
+            "scoreValue": {
+                "positiveScore": 10,
+                "negativeScore": 0
+            }
+        },
+        {
+            "id": "multiply-2",
+            "question": {
+                "text": "Koľko je  4 * 5?",
+                "questionType": "empty",
+                "value": "20"
+            },
+            "answer": {
+                "options": ["15", "20", "25", "30"],
+                "type": "single-choice",
+                "value": "20"
+            },
+            "scoreValue": {
+                "positiveScore": 10,
+                "negativeScore": 0
+            }
+        },
+        {
+            "id": "multiply-3",
+            "question": {
+                "text": "Koľko je  3 * 7?",
+                "questionType": "empty",
+                "value": "21"
+            },
+            "answer": {
+                "options": ["18", "21", "24", "27"],
+                "type": "single-choice",
+                "value": "21"
+            },
+            "scoreValue": {
+                "positiveScore": 10,
+                "negativeScore": 0
+            }
+        },
+        {
+            "id": "multiply-4",
+            "question": {
+                "text": "Koľko je  6 * 8?",
+                "questionType": "empty",
+                "value": "48"
+            },
+            "answer": {
+                "options": ["42", "48", "54", "56"],
+                "type": "single-choice",
+                "value": "48"
+            },
+            "scoreValue": {
+                "positiveScore": 10,
+                "negativeScore": 0
+            }
+        },
+        {
+            "id": "multiply-5",
+            "question": {
+                "text": "Koľko je  7 * 9?",
+                "questionType": "empty",
+                "value": "63"
+            },
+            "answer": {
+                "options": ["56", "63", "72", "81"],
+                "type": "single-choice",
+                "value": "63"
+            },
+            "scoreValue": {
+                "positiveScore": 10,
+                "negativeScore": 0
+            }
+        },
+        {
+            "id": "multiply-6",
+            "question": {
+                "text": "Koľko je  5 * 5?",
+                "questionType": "empty",
+                "value": "25"
+            },
+            "answer": {
+                "options": ["20", "25", "30", "35"],
+                "type": "single-choice",
+                "value": "25"
+            },
+            "scoreValue": {
+                "positiveScore": 10,
+                "negativeScore": 0
+            }
+        },
+        {
+            "id": "multiply-7",
+            "question": {
+                "text": "Koľko je  8 * 3?",
+                "questionType": "empty",
+                "value": "24"
+            },
+            "answer": {
+                "options": ["18", "21", "24", "27"],
+                "type": "single-choice",
+                "value": "24"
+            },
+            "scoreValue": {
+                "positiveScore": 10,
+                "negativeScore": 0
+            }
+        },
+        {
+            "id": "multiply-8",
+            "question": {
+                "text": "Koľko je  9 * 4?",
+                "questionType": "empty",
+                "value": "36"
+            },
+            "answer": {
+                "options": ["32", "36", "40", "45"],
+                "type": "single-choice",
+                "value": "36"
+            },
+            "scoreValue": {
+                "positiveScore": 10,
+                "negativeScore": 0
+            }
+        },
+        {
+            "id": "multiply-9",
+            "question": {
+                "text": "Koľko je  6 * 7?",
+                "questionType": "empty",
+                "value": "42"
+            },
+            "answer": {
+                "options": ["36", "42", "48", "54"],
+                "type": "single-choice",
+                "value": "42"
+            },
+            "scoreValue": {
+                "positiveScore": 10,
+                "negativeScore": 0
+            }
+        },
+        {
+            "id": "multiply-10",
+            "question": {
+                "text": "Koľko je  8 * 9?",
+                "questionType": "empty",
+                "value": "72"
+            },
+            "answer": {
+                "options": ["64", "72", "81", "90"],
+                "type": "single-choice",
+                "value": "72"
+            },
+            "scoreValue": {
+                "positiveScore": 10,
+                "negativeScore": 0
+            }
+        }
+    ]
+}

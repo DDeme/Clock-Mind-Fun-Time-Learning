@@ -1,3 +1,4 @@
+import type { TFunction } from 'i18next'
 import type { Answers } from '../../components/features/game/Answers'
 import type { ComponentProps } from 'react'
 
@@ -58,7 +59,10 @@ const generateOptions = (type: AnswerType, value: ClockTime): string[] => {
     return numericOptions.flat().map((option) => String(option))
 }
 
-export const questionsGenerator = (count: number): Question[] => {
+export const questionsGenerator = (
+    count: number,
+    t: TFunction,
+): Question[] => {
     return Array.from({ length: count }, (_, i) => {
         const type: AnswerType =
             Math.random() > 0.5 ? 'numeric-answer' : 'single-choice'
@@ -73,7 +77,7 @@ export const questionsGenerator = (count: number): Question[] => {
             id: String(i + 1),
             question: {
                 questionType: 'analog-clock',
-                text: 'Look at the clock! What time is it?',
+                text: t('game.question'),
                 value: `${value.hours}:${value.minutes.toString().padStart(2, '0')}`,
             },
             scoreValue: {

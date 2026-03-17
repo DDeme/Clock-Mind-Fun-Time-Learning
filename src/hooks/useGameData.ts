@@ -1,4 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
+import { useTranslation } from 'react-i18next'
 
 import { fetchFromAPI } from '../utils/api'
 
@@ -12,9 +13,10 @@ export interface GameDataResponse {
 }
 
 export const useGameData = (id: string) => {
+    const { i18n } = useTranslation()
     return useQuery<GameDataResponse>({
-        queryFn: () => fetchFromAPI(`/api/game/${id}.json`),
-        queryKey: ['gameData', id],
+        queryFn: () => fetchFromAPI(`/api/game/${i18n.language}/${id}.json`),
+        queryKey: ['gameData', id, i18n.language],
         staleTime: 1000 * 60 * 10,
     })
 }

@@ -16,14 +16,14 @@ const SettingsPage = () => {
                             variant="h1"
                             className="text-blue-600"
                         >
-                            {t('settings.title', 'Settings')}
+                            {t('settings.title')}
                         </Typography>
                         <Typography
                             variant="body"
                             color="muted"
                             className="mt-1"
                         >
-                            Customize your learning experience
+                            {t('settings.subtitle')}
                         </Typography>
                     </header>
 
@@ -33,16 +33,13 @@ const SettingsPage = () => {
                                 variant="h3"
                                 as="h2"
                             >
-                                {t('settings.language', 'Language')}
+                                {t('settings.language')}
                             </Typography>
                             <Typography
                                 variant="caption"
                                 color="muted"
                             >
-                                {t(
-                                    'settings.languageDescription',
-                                    'Choose your preferred language',
-                                )}
+                                {t('settings.languageDescription')}
                             </Typography>
                         </div>
                         <LanguagePicker
@@ -50,7 +47,7 @@ const SettingsPage = () => {
                             onLanguageChange={(lang) =>
                                 i18n.changeLanguage(lang)
                             }
-                            ariaLabel="Select application language"
+                            ariaLabel={t('language.select')}
                         />
                     </section>
                 </div>

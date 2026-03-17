@@ -1,5 +1,6 @@
 import { Trophy } from 'lucide-react'
 import { motion } from 'motion/react'
+import { useTranslation } from 'react-i18next'
 
 interface GameResultsHeaderProps {
     totalScore: number
@@ -7,25 +8,21 @@ interface GameResultsHeaderProps {
     userName: string
 }
 
-const getMessage = (totalScore: number, maxScore: number) => {
-    const successPercentage = (totalScore / maxScore) * 100
-    switch (true) {
-        case successPercentage >= 90:
-            return `Outstanding`
-        case successPercentage >= 70:
-            return `Great job`
-        case successPercentage >= 50:
-            return `Good effort`
-        default:
-            return `Keep practicing!`
-    }
-}
-
 export const GameResultsHeader = ({
     totalScore,
     maxScore,
     userName,
 }: GameResultsHeaderProps) => {
+    const { t } = useTranslation()
+
+    const getMessage = (totalScore: number, maxScore: number) => {
+        const successPercentage = (totalScore / maxScore) * 100
+        if (successPercentage >= 90) return t('result.outstanding')
+        if (successPercentage >= 70) return t('result.greatJob')
+        if (successPercentage >= 50) return t('result.goodEffort')
+        return t('result.keepPracticing')
+    }
+
     return (
         <header className="relative overflow-hidden rounded-b-[3rem] bg-blue-700 px-4 pt-4 pb-6 text-center">
             <motion.div
@@ -39,7 +36,7 @@ export const GameResultsHeader = ({
                 </div>
                 <div className="flex flex-col items-center">
                     <h1 className="mb-3 text-2xl font-extrabold tracking-tight text-white">
-                        {getMessage(totalScore, maxScore)} {`, ${userName}!`}
+                        {getMessage(totalScore, maxScore)}, {userName}!
                     </h1>
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -48,7 +45,7 @@ export const GameResultsHeader = ({
                         className="flex gap-3 rounded-full bg-white px-6 py-2 shadow-xl"
                     >
                         <span className="text-xl font-bold text-blue-700">
-                            Stars: {totalScore}/{maxScore}
+                            {t('common.stars')}: {totalScore}/{maxScore}
                         </span>
                     </motion.div>
                 </div>

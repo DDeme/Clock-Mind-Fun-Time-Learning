@@ -1,5 +1,6 @@
 import { Clock } from 'lucide-react'
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 
 import { Typography, Card } from '../../ui'
 
@@ -16,6 +17,7 @@ export const ContinueLearning: React.FC<ContinueLearningProps> = ({
     lessonTotal = 10,
     onAction,
 }) => {
+    const { t } = useTranslation()
     const percentage = Math.round((lessonProgress / lessonTotal) * 100)
 
     return (
@@ -25,7 +27,7 @@ export const ContinueLearning: React.FC<ContinueLearningProps> = ({
                 as="h3"
                 className="mb-4"
             >
-                Continue Learning
+                {t('topics.continueLearning')}
             </Typography>
             <Card
                 padding="lg"
@@ -49,7 +51,10 @@ export const ContinueLearning: React.FC<ContinueLearningProps> = ({
                             color="subtle"
                             className="mt-1"
                         >
-                            Lesson {lessonProgress} of {lessonTotal}
+                            {t('topics.lessonProgress', {
+                                current: lessonProgress,
+                                total: lessonTotal,
+                            })}
                         </Typography>
                     </div>
                 </div>
@@ -60,7 +65,7 @@ export const ContinueLearning: React.FC<ContinueLearningProps> = ({
                             color="subtle"
                             className="tracking-tighter"
                         >
-                            Progress
+                            {t('topics.progress')}
                         </Typography>
                         <Typography
                             variant="label"
@@ -80,7 +85,7 @@ export const ContinueLearning: React.FC<ContinueLearningProps> = ({
                     onClick={onAction}
                     className="mt-1 w-full rounded-xl bg-blue-600 py-3.5 text-base font-bold text-white shadow-lg shadow-blue-600/30 transition-transform active:scale-95"
                 >
-                    Resume Lesson
+                    {t('topics.resumeLesson')}
                 </button>
             </Card>
         </section>

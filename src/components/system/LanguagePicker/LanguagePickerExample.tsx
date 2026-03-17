@@ -14,7 +14,7 @@ export const LanguagePickerExample: React.FC = () => {
                     Language Settings
                 </h3>
                 {isChanging && (
-                    <span className="text-sm text-slate-500">Changing...</span>
+                    <span className="text-sm text-slate-500">{t('common.changing')}</span>
                 )}
             </div>
 

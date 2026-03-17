@@ -15,13 +15,31 @@
         "save": "Save",
         "delete": "Delete",
         "edit": "Edit",
-        "close": "Close"
+        "close": "Close",
+        "backToLessons": "Back to Lessons",
+        "changing": "Changing..."
     },
     "clock": {
         "hours": "Hours",
         "minutes": "Minutes",
         "seconds": "Seconds",
-        "time": "Time"
+        "time": "Time",
+        "am": "AM",
+        "pm": "PM",
+        "format12h": "12h",
+        "format24h": "24h",
+        "digitalTime": "Digital Time",
+        "analogReference": "Analog Reference",
+        "dragHands": "Drag Hands",
+        "manualMode": "Manual Mode",
+        "syncToLive": "Sync to Live",
+        "didYouKnow": "Did you know?",
+        "educational": {
+            "quarterTo": "When the big hand points to 9, it's \"quarter to\" the next hour!",
+            "quarterPast": "When the big hand points to 3, it's \"quarter past\" the hour!",
+            "halfPast": "When the big hand points to 6, it's \"half past\" the hour!",
+            "default": "The short hand shows the hour, and the long hand shows the minutes!"
+        }
     },
     "intro": {
         "title": "Clock Mind Fun",
@@ -47,7 +65,8 @@
         "question": "Look at the clock! What time is it?",
         "gameComplete": "Practice complete! Great job!",
         "gameContent": "Game content",
-        "gameState": "Question {{current}} of {{total}}, Score: {{score}} points"
+        "gameState": "Question {{current}} of {{total}}, Score: {{score}} points",
+        "points": "points"
     },
     "result": {
         "success": "Amazing Job!",
@@ -65,6 +84,12 @@
     "accessibility": {
         "timeOptions": "Time options",
         "selectTime": "Select {{time}}",
+        "selectHours": "Select hours",
+        "selectMinutes": "Select minutes",
+        "goBack": "Go back",
+        "settings": "Settings",
+        "analogClockShowing": "Analog clock showing {{time}}",
+        "clockDescription": "Clock face showing {{time}}. Hour hand pointing to {{hours}}, minute hand pointing to {{minutes}}.",
         "mascotAlt": "Friendly redhead cat mascot",
         "lecturerCatAlt": "Professor cat with graduation cap",
         "lecturerCatStatus": "Professor cat is teaching"
@@ -72,5 +97,21 @@
     "lecturerCat": {
         "defaultMessage": "Welcome to your time-telling lesson! I'm here to help you master the art of reading clocks.",
         "subMessage": "Let's make learning fun and interactive!"
+    },
+    "topics": {
+        "greeting": "Hi there, {{name}}!",
+        "readyToLearn": "Ready to learn?",
+        "continueLearning": "Continue Learning",
+        "learningTopics": "Learning Topics",
+        "seeAll": "See All",
+        "resumeLesson": "Resume Lesson",
+        "lessonProgress": "Lesson {{current}} of {{total}}",
+        "progress": "Progress",
+        "strengths": {
+            "hourTitle": "Hour Hand Expert",
+            "minuteTitle": "Minute Master",
+            "quickTitle": "Quick Thinker"
+        },
+        "clockMastery": "Clock Mastery"
     }
 }

@@ -1,0 +1,347 @@
+{
+    "id": "math-challenge",
+    "title": "Math Challenge - Mixed Operations",
+    "description": "Test your skills with both multiplication and division! This challenging mixed practice will help you master both operations. Remember: multiplication is repeated addition, and division is sharing equally - they're opposite operations that work together!",
+    "questions": [
+        {
+            "id": "challenge-1",
+            "question": {
+                "text": "Koľko je  2 * 3?",
+                "questionType": "empty",
+                "value": "6"
+            },
+            "answer": {
+                "options": ["5", "6", "7", "8"],
+                "type": "single-choice",
+                "value": "6"
+            },
+            "scoreValue": {
+                "positiveScore": 10,
+                "negativeScore": 0
+            }
+        },
+        {
+            "id": "challenge-2",
+            "question": {
+                "text": "Koľko je  12 : 3?",
+                "questionType": "empty",
+                "value": "4"
+            },
+            "answer": {
+                "options": ["3", "4", "5", "6"],
+                "type": "single-choice",
+                "value": "4"
+            },
+            "scoreValue": {
+                "positiveScore": 10,
+                "negativeScore": 0
+            }
+        },
+        {
+            "id": "challenge-3",
+            "question": {
+                "text": "Koľko je  4 * 5?",
+                "questionType": "empty",
+                "value": "20"
+            },
+            "answer": {
+                "options": ["15", "20", "25", "30"],
+                "type": "single-choice",
+                "value": "20"
+            },
+            "scoreValue": {
+                "positiveScore": 10,
+                "negativeScore": 0
+            }
+        },
+        {
+            "id": "challenge-4",
+            "question": {
+                "text": "Koľko je  20 : 5?",
+                "questionType": "empty",
+                "value": "4"
+            },
+            "answer": {
+                "options": ["3", "4", "5", "6"],
+                "type": "single-choice",
+                "value": "4"
+            },
+            "scoreValue": {
+                "positiveScore": 10,
+                "negativeScore": 0
+            }
+        },
+        {
+            "id": "challenge-5",
+            "question": {
+                "text": "Koľko je  3 * 7?",
+                "questionType": "empty",
+                "value": "21"
+            },
+            "answer": {
+                "options": ["18", "21", "24", "27"],
+                "type": "single-choice",
+                "value": "21"
+            },
+            "scoreValue": {
+                "positiveScore": 10,
+                "negativeScore": 0
+            }
+        },
+        {
+            "id": "challenge-6",
+            "question": {
+                "text": "Koľko je  21 : 7?",
+                "questionType": "empty",
+                "value": "3"
+            },
+            "answer": {
+                "options": ["2", "3", "4", "5"],
+                "type": "single-choice",
+                "value": "3"
+            },
+            "scoreValue": {
+                "positiveScore": 10,
+                "negativeScore": 0
+            }
+        },
+        {
+            "id": "challenge-7",
+            "question": {
+                "text": "Koľko je  6 * 8?",
+                "questionType": "empty",
+                "value": "48"
+            },
+            "answer": {
+                "options": ["42", "48", "54", "56"],
+                "type": "single-choice",
+                "value": "48"
+            },
+            "scoreValue": {
+                "positiveScore": 10,
+                "negativeScore": 0
+            }
+        },
+        {
+            "id": "challenge-8",
+            "question": {
+                "text": "Koľko je  48 : 8?",
+                "questionType": "empty",
+                "value": "6"
+            },
+            "answer": {
+                "options": ["5", "6", "7", "8"],
+                "type": "single-choice",
+                "value": "6"
+            },
+            "scoreValue": {
+                "positiveScore": 10,
+                "negativeScore": 0
+            }
+        },
+        {
+            "id": "challenge-9",
+            "question": {
+                "text": "Koľko je  7 * 9?",
+                "questionType": "empty",
+                "value": "63"
+            },
+            "answer": {
+                "options": ["56", "63", "72", "81"],
+                "type": "single-choice",
+                "value": "63"
+            },
+            "scoreValue": {
+                "positiveScore": 10,
+                "negativeScore": 0
+            }
+        },
+        {
+            "id": "challenge-10",
+            "question": {
+                "text": "Koľko je  63 : 9?",
+                "questionType": "empty",
+                "value": "7"
+            },
+            "answer": {
+                "options": ["6", "7", "8", "9"],
+                "type": "single-choice",
+                "value": "7"
+            },
+            "scoreValue": {
+                "positiveScore": 10,
+                "negativeScore": 0
+            }
+        },
+        {
+            "id": "challenge-11",
+            "question": {
+                "text": "Koľko je  5 * 5?",
+                "questionType": "empty",
+                "value": "25"
+            },
+            "answer": {
+                "options": ["20", "25", "30", "35"],
+                "type": "single-choice",
+                "value": "25"
+            },
+            "scoreValue": {
+                "positiveScore": 10,
+                "negativeScore": 0
+            }
+        },
+        {
+            "id": "challenge-12",
+            "question": {
+                "text": "Koľko je  25 : 5?",
+                "questionType": "empty",
+                "value": "5"
+            },
+            "answer": {
+                "options": ["4", "5", "6", "7"],
+                "type": "single-choice",
+                "value": "5"
+            },
+            "scoreValue": {
+                "positiveScore": 10,
+                "negativeScore": 0
+            }
+        },
+        {
+            "id": "challenge-13",
+            "question": {
+                "text": "Koľko je  8 * 3?",
+                "questionType": "empty",
+                "value": "24"
+            },
+            "answer": {
+                "options": ["18", "21", "24", "27"],
+                "type": "single-choice",
+                "value": "24"
+            },
+            "scoreValue": {
+                "positiveScore": 10,
+                "negativeScore": 0
+            }
+        },
+        {
+            "id": "challenge-14",
+            "question": {
+                "text": "Koľko je  24 : 3?",
+                "questionType": "empty",
+                "value": "8"
+            },
+            "answer": {
+                "options": ["6", "7", "8", "9"],
+                "type": "single-choice",
+                "value": "8"
+            },
+            "scoreValue": {
+                "positiveScore": 10,
+                "negativeScore": 0
+            }
+        },
+        {
+            "id": "challenge-15",
+            "question": {
+                "text": "Koľko je  9 * 4?",
+                "questionType": "empty",
+                "value": "36"
+            },
+            "answer": {
+                "options": ["32", "36", "40", "45"],
+                "type": "single-choice",
+                "value": "36"
+            },
+            "scoreValue": {
+                "positiveScore": 10,
+                "negativeScore": 0
+            }
+        },
+        {
+            "id": "challenge-16",
+            "question": {
+                "text": "Koľko je  36 : 4?",
+                "questionType": "empty",
+                "value": "9"
+            },
+            "answer": {
+                "options": ["7", "8", "9", "10"],
+                "type": "single-choice",
+                "value": "9"
+            },
+            "scoreValue": {
+                "positiveScore": 10,
+                "negativeScore": 0
+            }
+        },
+        {
+            "id": "challenge-17",
+            "question": {
+                "text": "Koľko je  6 * 7?",
+                "questionType": "empty",
+                "value": "42"
+            },
+            "answer": {
+                "options": ["36", "42", "48", "54"],
+                "type": "single-choice",
+                "value": "42"
+            },
+            "scoreValue": {
+                "positiveScore": 10,
+                "negativeScore": 0
+            }
+        },
+        {
+            "id": "challenge-18",
+            "question": {
+                "text": "Koľko je  42 : 6?",
+                "questionType": "empty",
+                "value": "7"
+            },
+            "answer": {
+                "options": ["6", "7", "8", "9"],
+                "type": "single-choice",
+                "value": "7"
+            },
+            "scoreValue": {
+                "positiveScore": 10,
+                "negativeScore": 0
+            }
+        },
+        {
+            "id": "challenge-19",
+            "question": {
+                "text": "Koľko je  8 * 9?",
+                "questionType": "empty",
+                "value": "72"
+            },
+            "answer": {
+                "options": ["64", "72", "81", "90"],
+                "type": "single-choice",
+                "value": "72"
+            },
+            "scoreValue": {
+                "positiveScore": 10,
+                "negativeScore": 0
+            }
+        },
+        {
+            "id": "challenge-20",
+            "question": {
+                "text": "Koľko je  72 : 8?",
+                "questionType": "empty",
+                "value": "9"
+            },
+            "answer": {
+                "options": ["7", "8", "9", "10"],
+                "type": "single-choice",
+                "value": "9"
+            },
+            "scoreValue": {
+                "positiveScore": 10,
+                "negativeScore": 0
+            }
+        }
+    ]
+}

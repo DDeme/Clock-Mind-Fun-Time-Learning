@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 
 import { Card } from '../../../ui'
 
@@ -15,6 +16,7 @@ export const NumericAnswer = ({
     onChange,
     isDisabled,
 }: NumericAnswerProps) => {
+    const { t } = useTranslation()
     const [hours, setHours] = useState<string>(value ? value.split(':')[0] : '')
     const [minutes, setMinutes] = useState<string>(
         value ? value.split(':')[1] : '',
@@ -27,14 +29,14 @@ export const NumericAnswer = ({
             shadow="xl"
             className="w-full border-blue-400/5"
         >
-            <legend className="sr-only">Select time</legend>
+            <legend className="sr-only">{t('accessibility.timeOptions')}</legend>
             <div className="flex items-center justify-center gap-4">
                 <div className="flex flex-col items-center gap-2">
                     <label
                         className="text-[10px] font-extrabold tracking-widest text-slate-600 uppercase"
                         htmlFor="numeric-hours"
                     >
-                        Hours
+                        {t('clock.hours')}
                     </label>
                     <select
                         value={hours}
@@ -46,7 +48,7 @@ export const NumericAnswer = ({
                         }}
                         id="numeric-hours"
                         disabled={isDisabled}
-                        aria-label="Select hours"
+                        aria-label={t('accessibility.selectHours')}
                         className={`bg-background-light h-15 w-20 rounded-xl border-2 border-blue-400/20 text-center text-3xl font-black text-blue-600 transition-all outline-none focus:border-blue-400 focus:ring-4 focus:ring-blue-400/10 ${isDisabled ? 'cursor-not-allowed opacity-50' : ''}`}
                     >
                         <option value="">--</option>
@@ -71,7 +73,7 @@ export const NumericAnswer = ({
                         className="text-[10px] font-extrabold tracking-widest text-slate-600 uppercase"
                         htmlFor="numeric-minutes"
                     >
-                        Minutes
+                        {t('clock.minutes')}
                     </label>
                     <select
                         value={minutes}
@@ -81,7 +83,7 @@ export const NumericAnswer = ({
                             onChange(`${hours ? hours : 0}:${e.target.value}`)
                         }}
                         id="numeric-minutes"
-                        aria-label="Select minutes"
+                        aria-label={t('accessibility.selectMinutes')}
                         className={`bg-background-light h-15 w-20 rounded-xl border-2 border-blue-400/20 text-center text-3xl font-black text-blue-600 transition-all outline-none focus:border-blue-400 focus:ring-4 focus:ring-blue-400/10 ${isDisabled ? 'cursor-not-allowed opacity-50' : ''}`}
                     >
                         <option value="">--</option>
