@@ -2,6 +2,7 @@
     "id": "multiply",
     "title": "Multiplication Practice",
     "description": "Practice basic multiplication with numbers from 1 to 9. Multiplication is repeated addition - like 3 * 4 means adding 3 four times (3 + 3 + 3 + 3 = 12)!",
+    "autoSubmit": true,
     "questions": [
         {
             "id": "multiply-1",

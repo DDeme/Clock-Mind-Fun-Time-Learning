@@ -9,6 +9,7 @@ export interface GameDataResponse {
     title: string
     description: string
     questions: Question[]
+    autoSubmit?: boolean
 }
 
 export const useGameData = (id: string) => {

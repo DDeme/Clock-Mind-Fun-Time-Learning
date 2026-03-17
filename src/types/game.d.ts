@@ -5,4 +5,5 @@ export interface Game {
     title: string
     description: string
     questions: Question[]
+    autoSubmit?: boolean
 }

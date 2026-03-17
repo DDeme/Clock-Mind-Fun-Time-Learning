@@ -118,6 +118,16 @@ export const SingleChoiceMode: Story = {
     },
 }
 
+export const SingleChoiceAutoSubmit: Story = {
+    args: {
+        ...SingleChoiceMode.args,
+        autoSubmit: true,
+        description: 'A single-choice game with auto-submit enabled',
+        id: 'single-choice-auto-submit',
+        title: 'Auto-Submit Mode',
+    },
+}
+
 export const DeterministicTime: Story = {
     args: {
         ...commonArgs,

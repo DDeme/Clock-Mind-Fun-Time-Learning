@@ -1,5 +1,6 @@
 {
     "id": "1",
+    "autoSubmit": true,
     "title": "Game 1",
     "description": "Description of game 1",
     "questions": [

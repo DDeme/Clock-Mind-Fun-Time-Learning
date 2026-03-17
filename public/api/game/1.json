@@ -2,6 +2,7 @@
     "id": "1",
     "title": "Seconds, Minutes, and Hours",
     "description": "Time has small units like seconds (fast tick-tock, like a heartbeat), minutes (60 seconds = 1 minute, like waiting for a song), and hours (60 minutes = 1 hour, like from breakfast to lunch). A day has 24 hours!",
+    "autoSubmit": true,
     "questions": [
         {
             "id": "1-1",

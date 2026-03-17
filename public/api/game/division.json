@@ -1,5 +1,6 @@
 {
     "id": "division",
+    "autoSubmit": true,
     "title": "Division Practice",
     "description": "Practice basic division! Division is the opposite of multiplication - it helps us share things equally. If 3 × 4 = 12, then 12 : 4 = 3 (sharing 12 things among 4 groups gives 3 each)!",
     "questions": [

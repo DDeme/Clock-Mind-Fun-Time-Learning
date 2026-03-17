@@ -2,6 +2,7 @@
     "id": "2",
     "title": "Days and Basic Time Words",
     "description": "7 days = 1 week. Time words: o'clock (full hour), half (halfway), quarter (1/4 of hour). Morning (AM), afternoon, evening, night.",
+    "autoSubmit": true,
     "questions": [
         {
             "id": "2-1",

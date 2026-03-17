@@ -48,10 +48,16 @@ type GameProps = {
     title: string
     description: string
     questions: Question[]
+    autoSubmit?: boolean
     onComplete: (gameResult: GameResult) => void
 }
 
-export const Game = ({ id, questions, onComplete }: GameProps) => {
+export const Game = ({
+    id,
+    questions,
+    autoSubmit,
+    onComplete,
+}: GameProps) => {
     const navigate = useNavigate()
     const { t } = useTranslation()
     const game = {
@@ -87,9 +93,10 @@ export const Game = ({ id, questions, onComplete }: GameProps) => {
         setQuestionStartTime(Date.now())
     }, [])
 
-    const onCheckAnswer = () => {
+    const onCheckAnswer = (submittedAnswer?: string | null) => {
+        const currentAnswer = submittedAnswer ?? answer
         let correct = false
-        if (game.questions[currentStep].question.value === answer) {
+        if (game.questions[currentStep].question.value === currentAnswer) {
             correct = true
         }
 
@@ -104,7 +111,7 @@ export const Game = ({ id, questions, onComplete }: GameProps) => {
         setQuestionsAnswers((prev) => [
             ...prev,
             {
-                answer: answer || '',
+                answer: currentAnswer || '',
                 finished: Date.now(),
                 id: game.questions[currentStep].id,
                 isCorrect: correct,
@@ -159,7 +166,16 @@ export const Game = ({ id, questions, onComplete }: GameProps) => {
         answer: {
             ...questionProps.answer,
             isDisabled: isFeedbackVisible,
-            onChange: setAnswer,
+            onChange: (val: string | null) => {
+                setAnswer(val)
+                if (
+                    autoSubmit &&
+                    questionProps.answer.type === 'single-choice' &&
+                    val !== null
+                ) {
+                    onCheckAnswer(val)
+                }
+            },
             value: answer,
         } as ComponentProps<typeof Answers>,
         footer: {
