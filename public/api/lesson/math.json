@@ -1,0 +1,23 @@
+[
+    {
+        "games": ["multiply"],
+        "id": "math",
+        "position": "left",
+        "status": "active",
+        "title": "Násobenie"
+    },
+    {
+        "games": ["division"],
+        "id": "math",
+        "position": "left",
+        "status": "active",
+        "title": "Delenie"
+    },
+    {
+        "games": ["math-challenge"],
+        "id": "math",
+        "position": "left",
+        "status": "active",
+        "title": "Výzva"
+    }
+]

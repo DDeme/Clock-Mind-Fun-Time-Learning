@@ -21,7 +21,7 @@ export const Topics = () => {
                 lessonName="Half Past the Hour"
                 lessonProgress={4}
                 lessonTotal={10}
-                onAction={() => navigate('/game/1')}
+                onAction={() => navigate('/game/math')}
             />
 
             <LearningTopics

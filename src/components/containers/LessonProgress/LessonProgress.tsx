@@ -23,8 +23,8 @@ export const LessonProgress = ({ lessons }: LessonProgressProps) => {
     return (
         <Layout>
             <ProgressHeader
-                title="Clock Master"
-                level={`Level ${level}: ${currentLesson?.title}`}
+                title={currentLesson?.title || ''}
+                level={`Level ${level}: ${currentLesson?.title || ''}`}
                 currentLessons={
                     lessons.filter((lesson) => lesson.status === 'completed')
                         .length

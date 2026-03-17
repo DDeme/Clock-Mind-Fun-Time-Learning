@@ -1,8 +1,8 @@
-import { Trophy, Medal, Sparkles, Zap } from 'lucide-react'
-import { motion } from 'motion/react'
+import { Medal, Sparkles, Zap } from 'lucide-react'
 import { useNavigate } from 'react-router'
 
 import { QuestionsResult } from '../../features/clock/QuestionsResult'
+import { GameResultsHeader } from '../../GameResultsHeader'
 import { ActionFooter, Button, Layout, Main, StrengthsSection } from '../../ui'
 
 import type { GameResult } from '../Game'
@@ -28,36 +28,20 @@ const STRENGTHS = [
     },
 ]
 
-export const GameResults = ({ totalScore, questionsAnswers }: GameResult) => {
+export const GameResults = ({
+    totalScore,
+    questionsAnswers,
+    maxScore,
+}: GameResult) => {
     const navigate = useNavigate()
+
     return (
         <Layout hideNavigation>
-            {/* Header Section */}
-            <header className="relative overflow-hidden rounded-b-[3rem] bg-blue-700 px-6 pt-6 pb-10 text-center">
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.5, type: 'spring' }}
-                    className="relative z-10 flex flex-col items-center"
-                >
-                    <div className="mb-6 rounded-full bg-white/20 p-5 shadow-inner backdrop-blur-md">
-                        <Trophy className="h-16 w-16 fill-white/20 text-white" />
-                    </div>
-                    <h1 className="mb-4 text-3xl font-extrabold tracking-tight text-white">
-                        Great Job, Alex!
-                    </h1>
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.3 }}
-                        className="flex gap-3 rounded-full bg-white px-8 py-3 shadow-xl"
-                    >
-                        <span className="text-2xl font-bold text-blue-700">
-                            Stars: {totalScore}/10
-                        </span>
-                    </motion.div>
-                </motion.div>
-            </header>
+            <GameResultsHeader
+                totalScore={totalScore}
+                userName="Alex"
+                maxScore={maxScore}
+            />
 
             <Main ariaLabel="Game results">
                 {/* Clock Mastery Section */}

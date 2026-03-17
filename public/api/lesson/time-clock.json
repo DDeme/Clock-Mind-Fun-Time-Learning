@@ -125,7 +125,7 @@
             {
                 "id": "2-2",
                 "question": {
-                    "text": "What is 'half past 2'?",
+                    "text": "Koľko je  'half past 2'?",
                     "questionType": "text-only"
                 },
                 "answer": {
@@ -247,7 +247,7 @@
             {
                 "id": "3-4",
                 "question": {
-                    "text": "What is 7:45 PM in 24-hour format?",
+                    "text": "Koľko je  7:45 PM in 24-hour format?",
                     "questionType": "text-only"
                 },
                 "answer": {
@@ -353,7 +353,7 @@
             {
                 "id": "4-5",
                 "question": {
-                    "text": "What is half past 1?",
+                    "text": "Koľko je  half past 1?",
                     "questionType": "text-only"
                 },
                 "answer": {
@@ -379,7 +379,7 @@
             {
                 "id": "5-1",
                 "question": {
-                    "text": "What is quarter past 4?",
+                    "text": "Koľko je  quarter past 4?",
                     "questionType": "text-only"
                 },
                 "answer": {
@@ -411,7 +411,7 @@
             {
                 "id": "5-3",
                 "question": {
-                    "text": "What is quarter to 7?",
+                    "text": "Koľko je  quarter to 7?",
                     "questionType": "text-only"
                 },
                 "answer": {

@@ -49,7 +49,7 @@ export const router = createBrowserRouter([
                 <LessonPage />
             </Suspense>
         ),
-        path: '/lesson',
+        path: '/lesson/:id?',
     },
     {
         element: (

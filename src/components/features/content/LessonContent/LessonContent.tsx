@@ -1,5 +1,6 @@
 import clsx from 'clsx'
-import { Check, Clock, Lock, Flag } from 'lucide-react'
+import { Check, Clock, Lock } from 'lucide-react'
+import { useNavigate } from 'react-router'
 
 interface Lesson {
     id: number
@@ -7,6 +8,7 @@ interface Lesson {
     status: 'completed' | 'active' | 'locked'
     position: 'left' | 'right'
     progress?: number
+    games: string[]
 }
 
 interface LessonContentProps {
@@ -14,6 +16,8 @@ interface LessonContentProps {
 }
 
 export const LessonContent = ({ lessons }: LessonContentProps) => {
+    const navigate = useNavigate()
+
     const renderLessonNode = (lesson: Lesson) => {
         switch (lesson.status) {
             case 'completed':
@@ -140,7 +144,8 @@ export const LessonContent = ({ lessons }: LessonContentProps) => {
                 {lessons.map((lesson) => (
                     <div
                         key={lesson.id}
-                        className="relative mb-16 flex w-full items-center justify-center"
+                        className="relative mb-16 flex w-full cursor-pointer items-center justify-center"
+                        onClick={() => navigate(`/game/${lesson.games[0]}`)}
                     >
                         <div className="z-10 flex flex-col items-center">
                             {renderLessonNode(lesson)}
@@ -150,14 +155,14 @@ export const LessonContent = ({ lessons }: LessonContentProps) => {
                 ))}
 
                 {/* Final Destination */}
-                <div className="relative flex w-full flex-col items-center pb-24">
+                {/* <div className="relative flex w-full flex-col items-center pb-24">
                     <div className="z-10 flex size-20 items-center justify-center rounded-full border-4 border-slate-200 bg-slate-100 text-slate-300">
                         <Flag className="size-8" />
                     </div>
                     <span className="mt-4 text-sm font-bold tracking-widest text-slate-600 uppercase">
                         Graduation
                     </span>
-                </div>
+                </div> */}
             </div>
         </main>
     )

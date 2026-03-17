@@ -11,11 +11,7 @@
                 "value": "60"
             },
             "answer": {
-                "options": [
-                    "10",
-                    "60",
-                    "100"
-                ],
+                "options": ["10", "60", "100"],
                 "type": "single-choice"
             },
             "scoreValue": {
@@ -31,11 +27,7 @@
                 "value": "60"
             },
             "answer": {
-                "options": [
-                    "60",
-                    "24",
-                    "10"
-                ],
+                "options": ["60", "24", "10"],
                 "type": "single-choice",
                 "value": "60"
             },
@@ -73,11 +65,7 @@
                 "value": "1"
             },
             "answer": {
-                "options": [
-                    "1",
-                    "60",
-                    "24"
-                ],
+                "options": ["1", "60", "24"],
                 "type": "single-choice",
                 "value": "1"
             },
@@ -94,10 +82,7 @@
                 "value": "True"
             },
             "answer": {
-                "options": [
-                    "True",
-                    "False"
-                ],
+                "options": ["True", "False"],
                 "type": "single-choice",
                 "value": "True"
             },

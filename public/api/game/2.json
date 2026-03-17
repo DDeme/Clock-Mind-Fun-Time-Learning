@@ -11,11 +11,7 @@
                 "value": "7"
             },
             "answer": {
-                "options": [
-                    "5",
-                    "7",
-                    "24"
-                ],
+                "options": ["5", "7", "24"],
                 "type": "single-choice"
             },
             "scoreValue": {
@@ -26,16 +22,12 @@
         {
             "id": "2-2",
             "question": {
-                "text": "What is 'half past 2'?",
+                "text": "Koľko je  'half past 2'?",
                 "questionType": "empty",
                 "value": "2:30"
             },
             "answer": {
-                "options": [
-                    "2:00",
-                    "2:30",
-                    "3:00"
-                ],
+                "options": ["2:00", "2:30", "3:00"],
                 "type": "single-choice"
             },
             "scoreValue": {
@@ -51,11 +43,7 @@
                 "value": "Morning"
             },
             "answer": {
-                "options": [
-                    "Morning",
-                    "Night",
-                    "Midnight"
-                ],
+                "options": ["Morning", "Night", "Midnight"],
                 "type": "single-choice"
             },
             "scoreValue": {
@@ -71,11 +59,7 @@
                 "value": "Quarter"
             },
             "answer": {
-                "options": [
-                    "Half",
-                    "Quarter",
-                    "Full"
-                ],
+                "options": ["Half", "Quarter", "Full"],
                 "type": "single-choice"
             },
             "scoreValue": {
@@ -91,11 +75,7 @@
                 "value": "31"
             },
             "answer": {
-                "options": [
-                    "28",
-                    "30",
-                    "31"
-                ],
+                "options": ["28", "30", "31"],
                 "type": "single-choice"
             },
             "scoreValue": {

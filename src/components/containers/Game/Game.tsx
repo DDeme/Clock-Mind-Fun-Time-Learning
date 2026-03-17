@@ -21,6 +21,7 @@ export type GameResult = {
     started: Date
     finished: Date
     totalScore: number
+    maxScore: number
     questionsAnswers: {
         id: string
         started: number
@@ -128,6 +129,10 @@ export const Game = ({ id, questions, onComplete }: GameProps) => {
             const gameResult: GameResult = {
                 finished: new Date(),
                 id: game.id,
+                maxScore: game.questions.reduce(
+                    (a, { scoreValue }) => a + scoreValue.positiveScore,
+                    0,
+                ),
                 questionsAnswers: questionsAnswers,
                 started: gameStartTime,
                 totalScore: score,
@@ -176,7 +181,7 @@ export const Game = ({ id, questions, onComplete }: GameProps) => {
                 currentStep={currentStep + 1}
                 totalQuestions={totalQuestions}
                 score={score}
-                onClose={() => navigate('/lesson')}
+                onClose={() => navigate('/lesson/math')}
             />
             <Main ariaLabel={t('game.gameContent')}>
                 {props.question.text && (

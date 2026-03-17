@@ -11,7 +11,7 @@ interface ContinueLearningProps {
 }
 
 export const ContinueLearning: React.FC<ContinueLearningProps> = ({
-    lessonName = 'Half Past the Hour',
+    lessonName = 'Násobenie',
     lessonProgress = 4,
     lessonTotal = 10,
     onAction,
