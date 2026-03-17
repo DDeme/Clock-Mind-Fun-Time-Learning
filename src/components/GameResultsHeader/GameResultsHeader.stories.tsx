@@ -20,6 +20,9 @@ const meta = {
     },
     component: GameResultsHeader,
     parameters: {
+        backgrounds: {
+            default: 'dark',
+        },
         layout: 'fullscreen',
     },
     tags: ['autodocs'],

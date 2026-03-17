@@ -13,7 +13,7 @@ if (fs.existsSync('./coverage')) {
 // Run Jest tests with coverage
 console.log('🧪 Running Jest tests with coverage...')
 try {
-    execSync('npm run test:coverage', { stdio: 'inherit' })
+    execSync('yarn run test:coverage', { stdio: 'inherit' })
 } catch (error) {
     console.error('❌ Jest tests failed')
     process.exit(1)

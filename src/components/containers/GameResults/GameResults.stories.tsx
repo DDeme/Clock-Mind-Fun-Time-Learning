@@ -18,6 +18,7 @@ export const Default: Story = {
     args: {
         finished: new Date(new Date().setMinutes(new Date().getMinutes() + 5)),
         id: '2',
+        maxScore: 100,
         questionsAnswers: [
             {
                 answer: '5:45',
