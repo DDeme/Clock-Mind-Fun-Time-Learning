@@ -52,12 +52,7 @@ type GameProps = {
     onComplete: (gameResult: GameResult) => void
 }
 
-export const Game = ({
-    id,
-    questions,
-    autoSubmit,
-    onComplete,
-}: GameProps) => {
+export const Game = ({ id, questions, autoSubmit, onComplete }: GameProps) => {
     const navigate = useNavigate()
     const { t } = useTranslation()
     const game = {
