@@ -1,5 +1,6 @@
 {
     "id": "math-challenge",
+    "autoSubmit": true,
     "title": "Math Challenge - Mixed Operations",
     "description": "Test your skills with both multiplication and division! This challenging mixed practice will help you master both operations. Remember: multiplication is repeated addition, and division is sharing equally - they're opposite operations that work together!",
     "questions": [
