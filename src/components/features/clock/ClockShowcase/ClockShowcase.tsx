@@ -167,7 +167,9 @@ export const ClockShowcase = () => {
                                 className={`flex flex-1 items-center justify-center gap-1 rounded-lg py-2 transition-all ${ampm === t('clock.am') ? 'bg-blue-700 text-white shadow-md' : 'text-slate-600'}`}
                             >
                                 <Sun size={14} />
-                                <span className="text-sm font-bold">{t('clock.am')}</span>
+                                <span className="text-sm font-bold">
+                                    {t('clock.am')}
+                                </span>
                             </button>
                             <button
                                 onClick={() => {
@@ -182,7 +184,9 @@ export const ClockShowcase = () => {
                                 className={`flex flex-1 items-center justify-center gap-1 rounded-lg py-2 transition-all ${ampm === t('clock.pm') ? 'bg-blue-700 text-white shadow-md' : 'text-slate-600'}`}
                             >
                                 <Moon size={14} />
-                                <span className="text-sm font-bold">{t('clock.pm')}</span>
+                                <span className="text-sm font-bold">
+                                    {t('clock.pm')}
+                                </span>
                             </button>
                         </div>
                     </div>

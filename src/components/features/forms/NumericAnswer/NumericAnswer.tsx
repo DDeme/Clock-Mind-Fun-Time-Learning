@@ -29,7 +29,9 @@ export const NumericAnswer = ({
             shadow="xl"
             className="w-full border-blue-400/5"
         >
-            <legend className="sr-only">{t('accessibility.timeOptions')}</legend>
+            <legend className="sr-only">
+                {t('accessibility.timeOptions')}
+            </legend>
             <div className="flex items-center justify-center gap-4">
                 <div className="flex flex-col items-center gap-2">
                     <label

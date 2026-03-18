@@ -1,5 +1,5 @@
-import type { TFunction } from 'i18next'
 import type { Answers } from '../../components/features/game/Answers'
+import type { TFunction } from 'i18next'
 import type { ComponentProps } from 'react'
 
 export type AnswerType = ComponentProps<typeof Answers>['type']
@@ -59,10 +59,7 @@ const generateOptions = (type: AnswerType, value: ClockTime): string[] => {
     return numericOptions.flat().map((option) => String(option))
 }
 
-export const questionsGenerator = (
-    count: number,
-    t: TFunction,
-): Question[] => {
+export const questionsGenerator = (count: number, t: TFunction): Question[] => {
     return Array.from({ length: count }, (_, i) => {
         const type: AnswerType =
             Math.random() > 0.5 ? 'numeric-answer' : 'single-choice'

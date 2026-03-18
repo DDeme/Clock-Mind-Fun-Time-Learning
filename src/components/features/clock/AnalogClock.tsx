@@ -95,7 +95,9 @@ export const AnalogClock: React.FC<AnalogClockProps> = ({
             className="clock-shadow relative flex items-center justify-center rounded-full border-10 border-white bg-white transition-all duration-500 ease-in-out"
             style={{ height: size, width: size }}
             role="img"
-            aria-label={t('accessibility.analogClockShowing', { time: timeString })}
+            aria-label={t('accessibility.analogClockShowing', {
+                time: timeString,
+            })}
             aria-describedby="clock-description"
         >
             <div

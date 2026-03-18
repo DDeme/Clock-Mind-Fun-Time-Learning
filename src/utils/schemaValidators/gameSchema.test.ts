@@ -6,7 +6,7 @@ import { describe, expect, it } from '@jest/globals'
 import { safeValidateGame } from './gameSchema'
 
 // Read the JSON file directly
-const gameDataPath = join(__dirname, '../../../public/api/game/1.json')
+const gameDataPath = join(__dirname, '../../../public/api/game/en/1.json')
 const gameData = JSON.parse(readFileSync(gameDataPath, 'utf8'))
 
 describe('GameSchema Validation', () => {

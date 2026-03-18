@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router'
 
 import {
-    questionsGenerator,
     type AnswerType,
     type Question,
 } from '../../../utils/gameGenerator/gameGenerator'

@@ -50,6 +50,6 @@ describe('timeToHumanText', () => {
     ]
 
     it.each(cases)('%i:%i', (hours, minutes) => {
-        expect(timeToHumanText(hours, minutes)).toMatchSnapshot()
+        expect(timeToHumanText(hours, minutes, 'sk')).toMatchSnapshot()
     })
 })
