@@ -208,7 +208,7 @@ const periodsOfTheDay = [
     },
 ]
 // information source https://ucimesaslovencinu.sk/clanok/kolko-je-hodin-po-slovensky/#stvrt-pol-tristvrte
-export const timeToHumanText = (hours: number, minutes: number): string => {
+export const timeToHumanTextSk = (hours: number, minutes: number): string => {
     const key = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`
     const specialCase = specialCases[key]
 

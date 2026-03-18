@@ -1,6 +1,10 @@
+import { useTranslation } from 'react-i18next'
+
 import { Layout, Skeleton, Main } from '../../ui'
 
 export const GameSkeleton = () => {
+    const { t } = useTranslation()
+
     return (
         <Layout hideNavigation>
             {/* Header Skeleton */}
@@ -39,7 +43,7 @@ export const GameSkeleton = () => {
                 </div>
             </header>
 
-            <Main ariaLabel="Loading game content">
+            <Main ariaLabel={t('game.gameContent')}>
                 {/* Mascot bubble skeleton */}
                 <div className="mb-6">
                     <Skeleton
@@ -99,7 +103,7 @@ export const GameSkeleton = () => {
                 aria-atomic="true"
                 className="sr-only"
             >
-                Loading game...
+                {t('common.loading')}
             </div>
         </Layout>
     )

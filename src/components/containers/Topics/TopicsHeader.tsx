@@ -1,5 +1,6 @@
 import { Flame, Star } from 'lucide-react'
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 
 import { Typography, Card } from '../../ui'
 
@@ -14,6 +15,7 @@ export const TopicsHeader: React.FC<TopicsHeaderProps> = ({
     streak = 7,
     stars = 120,
 }) => {
+    const { t } = useTranslation()
     return (
         <header className="mt-4 flex items-center justify-between p-6 pb-2">
             <div className="flex items-center gap-3">
@@ -26,14 +28,14 @@ export const TopicsHeader: React.FC<TopicsHeaderProps> = ({
                         as="h2"
                         className="leading-tight font-extrabold tracking-tight"
                     >
-                        Hi there, {userName}!
+                        {t('topics.greeting', { name: userName })}
                     </Typography>
                     <Typography
                         variant="overline"
                         color="subtle"
                         className="mt-0.5"
                     >
-                        Ready to learn?
+                        {t('topics.readyToLearn')}
                     </Typography>
                 </div>
             </div>

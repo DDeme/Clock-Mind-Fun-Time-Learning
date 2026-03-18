@@ -1,0 +1,177 @@
+{
+    "id": "division",
+    "title": "Division Practice",
+    "description": "Practice basic division! Division is the opposite of multiplication - it helps us share things equally. If 3 × 4 = 12, then 12 : 4 = 3 (sharing 12 things among 4 groups gives 3 each)!",
+    "questions": [
+        {
+            "id": "division-1",
+            "question": {
+                "text": "Koľko je  12 : 3?",
+                "questionType": "empty",
+                "value": "4"
+            },
+            "answer": {
+                "options": ["3", "4", "5", "6"],
+                "type": "single-choice",
+                "value": "4"
+            },
+            "scoreValue": {
+                "positiveScore": 10,
+                "negativeScore": 0
+            }
+        },
+        {
+            "id": "division-2",
+            "question": {
+                "text": "Koľko je  20 : 5?",
+                "questionType": "empty",
+                "value": "4"
+            },
+            "answer": {
+                "options": ["3", "4", "5", "6"],
+                "type": "single-choice",
+                "value": "4"
+            },
+            "scoreValue": {
+                "positiveScore": 10,
+                "negativeScore": 0
+            }
+        },
+        {
+            "id": "division-3",
+            "question": {
+                "text": "Koľko je  21 : 7?",
+                "questionType": "empty",
+                "value": "3"
+            },
+            "answer": {
+                "options": ["2", "3", "4", "5"],
+                "type": "single-choice",
+                "value": "3"
+            },
+            "scoreValue": {
+                "positiveScore": 10,
+                "negativeScore": 0
+            }
+        },
+        {
+            "id": "division-4",
+            "question": {
+                "text": "Koľko je  48 : 8?",
+                "questionType": "empty",
+                "value": "6"
+            },
+            "answer": {
+                "options": ["5", "6", "7", "8"],
+                "type": "single-choice",
+                "value": "6"
+            },
+            "scoreValue": {
+                "positiveScore": 10,
+                "negativeScore": 0
+            }
+        },
+        {
+            "id": "division-5",
+            "question": {
+                "text": "Koľko je  63 : 9?",
+                "questionType": "empty",
+                "value": "7"
+            },
+            "answer": {
+                "options": ["6", "7", "8", "9"],
+                "type": "single-choice",
+                "value": "7"
+            },
+            "scoreValue": {
+                "positiveScore": 10,
+                "negativeScore": 0
+            }
+        },
+        {
+            "id": "division-6",
+            "question": {
+                "text": "Koľko je  25 : 5?",
+                "questionType": "empty",
+                "value": "5"
+            },
+            "answer": {
+                "options": ["4", "5", "6", "7"],
+                "type": "single-choice",
+                "value": "5"
+            },
+            "scoreValue": {
+                "positiveScore": 10,
+                "negativeScore": 0
+            }
+        },
+        {
+            "id": "division-7",
+            "question": {
+                "text": "Koľko je  24 : 3?",
+                "questionType": "empty",
+                "value": "8"
+            },
+            "answer": {
+                "options": ["6", "7", "8", "9"],
+                "type": "single-choice",
+                "value": "8"
+            },
+            "scoreValue": {
+                "positiveScore": 10,
+                "negativeScore": 0
+            }
+        },
+        {
+            "id": "division-8",
+            "question": {
+                "text": "Koľko je  36 : 4?",
+                "questionType": "empty",
+                "value": "9"
+            },
+            "answer": {
+                "options": ["7", "8", "9", "10"],
+                "type": "single-choice",
+                "value": "9"
+            },
+            "scoreValue": {
+                "positiveScore": 10,
+                "negativeScore": 0
+            }
+        },
+        {
+            "id": "division-9",
+            "question": {
+                "text": "Koľko je  42 : 6?",
+                "questionType": "empty",
+                "value": "7"
+            },
+            "answer": {
+                "options": ["6", "7", "8", "9"],
+                "type": "single-choice",
+                "value": "7"
+            },
+            "scoreValue": {
+                "positiveScore": 10,
+                "negativeScore": 0
+            }
+        },
+        {
+            "id": "division-10",
+            "question": {
+                "text": "Koľko je  72 : 8?",
+                "questionType": "empty",
+                "value": "9"
+            },
+            "answer": {
+                "options": ["7", "8", "9", "10"],
+                "type": "single-choice",
+                "value": "9"
+            },
+            "scoreValue": {
+                "positiveScore": 10,
+                "negativeScore": 0
+            }
+        }
+    ]
+}

@@ -15,13 +15,31 @@
         "save": "Зберегти",
         "delete": "Видалити",
         "edit": "Редагувати",
-        "close": "Закрити"
+        "close": "Закрити",
+        "backToLessons": "Back to Lessons",
+        "changing": "Changing..."
     },
     "clock": {
         "hours": "Години",
         "minutes": "Хвилини",
         "seconds": "Секунди",
-        "time": "Час"
+        "time": "Час",
+        "am": "AM",
+        "pm": "PM",
+        "format12h": "12h",
+        "format24h": "24h",
+        "digitalTime": "Digital Time",
+        "analogReference": "Analog Reference",
+        "dragHands": "Drag Hands",
+        "manualMode": "Manual Mode",
+        "syncToLive": "Sync to Live",
+        "didYouKnow": "Did you know?",
+        "educational": {
+            "quarterTo": "When the big hand points to 9, it's \"quarter to\" the next hour!",
+            "quarterPast": "When the big hand points to 3, it's \"quarter past\" the hour!",
+            "halfPast": "When the big hand points to 6, it's \"half past\" the hour!",
+            "default": "The short hand shows the hour, and the long hand shows the minutes!"
+        }
     },
     "intro": {
         "title": "Години Думки Розваги",
@@ -43,10 +61,12 @@
         "score": "Рахунок: {{score}} очок",
         "checkAnswer": "ПЕРЕВІРИТИ ВІДПОВІДЬ",
         "nextQuestion": "Наступне питання",
+        "finishGame": "SEE RESULTS",
         "question": "Подивіться на годинник! Скільки часу?",
         "gameComplete": "Практика завершена! Чудова робота!",
         "gameContent": "Вміст гри",
-        "gameState": "Питання {{current}} з {{total}}, Рахунок: {{score}} очок"
+        "gameState": "Питання {{current}} з {{total}}, Рахунок: {{score}} очок",
+        "points": "points"
     },
     "result": {
         "success": "Чудова робота!",
@@ -64,6 +84,34 @@
     "accessibility": {
         "timeOptions": "Варіанти часу",
         "selectTime": "Вибрати {{time}}",
-        "mascotAlt": "Дружній рудий кіт-талісман"
+        "selectHours": "Select hours",
+        "selectMinutes": "Select minutes",
+        "goBack": "Go back",
+        "settings": "Settings",
+        "analogClockShowing": "Analog clock showing {{time}}",
+        "clockDescription": "Clock face showing {{time}}. Hour hand pointing to {{hours}}, minute hand pointing to {{minutes}}.",
+        "mascotAlt": "Дружній рудий кіт-талісман",
+        "lecturerCatAlt": "Professor cat with graduation cap",
+        "lecturerCatStatus": "Professor cat is teaching"
+    },
+    "lecturerCat": {
+        "defaultMessage": "Welcome to your time-telling lesson! I'm here to help you master the art of reading clocks.",
+        "subMessage": "Let's make learning fun and interactive!"
+    },
+    "topics": {
+        "greeting": "Hi there, {{name}}!",
+        "readyToLearn": "Ready to learn?",
+        "continueLearning": "Continue Learning",
+        "learningTopics": "Learning Topics",
+        "seeAll": "See All",
+        "resumeLesson": "Resume Lesson",
+        "lessonProgress": "Lesson {{current}} of {{total}}",
+        "progress": "Progress",
+        "strengths": {
+            "hourTitle": "Hour Hand Expert",
+            "minuteTitle": "Minute Master",
+            "quickTitle": "Quick Thinker"
+        },
+        "clockMastery": "Clock Mastery"
     }
 }

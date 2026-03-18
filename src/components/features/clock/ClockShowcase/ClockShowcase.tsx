@@ -8,10 +8,12 @@ import {
 } from 'lucide-react'
 import { motion, AnimatePresence } from 'motion/react'
 import { useState, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 
 import { AnalogClock } from '../AnalogClock'
 
 export const ClockShowcase = () => {
+    const { t } = useTranslation()
     const [time, setTime] = useState(new Date())
     const [is24Hour, setIs24Hour] = useState(false)
     const [isManual, setIsManual] = useState(false)
@@ -32,11 +34,18 @@ export const ClockShowcase = () => {
         : (hours % 12 || 12).toString()
 
     const displayMinutes = minutes.toString().padStart(2, '0')
-    const ampm = hours >= 12 ? 'PM' : 'AM'
+    const ampm = hours >= 12 ? t('clock.pm') : t('clock.am')
 
     const resetToLive = () => {
         setIsManual(false)
         setTime(new Date())
+    }
+
+    const getEducationalText = () => {
+        if (minutes === 45) return t('clock.educational.quarterTo')
+        if (minutes === 15) return t('clock.educational.quarterPast')
+        if (minutes === 30) return t('clock.educational.halfPast')
+        return t('clock.educational.default')
     }
 
     return (
@@ -44,14 +53,14 @@ export const ClockShowcase = () => {
             {/* Header */}
             <header className="flex items-center justify-between px-6 pt-8 pb-4">
                 <button
-                    aria-label="Go back"
+                    aria-label={t('accessibility.goBack')}
                     className="neumorphic-flat active:neumorphic-inset flex h-10 w-10 items-center justify-center rounded-full text-blue-700 transition-all"
                 >
                     <ChevronLeft size={20} />
                 </button>
                 <div className="flex flex-col items-center">
                     <h1 className="text-xl font-extrabold tracking-tight text-slate-800">
-                        Digital Clock
+                        {t('clock.digitalTime')}
                     </h1>
                     {isManual && (
                         <motion.span
@@ -59,12 +68,12 @@ export const ClockShowcase = () => {
                             animate={{ opacity: 1, y: 0 }}
                             className="text-[10px] font-bold tracking-widest text-slate-600 uppercase"
                         >
-                            Manual Mode
+                            {t('clock.manualMode')}
                         </motion.span>
                     )}
                 </div>
                 <button
-                    aria-label="Settings"
+                    aria-label={t('accessibility.settings')}
                     className="neumorphic-flat active:neumorphic-inset flex h-10 w-10 items-center justify-center rounded-full text-blue-700 transition-all"
                 >
                     <Settings size={20} />
@@ -81,7 +90,7 @@ export const ClockShowcase = () => {
                         className="neumorphic-flat flex w-full flex-col items-center justify-center rounded-3xl border-4 border-white/50 py-10"
                     >
                         <span className="mb-2 text-xs font-bold tracking-widest text-blue-800 uppercase">
-                            Digital Time
+                            {t('clock.digitalTime')}
                         </span>
                         <div className="flex items-baseline gap-1">
                             <span className="glow-text text-7xl font-extrabold tracking-tighter text-blue-800">
@@ -105,7 +114,7 @@ export const ClockShowcase = () => {
                                 className="absolute -bottom-4 z-20 flex items-center gap-2 rounded-full bg-blue-700 px-4 py-2 text-xs font-bold text-white shadow-lg transition-colors hover:bg-blue-800"
                             >
                                 <RefreshCcw size={14} />
-                                Sync to Live
+                                {t('clock.syncToLive')}
                             </motion.button>
                         )}
                     </AnimatePresence>
@@ -115,10 +124,10 @@ export const ClockShowcase = () => {
                 <section className="flex flex-col items-center space-y-4">
                     <div className="flex w-full max-w-[256px] items-center justify-between">
                         <h2 className="text-sm font-bold tracking-widest text-slate-600 uppercase">
-                            Analog Reference
+                            {t('clock.analogReference')}
                         </h2>
                         <div className="rounded bg-slate-100 px-2 py-0.5 text-[10px] font-bold text-slate-600 uppercase">
-                            Drag Hands
+                            {t('clock.dragHands')}
                         </div>
                     </div>
 
@@ -142,7 +151,7 @@ export const ClockShowcase = () => {
                     {/* AM/PM Display */}
                     <div className="neumorphic-flat space-y-3 rounded-2xl p-4">
                         <p className="text-xs font-bold text-slate-600 uppercase">
-                            Period
+                            {t('clock.time')}
                         </p>
                         <div className="neumorphic-inset flex rounded-xl bg-slate-200/30 p-1">
                             <button
@@ -155,10 +164,12 @@ export const ClockShowcase = () => {
                                     setTime(newTime)
                                     setIsManual(true)
                                 }}
-                                className={`flex flex-1 items-center justify-center gap-1 rounded-lg py-2 transition-all ${ampm === 'AM' ? 'bg-blue-700 text-white shadow-md' : 'text-slate-600'}`}
+                                className={`flex flex-1 items-center justify-center gap-1 rounded-lg py-2 transition-all ${ampm === t('clock.am') ? 'bg-blue-700 text-white shadow-md' : 'text-slate-600'}`}
                             >
                                 <Sun size={14} />
-                                <span className="text-sm font-bold">AM</span>
+                                <span className="text-sm font-bold">
+                                    {t('clock.am')}
+                                </span>
                             </button>
                             <button
                                 onClick={() => {
@@ -170,10 +181,12 @@ export const ClockShowcase = () => {
                                     setTime(newTime)
                                     setIsManual(true)
                                 }}
-                                className={`flex flex-1 items-center justify-center gap-1 rounded-lg py-2 transition-all ${ampm === 'PM' ? 'bg-blue-700 text-white shadow-md' : 'text-slate-600'}`}
+                                className={`flex flex-1 items-center justify-center gap-1 rounded-lg py-2 transition-all ${ampm === t('clock.pm') ? 'bg-blue-700 text-white shadow-md' : 'text-slate-600'}`}
                             >
                                 <Moon size={14} />
-                                <span className="text-sm font-bold">PM</span>
+                                <span className="text-sm font-bold">
+                                    {t('clock.pm')}
+                                </span>
                             </button>
                         </div>
                     </div>
@@ -181,20 +194,20 @@ export const ClockShowcase = () => {
                     {/* 12h/24h Toggle */}
                     <div className="neumorphic-flat space-y-3 rounded-2xl p-4">
                         <p className="text-xs font-bold text-slate-600 uppercase">
-                            Format
+                            {t('settings.difficulty')}
                         </p>
                         <div className="neumorphic-inset flex rounded-xl bg-slate-200/30 p-1">
                             <button
                                 onClick={() => setIs24Hour(false)}
                                 className={`flex-1 rounded-lg py-2 text-sm font-bold transition-all ${!is24Hour ? 'bg-blue-700 text-white shadow-md' : 'text-slate-600'}`}
                             >
-                                12h
+                                {t('clock.format12h')}
                             </button>
                             <button
                                 onClick={() => setIs24Hour(true)}
                                 className={`flex-1 rounded-lg py-2 text-sm font-bold transition-all ${is24Hour ? 'bg-blue-700 text-white shadow-md' : 'text-slate-600'}`}
                             >
-                                24h
+                                {t('clock.format24h')}
                             </button>
                         </div>
                     </div>
@@ -213,16 +226,10 @@ export const ClockShowcase = () => {
                     </div>
                     <div>
                         <h3 className="text-sm font-bold text-blue-700">
-                            Did you know?
+                            {t('clock.didYouKnow')}
                         </h3>
                         <p className="mt-1 text-xs leading-relaxed text-slate-600">
-                            {minutes === 45
-                                ? 'When the big hand points to 9, it\'s "quarter to" the next hour!'
-                                : minutes === 15
-                                  ? 'When the big hand points to 3, it\'s "quarter past" the hour!'
-                                  : minutes === 30
-                                    ? 'When the big hand points to 6, it\'s "half past" the hour!'
-                                    : 'The short hand shows the hour, and the long hand shows the minutes!'}
+                            {getEducationalText()}
                         </p>
                     </div>
                 </motion.div>

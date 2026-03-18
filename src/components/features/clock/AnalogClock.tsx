@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 
 import { ClockHands } from './ClockHands'
 import { Dial } from './Dial'
@@ -24,6 +25,7 @@ export const AnalogClock: React.FC<AnalogClockProps> = ({
     time,
     onChange,
 }) => {
+    const { t } = useTranslation()
     const [isDragging, setIsDragging] = useState(false)
     const clockRef = useRef<HTMLDivElement>(null)
 
@@ -80,7 +82,7 @@ export const AnalogClock: React.FC<AnalogClockProps> = ({
     }
     // Calculate rotations
     const formatTime = (h: number, m: number) => {
-        const displayHours = h > 12 ? h - 12 : h
+        const displayHours = h > 12 ? h - 12 : h === 0 ? 12 : h
         const displayMinutes = m.toString().padStart(2, '0')
         return `${displayHours}:${displayMinutes}`
     }
@@ -93,16 +95,20 @@ export const AnalogClock: React.FC<AnalogClockProps> = ({
             className="clock-shadow relative flex items-center justify-center rounded-full border-10 border-white bg-white transition-all duration-500 ease-in-out"
             style={{ height: size, width: size }}
             role="img"
-            aria-label={`Analog clock showing ${timeString}`}
+            aria-label={t('accessibility.analogClockShowing', {
+                time: timeString,
+            })}
             aria-describedby="clock-description"
         >
             <div
                 id="clock-description"
                 className="sr-only"
             >
-                Clock face showing {timeString}. Hour hand pointing to{' '}
-                {hours > 12 ? hours - 12 : hours}, minute hand pointing to{' '}
-                {minutes}.
+                {t('accessibility.clockDescription', {
+                    hours: hours > 12 ? hours - 12 : hours === 0 ? 12 : hours,
+                    minutes,
+                    time: timeString,
+                })}
             </div>
             <Dial />
             <ClockHands

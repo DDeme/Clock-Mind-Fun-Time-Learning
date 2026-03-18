@@ -211,8 +211,7 @@ export const Game = ({ id, questions, onComplete }: GameProps) => {
                     current: currentStep + 1,
                     score,
                     total: totalQuestions,
-                })}{' '}
-                points
+                })}
             </div>
         </Layout>
     )

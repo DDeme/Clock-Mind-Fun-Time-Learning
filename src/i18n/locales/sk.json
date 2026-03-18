@@ -15,13 +15,31 @@
         "save": "Uložiť",
         "delete": "Vymazať",
         "edit": "Upraviť",
-        "close": "Zavrieť"
+        "close": "Zavrieť",
+        "backToLessons": "Späť na lekcie",
+        "changing": "Mením..."
     },
     "clock": {
         "hours": "Hodiny",
         "minutes": "Minúty",
         "seconds": "Sekundy",
-        "time": "Čas"
+        "time": "Čas",
+        "am": "AM",
+        "pm": "PM",
+        "format12h": "12h",
+        "format24h": "24h",
+        "digitalTime": "Digitálny čas",
+        "analogReference": "Analógové hodiny",
+        "dragHands": "Potiahni ručičky",
+        "manualMode": "Manuálny režim",
+        "syncToLive": "Synchronizovať s aktuálnym časom",
+        "didYouKnow": "Vedeli ste?",
+        "educational": {
+            "quarterTo": "Keď veľká ručička ukazuje na 9, je \"trištvrte na\" ďalšiu hodinu!",
+            "quarterPast": "Keď veľká ručička ukazuje na 3, je \"štvrť na\" hodinu!",
+            "halfPast": "Keď veľká ručička ukazuje na 6, je \"pol\" hodiny!",
+            "default": "Krátka ručička ukazuje hodiny a dlhá ručička ukazuje minúty!"
+        }
     },
     "intro": {
         "title": "Hodiny Mysl Zábava",
@@ -43,10 +61,12 @@
         "score": "Skóre: {{score}} bodov",
         "checkAnswer": "SKONTROLOVAŤ ODPOVEĎ",
         "nextQuestion": "Ďalšia otázka",
+        "finishGame": "ZOBRAZIŤ VÝSLEDKY",
         "question": "Pozrite sa na hodiny! Koľko je hodín?",
         "gameComplete": "Cvičenie dokončené! Skvelá práca!",
         "gameContent": "Obsah hry",
-        "gameState": "Otázka {{current}} z {{total}}, Skóre: {{score}} bodov"
+        "gameState": "Otázka {{current}} z {{total}}, Skóre: {{score}} bodov",
+        "points": "bodov"
     },
     "result": {
         "success": "Úžasná práca!",
@@ -64,6 +84,34 @@
     "accessibility": {
         "timeOptions": "Možnosti času",
         "selectTime": "Vybrať {{time}}",
-        "mascotAlt": "Priateľská ryšavá mačka maskot"
+        "selectHours": "Vybrať hodiny",
+        "selectMinutes": "Vybrať minúty",
+        "goBack": "Späť",
+        "settings": "Nastavenia",
+        "analogClockShowing": "Analógové hodiny ukazujúce {{time}}",
+        "clockDescription": "Ciferník ukazujúci {{time}}. Hodinová ručička ukazuje na {{hours}}, minútová na {{minutes}}.",
+        "mascotAlt": "Priateľská ryšavá mačka maskot",
+        "lecturerCatAlt": "Profesor kocúr s promočnou čiapkou",
+        "lecturerCatStatus": "Profesor kocúr učí"
+    },
+    "lecturerCat": {
+        "defaultMessage": "Vitajte na vašej lekcii o čase! Som tu, aby som vám pomohol zvládnuť umenie čítania hodín.",
+        "subMessage": "Urobme učenie zábavným a interaktívnym!"
+    },
+    "topics": {
+        "greeting": "Ahoj, {{name}}!",
+        "readyToLearn": "Pripravený na učenie?",
+        "continueLearning": "Pokračovať v učení",
+        "learningTopics": "Témy na učenie",
+        "seeAll": "Zobraziť všetko",
+        "resumeLesson": "Pokračovať v lekcii",
+        "lessonProgress": "Lekcia {{current}} z {{total}}",
+        "progress": "Postup",
+        "strengths": {
+            "hourTitle": "Expert na hodinovú ručičku",
+            "minuteTitle": "Majster minút",
+            "quickTitle": "Rýchly mysliteľ"
+        },
+        "clockMastery": "Zvládnutie hodín"
     }
 }

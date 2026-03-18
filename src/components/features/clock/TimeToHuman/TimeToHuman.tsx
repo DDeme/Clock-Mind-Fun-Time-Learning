@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next'
+
 import { timeToHumanText } from '../../../../utils/timeToHumanText'
 
 export const TimeToHumanText = ({
@@ -7,5 +9,6 @@ export const TimeToHumanText = ({
     hours: number
     minutes: number
 }) => {
-    return <div>{timeToHumanText(hours, minutes)}</div>
+    const { i18n } = useTranslation()
+    return <div>{timeToHumanText(hours, minutes, i18n.language)}</div>
 }
